@@ -686,3 +686,317 @@ a {
     stroke-linecap: round;
     stroke-linejoin: round;
 }
+
+/* =========================
+   FOUR WAYS TO BUILD
+========================= */
+
+.services-section {
+    padding: 34px 20px 55px;
+    background:
+        radial-gradient(circle at center top, rgba(166, 120, 38, 0.08), transparent 42%),
+        #030303;
+    border-bottom: 1px solid rgba(190, 145, 54, 0.55);
+}
+
+.services-heading {
+    max-width: 850px;
+    margin: 0 auto 28px;
+    text-align: center;
+}
+
+.services-heading h2 {
+    margin: 0 0 6px;
+    color: #eee7db;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 27px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.services-heading p {
+    margin: 0;
+    color: #9f9689;
+    font-size: 14px;
+}
+
+.service-cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.service-card {
+    position: relative;
+    display: flex;
+    min-height: 500px;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 25px 25px;
+    text-align: center;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(5, 5, 5, 0.30),
+            rgba(5, 5, 5, 0.88) 54%,
+            #030303 100%
+        ),
+        radial-gradient(circle at top, #20180e, #080706 60%);
+    border: 1px solid rgba(190, 145, 54, 0.7);
+    box-shadow:
+        inset 0 0 0 5px #050505,
+        inset 0 0 0 6px rgba(190, 145, 54, 0.2);
+}
+
+.service-card::before {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    z-index: 0;
+    pointer-events: none;
+    border: 1px solid rgba(190, 145, 54, 0.16);
+}
+
+.service-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* La troisième carte utilise déjà notre image de voiturettes */
+
+.fleet-solution-card {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(3, 3, 3, 0.46),
+            rgba(3, 3, 3, 0.87) 55%,
+            #030303 100%
+        ),
+        url("images/home-hero.png");
+    background-position: 66% center;
+    background-size: cover;
+}
+
+/* Les cartes Coming Soon restent volontairement plus sombres */
+
+.fleet-solution-card,
+.fleet-builder-card {
+    filter: brightness(0.82);
+}
+
+.service-icon {
+    display: flex;
+    width: 58px;
+    height: 58px;
+    margin-bottom: 18px;
+    align-items: center;
+    justify-content: center;
+    color: #c79a38;
+    border: 1px solid rgba(199, 154, 56, 0.7);
+    border-radius: 50%;
+    font-family: Georgia, serif;
+    font-size: 30px;
+}
+
+.service-card h3 {
+    min-height: 75px;
+    margin: 0;
+    color: #eee7db;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 29px;
+    font-weight: 400;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+.coming-soon {
+    margin-top: -5px;
+    color: #c79a38;
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.service-card > p {
+    max-width: 255px;
+    margin: auto auto 25px;
+    color: #b8afa2;
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+.service-card a {
+    width: 100%;
+    padding-top: 14px;
+    color: #c79a38;
+    border-top: 1px solid rgba(190, 145, 54, 0.26);
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-align: left;
+}
+
+.service-card a span {
+    float: right;
+    font-size: 15px;
+}
+
+.service-card a:hover {
+    color: #f0d28c;
+}
+
+/* Tablettes */
+
+@media (max-width: 1050px) {
+    .service-cards {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 800px;
+    }
+}
+
+/* Téléphones */
+
+@media (max-width: 600px) {
+    .services-section {
+        padding: 35px 18px;
+    }
+
+    .service-cards {
+        grid-template-columns: 1fr;
+        max-width: 390px;
+    }
+
+    .service-card {
+        min-height: 475px;
+    }
+}/* Ajustement des cartes selon la maquette */
+
+.service-cards {
+    max-width: 930px;
+    gap: 16px;
+}
+
+.service-card {
+    min-height: 485px;
+    padding: 26px 20px 20px;
+}
+
+/* Image de Business Launcher */
+
+.business-card {
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(3, 3, 3, 0.30) 0%,
+            rgba(3, 3, 3, 0.20) 35%,
+            rgba(3, 3, 3, 0.82) 72%,
+            #030303 100%
+        ),
+        url("images/business-launcher-card.png");
+
+    background-size: cover;
+    background-position: center;
+}
+
+/* Image d’Implementation Services */
+
+.implementation-card {
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(3, 3, 3, 0.28) 0%,
+            rgba(3, 3, 3, 0.22) 35%,
+            rgba(3, 3, 3, 0.84) 72%,
+            #030303 100%
+        ),
+        url("images/implementation-services-card.png");
+
+    background-size: cover;
+    background-position: center;
+}
+
+/* Placement plus proche de la maquette */
+
+.service-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 12px;
+}
+
+.service-card h3 {
+    min-height: 65px;
+    font-size: 25px;
+}
+
+.service-card > p {
+    max-width: 185px;
+    margin: auto auto 18px;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.service-card a {
+    padding-top: 12px;
+    font-size: 9px;
+}/* Véritables icônes dorées des cartes */
+
+.service-icon svg {
+    width: 38px;
+    height: 38px;
+    fill: none;
+    stroke: #c79a38;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Les deux dernières icônes sans cercle, comme la maquette */
+
+.fleet-solution-card .service-icon,
+.fleet-builder-card .service-icon {
+    border: 0;
+}/* Cercle autour de l’icône Fleet Solution */
+
+.fleet-solution-card .service-icon {
+    border: 1px solid rgba(199, 154, 56, 0.75);
+    border-radius: 50%;
+}/* Cercle autour de Fleet Builder */
+
+.fleet-builder-card .service-icon {
+    border: 1px solid rgba(199, 154, 56, 0.75);
+    border-radius: 50%;
+}
+
+.fleet-builder-card .service-icon svg {
+    width: 34px;
+    height: 34px;
+}/* Images des cartes Fleet */
+
+.fleet-solution-card {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3, 3, 3, 0.18) 0%,
+      rgba(3, 3, 3, 0.55) 45%,
+      rgba(3, 3, 3, 0.96) 100%
+    ),
+    url("images/fleet-solution-card.png") center / cover no-repeat;
+}
+
+.fleet-builder-card {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3, 3, 3, 0.18) 0%,
+      rgba(3, 3, 3, 0.55) 45%,
+      rgba(3, 3, 3, 0.96) 100%
+    ),
+    url("images/fleet-builder-card.png") center / cover no-repeat;
+}
