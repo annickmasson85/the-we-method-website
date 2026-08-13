@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Create your private client account for The We Method."
+  >
+
+  <title>Create Your Private Account | The We Method</title>
+
+  <link rel="stylesheet" href="signup.css">
+</head>
+
+<body class="signup-page">
+
+  <main class="signup-main">
+
+    <section class="signup-card" aria-labelledby="signup-title">
+
+      <a class="signup-brand" href="index.html">
+        <span class="signup-monogram">TWM</span>
+        <span class="signup-brand-name">THE WE METHOD</span>
+        <span class="signup-brand-subtitle">
+          PRIVATE CLIENT ACCESS
+        </span>
+      </a>
+
+      <header class="signup-heading">
+        <h1 id="signup-title">
+          CREATE YOUR PRIVATE ACCOUNT
+        </h1>
+
+        <p>
+          Your secure access to The We Method begins here.
+        </p>
+      </header>
+
+      <form class="signup-form" id="signup-form">
+
+        <div class="form-field form-field-full">
+          <label for="company">
+            COMPANY NAME
+            <span>(Optional)</span>
+          </label>
+
+          <input
+            type="text"
+            id="company"
+            name="company"
+            autocomplete="organization"
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="first-name">FIRST NAME</label>
+
+          <input
+            type="text"
+            id="first-name"
+            name="firstName"
+            autocomplete="given-name"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="last-name">LAST NAME</label>
+
+          <input
+            type="text"
+            id="last-name"
+            name="lastName"
+            autocomplete="family-name"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="birth-date">DATE OF BIRTH</label>
+
+          <input
+            type="date"
+            id="birth-date"
+            name="birthDate"
+            autocomplete="bday"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="email">E-MAIL</label>
+
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="password">PASSWORD</label>
+
+          <div class="password-field">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              autocomplete="new-password"
+              minlength="8"
+              required
+            >
+
+            <button
+              type="button"
+              class="password-toggle"
+              aria-label="Show password"
+            >
+              SHOW
+            </button>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="confirm-password">
+            CONFIRM YOUR PASSWORD
+          </label>
+
+          <div class="password-field">
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirmPassword"
+              autocomplete="new-password"
+              minlength="8"
+              required
+            >
+
+            <button
+              type="button"
+              class="password-toggle"
+              aria-label="Show confirmed password"
+            >
+              SHOW
+            </button>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="city">CITY</label>
+
+          <input
+            type="text"
+            id="city"
+            name="city"
+            autocomplete="address-level2"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="state">STATE</label>
+
+          <input
+            type="text"
+            id="state"
+            name="state"
+            autocomplete="address-level1"
+            required
+          >
+        </div>
+
+        <p class="security-message form-field-full">
+          <span aria-hidden="true">🔒</span>
+          Your information is protected through private, secure access.
+        </p>
+
+        <div class="form-field-full signup-submit">
+          <button type="button" class="create-account-button">
+            CREATE MY ACCOUNT
+          </button>
+        </div>
+
+      </form>
+
+      <div class="signup-bottom">
+
+        <a class="back-button" href="index.html">
+          ← BACK
+        </a>
+
+        <p>
+          Already have an account?
+          <a href="signin.html">SIGN IN</a>
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="signup-footer">
+
+    <div>
+      <strong>TWM</strong>
+      <span>• TESTED. PROVEN. BUILT TO LAST.</span>
+    </div>
+
+    <nav aria-label="Legal links">
+      <a href="#">Privacy</a>
+      <span>•</span>
+      <a href="#">Terms</a>
+    </nav>
+
+  </footer>
+
+</body>
+</html>
