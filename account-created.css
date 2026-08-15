@@ -1,0 +1,324 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --gold: #c79a38;
+  --light-gold: #ead39a;
+  --ivory: #e8dfcf;
+  --muted-text: #bcb09d;
+}
+
+html {
+  min-height: 100%;
+}
+
+body.success-page {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ivory);
+  font-family: Georgia, "Times New Roman", serif;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.18),
+      rgba(0, 0, 0, 0.42)
+    ),
+    url("images/account-created-background.png")
+      center / cover no-repeat fixed;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* Centre la carte dans la page */
+
+.success-main {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 38px 20px 28px;
+}
+
+/* Carte noire avec le cadre et le logo déjà intégrés */
+
+.success-card {
+  width: min(660px, 100%);
+  min-height: 630px;
+  padding: 225px 65px 52px;
+
+  background:
+    url("images/account-created-frame.png")
+    center / 100% 100% no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  text-align: center;
+
+  filter:
+    drop-shadow(0 24px 30px rgba(0, 0, 0, 0.7))
+    drop-shadow(0 0 15px rgba(179, 127, 37, 0.12));
+}
+
+/*
+  Le logo existe déjà dans l’image du cadre.
+  On cache donc le deuxième logo du HTML.
+*/
+
+.success-brand {
+  display: none;
+}
+
+/*
+  On cache complètement le crochet,
+  comme tu l’as demandé.
+*/
+
+.success-seal {
+  display: none;
+}
+
+.success-eyebrow {
+  margin: 0 0 12px;
+  color: var(--gold);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.success-card h1 {
+  max-width: 520px;
+  margin: 0;
+
+  color: var(--light-gold);
+  font-size: clamp(27px, 4vw, 38px);
+  font-weight: 400;
+  line-height: 1.12;
+  text-transform: uppercase;
+}
+
+.success-description {
+  max-width: 430px;
+  margin: 22px auto 18px;
+
+  color: #c8bdab;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.access-status {
+  width: min(390px, 100%);
+  margin: 0;
+  padding: 9px 18px;
+
+  color: var(--gold);
+  border: 1px solid rgba(199, 154, 56, 0.7);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Bouton doré */
+
+.success-button {
+  min-width: 300px;
+  margin-top: 20px;
+  padding: 16px 25px;
+
+  color: #100b04;
+  text-decoration: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      #efd88e 0%,
+      #bd882d 45%,
+      #e9c86e 100%
+    );
+
+  border: 1px solid #f4dda0;
+
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.success-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 24px rgba(218, 179, 83, 0.55),
+    0 10px 25px rgba(0, 0, 0, 0.55);
+}
+
+.success-button:focus-visible {
+  outline: 2px solid #f3d77e;
+  outline-offset: 4px;
+}
+
+.success-message {
+  margin: 14px 0 0;
+  color: var(--muted-text);
+  font-size: 13px;
+}
+
+/* Bas de la page */
+
+.success-footer {
+  min-height: 58px;
+  padding: 12px 42px;
+
+  background: rgba(0, 0, 0, 0.88);
+  border-top: 1px solid rgba(199, 154, 56, 0.35);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: #8f826f;
+  font-size: 10px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-brand strong {
+  color: var(--gold);
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.success-footer nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.success-footer a {
+  color: #9e927f;
+  text-decoration: none;
+}
+
+.success-footer a:hover {
+  color: var(--light-gold);
+}
+
+/* Version téléphone */
+
+@media (max-width: 700px) {
+  body.success-page {
+    background-attachment: scroll;
+  }
+
+  .success-main {
+    padding: 18px 8px;
+  }
+
+  .success-card {
+    width: 100%;
+    min-height: 600px;
+    padding: 195px 38px 45px;
+  }
+
+  .success-card h1 {
+    font-size: 28px;
+  }
+
+  .success-description {
+    font-size: 14px;
+  }
+
+  .success-button {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .success-footer {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 20px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .success-card {
+    min-height: 560px;
+    padding: 165px 27px 38px;
+  }
+
+  .success-card h1 {
+    font-size: 24px;
+  }
+
+  .success-description {
+    margin-top: 16px;
+    font-size: 13px;
+  }
+
+  .access-status {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+  }
+}/* Réduit le cadre principal */
+.success-card {
+  width: min(92vw, 610px);
+  min-height: 0 !important;
+  padding: 190px 62px 45px !important;
+}
+
+/* Petite barre Private Access Activated */
+.access-status {
+  width: min(100%, 360px) !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 18px auto !important;
+  padding: 10px 16px !important;
+
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+
+  border: 1px solid rgba(199, 154, 56, 0.75);
+  box-sizing: border-box;
+  color: #c79a38;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+/* Petit cadenas doré */
+.access-status .access-lock-icon {
+  width: 15px !important;
+  height: 15px !important;
+  flex: 0 0 15px;
+  margin: 0 !important;
+  fill: none;
+  stroke: #c79a38;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

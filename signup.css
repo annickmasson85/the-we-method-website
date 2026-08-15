@@ -588,4 +588,10 @@ body.signup-page::after {
   .signup-bottom {
     max-width: 100%;
   }
+}.security-message {
+  color: #d8c7a4;
+}
+
+.security-message::first-letter {
+  color: inherit;
 }

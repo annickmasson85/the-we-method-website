@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="description"
-    content="Create your private client account for The We Method."
-  >
+  <meta name="description" content="Create your private client account for The We Method.">
 
   <title>Create Your Private Account | The We Method</title>
 
@@ -24,7 +19,7 @@
 
     <section class="signup-card" aria-labelledby="signup-title">
 
-    
+
 
       <header class="signup-heading">
         <h1 id="signup-title">
@@ -44,80 +39,40 @@
             <span>(Optional)</span>
           </label>
 
-          <input
-            type="text"
-            id="company"
-            name="company"
-            autocomplete="organization"
-          >
+          <input type="text" id="company" name="company" autocomplete="organization">
         </div>
 
         <div class="form-field">
           <label for="first-name">FIRST NAME</label>
 
-          <input
-            type="text"
-            id="first-name"
-            name="firstName"
-            autocomplete="given-name"
-            required
-          >
+          <input type="text" id="first-name" name="firstName" autocomplete="given-name" required>
         </div>
 
         <div class="form-field">
           <label for="last-name">LAST NAME</label>
 
-          <input
-            type="text"
-            id="last-name"
-            name="lastName"
-            autocomplete="family-name"
-            required
-          >
+          <input type="text" id="last-name" name="lastName" autocomplete="family-name" required>
         </div>
 
         <div class="form-field">
           <label for="birth-date">DATE OF BIRTH</label>
 
-          <input
-            type="date"
-            id="birth-date"
-            name="birthDate"
-            autocomplete="bday"
-            required
-          >
+          <input type="date" id="birth-date" name="birthDate" autocomplete="bday" required>
         </div>
 
         <div class="form-field">
           <label for="email">E-MAIL</label>
 
-          <input
-            type="email"
-            id="email"
-            name="email"
-            autocomplete="email"
-            required
-          >
+          <input type="email" id="email" name="email" autocomplete="email" required>
         </div>
 
         <div class="form-field">
           <label for="password">PASSWORD</label>
 
           <div class="password-field">
-            <input
-              type="password"
-              id="password"
-              name="password"
-              autocomplete="new-password"
-              minlength="8"
-              required
-            >
+            <input type="password" id="password" name="password" autocomplete="new-password" minlength="8" required>
 
-            <button
-              type="button"
-              class="password-toggle"
-              aria-label="Show password"
-            >
+            <button type="button" class="password-toggle" aria-label="Show password">
               SHOW
             </button>
           </div>
@@ -129,20 +84,10 @@
           </label>
 
           <div class="password-field">
-            <input
-              type="password"
-              id="confirm-password"
-              name="confirmPassword"
-              autocomplete="new-password"
-              minlength="8"
-              required
-            >
+            <input type="password" id="confirm-password" name="confirmPassword" autocomplete="new-password"
+              minlength="8" required>
 
-            <button
-              type="button"
-              class="password-toggle"
-              aria-label="Show confirmed password"
-            >
+            <button type="button" class="password-toggle" aria-label="Show confirmed password">
               SHOW
             </button>
           </div>
@@ -151,34 +96,22 @@
         <div class="form-field">
           <label for="city">CITY</label>
 
-          <input
-            type="text"
-            id="city"
-            name="city"
-            autocomplete="address-level2"
-            required
-          >
+          <input type="text" id="city" name="city" autocomplete="address-level2" required>
         </div>
 
         <div class="form-field">
           <label for="state">STATE</label>
 
-          <input
-            type="text"
-            id="state"
-            name="state"
-            autocomplete="address-level1"
-            required
-          >
+          <input type="text" id="state" name="state" autocomplete="address-level1" required>
         </div>
 
         <p class="security-message form-field-full">
-          <span aria-hidden="true">🔒</span>
+          
           Your information is protected through private, secure access.
         </p>
 
         <div class="form-field-full signup-submit">
-          <button type="button" class="create-account-button">
+          <button type="submit" class="create-account-button">
             CREATE MY ACCOUNT
           </button>
         </div>
@@ -217,9 +150,10 @@
 
   </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase-config.js"></script>
-<script src="signup.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="signup.js"></script>
 
 </body>
+
 </html>

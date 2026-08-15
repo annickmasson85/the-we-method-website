@@ -90,11 +90,8 @@ if (!signupForm) {
         throw error;
       }
 
-      alert(
-        "Ton compte est créé! Vérifie maintenant ta boîte e-mail."
-      );
-
-      signupForm.reset();
+     signupForm.reset();
+window.location.href = "account-created.html";
     } catch (error) {
       console.error("Erreur d'inscription :", error);
 
@@ -109,3 +106,26 @@ if (!signupForm) {
       }
     }
   });
+  }
+  const passwordToggles = document.querySelectorAll(".password-toggle");
+
+passwordToggles.forEach((toggleButton) => {
+  toggleButton.addEventListener("click", () => {
+    const passwordField = toggleButton.closest(".password-field");
+    const passwordInput = passwordField?.querySelector("input");
+
+    if (!passwordInput) {
+      return;
+    }
+
+    const passwordIsHidden = passwordInput.type === "password";
+
+    passwordInput.type = passwordIsHidden ? "text" : "password";
+    toggleButton.textContent = passwordIsHidden ? "HIDE" : "SHOW";
+
+    toggleButton.setAttribute(
+      "aria-label",
+      passwordIsHidden ? "Hide password" : "Show password"
+    );
+  });
+});
