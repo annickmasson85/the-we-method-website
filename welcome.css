@@ -1,0 +1,295 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --gold: #c89a38;
+  --gold-light: #efd487;
+  --cream: #e8dfcf;
+  --muted: #aaa08e;
+  --black: #050505;
+}
+
+html {
+  min-height: 100%;
+}
+
+body.welcome-page {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--cream);
+  font-family: Georgia, "Times New Roman", serif;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.38),
+      rgba(0, 0, 0, 0.68)
+    ),
+    url("images/welcome-background.png")
+    center / cover fixed no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Centre la carte dans la page */
+
+.welcome-main {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 36px 20px 24px;
+}
+
+/* Carte utilisant ton vrai cadre */
+
+.welcome-card {
+  position: relative;
+  width: min(710px, 94vw);
+  min-height: 660px;
+  padding: 225px 75px 42px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  background:
+    url("images/welcome-frame.png")
+    center / 100% 100% no-repeat;
+
+  filter: drop-shadow(0 28px 35px rgba(0, 0, 0, 0.72));
+}
+
+/* Le logo est déjà présent dans ton image */
+
+.welcome-brand {
+  display: none;
+}
+
+/* Séparateur doré à la place du rond avec la tête */
+
+.welcome-ornament {
+  position: relative;
+  width: 150px;
+  height: 1px;
+  margin: 0 auto 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold),
+      transparent
+    );
+}
+
+.welcome-ornament::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  width: 7px;
+  height: 7px;
+
+  border: 1px solid var(--gold);
+  background: #0a0907;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(45deg);
+}
+
+/* Petit titre */
+
+.welcome-eyebrow {
+  margin: 0 0 14px;
+
+  color: var(--gold);
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+}
+
+/* Welcome Back */
+
+#welcome-title {
+  max-width: 560px;
+  margin: 0;
+
+  color: var(--cream);
+  font-size: clamp(29px, 4vw, 43px);
+  font-weight: normal;
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+
+#member-first-name {
+  color: var(--gold-light);
+}
+
+/* Description */
+
+.welcome-description {
+  max-width: 480px;
+  margin: 22px auto 18px;
+
+  color: #b8ae9c;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+/* Badge Member Access Active */
+
+.access-status {
+  min-width: 290px;
+  padding: 10px 20px;
+  margin-bottom: 17px;
+
+  color: var(--gold);
+  border: 1px solid rgba(200, 154, 56, 0.62);
+  background: rgba(5, 5, 5, 0.62);
+
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.access-status span {
+  margin-right: 9px;
+}
+
+/* Bouton Owner’s Suite */
+
+.owner-suite-entry {
+  min-width: 310px;
+  padding: 16px 26px;
+
+  color: #090704;
+  text-decoration: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      #a87520,
+      #efd078 48%,
+      #af7b26
+    );
+
+  border: 1px solid #f1d991;
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.55),
+    inset 0 1px rgba(255, 255, 255, 0.42);
+
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.owner-suite-entry:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 18px rgba(224, 184, 88, 0.52),
+    0 12px 28px rgba(0, 0, 0, 0.64);
+}
+
+/* Bouton de déconnexion discret */
+
+.signout-button {
+  margin-top: 16px;
+  padding: 7px 14px;
+
+  color: #9d927e;
+  border: 0;
+  background: transparent;
+
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-decoration: underline;
+
+  cursor: pointer;
+}
+
+.signout-button:hover {
+  color: var(--gold-light);
+}
+
+/* Footer */
+
+.welcome-footer {
+  min-height: 62px;
+  padding: 17px 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: #8f8676;
+  background: rgba(2, 2, 2, 0.96);
+  border-top: 1px solid rgba(200, 154, 56, 0.35);
+
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.welcome-footer p {
+  margin: 0;
+}
+
+.welcome-footer strong {
+  color: var(--gold);
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.welcome-footer span {
+  margin: 0 8px;
+  color: var(--gold);
+}
+
+/* Téléphones et petites fenêtres */
+
+@media (max-width: 620px) {
+  .welcome-main {
+    padding: 20px 10px;
+  }
+
+  .welcome-card {
+    width: 100%;
+    min-height: 680px;
+    padding: 205px 30px 38px;
+  }
+
+  #welcome-title {
+    font-size: 29px;
+  }
+
+  .welcome-description {
+    font-size: 14px;
+  }
+
+  .access-status,
+  .owner-suite-entry {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .welcome-footer {
+    gap: 12px;
+    padding: 15px 18px;
+    flex-direction: column;
+    text-align: center;
+  }
+}

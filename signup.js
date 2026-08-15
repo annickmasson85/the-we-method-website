@@ -71,7 +71,7 @@ if (!signupForm) {
     }
 
     try {
-      const { error } = await supabaseClient.auth.signUp({
+    const { data, error } = await supabaseClient.auth.signUp({
         email,
         password,
         options: {
@@ -85,10 +85,15 @@ if (!signupForm) {
           }
         }
       });
-
-      if (error) {
-        throw error;
-      }
+if (error) {
+  throw error;
+}
+      if (data?.user?.identities?.length === 0) {
+  alert(
+    "An account may already exist with this email. Please sign in or reset your password."
+  );
+  return;
+}
 
      signupForm.reset();
 window.location.href = "account-created.html";

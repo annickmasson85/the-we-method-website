@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Welcome Back | The We Method</title>
+
+  <link rel="stylesheet" href="welcome.css">
+</head>
+
+<body class="welcome-page">
+
+  <main class="welcome-main">
+
+    <section
+      class="welcome-card"
+      aria-labelledby="welcome-title"
+    >
+
+      <header class="welcome-brand">
+        <p class="welcome-monogram">TWM</p>
+        <p class="welcome-brand-name">THE WE METHOD</p>
+        <p class="welcome-brand-subtitle">
+          PRIVATE CLIENT ACCESS
+        </p>
+      </header>
+
+      <!-- Séparateur doré à la place du rond avec la tête -->
+      <div class="welcome-ornament" aria-hidden="true"></div>
+
+      <p class="welcome-eyebrow">
+        PRIVATE ACCESS RECOGNIZED
+      </p>
+
+      <h1 id="welcome-title">
+        WELCOME BACK,
+        <span id="member-first-name">CLIENT</span>
+      </h1>
+
+      <p class="welcome-description">
+        It’s good to have you back. Your private resources,
+        purchased systems and current service journey
+        are ready for you.
+      </p>
+
+      <div class="access-status">
+        <span aria-hidden="true">◆</span>
+        MEMBER ACCESS ACTIVE
+      </div>
+
+      <a
+        class="owner-suite-entry"
+        href="owner-suite.html"
+      >
+        ENTER THE OWNER’S SUITE
+      </a>
+
+      <button
+        class="signout-button"
+        id="signout-button"
+        type="button"
+      >
+        SIGN OUT
+      </button>
+
+    </section>
+
+  </main>
+
+  <footer class="welcome-footer">
+
+    <p>
+      <strong>TWM</strong>
+      <span>•</span>
+      TESTED. PROVEN. BUILT TO LAST.
+    </p>
+
+    <p>Private Client Access</p>
+
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="welcome.js"></script>
+
+</body>
+</html>
