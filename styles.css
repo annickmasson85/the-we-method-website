@@ -888,7 +888,7 @@ a {
     padding: 26px 20px 20px;
 }
 
-/* Image de Business Launcher */
+/* Image de Business Foundry */
 
 .business-card {
     background-image:
@@ -899,7 +899,7 @@ a {
             rgba(3, 3, 3, 0.82) 72%,
             #030303 100%
         ),
-        url("images/business-launcher-card.png");
+      url("images/business-foundry-card.png");
 
     background-size: cover;
     background-position: center;

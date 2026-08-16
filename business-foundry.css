@@ -1,0 +1,151 @@
+.business-foundry-page {
+  min-height: 100vh;
+  margin: 0;
+  color: #ded4c3;
+  background: #050505;
+ 
+}
+
+.business-foundry-page .main-navigation a.active {
+  color: #c99a3d;
+  border-bottom: 1px solid #c99a3d;
+}
+
+.foundry-hero {
+  min-height: 620px;
+
+  display: grid;
+  grid-template-columns: 42% 58%;
+
+  background: #080808;
+  border-bottom: 1px solid rgba(201, 154, 61, 0.48);
+}
+
+.foundry-hero-content {
+  padding: 70px clamp(38px, 5vw, 78px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at 20% 45%,
+      rgba(125, 86, 31, 0.08),
+      transparent 45%
+    ),
+    #080808;
+}
+
+.foundry-eyebrow {
+  margin: 0 0 24px;
+
+  color: #c99a3d;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+}
+
+.foundry-hero h1 {
+  margin: 0;
+
+  color: #ded4c3;
+  font-size: clamp(48px, 5.3vw, 82px);
+  font-weight: normal;
+  line-height: 1.06;
+  letter-spacing: 1px;
+}
+
+.foundry-divider {
+  position: relative;
+
+  width: 220px;
+  height: 1px;
+  margin: 28px 0;
+
+  background: linear-gradient(
+    90deg,
+    #c99a3d,
+    rgba(201, 154, 61, 0)
+  );
+}
+
+.foundry-divider::after {
+  content: "◇";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  color: #c99a3d;
+  background: #080808;
+
+  transform: translate(-50%, -52%);
+}
+
+.foundry-hero-description {
+  max-width: 500px;
+  margin: 0;
+
+  color: #a99f90;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.foundry-hero-image {
+  min-height: 620px;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(8, 8, 8, 0.72),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 70% 45%,
+      rgba(184, 126, 42, 0.22),
+      rgba(5, 5, 5, 0.92)
+    ),
+    url("images/business-foundry-hero.png");
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 900px) {
+  .foundry-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .foundry-hero-content {
+    min-height: 540px;
+    padding: 60px 34px;
+  }
+
+  .foundry-hero-image {
+    min-height: 440px;
+  }
+  }
+.business-foundry-page .main-navigation a:first-child {
+  color: #d9d1c1;
+}
+
+.business-foundry-page .main-navigation a:first-child::after {
+  display: none;
+}
+
+.business-foundry-page .main-navigation a.active {
+  color: var(--light-gold);
+  border-bottom: none;
+}
+
+.business-foundry-page .main-navigation a.active::after {
+  content: "";
+  position: absolute;
+  right: 15px;
+  bottom: 2px;
+  left: 15px;
+  height: 1px;
+  background-color: var(--gold);
+}
