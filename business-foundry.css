@@ -409,4 +409,483 @@
   color: #f0e1c4;
   font-size: clamp(13px, 1.2vw, 18px);
   line-height: 1.4;
+}/* CORRECTION FINALE DU COFFRE */
+
+.foundry-scope {
+  top: 3%;
+  width: 88%;
+  max-width: none;
+  padding: 30px 55px;
+  box-sizing: border-box;
+}
+
+.foundry-scope-column {
+  padding: 0 45px;
+}
+
+.foundry-scope h2 {
+  font-size: clamp(18px, 1.4vw, 24px);
+}
+
+.foundry-scope li {
+  font-size: clamp(15px, 1.1vw, 19px);
+  line-height: 1.65;
+}
+
+/* Recentrer et redresser la porte et le verrou */
+.foundry-vault-door,
+.foundry-vault-lock {
+  top: 61%;
+  left: 50%;
+  width: 58%;
+  height: 58%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  object-fit: contain;
+  object-position: center;
+}
+
+.foundry-vault-door {
+  z-index: 2;
+}
+
+.foundry-vault-lock {
+  z-index: 3;
+}
+
+/* Restaurer complètement le bouton doré */
+.foundry-vault-button {
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  bottom: 3%;
+  width: min(70%, 760px);
+  padding: 20px 30px;
+  transform: translateX(-50%);
+
+  color: #f3dfb0;
+  background: linear-gradient(
+    180deg,
+    rgba(177, 125, 48, 0.96),
+    rgba(91, 55, 18, 0.98)
+  );
+  border: 2px solid #d1a451;
+  box-shadow:
+    0 0 0 4px rgba(28, 16, 6, 0.9),
+    0 0 0 5px rgba(209, 164, 81, 0.55),
+    0 12px 30px rgba(0, 0, 0, 0.8);
+
+  font-family: Georgia, "Times New Roman", serif;
+  text-align: center;
+  cursor: pointer;
+}
+
+.foundry-vault-button span {
+  display: block;
+  font-size: clamp(20px, 2vw, 34px);
+  letter-spacing: 2px;
+}
+
+.foundry-vault-button small {
+  display: block;
+  margin-top: 6px;
+  color: #f0e1c4;
+  font-size: clamp(13px, 1.2vw, 18px);
+  line-height: 1.4;
+}.foundry-scope {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.foundry-scope-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0 55px;
+  box-sizing: border-box;
+}
+
+.foundry-scope-column h2,
+.foundry-scope-column ul {
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+.foundry-scope-column h2 {
+  min-height: 32px;
+  margin-bottom: 14px;
+}
+
+.foundry-scope-column ul {
+  margin: 0;
+}/* MISE EN PAGE COMME LA MAQUETTE */
+
+.foundry-vault-scene {
+  aspect-ratio: 16 / 9;
+}
+
+.foundry-scope {
+  top: 2%;
+  width: 88%;
+  max-width: none;
+  min-height: 0;
+  padding: 22px 42px;
+  align-items: center;
+}
+
+.foundry-scope-column {
+  min-height: 125px;
+  padding: 0 55px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.foundry-scope-column + .foundry-scope-column {
+  border-left: 1px solid rgba(201, 154, 61, 0.45);
+}
+
+.foundry-scope-column h2,
+.foundry-scope-column ul {
+  width: auto;
+  max-width: none;
+}
+
+.foundry-scope-column h2 {
+  min-height: 0;
+  margin: 0 0 10px;
+  font-size: clamp(16px, 1.25vw, 21px);
+  line-height: 1.2;
+  letter-spacing: 3px;
+}
+
+.foundry-scope-column ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.foundry-scope-column li {
+  margin: 4px 0;
+  font-size: clamp(14px, 1vw, 17px);
+  line-height: 1.35;
+}/* =========================================
+   COFFRE — VERSION MAÎTRE
+   Ce bloc remplace visuellement les anciens
+   réglages sans devoir les supprimer.
+========================================= */
+
+.foundry-vault-section {
+  position: relative !important;
+  overflow: hidden !important;
+  background: #030303 !important;
+}
+
+.foundry-vault-scene {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  overflow: hidden !important;
+}
+
+/* Arrière-plan */
+.foundry-vault-room {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* Porte et verrou plus grands et centrés */
+.foundry-vault-door,
+.foundry-vault-lock {
+  position: absolute !important;
+  inset: auto !important;
+  top: 61% !important;
+  left: 50% !important;
+
+  width: 68% !important;
+  height: 68% !important;
+
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: translate(-50%, -50%) rotate(0deg) !important;
+}
+
+.foundry-vault-door {
+  z-index: 2 !important;
+}
+
+.foundry-vault-lock {
+  z-index: 3 !important;
+}
+
+/* Encadré supérieur */
+.foundry-scope {
+  position: absolute !important;
+  z-index: 5 !important;
+
+  top: 2% !important;
+  left: 50% !important;
+  width: 88% !important;
+  max-width: none !important;
+  min-height: 170px !important;
+  padding: 22px 42px !important;
+  box-sizing: border-box !important;
+
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  align-items: stretch !important;
+
+  transform: translateX(-50%) !important;
+  background: rgba(5, 5, 5, 0.9) !important;
+  border: 1px solid rgba(201, 154, 61, 0.55) !important;
+}
+
+/* Deux colonnes uniformes */
+.foundry-scope-column {
+  min-width: 0 !important;
+  padding: 0 55px !important;
+  box-sizing: border-box !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+}
+
+.foundry-scope-column:first-child {
+  border-right: 1px solid rgba(201, 154, 61, 0.4) !important;
+}
+
+.foundry-scope-column + .foundry-scope-column {
+  border-left: 0 !important;
+}
+
+.foundry-scope-column h2 {
+  width: 100% !important;
+  min-height: 0 !important;
+  margin: 0 0 10px !important;
+
+  color: #d1a451 !important;
+  font-size: clamp(16px, 1.25vw, 21px) !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 3px !important;
+  text-align: left !important;
+}
+
+.foundry-scope-column ul {
+  width: 100% !important;
+  margin: 0 !important;
+  padding-left: 19px !important;
+  box-sizing: border-box !important;
+}
+
+.foundry-scope-column li {
+  margin: 5px 0 !important;
+  color: #d6c9b4 !important;
+  font-size: clamp(14px, 1vw, 17px) !important;
+  line-height: 1.35 !important;
+}
+
+/* Bouton restauré */
+.foundry-vault-button {
+  position: absolute !important;
+  z-index: 10 !important;
+
+  left: 50% !important;
+  bottom: 3% !important;
+  width: min(70%, 760px) !important;
+  padding: 20px 30px !important;
+  box-sizing: border-box !important;
+
+  transform: translateX(-50%) !important;
+  color: #f3dfb0 !important;
+  background: linear-gradient(
+    180deg,
+    rgba(177, 125, 48, 0.96),
+    rgba(91, 55, 18, 0.98)
+  ) !important;
+  border: 2px solid #d1a451 !important;
+  box-shadow:
+    0 0 0 4px rgba(28, 16, 6, 0.9),
+    0 0 0 5px rgba(209, 164, 81, 0.55),
+    0 12px 30px rgba(0, 0, 0, 0.8) !important;
+
+  font-family: Georgia, "Times New Roman", serif !important;
+  text-align: center !important;
+  cursor: pointer !important;
+}
+
+.foundry-vault-button span {
+  display: block !important;
+  font-size: clamp(20px, 2vw, 34px) !important;
+  letter-spacing: 2px !important;
+}
+
+.foundry-vault-button small {
+  display: block !important;
+  margin-top: 6px !important;
+  color: #f0e1c4 !important;
+  font-size: clamp(13px, 1.2vw, 18px) !important;
+  line-height: 1.4 !important;
+}/* DERNIERS AJUSTEMENTS VISUELS */
+
+/* Agrandir la porte et le verrou ensemble */
+.foundry-vault-door,
+.foundry-vault-lock {
+  width: 76% !important;
+  height: 76% !important;
+}
+
+/* Texte plus grand et plus présent */
+.foundry-scope-column h2 {
+  margin-bottom: 14px !important;
+
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: clamp(20px, 1.45vw, 28px) !important;
+  font-weight: 400 !important;
+  line-height: 1.15 !important;
+  letter-spacing: 2px !important;
+}
+
+.foundry-scope-column li {
+  margin: 6px 0 !important;
+
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: clamp(16px, 1.15vw, 21px) !important;
+  line-height: 1.35 !important;
+  letter-spacing: 0 !important;
+}
+
+/* Répartir le contenu dans les deux côtés */
+.foundry-scope-column {
+  padding: 0 70px !important;
+}
+
+.foundry-scope {
+  min-height: 205px !important;
+}/* ANIMATION DU COFFRE */
+
+.foundry-vault-scene {
+  cursor: pointer;
+}
+
+.foundry-vault-lock {
+  transition:
+    transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 350ms ease !important;
+}
+
+/* Petit mouvement au survol */
+.foundry-vault-scene:not(.is-opening):hover .foundry-vault-lock {
+  transform:
+    translate(-50%, -50%)
+    rotate(12deg) !important;
+
+  filter:
+    brightness(1.18)
+    drop-shadow(0 0 14px rgba(209, 164, 81, 0.65)) !important;
+}
+
+/* Déverrouillage */
+.foundry-vault-scene.is-opening .foundry-vault-lock {
+  transform:
+    translate(-50%, -50%)
+    rotate(359deg) !important;
+
+  filter:
+    brightness(1.35)
+    drop-shadow(0 0 24px rgba(209, 164, 81, 0.95)) !important;
+}
+
+/* Ouverture de la porte */
+.foundry-vault-door {
+  transform-origin: 26% 50% !important;
+  transition:
+    transform 1100ms cubic-bezier(0.65, 0, 0.35, 1),
+    opacity 900ms ease !important;
+}
+
+.foundry-vault-scene.is-opening .foundry-vault-door {
+  transition-delay: 650ms !important;
+
+  transform:
+    translate(-108%, -50%)
+    perspective(1200px)
+    rotateY(-68deg) !important;
+
+  opacity: 0.55 !important;
+}
+
+/* La roue suit ensuite la porte */
+.foundry-vault-scene.is-opening .foundry-vault-lock {
+  transition:
+    transform 600ms ease,
+    filter 350ms ease,
+    opacity 700ms ease 650ms !important;
+}
+
+/* Effet d’entrée dans la salle */
+.foundry-vault-room {
+  transition:
+    transform 1000ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 1000ms ease !important;
+}
+
+.foundry-vault-scene.is-opening .foundry-vault-room {
+  transition-delay: 1150ms !important;
+  transform: scale(1.16) !important;
+  filter: brightness(1.25) !important;
+}
+
+.foundry-vault-scene.is-opening .foundry-vault-button,
+.foundry-vault-scene.is-opening .foundry-scope {
+  opacity: 0 !important;
+  transition: opacity 400ms ease !important;
+  pointer-events: none !important;
+}/* OUVERTURE CORRIGÉE : porte et verrou restent ensemble */
+
+.foundry-vault-scene.is-opening .foundry-vault-door {
+  transform:
+    translate(-78%, -50%)
+    perspective(1200px)
+    rotateY(-58deg) !important;
+
+  opacity: 0.85 !important;
+}
+
+.foundry-vault-scene.is-door-opening .foundry-vault-lock {
+  transform:
+    translate(-78%, -50%)
+    perspective(1200px)
+    rotateY(-58deg) !important;
+
+  opacity: 0.85 !important;
+  transition:
+    transform 1100ms cubic-bezier(0.65, 0, 0.35, 1),
+    opacity 900ms ease !important;
+}/* La porte et le verrou utilisent exactement la même charnière */
+.foundry-vault-door,
+.foundry-vault-lock {
+  transform-origin: 26% 50% !important;
+}
+
+.foundry-vault-scene.is-door-opening .foundry-vault-door,
+.foundry-vault-scene.is-door-opening .foundry-vault-lock {
+  transform:
+    translate(-78%, -50%)
+    perspective(1200px)
+    rotateY(-58deg) !important;
+
+  opacity: 0.9 !important;
 }
