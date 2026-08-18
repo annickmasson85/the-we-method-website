@@ -1672,3 +1672,230 @@
     display: none;
   }
 }
+
+/* ==================================================
+   GLISSEMENT ENTRE LES LIVRES
+   À ajouter à la fin de knowledge-vault.css
+================================================== */
+
+.knowledge-vault-page .vault-book-image,
+.knowledge-vault-page .vault-details {
+  transition:
+    transform 520ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    opacity 320ms ease,
+    filter 320ms ease;
+  will-change: transform, opacity;
+}
+
+.knowledge-vault-page .vault-book-image.is-sliding-out-left {
+  opacity: 0;
+  transform: translateX(-42%) scale(0.94) rotate(-1deg);
+}
+
+.knowledge-vault-page .vault-book-image.is-sliding-out-right {
+  opacity: 0;
+  transform: translateX(42%) scale(0.94) rotate(1deg);
+}
+
+.knowledge-vault-page .vault-book-image.is-preparing-from-right {
+  opacity: 0;
+  transform: translateX(42%) scale(0.94) rotate(1deg);
+  transition: none !important;
+}
+
+.knowledge-vault-page .vault-book-image.is-preparing-from-left {
+  opacity: 0;
+  transform: translateX(-42%) scale(0.94) rotate(-1deg);
+  transition: none !important;
+}
+
+.knowledge-vault-page .vault-details.is-sliding-out-left {
+  opacity: 0;
+  transform: translateX(-42px);
+}
+
+.knowledge-vault-page .vault-details.is-sliding-out-right {
+  opacity: 0;
+  transform: translateX(42px);
+}
+
+.knowledge-vault-page .vault-details.is-preparing-from-right {
+  opacity: 0;
+  transform: translateX(42px);
+  transition: none !important;
+}
+
+.knowledge-vault-page .vault-details.is-preparing-from-left {
+  opacity: 0;
+  transform: translateX(-42px);
+  transition: none !important;
+}
+
+.knowledge-vault-page .vault-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.knowledge-vault-page .vault-up-next.is-disabled {
+  opacity: 0.62;
+  cursor: default;
+}
+
+/* ==================================================
+   POINTS DU CARROUSEL
+================================================== */
+
+.knowledge-vault-page .vault-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(6px, 0.55vw, 10px);
+}
+
+.knowledge-vault-page .vault-dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+
+  border: 1px solid rgba(216, 203, 184, 0.62);
+  border-radius: 50%;
+  background: transparent;
+
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.knowledge-vault-page .vault-dot:hover:not(:disabled) {
+  border-color: #d0a64f;
+  transform: scale(1.2);
+}
+
+.knowledge-vault-page .vault-dot.is-active {
+  border-color: #d0a64f;
+  background: #d0a64f;
+  box-shadow: 0 0 8px rgba(208, 166, 79, 0.42);
+}
+
+.knowledge-vault-page .vault-dot:disabled {
+  opacity: 0.52;
+  cursor: default;
+}
+
+/* ==================================================
+   CONTENU INTERNATIONAL DU LIVRE OUVERT
+================================================== */
+
+.knowledge-vault-page .vault-open-disclaimer[hidden] {
+  display: none;
+}
+
+.knowledge-vault-page .vault-open-disclaimer {
+  width: 92%;
+  margin: clamp(5px, 0.8vh, 9px) auto 0;
+
+  color: rgba(79, 59, 39, 0.82);
+  font-size: clamp(5px, 0.42vw, 8px);
+  line-height: 1.35;
+  letter-spacing: 0.35px;
+  text-align: center;
+}
+
+.knowledge-vault-page
+  .vault-open-information.is-international-system
+  .vault-open-list {
+  gap: clamp(1px, 0.28vh, 4px);
+}
+
+.knowledge-vault-page
+  .vault-open-information.is-international-system
+  .vault-open-list
+  li {
+  font-size: clamp(6px, 0.48vw, 9px);
+  line-height: 1.18;
+}
+
+.knowledge-vault-page
+  .vault-open-information.is-international-system
+  .vault-open-page-left
+  h2 {
+  font-size: clamp(17px, 1.32vw, 26px);
+  line-height: 0.94;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .knowledge-vault-page .vault-book-image,
+  .knowledge-vault-page .vault-details {
+    transition: none !important;
+  }
+/* =========================================
+   AJUSTEMENT DU LIVRE OUVERT
+========================================= */
+}
+@media (min-width: 1000px) {
+  /* Remonte tout le texte placé sur les pages */
+/* Position normale pour Business Launcher */
+.knowledge-vault-page .vault-open-page-left,
+.knowledge-vault-page .vault-open-page-right {
+  position: relative;
+  top: 0 !important;
+}
+
+/* Remonter seulement le texte du livre international */
+.knowledge-vault-page
+  .vault-opening-layer:has(
+    .vault-opening-frame[src*="international-opening"]
+  )
+  .vault-open-page-left,
+.knowledge-vault-page
+  .vault-opening-layer:has(
+    .vault-opening-frame[src*="international-opening"]
+  )
+  .vault-open-page-right {
+  top: -28px !important;
+}
+
+  /* Cadre d’information à droite */
+  .knowledge-vault-page .vault-opening-layer aside {
+    width: 300px !important;
+    max-width: calc(100vw - 40px);
+    padding: 28px !important;
+    overflow: hidden;
+    text-align: left;
+  }
+
+  /* Empêche le contenu de dépasser */
+  .knowledge-vault-page .vault-opening-layer aside > * {
+    width: 100%;
+    max-width: 100%;
+  }/* Titre INTERNATIONAL BUSINESS LAUNCHER */
+  .knowledge-vault-page .vault-opening-layer aside h1,
+  .knowledge-vault-page .vault-opening-layer aside h2,
+  .knowledge-vault-page .vault-opening-layer aside h3,
+  .knowledge-vault-page .vault-opening-layer aside h4,
+  .knowledge-vault-page .vault-opening-layer aside [class*="title"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    font-size: clamp(23px, 1.3vw, 26px) !important;
+    line-height: 1.12 !important;
+    letter-spacing: 0.02em !important;
+
+    white-space: normal !important;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  /* Texte descriptif du cadre */
+  .knowledge-vault-page .vault-opening-layer aside p {
+    max-width: 100%;
+    line-height: 1.6;
+    overflow-wrap: break-word;
+  }
+}
