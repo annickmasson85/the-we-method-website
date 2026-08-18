@@ -1,84 +1,189 @@
 /* ==================================================
    THE KNOWLEDGE VAULT
-   Mise en page responsive sur un seul écran
+   Styles propres à cette page
 ================================================== */
 
-* {
-  box-sizing: border-box;
+.knowledge-vault-page {
+  --vault-black: #030303;
+  --vault-gold: #c79a3d;
+  --vault-light-gold: #dfc27c;
+  --vault-ivory: #eee6d8;
+  --vault-muted: #b9ae9e;
+  --vault-line: rgba(199, 154, 61, 0.42);
+
+  min-width: 320px;
+  overflow-x: hidden;
+  color: var(--vault-ivory);
+  background: var(--vault-black);
 }
 
-html,
-body {
-  width: 100%;
-  min-height: 100%;
-  margin: 0;
-}
-
-body.knowledge-vault-page {
-  min-height: 100vh;
-  min-height: 100dvh;
-  margin: 0;
-
-  color: #d8cbb8;
-  background: #030303;
-
-  font-family: Georgia, "Times New Roman", serif;
-}
-
-/* Le main occupe l’espace restant sous le header */
-body.knowledge-vault-page main {
+.knowledge-vault-page main {
+  display: block;
   min-width: 0;
-  min-height: 0;
 }
 
 /* ==================================================
-   HERO
+   ACCESSIBILITÉ
 ================================================== */
 
-.vault-hero {
+.knowledge-vault-page .skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 1000;
+
+  padding: 10px 16px;
+  color: #050505;
+  background: var(--vault-light-gold);
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+
+  transform: translateY(-180%);
+  transition: transform 180ms ease;
+}
+
+.knowledge-vault-page .skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ==================================================
+   CORRECTIONS DU HEADER GLOBAL
+================================================== */
+
+.knowledge-vault-page .header-brand .header-brand-name {
+  margin: 0;
+
+  color: var(--ivory);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(30px, 3vw, 45px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.knowledge-vault-page .header-brand .header-brand-tagline {
+  margin: 10px 0 7px;
+
+  color: var(--gold);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 2px;
+}
+
+.knowledge-vault-page .main-navigation {
   position: relative;
-  z-index: 0;
+  z-index: 20;
+}
+
+.knowledge-vault-page .main-navigation-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.knowledge-vault-page .main-navigation-list li {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.knowledge-vault-page .main-navigation-list li + li::before {
+  margin: 0 clamp(3px, 0.4vw, 8px);
+
+  color: var(--gold);
+  font-size: 9px;
+  content: "◇";
+}
+
+.knowledge-vault-page .main-navigation-list a {
+  position: relative;
+
+  padding: 8px clamp(6px, 0.7vw, 14px);
+
+  color: #d9d1c1;
+  font-size: clamp(11px, 0.75vw, 14px);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.knowledge-vault-page .main-navigation-list a::after,
+.knowledge-vault-page .main-navigation-list a:first-child::after {
+  display: none;
+  content: none;
+}
+
+.knowledge-vault-page .main-navigation-list a:hover,
+.knowledge-vault-page .main-navigation-list a.active {
+  color: var(--vault-light-gold);
+}
+
+.knowledge-vault-page .main-navigation-list a.active::after {
+  position: absolute;
+  right: clamp(6px, 0.7vw, 14px);
+  bottom: 1px;
+  left: clamp(6px, 0.7vw, 14px);
+
+  display: block;
+  height: 1px;
+
+  background: var(--vault-gold);
+  content: "";
+}
+
+/* ==================================================
+   HERO ET BACKGROUND
+================================================== */
+
+.knowledge-vault-page .vault-hero {
+  position: relative;
   isolation: isolate;
 
   width: 100%;
-  min-height: 760px;
-  padding:
-    clamp(20px, 2.5vh, 36px)
-    clamp(20px, 4vw, 72px)
-    clamp(12px, 2vh, 28px);
+  min-height: 820px;
+  min-height: max(820px, calc(100svh - 168px));
 
   overflow: hidden;
-  text-align: center;
-
-  display: grid;
-  grid-template-rows:
-    auto
-    auto
-    auto
-    auto
-    minmax(0, 1fr);
+  border-bottom: 1px solid var(--vault-line);
+  background: #020202;
 }
 
-/* Image de fond */
-.vault-hero::before {
-  content: "";
+/* Background contenant le coffre et le podium */
+
+.knowledge-vault-page .vault-hero::before {
   position: absolute;
   inset: 0;
   z-index: -2;
 
   background:
     linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.2),
-      rgba(0, 0, 0, 0.48)
+      180deg,
+      rgba(0, 0, 0, 0.22) 0%,
+      rgba(0, 0, 0, 0.04) 35%,
+      rgba(0, 0, 0, 0.02) 68%,
+      rgba(0, 0, 0, 0.22) 100%
     ),
-    url("images/knowledge-vault-background.png")
-    center center / cover no-repeat;
+    url("images/knowledge-vault-bg-podium.png");
+
+  background-repeat: no-repeat;
+  background-position: center 54%;
+  background-size: cover;
+
+  content: "";
 }
 
-/* Vignette sombre sur les côtés */
-.vault-hero::after {
-  content: "";
+/* Vignette légère pour conserver la lisibilité */
+
+.knowledge-vault-page .vault-hero::after {
   position: absolute;
   inset: 0;
   z-index: -1;
@@ -86,216 +191,1484 @@ body.knowledge-vault-page main {
 
   background:
     radial-gradient(
-      circle at center,
-      transparent 32%,
-      rgba(0, 0, 0, 0.2) 65%,
-      rgba(0, 0, 0, 0.68) 100%
+      ellipse at center,
+      transparent 35%,
+      rgba(0, 0, 0, 0.08) 65%,
+      rgba(0, 0, 0, 0.42) 100%
     );
+
+  content: "";
+}
+
+.knowledge-vault-page .vault-container {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-height: inherit;
+  margin: 0 auto;
+
+  padding:
+    clamp(18px, 2.2vh, 28px)
+    clamp(22px, 3.2vw, 62px)
+    24px;
 }
 
 /* ==================================================
-   TITRE
+   INTRODUCTION
 ================================================== */
 
-.vault-eyebrow {
-  position: relative;
-  z-index: 2;
-
-  margin: 0 0 clamp(6px, 1vh, 12px);
-
-  color: #c99a3d;
-  font-size: clamp(10px, 0.9vw, 14px);
-  line-height: 1.2;
-  letter-spacing: clamp(3px, 0.4vw, 6px);
-  text-transform: uppercase;
-}
-
-.vault-hero h1 {
-  position: relative;
-  z-index: 2;
-
-  max-width: 1200px;
+.knowledge-vault-page .vault-intro {
+  width: min(100%, 1100px);
   margin: 0 auto;
-
-  color: #ded3c2;
-  font-size: clamp(34px, 3.3vw, 62px);
-  font-weight: 400;
-  line-height: 0.98;
-  text-wrap: balance;
-  text-transform: uppercase;
-
-  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.9);
+  text-align: center;
 }
 
-.vault-introduction {
-  position: relative;
-  z-index: 2;
+.knowledge-vault-page .vault-eyebrow {
+  margin: 0 0 7px;
 
-  max-width: 620px;
-  margin: clamp(8px, 1.3vh, 16px) auto 0;
+  color: var(--vault-gold);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(10px, 0.75vw, 13px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: clamp(4px, 0.45vw, 7px);
+}
 
-  color: #b8aa98;
-  font-size: clamp(14px, 1.2vw, 19px);
+.knowledge-vault-page .vault-intro h1 {
+  margin: 0;
+
+  color: var(--vault-ivory);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(42px, 3.65vw, 67px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-wrap: balance;
+
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95);
+}
+
+.knowledge-vault-page .vault-introduction {
+  width: min(100%, 680px);
+  margin: 10px auto 0;
+
+  color: #d0c4b4;
+  font-size: clamp(16px, 1.15vw, 20px);
   font-style: italic;
-  line-height: 1.4;
+  line-height: 1.25;
+  text-wrap: balance;
+
+  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.95);
 }
 
 /* ==================================================
    CATÉGORIES
 ================================================== */
 
-.vault-categories {
+.knowledge-vault-page .vault-categories {
   position: relative;
-  z-index: 2;
-
-  width: min(100%, 900px);
-  margin: clamp(10px, 1.5vh, 20px) auto 0;
-  padding: 0 0 8px;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(10px, 1.3vw, 22px);
+  gap: clamp(15px, 1.45vw, 28px);
 
-  border-bottom: 1px solid rgba(201, 154, 61, 0.32);
+  width: min(100%, 920px);
+  margin: clamp(14px, 1.7vh, 20px) auto 0;
+  padding: 0 0 10px;
+
+  border-bottom: 1px solid rgba(199, 154, 61, 0.36);
 }
 
-.vault-categories button {
+.knowledge-vault-page .vault-category {
+  position: relative;
   flex: 0 0 auto;
-  padding: 0 0 7px;
 
-  color: #a99b88;
+  padding: 0 0 8px;
+
+  color: #b5aa9a;
   background: transparent;
   border: 0;
 
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(8px, 0.7vw, 10px);
-  letter-spacing: 1px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(8px, 0.58vw, 10px);
+  font-weight: 500;
+  letter-spacing: 0.7px;
   white-space: nowrap;
 
   cursor: pointer;
   transition:
     color 180ms ease,
-    border-color 180ms ease;
+    text-shadow 180ms ease;
 }
 
-.vault-categories button:hover,
-.vault-categories button.is-active {
-  color: #c99a3d;
+.knowledge-vault-page .vault-category::after {
+  position: absolute;
+  right: 0;
+  bottom: -11px;
+  left: 0;
+
+  height: 1px;
+  background: transparent;
+  content: "";
 }
 
-.vault-categories button.is-active {
-  border-bottom: 1px solid #c99a3d;
+.knowledge-vault-page .vault-category:hover,
+.knowledge-vault-page .vault-category.is-active,
+.knowledge-vault-page .vault-category[aria-pressed="true"] {
+  color: var(--vault-light-gold);
+}
+
+.knowledge-vault-page .vault-category.is-active::after,
+.knowledge-vault-page
+  .vault-category[aria-pressed="true"]::after {
+  background: var(--vault-gold);
 }
 
 /* ==================================================
-   LIVRE
+   SYSTÈME SÉLECTIONNÉ
 ================================================== */
 
-.vault-book-display {
-  position: relative;
-  z-index: 2;
-
-  width: min(100%, 1320px);
-  height: 100%;
-  min-height: 0;
-  margin: 0 auto;
-  padding-top: clamp(10px, 1.5vh, 20px);
-
+.knowledge-vault-page .vault-system-layout {
   display: grid;
   grid-template-columns:
-    minmax(0, 7fr)
-    minmax(280px, 3fr);
-  align-items: end;
+    minmax(0, 1.15fr)
+    minmax(350px, 0.72fr);
+  align-items: stretch;
+  gap: clamp(56px, 5vw, 106px);
 
-  overflow: hidden;
+  width: min(100%, 1420px);
+  min-height: 600px;
+  margin: clamp(6px, 1vh, 12px) auto 0;
 }
 
-.vault-book-display img {
-  grid-column: 1;
-  justify-self: center;
-  align-self: end;
+/* ==================================================
+   COLONNE DU LIVRE
+================================================== */
 
-  display: block;
-  width: auto;
+.knowledge-vault-page .vault-product {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  text-align: center;
+}
+
+.knowledge-vault-page .vault-product-stage {
+  display: grid;
+  grid-template-columns:
+    56px
+    minmax(0, 1fr)
+    56px;
+  align-items: center;
+
+  width: 100%;
+  height: clamp(420px, 46vh, 500px);
+  min-height: 0;
+}
+
+.knowledge-vault-page .vault-book-frame {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  align-self: stretch;
+
+  min-width: 0;
   height: 100%;
-  max-width: min(48vw, 460px);
-  max-height: 560px;
+  margin: 0;
+}
+
+.knowledge-vault-page .vault-book-image {
+  display: block;
+
+  width: auto;
+  height: clamp(390px, 44vh, 475px);
+  max-width: min(100%, 520px);
 
   object-fit: contain;
-  cursor: pointer;
 
   filter:
-    drop-shadow(0 22px 22px rgba(0, 0, 0, 0.92))
-    drop-shadow(0 0 16px rgba(151, 101, 34, 0.26));
+    drop-shadow(0 24px 20px rgba(0, 0, 0, 0.92))
+    drop-shadow(0 0 18px rgba(184, 126, 42, 0.20));
+
+  transform: translateY(14px);
+  transition:
+    opacity 240ms ease,
+    transform 320ms ease,
+    filter 320ms ease;
+}
+
+.knowledge-vault-page .vault-book-image:hover {
+  filter:
+    drop-shadow(0 28px 24px rgba(0, 0, 0, 0.94))
+    drop-shadow(0 0 24px rgba(199, 154, 61, 0.30));
+
+  transform: translateY(8px);
+}
+
+/* Flèches */
+
+.knowledge-vault-page .vault-arrow {
+  position: relative;
+  z-index: 4;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 50px;
+  height: 50px;
+  padding: 0;
+
+  color: var(--vault-light-gold);
+  background: rgba(3, 3, 3, 0.66);
+  border: 1px solid rgba(215, 174, 82, 0.92);
+  border-radius: 50%;
+
+  font-family: Georgia, serif;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1;
+
+  cursor: pointer;
+  box-shadow:
+    0 0 0 4px rgba(0, 0, 0, 0.34),
+    0 0 16px rgba(199, 154, 61, 0.10);
+
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.knowledge-vault-page .vault-arrow span {
+  display: block;
+  transform: translateY(-2px);
+}
+
+.knowledge-vault-page .vault-arrow:hover {
+  color: #fff2ce;
+  background: rgba(199, 154, 61, 0.13);
+  box-shadow:
+    0 0 0 4px rgba(0, 0, 0, 0.36),
+    0 0 22px rgba(199, 154, 61, 0.28);
+
+  transform: scale(1.06);
 }
 
 /* ==================================================
-   ORDINATEUR — AUCUN DÉFILEMENT
+   CARROUSEL
 ================================================== */
 
-@media (min-width: 1000px) and (min-height: 760px) {
-  html,
-  body {
-    height: 100%;
+.knowledge-vault-page .vault-carousel {
+  position: relative;
+  z-index: 3;
+
+  width: min(100%, 560px);
+  margin: clamp(74px, 9vh, 105px) auto 0;
+  text-align: center;
+
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 1);
+}
+
+.knowledge-vault-page .vault-counter {
+  margin: 0;
+
+  color: var(--vault-ivory);
+  font-size: clamp(27px, 2vw, 36px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.knowledge-vault-page .vault-counter-separator,
+.knowledge-vault-page [data-vault-total] {
+  color: #b9aa93;
+  font-size: 0.55em;
+}
+
+.knowledge-vault-page .vault-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 10px;
+  margin-top: 10px;
+}
+
+.knowledge-vault-page .vault-dots button {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+
+  background: transparent;
+  border: 1px solid #9c9283;
+  border-radius: 50%;
+
+  cursor: pointer;
+}
+
+.knowledge-vault-page .vault-dots button:hover,
+.knowledge-vault-page .vault-dots button.is-active,
+.knowledge-vault-page
+  .vault-dots button[aria-current="true"] {
+  background: var(--vault-light-gold);
+  border-color: var(--vault-light-gold);
+}
+
+.knowledge-vault-page .vault-carousel-help {
+  margin: 9px 0 0;
+  color: #c5bbad;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.knowledge-vault-page .vault-index-button {
+  margin-top: 8px;
+  padding: 0 0 4px;
+
+  color: var(--vault-light-gold);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(199, 154, 61, 0.7);
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+
+  cursor: pointer;
+}
+
+/* ==================================================
+   FICHE DU SYSTÈME
+================================================== */
+
+.knowledge-vault-page .vault-details {
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+
+  width: 100%;
+  min-height: 570px;
+  margin-top: clamp(42px, 6vh, 72px);
+  padding: 0;
+
+  text-align: left;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.94);
+}
+
+.knowledge-vault-page .vault-details-eyebrow {
+  margin: 0 0 9px;
+
+  color: var(--vault-gold);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.knowledge-vault-page .vault-details h2 {
+  margin: 0;
+
+  color: var(--vault-ivory);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(42px, 3.35vw, 61px);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.knowledge-vault-page .vault-description {
+  max-width: 440px;
+  margin: 15px 0 12px;
+
+  color: #d5ccbf;
+  font-size: clamp(15px, 1vw, 17px);
+  line-height: 1.35;
+}
+
+.knowledge-vault-page .vault-facts {
+  width: 100%;
+  max-width: 460px;
+  margin: 0 0 14px;
+}
+
+.knowledge-vault-page .vault-fact {
+  display: grid;
+  grid-template-columns: 105px minmax(0, 1fr);
+  min-height: 38px;
+
+  border-top: 1px solid rgba(199, 154, 61, 0.48);
+}
+
+.knowledge-vault-page .vault-fact:last-child {
+  border-bottom: 1px solid rgba(199, 154, 61, 0.48);
+}
+
+.knowledge-vault-page .vault-fact dt,
+.knowledge-vault-page .vault-fact dd {
+  display: flex;
+  align-items: center;
+
+  margin: 0;
+  padding: 7px 10px;
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.knowledge-vault-page .vault-fact dt {
+  padding-left: 0;
+  color: var(--vault-gold);
+  border-right: 1px solid rgba(199, 154, 61, 0.42);
+}
+
+.knowledge-vault-page .vault-fact dd {
+  color: #e3dbcf;
+}
+
+.knowledge-vault-page .vault-open-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 460px;
+  min-height: 48px;
+  padding: 12px 20px;
+
+  color: #151006;
+  background:
+    linear-gradient(
+      135deg,
+      #ead797,
+      #bb8b3a
+    );
+  border: 1px solid #e4c579;
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.42),
+    inset 0 1px rgba(255, 255, 255, 0.32);
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.knowledge-vault-page .vault-open-button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.55),
+    0 0 18px rgba(199, 154, 61, 0.22);
+}
+
+.knowledge-vault-page .vault-secure-access {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+
+  margin: 10px 0 0;
+
+  color: #bcb2a4;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.knowledge-vault-page .vault-lock-icon {
+  flex: 0 0 auto;
+  width: 17px;
+  height: 17px;
+  margin-top: 2px;
+  color: var(--vault-gold);
+}
+
+/* Prochain système */
+
+.knowledge-vault-page .vault-up-next {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3px 12px;
+  align-items: end;
+
+  width: 100%;
+  max-width: 460px;
+  margin-top: auto;
+  padding-top: 32px;
+
+  color: inherit;
+  text-decoration: none;
+}
+
+.knowledge-vault-page .vault-up-next-label {
+  grid-column: 1 / -1;
+
+  color: var(--vault-gold);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.knowledge-vault-page .vault-up-next-title {
+  color: #ddd3c4;
+  font-size: 14px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.knowledge-vault-page .vault-up-next-arrow {
+  color: var(--vault-light-gold);
+  font-size: 28px;
+  line-height: 0.7;
+  transition: transform 180ms ease;
+}
+
+.knowledge-vault-page
+  .vault-up-next:hover
+  .vault-up-next-arrow {
+  transform: translateX(4px);
+}
+
+/* ==================================================
+   FOCUS CLAVIER
+================================================== */
+
+.knowledge-vault-page button:focus-visible,
+.knowledge-vault-page a:focus-visible {
+  outline: 2px solid var(--vault-light-gold);
+  outline-offset: 4px;
+}
+
+/* ==================================================
+   ÉCRANS INTERMÉDIAIRES
+================================================== */
+
+@media (max-width: 1200px) {
+  .knowledge-vault-page .vault-system-layout {
+    grid-template-columns:
+      minmax(0, 1.05fr)
+      minmax(320px, 0.8fr);
+    gap: 38px;
   }
 
-  body.knowledge-vault-page {
-    height: 100vh;
-    height: 100dvh;
-    overflow: hidden;
-
-    display: grid;
-    grid-template-rows:
-      auto
-      minmax(0, 1fr)
-      auto;
+  .knowledge-vault-page .vault-book-image {
+    height: clamp(360px, 42vh, 420px);
   }
 
-  body.knowledge-vault-page main {
-    overflow: hidden;
+  .knowledge-vault-page .vault-details h2 {
+    font-size: clamp(40px, 4vw, 52px);
   }
 
-  .vault-hero {
-    height: 100%;
+  .knowledge-vault-page .vault-details {
+    min-height: 540px;
+  }
+}
+
+/* ==================================================
+   TABLETTES
+================================================== */
+
+@media (max-width: 900px) {
+  .knowledge-vault-page .main-navigation-list {
+    flex-wrap: wrap;
+  }
+
+  .knowledge-vault-page .vault-hero {
     min-height: 0;
   }
-}
 
-/* ==================================================
-   TABLETTE ET PETITS ÉCRANS
-================================================== */
+  .knowledge-vault-page .vault-hero::before {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.18) 0%,
+        rgba(0, 0, 0, 0.05) 55%,
+        #030303 100%
+      ),
+      url("images/knowledge-vault-bg-podium.png");
 
-@media (max-width: 999px), (max-height: 759px) {
-  body.knowledge-vault-page {
-    overflow-x: hidden;
-    overflow-y: auto;
+    background-color: #030303;
+    background-repeat: no-repeat;
+    background-position: 23% 0;
+    background-size: auto 900px;
   }
 
-  .vault-hero {
-    min-height: 780px;
+  .knowledge-vault-page .vault-container {
+    min-height: 0;
+    padding: 28px 24px 70px;
   }
 
-  .vault-categories {
+  .knowledge-vault-page .vault-categories {
     justify-content: flex-start;
     overflow-x: auto;
+    overscroll-behavior-inline: contain;
     scrollbar-width: none;
   }
 
-  .vault-categories::-webkit-scrollbar {
+  .knowledge-vault-page
+    .vault-categories::-webkit-scrollbar {
     display: none;
   }
 
-  .vault-book-display {
+  .knowledge-vault-page .vault-system-layout {
     grid-template-columns: 1fr;
-    place-items: end center;
+    gap: 54px;
+
+    width: min(100%, 680px);
+    min-height: 0;
   }
 
-  .vault-book-display img {
-    grid-column: 1;
-    width: min(72vw, 350px);
-    height: auto;
+  .knowledge-vault-page .vault-product-stage {
+    height: 430px;
+  }
+
+  .knowledge-vault-page .vault-book-image {
+    height: min(52vw, 420px);
+    min-height: 350px;
+  }
+
+  .knowledge-vault-page .vault-carousel {
+    margin-top: 45px;
+  }
+
+  .knowledge-vault-page .vault-details {
+    min-height: 0;
+    margin: 0 auto;
+  }
+
+  .knowledge-vault-page .vault-up-next {
+    margin-top: 35px;
+  }
+}
+
+/* ==================================================
+   TÉLÉPHONES
+================================================== */
+
+@media (max-width: 620px) {
+  .knowledge-vault-page .header-brand .header-brand-name {
+    font-size: clamp(29px, 10vw, 40px);
+  }
+
+  .knowledge-vault-page .main-navigation-list {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .knowledge-vault-page
+    .main-navigation-list li + li::before {
+    display: none;
+  }
+
+  .knowledge-vault-page .main-navigation-list li,
+  .knowledge-vault-page .main-navigation-list a {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .knowledge-vault-page .vault-hero::before {
+    background-position: 30% 0;
+    background-size: auto 760px;
+  }
+
+  .knowledge-vault-page .vault-container {
+    padding: 24px 18px 60px;
+  }
+
+  .knowledge-vault-page .vault-intro h1 {
+    font-size: clamp(34px, 11vw, 48px);
+    line-height: 0.95;
+  }
+
+  .knowledge-vault-page .vault-introduction {
+    font-size: 16px;
+  }
+
+  .knowledge-vault-page .vault-categories {
+    gap: 20px;
+    padding-bottom: 10px;
+  }
+
+  .knowledge-vault-page .vault-product-stage {
+    grid-template-columns:
+      44px
+      minmax(0, 1fr)
+      44px;
+
+    height: clamp(320px, 88vw, 380px);
+  }
+
+  .knowledge-vault-page .vault-book-image {
+    width: auto;
+    height: min(80vw, 340px);
+    min-height: 0;
     max-width: 100%;
-    max-height: 520px;
+
+    transform: translateY(10px);
+  }
+
+  .knowledge-vault-page .vault-arrow {
+    width: 42px;
+    height: 42px;
+    font-size: 30px;
+  }
+
+  .knowledge-vault-page .vault-carousel {
+    margin-top: 38px;
+  }
+
+  .knowledge-vault-page .vault-details {
+    padding: 0 6px;
+  }
+
+  .knowledge-vault-page .vault-details h2 {
+    font-size: clamp(39px, 13vw, 52px);
+  }
+
+  .knowledge-vault-page .vault-description {
+    font-size: 16px;
+  }
+
+  .knowledge-vault-page .vault-fact {
+    grid-template-columns: 90px minmax(0, 1fr);
+  }
+
+  .knowledge-vault-page .vault-fact dt,
+  .knowledge-vault-page .vault-fact dd {
+    padding: 8px;
+    font-size: 8px;
+  }
+
+  .knowledge-vault-page .vault-fact dt {
+    padding-left: 0;
+  }
+
+  .knowledge-vault-page .vault-open-button {
+    max-width: none;
+  }
+
+  .knowledge-vault-page .vault-up-next {
+    max-width: none;
+  }
+}
+
+/* ==================================================
+   ACCESSIBILITÉ — MOUVEMENTS RÉDUITS
+================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .knowledge-vault-page *,
+  .knowledge-vault-page *::before,
+  .knowledge-vault-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}/* ==================================================
+   ANIMATION D’OUVERTURE DU LIVRE
+================================================== */
+
+.knowledge-vault-page .vault-opening-layer[hidden],
+.knowledge-vault-page .vault-open-information[hidden] {
+  display: none !important;
+}
+
+/* Couche contenant les images d’animation */
+
+.knowledge-vault-page .vault-opening-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  overflow: hidden;
+  pointer-events: none;
+
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+
+.knowledge-vault-page
+  .vault-hero.is-book-opening
+  .vault-opening-layer,
+.knowledge-vault-page
+  .vault-hero.is-book-open
+  .vault-opening-layer {
+  opacity: 1;
+}
+
+/* Chaque image possède déjà le coffre et le podium */
+
+.knowledge-vault-page .vault-opening-frame {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center 54%;
+
+  opacity: 1;
+  transition: opacity 90ms linear;
+}
+
+.knowledge-vault-page
+  .vault-opening-frame.is-changing-frame {
+  opacity: 0.82;
+}
+
+/* Cache la présentation fermée pendant l’animation */
+
+.knowledge-vault-page
+  .vault-hero.is-book-opening
+  .vault-system-layout,
+.knowledge-vault-page
+  .vault-hero.is-book-open
+  .vault-system-layout {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.knowledge-vault-page .vault-system-layout {
+  transition:
+    opacity 220ms ease,
+    visibility 220ms ease;
+}
+
+/* Empêche le changement de catégorie lorsque le livre est ouvert */
+
+.knowledge-vault-page
+  .vault-hero.is-book-open
+  .vault-container {
+  pointer-events: none;
+}
+
+/* ==================================================
+   INFORMATIONS POSÉES SUR LES PAGES
+================================================== */
+
+.knowledge-vault-page .vault-open-information {
+  position: absolute;
+
+  /*
+    Ces valeurs correspondent aux pages vierges
+    de knowledge-vault-opening-05.png.
+  */
+
+  top: 51.5%;
+  left: 17.5%;
+
+  z-index: 3;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6.5%;
+
+  width: 41%;
+  height: 31%;
+
+  color: #3b2a18;
+  text-shadow: none;
+
+  opacity: 0;
+  pointer-events: auto;
+
+  transition:
+    opacity 360ms ease,
+    transform 360ms ease;
+
+  transform: translateY(8px);
+}
+
+.knowledge-vault-page
+  .vault-open-information.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Chaque page */
+
+.knowledge-vault-page .vault-open-page {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  min-height: 0;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.knowledge-vault-page .vault-open-page-left {
+  padding: 1.5% 3% 1% 6%;
+  text-align: center;
+}
+
+.knowledge-vault-page .vault-open-page-right {
+  padding: 1.5% 6% 1% 3%;
+}
+
+/* ==================================================
+   TITRE DE LA PAGE GAUCHE
+================================================== */
+
+.knowledge-vault-page .vault-open-eyebrow {
+  margin: 0 0 2px;
+
+  color: #8c6228;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(6px, 0.42vw, 8px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.knowledge-vault-page .vault-open-page h2 {
+  margin: 0;
+
+  color: #2f2114;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(22px, 1.7vw, 33px);
+  font-weight: 600;
+  line-height: 0.78;
+  letter-spacing: -0.5px;
+}
+
+.knowledge-vault-page .vault-open-subtitle {
+  margin: 5px 0 0;
+
+  color: #5d452b;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(5px, 0.35vw, 7px);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.7px;
+}
+
+.knowledge-vault-page .vault-open-divider {
+  width: 45%;
+  height: 1px;
+  margin: 5px auto;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #987044,
+      transparent
+    );
+}
+
+.knowledge-vault-page .vault-open-page h3 {
+  margin: 0 0 4px;
+
+  color: #704d24;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(6px, 0.42vw, 8px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.8px;
+  text-align: center;
+}
+
+/* ==================================================
+   LISTE DES RESSOURCES
+================================================== */
+
+.knowledge-vault-page .vault-open-list {
+  display: grid;
+  gap: clamp(2px, 0.26vh, 4px);
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.knowledge-vault-page .vault-open-list li {
+  display: grid;
+  grid-template-columns:
+    clamp(15px, 1.25vw, 24px)
+    minmax(0, 1fr)
+    auto;
+  align-items: start;
+  gap: 4px;
+
+  min-height: clamp(15px, 1.65vh, 20px);
+  padding-bottom: 2px;
+
+  border-bottom: 1px solid rgba(119, 82, 38, 0.18);
+
+  font-size: clamp(7px, 0.48vw, 9px);
+  line-height: 1.08;
+  text-align: left;
+}
+
+.knowledge-vault-page .vault-open-number {
+  color: #9a6e2e;
+  font-size: 1.25em;
+  line-height: 0.95;
+}
+
+.knowledge-vault-page .vault-open-item-name {
+  color: #3e2d1d;
+  font-weight: 600;
+}
+
+.knowledge-vault-page .vault-open-price {
+  padding-left: 3px;
+
+  color: #573d20;
+  border-left: 1px solid rgba(119, 82, 38, 0.36);
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.78em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Texte inférieur de la page gauche */
+
+.knowledge-vault-page .vault-open-page-footer {
+  margin: auto 0 0;
+
+  color: #856137;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(5px, 0.31vw, 6px);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+/* ==================================================
+   RÉSUMÉ DE LA PAGE DROITE
+================================================== */
+
+.knowledge-vault-page .vault-open-summary {
+  margin: auto 0 0;
+  padding: 4px 8px;
+
+  background: rgba(147, 101, 45, 0.08);
+  border: 1px solid rgba(124, 82, 34, 0.34);
+}
+
+.knowledge-vault-page .vault-open-summary div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+
+  min-height: 15px;
+  padding: 2px 0;
+
+  border-bottom: 1px solid rgba(124, 82, 34, 0.22);
+}
+
+.knowledge-vault-page
+  .vault-open-summary div:last-child {
+  border-bottom: 0;
+}
+
+.knowledge-vault-page .vault-open-summary dt,
+.knowledge-vault-page .vault-open-summary dd {
+  margin: 0;
+
+  color: #4b351d;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(5px, 0.38vw, 7px);
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+.knowledge-vault-page .vault-open-summary dd {
+  text-align: right;
+}
+
+.knowledge-vault-page .vault-open-secure {
+  margin: 3px 0 0;
+
+  color: #705334;
+  font-size: clamp(6px, 0.4vw, 8px);
+  font-style: italic;
+  line-height: 1.1;
+  text-align: center;
+}
+
+/* ==================================================
+   BOUTONS DU LIVRE OUVERT
+================================================== */
+
+.knowledge-vault-page .vault-open-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3px;
+
+  width: 68%;
+  margin: 4px auto 0;
+}
+
+.knowledge-vault-page .vault-open-details-button,
+.knowledge-vault-page .vault-close-book-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: clamp(18px, 2vh, 24px);
+  padding: 3px 8px;
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(5px, 0.38vw, 7px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.knowledge-vault-page .vault-open-details-button {
+  color: #f4e3bd;
+  background: #8e642d;
+  border: 1px solid #795124;
+}
+
+.knowledge-vault-page .vault-close-book-button {
+  color: #4a341c;
+  background: rgba(255, 248, 224, 0.24);
+  border: 1px solid rgba(91, 59, 25, 0.62);
+}
+
+.knowledge-vault-page .vault-open-details-button:hover,
+.knowledge-vault-page .vault-close-book-button:hover {
+  transform: translateY(-1px);
+}
+
+.knowledge-vault-page .vault-open-details-button:hover {
+  background: #6f491f;
+}
+
+.knowledge-vault-page .vault-close-book-button:hover {
+  background: rgba(255, 248, 224, 0.48);
+}
+
+/* Rend les boutons cliquables au-dessus du contenu existant */
+
+.knowledge-vault-page
+  .vault-hero.is-book-open
+  .vault-opening-layer {
+  pointer-events: auto;
+}
+
+.knowledge-vault-page
+  .vault-hero.is-book-open
+  .vault-opening-frame {
+  pointer-events: none;
+}
+
+.knowledge-vault-page .vault-open-motto {
+  margin: 3px 0 0;
+
+  color: #856137;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(4px, 0.28vw, 6px);
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-align: center;
+}
+
+/* ==================================================
+   ÉCRANS PLUS PETITS
+================================================== */
+
+@media (max-width: 1100px) {
+  .knowledge-vault-page .vault-open-information {
+    left: 16%;
+    width: 47%;
+  }
+}
+
+@media (max-width: 900px) {
+  .knowledge-vault-page
+    .vault-hero.is-book-opening,
+  .knowledge-vault-page
+    .vault-hero.is-book-open {
+    min-height: 1180px;
+  }
+
+  .knowledge-vault-page .vault-opening-frame {
+    height: 900px;
+    object-position: 23% 0;
+  }
+
+  /*
+    Sur tablette, le contenu devient deux cartes parchemin
+    sous le livre afin de rester lisible.
+  */
+
+  .knowledge-vault-page .vault-open-information {
+    top: 760px;
+    left: 50%;
+
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+
+    width: min(92%, 700px);
+    height: auto;
+
+    transform: translate(-50%, 8px);
+  }
+
+  .knowledge-vault-page
+    .vault-open-information.is-visible {
+    transform: translate(-50%, 0);
+  }
+
+  .knowledge-vault-page .vault-open-page {
+    min-height: 380px;
+    padding: 28px 24px;
+
+    background:
+      linear-gradient(
+        135deg,
+        #ead9ad,
+        #d5ba82
+      );
+
+    border: 1px solid #9d7139;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.58);
+  }
+
+  .knowledge-vault-page .vault-open-page h2 {
+    font-size: 36px;
+  }
+
+  .knowledge-vault-page .vault-open-list li {
+    min-height: 29px;
+    font-size: 11px;
+  }
+
+  .knowledge-vault-page .vault-open-summary dt,
+  .knowledge-vault-page .vault-open-summary dd,
+  .knowledge-vault-page .vault-open-secure {
+    font-size: 9px;
+  }
+
+  .knowledge-vault-page .vault-open-actions {
+    width: 82%;
+  }
+
+  .knowledge-vault-page .vault-open-details-button,
+  .knowledge-vault-page .vault-close-book-button {
+    min-height: 34px;
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 620px) {
+  .knowledge-vault-page
+    .vault-hero.is-book-opening,
+  .knowledge-vault-page
+    .vault-hero.is-book-open {
+    min-height: 1660px;
+  }
+
+  .knowledge-vault-page .vault-opening-frame {
+    height: 760px;
+    object-position: 30% 0;
+  }
+
+  .knowledge-vault-page .vault-open-information {
+    top: 700px;
+    grid-template-columns: 1fr;
+    width: min(92%, 430px);
+  }
+
+  .knowledge-vault-page .vault-open-page {
+    min-height: 410px;
+  }
+}/* ==================================================
+   PANNEAU À DROITE DU LIVRE OUVERT
+================================================== */
+
+.knowledge-vault-page .vault-open-side-card {
+  position: absolute;
+  z-index: 5;
+  top: 56%;
+  right: clamp(30px, 5vw, 100px);
+
+  width: clamp(195px, 15vw, 265px);
+  min-height: clamp(365px, 45vh, 480px);
+  padding:
+    clamp(26px, 3vh, 40px)
+    clamp(20px, 1.8vw, 30px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  color: #cfc0aa;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(7, 6, 5, 0.94),
+      rgba(15, 11, 7, 0.88)
+    );
+
+  border: 1px solid rgba(201, 154, 61, 0.68);
+
+  box-shadow:
+    0 22px 45px rgba(0, 0, 0, 0.75),
+    inset 0 0 24px rgba(201, 154, 61, 0.05);
+
+  text-align: left;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform:
+    translateY(-50%)
+    translateX(24px);
+
+  transition:
+    opacity 500ms ease 180ms,
+    transform 500ms ease 180ms,
+    visibility 0s linear 680ms;
+}
+
+.knowledge-vault-page
+.vault-hero.is-book-open
+.vault-open-side-card {
+  opacity: 1;
+  visibility: visible;
+
+  transform:
+    translateY(-50%)
+    translateX(0);
+
+  transition:
+    opacity 500ms ease 180ms,
+    transform 500ms ease 180ms,
+    visibility 0s;
+}
+
+.knowledge-vault-page .vault-side-title {
+  margin: 0;
+
+  color: #d1a354;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(23px, 1.8vw, 34px);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: 1.5px;
+
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.knowledge-vault-page .vault-side-divider {
+  position: relative;
+
+  width: 100%;
+  height: 1px;
+  margin: clamp(18px, 2.4vh, 28px) 0;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      rgba(201, 154, 61, 0.8) 15%,
+      rgba(201, 154, 61, 0.8) 85%,
+      transparent
+    );
+}
+
+.knowledge-vault-page .vault-side-divider::after {
+  content: "◆";
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  color: #c99a3d;
+  background: #0b0805;
+
+  padding: 0 6px;
+  font-size: 8px;
+
+  transform: translate(-50%, -50%);
+}
+
+.knowledge-vault-page .vault-side-description {
+  margin: 0;
+
+  color: #c6b8a5;
+  font-size: clamp(13px, 0.9vw, 16px);
+  line-height: 1.65;
+}
+
+.knowledge-vault-page .vault-side-system {
+  margin: 0;
+
+  color: #c99a3d;
+  font-size: clamp(10px, 0.72vw, 12px);
+  line-height: 1.6;
+  letter-spacing: 1.4px;
+}
+
+.knowledge-vault-page .vault-side-system strong {
+  display: block;
+
+  color: #d4aa5d;
+  font-size: clamp(19px, 1.4vw, 26px);
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.knowledge-vault-page .vault-side-system strong span {
+  font-size: 0.55em;
+}
+
+.knowledge-vault-page .vault-side-audience {
+  margin: 0;
+
+  color: #d1a354;
+  font-size: clamp(11px, 0.8vw, 14px);
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+
+/* Le panneau est caché sur les écrans étroits
+   pour ne pas recouvrir le livre. */
+@media (max-width: 1100px) {
+  .knowledge-vault-page .vault-open-side-card {
+    display: none;
   }
 }
