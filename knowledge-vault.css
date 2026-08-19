@@ -1899,3 +1899,60 @@
     overflow-wrap: break-word;
   }
 }
+
+/* ==================================================
+   CONTENU OPERATION BUNDLE DU LIVRE OUVERT
+   Ces règles sont limitées au troisième système.
+================================================== */
+
+.knowledge-vault-page
+  .vault-open-information.is-operation-system
+  .vault-open-page-left
+  h2 {
+  font-size: clamp(23px, 1.72vw, 33px);
+  line-height: 0.86;
+}
+
+.knowledge-vault-page
+  .vault-open-information.is-operation-system
+  .vault-open-subtitle {
+  margin-top: 7px;
+  line-height: 1.3;
+}
+
+.knowledge-vault-page
+  .vault-open-information.is-operation-system
+  .vault-open-list {
+  gap: clamp(3px, 0.38vh, 6px);
+}
+
+.knowledge-vault-page
+  .vault-open-information.is-operation-system
+  .vault-open-list
+  li {
+  min-height: clamp(19px, 2vh, 24px);
+  font-size: clamp(7px, 0.52vw, 10px);
+  line-height: 1.16;
+}
+
+.knowledge-vault-page
+  .vault-open-information.is-operation-system
+  .vault-open-page-footer {
+  font-size: clamp(5px, 0.34vw, 7px);
+}
+
+.knowledge-vault-page
+  .vault-opening-layer[data-vault-system="operation-bundle"]
+  .vault-side-description {
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .knowledge-vault-page
+    .vault-open-information.is-operation-system
+    .vault-open-list
+    li {
+    min-height: 34px;
+    font-size: 12px;
+  }
+}
