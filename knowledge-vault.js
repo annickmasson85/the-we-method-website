@@ -73,6 +73,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const sideAudience = document.querySelector(
     ".vault-side-audience"
   );
+  const sideCard = document.querySelector(
+    ".vault-open-side-card"
+  );
 
   if (
     !hero ||
@@ -221,6 +224,60 @@ document.addEventListener("DOMContentLoaded", () => {
       sideNumberHTML: "02 <span>OF</span> 03",
       sideAudience: "FOR INTERNATIONAL ENTREPRENEURS",
       nextTitle: "OPERATION BUNDLE",
+      nextIndex: 2
+    },
+    {
+      id: "operation-bundle",
+      number: "03",
+      eyebrow: "SIGNATURE SYSTEM",
+      title: "OPERATION BUNDLE",
+      titleHTML: "OPERATION<br>BUNDLE",
+      description:
+        "A complete internal documentation system designed to strengthen, standardize and improve your existing rental business.",
+      type: "COMPLETE INTERNAL OPERATIONS SYSTEM",
+      audience: "EXISTING U.S. BUSINESS OWNERS",
+      value: "$2,235",
+      investment: "$1,495",
+      purchaseType: "SECURE ACCESS",
+      bookImage:
+        "images/knowledge-vault-operation-bundle-book.png",
+      bookAlt: "Operation Bundle Signature System",
+      detailHref: "operation-bundle.html",
+      openingFrames: [
+        "images/knowledge-vault-operation-opening-01.png",
+        "images/knowledge-vault-operation-opening-02.png",
+        "images/knowledge-vault-operation-opening-03.png",
+        "images/knowledge-vault-operation-opening-04.png",
+        "images/knowledge-vault-operation-opening-05.png"
+      ],
+      openSubtitleHTML:
+        "THE INTERNAL OPERATIONS SYSTEM<br>FOR EXISTING U.S. BUSINESSES",
+      openFooter: "COMPLETE INTERNAL OPERATIONS SYSTEM",
+      leftResources: [
+        ["01", "Standard Operating Procedures — SOP", "$497"],
+        ["02", "Employee Training Guide", "$495"],
+        ["03", "Rental Agreement & Liability Waiver", "$450"]
+      ],
+      rightResources: [
+        [
+          "04",
+          "Fleet Cleaning & Preventive Maintenance Toolkit",
+          "$297"
+        ],
+        ["05", "Golf Cart Pickup & Return Template", "$99"],
+        [
+          "06",
+          "Local Rules Communication & Rental Enforcement Toolkit",
+          "$397"
+        ]
+      ],
+      disclaimer:
+        "ORGANIZATIONAL RESOURCE ONLY. PROFESSIONAL REVIEW AND BUSINESS-SPECIFIC CUSTOMIZATION MAY BE REQUIRED.",
+      sideDescription:
+        "A complete internal documentation system designed to strengthen, standardize and improve your existing rental business.",
+      sideNumberHTML: "03 <span>OF</span> 03",
+      sideAudience: "FOR EXISTING U.S. BUSINESSES",
+      nextTitle: "BUSINESS LAUNCH ROADMAP",
       nextIndex: null
     }
   ];
@@ -383,9 +440,23 @@ document.addEventListener("DOMContentLoaded", () => {
       sideAudience.textContent = system.sideAudience;
     }
 
+    if (sideCard) {
+      sideCard.setAttribute(
+        "aria-label",
+        `${system.title} overview`
+      );
+    }
+
+    openingLayer.dataset.vaultSystem = system.id;
+
     openInformation.classList.toggle(
       "is-international-system",
       system.id === "international-business-launcher"
+    );
+
+    openInformation.classList.toggle(
+      "is-operation-system",
+      system.id === "operation-bundle"
     );
   }
 
@@ -775,7 +846,9 @@ document.addEventListener("DOMContentLoaded", () => {
   renderSystem(0);
   preloadSystem(systems[0], true);
 
-  window.setTimeout(() => {
-    preloadSystem(systems[1], true);
-  }, 800);
+  systems.slice(1).forEach((system, index) => {
+    window.setTimeout(() => {
+      preloadSystem(system, true);
+    }, 800 * (index + 1));
+  });
 });
