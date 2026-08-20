@@ -325,8 +325,7 @@
 .foundry-vault-lock {
   z-index: 3;
 }
-
-..foundry-vault-button {
+.foundry-vault-button {
   position: absolute;
   z-index: 6;
   left: 50%;
