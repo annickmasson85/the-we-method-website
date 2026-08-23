@@ -411,3 +411,13 @@ a {
     font-size: 13px;
   }
 }
+.signin-message {
+  margin: 0;
+  text-align: center;
+  color: #e8c4b0;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  line-height: 1.45;
+  min-height: 16px;
+}

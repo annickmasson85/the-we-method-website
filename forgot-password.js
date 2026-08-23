@@ -1,7 +1,8 @@
-const supabaseClient = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_PUBLISHABLE_KEY
-);
+const supabaseClient = window.supabaseClient;
+
+if (!supabaseClient) {
+  console.error("Supabase client missing. Check supabase-config.js script order.");
+}
 
 const forgotForm = document.getElementById("forgot-form");
 const emailInput = document.getElementById("reset-email");

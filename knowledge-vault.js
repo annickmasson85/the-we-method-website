@@ -843,8 +843,20 @@ document.addEventListener("DOMContentLoaded", () => {
      DÉMARRAGE
   ================================================== */
 
-  renderSystem(0);
-  preloadSystem(systems[0], true);
+  function getIndexFromHash() {
+    const id = window.location.hash.replace("#", "");
+    const index = systems.findIndex((system) => system.id === id);
+    return index >= 0 ? index : 0;
+  }
+
+  const startIndex = getIndexFromHash();
+    window.addEventListener("hashchange", () => {
+    if (!bookIsOpen && !animationInProgress) {
+      changeSystem(getIndexFromHash(), "next");
+    }
+  });
+  renderSystem(startIndex);
+  preloadSystem(systems[startIndex], true);
 
   systems.slice(1).forEach((system, index) => {
     window.setTimeout(() => {

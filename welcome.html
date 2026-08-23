@@ -2,40 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome Back | The We Method</title>
-
   <link rel="stylesheet" href="welcome.css">
 </head>
 
 <body class="welcome-page">
 
+  <div class="welcome-atmosphere" aria-hidden="true"></div>
+
   <main class="welcome-main">
 
-    <section
-      class="welcome-card"
-      aria-labelledby="welcome-title"
-    >
+    <section class="welcome-card" aria-labelledby="welcome-title">
 
       <header class="welcome-brand">
         <p class="welcome-monogram">TWM</p>
         <p class="welcome-brand-name">THE WE METHOD</p>
-        <p class="welcome-brand-subtitle">
-          PRIVATE CLIENT ACCESS
-        </p>
+        <p class="welcome-brand-subtitle">PRIVATE CLIENT ACCESS</p>
       </header>
 
-      <!-- Séparateur doré à la place du rond avec la tête -->
       <div class="welcome-ornament" aria-hidden="true"></div>
 
-      <p class="welcome-eyebrow">
-        PRIVATE ACCESS RECOGNIZED
-      </p>
+      <p class="welcome-eyebrow">ACCESS RECOGNIZED</p>
 
       <h1 id="welcome-title">
         WELCOME BACK,
@@ -43,28 +31,26 @@
       </h1>
 
       <p class="welcome-description">
-        It’s good to have you back. Your private resources,
-        purchased systems and current service journey
-        are ready for you.
+        Your private systems, purchased resources and service journey
+        are prepared. Enter when you are ready.
       </p>
 
       <div class="access-status">
-        <span aria-hidden="true">◆</span>
+        <span class="access-status-mark" aria-hidden="true"></span>
         MEMBER ACCESS ACTIVE
       </div>
 
-      <a
-        class="owner-suite-entry"
-        href="owner-suite.html"
-      >
-        ENTER THE OWNER’S SUITE
-      </a>
+      <div class="welcome-actions">
+        <a class="owner-suite-entry" href="owner-suite.html">
+          ENTER THE OWNER’S SUITE
+        </a>
 
-      <button
-        class="signout-button"
-        id="signout-button"
-        type="button"
-      >
+        <a class="vault-entry" href="knowledge-vault.html">
+          ENTER THE KNOWLEDGE VAULT
+        </a>
+      </div>
+
+      <button class="signout-button" id="signout-button" type="button">
         SIGN OUT
       </button>
 
@@ -73,15 +59,12 @@
   </main>
 
   <footer class="welcome-footer">
-
     <p>
       <strong>TWM</strong>
       <span>•</span>
       TESTED. PROVEN. BUILT TO LAST.
     </p>
-
     <p>Private Client Access</p>
-
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>

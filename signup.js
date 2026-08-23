@@ -1,9 +1,9 @@
-const supabaseClient = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_PUBLISHABLE_KEY
-);
+const supabaseClient = window.supabaseClient;
 
-console.log("Supabase est connecté.");
+if (!supabaseClient) {
+  console.error("Supabase client missing. Check supabase-config.js script order.");
+}
+
 const signupForm = document.getElementById("signup-form");
 
 if (!signupForm) {
@@ -85,18 +85,31 @@ if (!signupForm) {
           }
         }
       });
-if (error) {
-  throw error;
-}
-      if (data?.user?.identities?.length === 0) {
-  alert(
-    "An account may already exist with this email. Please sign in or reset your password."
-  );
-  return;
-}
+        if (error) {
+          const alreadyUsed =
+            /already/i.test(error.message || "") ||
+            /registered/i.test(error.message || "") ||
+            error.status === 422;
 
-     signupForm.reset();
-window.location.href = "account-created.html";
+          if (alreadyUsed) {
+            alert("This email already has an account. Please sign in.");
+            window.location.href = "signin.html";
+            return;
+          }
+
+          throw error;
+        }
+
+        const identities = data?.user?.identities || [];
+        if (!data?.user || identities.length === 0) {
+          alert("This email already has an account. Please sign in.");
+          window.location.href = "signin.html";
+          return;
+        }
+
+        signupForm.reset();
+        window.location.href = "account-created.html";
+        
     } catch (error) {
       console.error("Erreur d'inscription :", error);
 

@@ -785,7 +785,7 @@ a {
 
 .fleet-solution-card,
 .fleet-builder-card {
-    filter: brightness(0.82);
+    filter: none;
 }
 
 .service-icon {
@@ -814,12 +814,14 @@ a {
 }
 
 .coming-soon {
-    margin-top: -5px;
-    color: #c79a38;
+    margin-top: -4px;
+    margin-bottom: 8px;
+    color: #9a7a3a;
     font-family: "Montserrat", sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 3px;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
 }
 
 .service-card > p {
@@ -1748,4 +1750,3 @@ a {
   transform: translateY(-3px) scale(1.08);
   filter: drop-shadow(0 0 8px rgba(215, 179, 90, 0.6));
 }/* Nouveau fond de la page d'inscription */
-.

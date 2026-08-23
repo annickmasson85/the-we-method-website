@@ -20,7 +20,7 @@ setTimeout(() => {
   vault.classList.add("is-door-opening");
 }, 650);
     setTimeout(() => {
-      window.location.href = "knowledge-vault.html";
+      window.location.href = "knowledge-vault.html#business-launcher";
     }, 2300);
   }
 

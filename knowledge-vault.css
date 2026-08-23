@@ -1016,6 +1016,7 @@
   .vault-hero.is-book-open
   .vault-opening-layer {
   opacity: 1;
+  z-index: 6;
 }
 
 /* Chaque image possède déjà le coffre et le podium */
@@ -1037,7 +1038,7 @@
 
 .knowledge-vault-page
   .vault-opening-frame.is-changing-frame {
-  opacity: 0.82;
+  opacity: 1;
 }
 
 /* Cache la présentation fermée pendant l’animation */

@@ -595,3 +595,18 @@ body.signup-page::after {
 .security-message::first-letter {
   color: inherit;
 }
+.signup-message {
+  grid-column: 1 / -1;
+  min-height: 18px;
+  margin: 4px 0 0;
+  text-align: center;
+  color: #d8c7a4;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  line-height: 1.45;
+}
+
+.signup-message.is-error {
+  color: #e8c4b0;
+}

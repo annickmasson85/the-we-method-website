@@ -160,10 +160,16 @@ body.welcome-page {
   letter-spacing: 3px;
 }
 
-.access-status span {
-  margin-right: 9px;
+.access-status-mark {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 10px;
+  border: 1px solid var(--gold);
+  background: transparent;
+  transform: rotate(45deg);
+  vertical-align: 1px;
 }
-
 /* Bouton Owner’s Suite */
 
 .owner-suite-entry {
@@ -203,7 +209,59 @@ body.welcome-page {
     0 0 18px rgba(224, 184, 88, 0.52),
     0 12px 28px rgba(0, 0, 0, 0.64);
 }
+.welcome-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
 
+.vault-entry {
+  min-width: 310px;
+  padding: 15px 26px;
+
+  color: var(--gold-light);
+  text-decoration: none;
+
+  background: rgba(8, 7, 5, 0.45);
+  border: 1px solid rgba(200, 154, 56, 0.72);
+
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.vault-entry:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold-light);
+  box-shadow: 0 0 16px rgba(200, 154, 56, 0.28);
+}
+
+.welcome-atmosphere {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 35%,
+      rgba(0, 0, 0, 0.45) 100%
+    );
+  z-index: 0;
+}
+
+.welcome-main,
+.welcome-footer {
+  position: relative;
+  z-index: 1;
+}
 /* Bouton de déconnexion discret */
 
 .signout-button {
@@ -281,7 +339,8 @@ body.welcome-page {
   }
 
   .access-status,
-  .owner-suite-entry {
+  .owner-suite-entry,
+  .vault-entry {
     width: 100%;
     min-width: 0;
   }
