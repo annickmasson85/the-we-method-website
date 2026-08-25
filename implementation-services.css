@@ -312,14 +312,16 @@
   grid-template-columns: 1.05fr 1.15fr 0.7fr;
   gap: 0;
   align-items: stretch;
-  min-height: 420px;
+  min-height: 320px;
+  max-height: 360px;
   border-bottom: 1px solid var(--impl-line);
   background: #080705;
 }
 
 .impl-testimonial-photo {
   overflow: hidden;
-  min-height: 420px;
+  min-height: 320px;
+  max-height: 360px;
 }
 
 .impl-testimonial-photo img {
@@ -331,8 +333,9 @@
 }
 
 .impl-testimonial-letter {
-  padding: 40px 36px 36px;
+  padding: 28px 24px;
   border-right: 1px solid var(--impl-line);
+  overflow: auto;
 }
 
 .impl-letter-greeting {
@@ -398,10 +401,10 @@
 /* ===== CTA — comme le prototype ===== */
 .impl-cta {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
-  gap: 40px;
-  padding: 56px clamp(28px, 6vw, 100px);
+  gap: 24px;
+  padding: 40px clamp(24px, 5vw, 72px);
   background:
     radial-gradient(circle at 20% 50%, rgba(160, 110, 40, 0.08), transparent 40%),
     #060504;
@@ -414,9 +417,9 @@
 
 .impl-cta-book img {
   display: block;
-  width: min(100%, 340px);
+  width: min(100%, 480px);
   height: auto;
-  filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.75));
+  filter: drop-shadow(0 20px 36px rgba(0, 0, 0, 0.8));
 }
 
 .impl-cta-copy {
