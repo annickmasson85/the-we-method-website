@@ -718,3 +718,110 @@
     max-width: 330px;
   }
 }
+/* Petit bouton Sign In to Begin */
+.impl-cta .impl-button-gold {
+  min-width: 245px;
+  min-height: 52px;
+  padding: 0 24px;
+  font-size: 11px;
+}
+
+/* Taille du bouton sur téléphone */
+@media (max-width: 600px) {
+  .impl-cta .impl-button-gold {
+    width: auto;
+    min-width: 220px;
+    max-width: 100%;
+  }
+}
+/* Footer compact luxe */
+.implementation-page .site-footer.impl-footer {
+  margin: 0;
+  padding: 0;
+  background: #050505;
+  border-top: 1px solid rgba(201, 162, 77, 0.45);
+}
+
+.implementation-page .impl-footer .footer-main,
+.implementation-page .impl-footer .footer-bottom {
+  display: none;
+}
+
+.impl-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 52px;
+  padding: 14px clamp(20px, 4vw, 48px);
+}
+
+.impl-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.impl-footer-left strong {
+  color: var(--impl-gold);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.impl-footer-left span {
+  color: #8d8375;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+
+.impl-footer-social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.impl-footer-social a {
+  color: #a99f90;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.impl-footer-social a:hover {
+  color: var(--impl-light-gold);
+}
+
+.impl-footer-social span {
+  color: rgba(201, 162, 77, 0.55);
+}
+
+.impl-footer-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.impl-footer-right a,
+.impl-footer-right span {
+  color: #8d8375;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+}
+
+.impl-footer-right a:hover {
+  color: var(--impl-light-gold);
+}
+
+@media (max-width: 800px) {
+  .impl-footer-inner {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px;
+  }
+}
