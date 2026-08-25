@@ -1841,3 +1841,18 @@ a {
     padding: 16px;
   }
 }
+/* Menu : or sans soulignement */
+.main-navigation a.active,
+.main-navigation a:first-child {
+  color: #c9a24d;
+  border-bottom: none !important;
+}
+
+.main-navigation a.active::after,
+.main-navigation a:first-child::after,
+.main-navigation a::after {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+  height: 0 !important;
+}
