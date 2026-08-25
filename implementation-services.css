@@ -306,46 +306,70 @@
 }
 
 /* ===== TESTIMONIAL — 3 colonnes ===== */
+/* ===== TESTIMONIAL — lettre PaddlePOC ===== */
 .impl-testimonial {
   display: grid;
-  grid-template-columns: 180px minmax(0, 1.2fr) minmax(160px, 0.7fr);
-  gap: 28px;
-  align-items: center;
-  padding: 40px clamp(28px, 5vw, 80px);
+  grid-template-columns: 1.05fr 1.15fr 0.7fr;
+  gap: 0;
+  align-items: stretch;
+  min-height: 420px;
   border-bottom: 1px solid var(--impl-line);
   background: #080705;
 }
 
-.impl-testimonial-plaque img {
+.impl-testimonial-photo {
+  overflow: hidden;
+  min-height: 420px;
+}
+
+.impl-testimonial-photo img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
-.impl-testimonial blockquote {
-  margin: 0;
-  padding: 0 8px;
-  border-left: 0;
+.impl-testimonial-letter {
+  padding: 40px 36px 36px;
+  border-right: 1px solid var(--impl-line);
 }
 
-.impl-testimonial blockquote p {
-  margin: 0 0 12px;
-  color: #ddd2c2;
-  font-size: clamp(16px, 1.5vw, 20px);
-  line-height: 1.45;
+.impl-letter-greeting {
+  margin: 0 0 16px;
+  color: var(--impl-light-gold);
+  font-size: 18px;
+}
+
+.impl-testimonial-letter p {
+  margin: 0 0 14px;
+  color: #d8cdb8;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.impl-letter-closing {
+  color: var(--impl-light-gold) !important;
   font-style: italic;
 }
 
-.impl-testimonial blockquote footer {
-  color: var(--impl-muted);
-  font-size: 13px;
+.impl-letter-sign {
+  margin-top: 8px !important;
+  color: var(--impl-muted) !important;
+}
+
+.impl-testimonial-brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 36px 28px;
 }
 
 .impl-testimonial-brand strong {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: var(--impl-light-gold);
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 400;
 }
 
@@ -354,56 +378,63 @@
   display: block;
   color: var(--impl-muted);
   font-size: 13px;
-  line-height: 1.45;
+  line-height: 1.5;
   text-decoration: none;
 }
 
 .impl-testimonial-brand a {
+  margin-top: 10px;
   color: var(--impl-gold);
-  margin-top: 6px;
 }
 
 .impl-stars {
   display: block;
-  margin-top: 10px;
+  margin-top: 14px;
   color: var(--impl-gold);
-  letter-spacing: 2px;
+  letter-spacing: 3px;
+  font-size: 14px;
 }
 
-/* ===== CTA ===== */
+/* ===== CTA — comme le prototype ===== */
 .impl-cta {
   display: grid;
-  grid-template-columns: minmax(160px, 260px) minmax(0, 420px);
-  gap: 32px;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  justify-content: center;
-  padding: 48px clamp(28px, 5vw, 80px);
+  gap: 40px;
+  padding: 56px clamp(28px, 6vw, 100px);
   background:
-    radial-gradient(circle at 50% 0%, rgba(160, 110, 40, 0.1), transparent 42%),
+    radial-gradient(circle at 20% 50%, rgba(160, 110, 40, 0.08), transparent 40%),
     #060504;
+}
+
+.impl-cta-book {
+  display: flex;
+  justify-content: center;
 }
 
 .impl-cta-book img {
   display: block;
-  width: 100%;
-  max-width: 260px;
+  width: min(100%, 340px);
   height: auto;
-  margin: 0 auto;
-  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.75));
+  filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.75));
+}
+
+.impl-cta-copy {
+  max-width: 480px;
 }
 
 .impl-cta-copy h2 {
-  margin: 0 0 12px;
+  margin: 0 0 14px;
   color: var(--impl-ivory);
-  font-size: clamp(26px, 2.6vw, 36px);
+  font-size: clamp(28px, 3vw, 42px);
   font-weight: 400;
-  line-height: 1.15;
+  line-height: 1.12;
 }
 
 .impl-cta-copy p {
-  margin: 0 0 20px;
+  margin: 0 0 22px;
   color: var(--impl-muted);
-  font-size: 15px;
+  font-size: 16px;
 }
 
 /* ===== RESPONSIVE ===== */
