@@ -994,3 +994,68 @@
   background: none !important;
   height: 0 !important;
 }
+/* Scope sans coffre — layout normal */
+.business-foundry-page .foundry-scope {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+  width: min(calc(100% - 48px), 1240px) !important;
+  max-width: 1240px !important;
+  min-height: 0 !important;
+  margin: 40px auto 70px !important;
+  padding: 36px 48px !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 0 !important;
+  background: rgba(5, 5, 5, 0.95) !important;
+  border: 1px solid rgba(201, 154, 61, 0.55) !important;
+  z-index: auto !important;
+}
+
+.business-foundry-page .foundry-scope-column {
+  position: relative !important;
+  padding: 12px 40px !important;
+  min-height: 0 !important;
+}
+
+.business-foundry-page .foundry-scope-column:first-child {
+  border-right: 1px solid rgba(201, 154, 61, 0.4) !important;
+}
+
+.business-foundry-page .foundry-scope-column h2 {
+  margin: 0 0 14px !important;
+  color: #d1a451 !important;
+  font-size: clamp(18px, 1.4vw, 24px) !important;
+  letter-spacing: 2px !important;
+}
+
+.business-foundry-page .foundry-scope-column li {
+  color: #d6c9b4 !important;
+  font-size: clamp(15px, 1.1vw, 18px) !important;
+  line-height: 1.5 !important;
+}
+
+/* Cacher d’anciens styles coffre s’il en reste */
+.foundry-vault-section,
+.foundry-vault-scene,
+.foundry-vault-room,
+.foundry-vault-door,
+.foundry-vault-lock,
+.foundry-vault-button {
+  display: none !important;
+}
+
+@media (max-width: 800px) {
+  .business-foundry-page .foundry-scope {
+    grid-template-columns: 1fr !important;
+    padding: 28px 24px !important;
+  }
+
+  .business-foundry-page .foundry-scope-column:first-child {
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(201, 154, 61, 0.4) !important;
+    padding-bottom: 24px !important;
+    margin-bottom: 20px !important;
+  }
+}
