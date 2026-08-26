@@ -988,3 +988,281 @@
   position: relative;
   z-index: 30;
 }
+/* =========================================================
+   FROM OUR FAMILY TO YOURS
+   ========================================================= */
+
+.about-family {
+  position: relative;
+
+  padding: 92px 0;
+
+  color: #eee6d8;
+
+  background:
+    radial-gradient(
+      circle at 28% 48%,
+      rgba(185, 138, 59, 0.075),
+      transparent 29rem
+    ),
+    linear-gradient(
+      135deg,
+      #090806,
+      #050504 65%
+    );
+
+  border-top: 1px solid rgba(185, 138, 59, 0.48);
+  border-bottom: 1px solid rgba(185, 138, 59, 0.3);
+}
+
+
+/* DEUX COLONNES */
+
+.about-family-inner {
+  width: min(calc(100% - 80px), 1240px);
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  align-items: center;
+  gap: 78px;
+}
+
+
+/* CADRE DE LA PHOTO */
+
+.about-family-photo-frame {
+  position: relative;
+
+  margin: 0;
+  padding: 11px;
+
+  background: #080705;
+
+  border: 1px solid rgba(185, 138, 59, 0.72);
+
+  box-shadow:
+    0 28px 65px rgba(0, 0, 0, 0.48),
+    0 0 0 5px rgba(5, 5, 4, 0.8);
+}
+
+.about-family-photo-frame::before {
+  content: "";
+
+  position: absolute;
+  top: -13px;
+  left: -13px;
+
+  width: 72px;
+  height: 72px;
+
+  border-top: 1px solid #b98a3b;
+  border-left: 1px solid #b98a3b;
+
+  pointer-events: none;
+}
+
+.about-family-photo-frame::after {
+  content: "";
+
+  position: absolute;
+  right: -13px;
+  bottom: -13px;
+
+  width: 72px;
+  height: 72px;
+
+  border-right: 1px solid #b98a3b;
+  border-bottom: 1px solid #b98a3b;
+
+  pointer-events: none;
+}
+
+
+/*
+  IMPORTANT :
+  height: auto empêche la photo d’être coupée.
+  Il ne faut pas ajouter object-fit: cover.
+*/
+
+.about-family-photo {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  filter: none;
+}
+
+
+/* TEXTE */
+
+.about-family-copy {
+  max-width: 520px;
+}
+
+.about-family-eyebrow {
+  margin: 0 0 17px;
+
+  color: #b98a3b;
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.about-family-copy h2 {
+  margin: 0;
+
+  color: #eee6d8;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(48px, 5vw, 72px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.about-family-line {
+  width: 62px;
+  height: 1px;
+
+  margin: 27px 0 29px;
+
+  background: #b98a3b;
+}
+
+.about-family-copy > p:not(.about-family-eyebrow) {
+  margin: 0 0 18px;
+
+  color: #b9ae9e;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 19px;
+  line-height: 1.58;
+}
+
+
+/* SIGNATURE */
+
+.about-family-signature {
+  margin-top: 35px;
+  padding-top: 24px;
+
+  border-top: 1px solid rgba(185, 138, 59, 0.28);
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.about-family-signature span {
+  color: #b98a3b;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 20px;
+  font-style: italic;
+}
+
+.about-family-signature strong {
+  color: #d9b66e;
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TABLETTE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .about-family {
+    padding: 75px 0;
+  }
+
+  .about-family-inner {
+    width: min(calc(100% - 42px), 1240px);
+
+    grid-template-columns: 1fr;
+    gap: 55px;
+  }
+
+  .about-family-photo-frame {
+    max-width: 760px;
+    margin-inline: auto;
+  }
+
+  .about-family-copy {
+    max-width: 720px;
+    margin-inline: auto;
+
+    text-align: center;
+  }
+
+  .about-family-line {
+    margin-inline: auto;
+  }
+
+  .about-family-signature {
+    align-items: center;
+  }
+
+}
+
+
+/* =========================================================
+   TÉLÉPHONE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .about-family {
+    padding: 58px 0 65px;
+  }
+
+  .about-family-inner {
+    width: calc(100% - 30px);
+    gap: 43px;
+  }
+
+  .about-family-photo-frame {
+    padding: 7px;
+  }
+
+  .about-family-photo-frame::before,
+  .about-family-photo-frame::after {
+    width: 46px;
+    height: 46px;
+  }
+
+  .about-family-copy h2 {
+    font-size: 43px;
+  }
+
+  .about-family-copy > p:not(.about-family-eyebrow) {
+    font-size: 17px;
+  }
+
+}
+.about-family-copy .about-family-question {
+  margin: 27px 0;
+
+  color: #d9b66e;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 27px;
+  font-style: italic;
+  line-height: 1.3;
+}
