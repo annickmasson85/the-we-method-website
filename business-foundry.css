@@ -1540,7 +1540,8 @@
   visibility: visible !important;
   opacity: 1 !important;
   width: auto !important;
-  min-width: min(390px, 100%) !important;
+  min-width: min(340px, 100%) !important;
+padding: 16px 19px !important;
   margin: 0 !important;
   padding: 19px 27px !important;
   color: #d4aa62 !important;
@@ -1565,4 +1566,59 @@
 
 .foundry-vault-invitation a.foundry-vault-button span:first-child {
   white-space: nowrap !important;
+}
+/* FIX — KNOWLEDGE VAULT BUTTON */
+
+.foundry-vault-invitation .foundry-vault-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  width: min(390px, 100%) !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+
+  padding: 18px 23px !important;
+  gap: 20px !important;
+
+  box-sizing: border-box !important;
+
+  font-size: 11px !important;
+  line-height: 1 !important;
+  letter-spacing: 2.2px !important;
+  white-space: nowrap;
+}
+
+.foundry-vault-invitation
+.foundry-vault-button > span:first-child {
+  display: block !important;
+  flex: 1 1 auto;
+
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+  letter-spacing: 2.2px !important;
+  white-space: nowrap !important;
+}
+
+.foundry-vault-invitation .foundry-vault-arrow {
+  position: static !important;
+  inset: auto !important;
+
+  display: block !important;
+  flex: 0 0 auto;
+
+  width: auto !important;
+  margin: 0 !important;
+
+  font-size: 18px !important;
+  line-height: 1 !important;
+}
+
+@media (max-width: 560px) {
+  .foundry-vault-invitation
+  .foundry-vault-button > span:first-child {
+    font-size: 9px !important;
+    letter-spacing: 1.5px !important;
+  }
 }
