@@ -1671,3 +1671,15 @@ padding: 16px 19px !important;
 
   pointer-events: none;
 }
+/* Nouvelle image avec le fondu déjà intégré */
+.business-foundry-page .foundry-hero-image {
+  background-image: url("images/business-foundry-hero-faded.png") !important;
+  background-size: cover;
+  background-position: center;
+  filter: none !important;
+}
+
+.business-foundry-page .foundry-hero-image::before,
+.business-foundry-page .foundry-hero-image::after {
+  content: none !important;
+}
