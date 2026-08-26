@@ -1,0 +1,613 @@
+:root {
+  --fleet-black: #050504;
+  --fleet-black-soft: #0b0a08;
+  --fleet-ivory: #e8decb;
+  --fleet-muted: #b9ae9c;
+  --fleet-gold: #b68a42;
+  --fleet-gold-light: #d2aa61;
+  --fleet-border: rgba(182, 138, 66, 0.55);
+}
+
+
+/* PAGE */
+
+.fleet-builder-page {
+  margin: 0;
+  color: var(--fleet-ivory);
+  background: var(--fleet-black);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.fleet-builder-page * {
+  box-sizing: border-box;
+}
+
+.fleet-builder-page img {
+  display: block;
+  max-width: 100%;
+}
+
+
+/* HERO */
+
+.fleet-builder-hero {
+  position: relative;
+  min-height: 760px;
+  isolation: isolate;
+  overflow: hidden;
+
+  border-top: 1px solid var(--fleet-border);
+  border-bottom: 1px solid var(--fleet-border);
+
+  background: #070604;
+}
+
+.fleet-builder-hero-image {
+  position: absolute;
+  z-index: -3;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  animation: fleet-builder-breath 18s ease-in-out infinite alternate;
+}
+
+.fleet-builder-overlay {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 3, 2, 0.99) 0%,
+      rgba(3, 3, 2, 0.94) 19%,
+      rgba(3, 3, 2, 0.60) 39%,
+      rgba(3, 3, 2, 0.08) 66%,
+      rgba(3, 3, 2, 0.18) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(2, 2, 1, 0.38),
+      transparent 42%
+    );
+}
+
+.fleet-builder-hero::after {
+  position: absolute;
+  z-index: -1;
+  top: -25%;
+  right: 7%;
+
+  width: 55%;
+  height: 120%;
+
+  content: "";
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(185, 132, 49, 0.13),
+      transparent 65%
+    );
+
+  animation: fleet-builder-light 10s ease-in-out infinite alternate;
+}
+
+.fleet-builder-content {
+  width: min(560px, 47vw);
+
+  padding:
+    clamp(115px, 15vh, 165px)
+    0
+    90px
+    clamp(30px, 5vw, 82px);
+
+  text-shadow: 0 3px 22px rgba(0, 0, 0, 0.85);
+}
+
+.fleet-builder-eyebrow {
+  margin: 0 0 34px;
+
+  color: var(--fleet-gold-light);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.fleet-builder-content h1 {
+  margin: 0;
+
+  color: #eee5d5;
+
+  font-size: clamp(48px, 5.2vw, 84px);
+  font-weight: 400;
+  line-height: 0.96;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.fleet-builder-line {
+  display: block;
+
+  width: 34px;
+  height: 1px;
+
+  margin: 31px 0 28px;
+
+  background: var(--fleet-gold-light);
+}
+
+.fleet-builder-content h2 {
+  margin: 0;
+
+  color: var(--fleet-gold-light);
+
+  font-size: clamp(31px, 3.1vw, 51px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+
+  background:
+    linear-gradient(
+      100deg,
+      #bd8d40,
+      #e1bf79,
+      #9d6d2c
+    );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fleet-builder-description {
+  max-width: 385px;
+
+  margin: 25px 0 0;
+
+  color: #d0c6b7;
+
+  font-size: 15px;
+  line-height: 1.72;
+}
+
+.fleet-builder-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+
+  margin-top: 31px;
+
+  color: var(--fleet-gold-light);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.fleet-builder-link span {
+  font-size: 20px;
+  transition: transform 220ms ease;
+}
+
+.fleet-builder-link:hover span {
+  transform: translateX(8px);
+}
+
+
+/* DETAIL CARDS */
+
+.fleet-builder-details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  background: #080706;
+}
+
+.fleet-builder-card {
+  min-width: 0;
+
+  border-right: 1px solid var(--fleet-border);
+
+  background: #0a0907;
+}
+
+.fleet-builder-card:last-child {
+  border-right: 0;
+}
+
+.fleet-builder-card-image {
+  position: relative;
+
+  overflow: hidden;
+  aspect-ratio: 1.52 / 1;
+
+  border-bottom: 1px solid var(--fleet-border);
+}
+
+.fleet-builder-card-image::after {
+  position: absolute;
+  inset: 0;
+
+  content: "";
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 58%,
+      rgba(4, 3, 2, 0.36)
+    );
+}
+
+.fleet-builder-card-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  filter:
+    saturate(0.88)
+    contrast(1.04);
+
+  transition:
+    transform 900ms cubic-bezier(0.2, 0.65, 0.2, 1),
+    filter 600ms ease;
+}
+
+.fleet-builder-card:hover img {
+  transform: scale(1.035);
+
+  filter:
+    saturate(1)
+    contrast(1.04);
+}
+
+.fleet-builder-card-content {
+  min-height: 215px;
+
+  padding: 28px 25px 31px;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(158, 112, 45, 0.08),
+      transparent 46%
+    ),
+    linear-gradient(
+      180deg,
+      #16130f,
+      #0a0907
+    );
+}
+
+.fleet-builder-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+
+  margin: 0 0 18px;
+
+  color: var(--fleet-gold-light);
+
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.fleet-builder-number span {
+  width: 30px;
+  height: 1px;
+
+  background: var(--fleet-border);
+}
+
+.fleet-builder-card h3 {
+  margin: 0;
+
+  color: #dacfbd;
+
+  font-size: clamp(23px, 2.2vw, 35px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.fleet-builder-seal {
+  display: grid;
+  place-items: center;
+
+  width: 32px;
+  height: 22px;
+
+  margin: 21px auto 0;
+
+  border: 1px solid rgba(182, 138, 66, 0.56);
+  border-radius: 50%;
+
+  color: var(--fleet-gold);
+
+  font-family: "Brush Script MT", cursive;
+  font-size: 13px;
+
+  transform: rotate(-8deg);
+}
+
+
+/* LEGACY */
+
+.fleet-builder-legacy {
+  position: relative;
+
+  min-height: 330px;
+
+  padding: 78px 24px 70px;
+
+  overflow: hidden;
+
+  text-align: center;
+
+  border-top: 1px solid rgba(182, 138, 66, 0.25);
+
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(150, 102, 38, 0.08),
+      transparent 33%
+    ),
+    linear-gradient(
+      180deg,
+      #0b0a08,
+      #050504
+    );
+}
+
+.fleet-builder-legacy h2 {
+  margin: 0;
+
+  color: var(--fleet-gold-light);
+
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.27em;
+  text-transform: uppercase;
+}
+
+.fleet-builder-legacy-line {
+  display: block;
+
+  width: 36px;
+  height: 1px;
+
+  margin: 22px auto 18px;
+
+  background: var(--fleet-gold);
+}
+
+.fleet-builder-legacy > p {
+  margin: 0;
+
+  color: #cfc3b2;
+
+  font-size: 19px;
+  font-style: italic;
+}
+
+.fleet-builder-signature {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 11px;
+
+  margin-top: 31px;
+
+  color: var(--fleet-gold-light);
+
+  text-transform: uppercase;
+}
+
+.fleet-builder-signature small {
+  font-size: 9px;
+  letter-spacing: 0.28em;
+}
+
+.fleet-builder-signature strong {
+  font-family:
+    "Brush Script MT",
+    "Segoe Script",
+    cursive;
+
+  font-size: 61px;
+  font-weight: 400;
+  line-height: 0.8;
+
+  text-transform: none;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes fleet-builder-breath {
+  from {
+    transform: scale(1.001);
+  }
+
+  to {
+    transform: scale(1.025);
+  }
+}
+
+@keyframes fleet-builder-light {
+  from {
+    opacity: 0.45;
+    transform: translateX(-3%);
+  }
+
+  to {
+    opacity: 0.9;
+    transform: translateX(3%);
+  }
+}
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+  .fleet-builder-hero {
+    min-height: 760px;
+  }
+
+  .fleet-builder-hero-image {
+    object-position: 62% center;
+  }
+
+  .fleet-builder-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3, 3, 2, 0.98) 0%,
+        rgba(3, 3, 2, 0.87) 45%,
+        rgba(3, 3, 2, 0.25) 80%
+      ),
+      linear-gradient(
+        0deg,
+        rgba(2, 2, 1, 0.45),
+        transparent 40%
+      );
+  }
+
+  .fleet-builder-content {
+    width: min(520px, 72vw);
+    padding-top: 125px;
+  }
+
+  .fleet-builder-details {
+    grid-template-columns: 1fr;
+  }
+
+  .fleet-builder-card {
+    border-right: 0;
+    border-bottom: 1px solid var(--fleet-border);
+  }
+
+  .fleet-builder-card-image {
+    aspect-ratio: 1.7 / 1;
+  }
+}
+
+
+/* PHONE */
+
+@media (max-width: 600px) {
+
+  .fleet-builder-hero {
+    min-height: 720px;
+  }
+
+  .fleet-builder-hero-image {
+    object-position: 66% center;
+  }
+
+  .fleet-builder-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3, 3, 2, 0.98) 0%,
+        rgba(3, 3, 2, 0.88) 64%,
+        rgba(3, 3, 2, 0.50) 100%
+      ),
+      linear-gradient(
+        0deg,
+        rgba(2, 2, 1, 0.56),
+        transparent 42%
+      );
+  }
+
+  .fleet-builder-content {
+    width: 100%;
+
+    padding:
+      100px
+      24px
+      72px;
+  }
+
+  .fleet-builder-eyebrow {
+    margin-bottom: 25px;
+
+    font-size: 8px;
+    letter-spacing: 0.22em;
+  }
+
+  .fleet-builder-content h1 {
+    font-size: clamp(43px, 14vw, 61px);
+  }
+
+  .fleet-builder-content h2 {
+    font-size: clamp(28px, 9vw, 41px);
+  }
+
+  .fleet-builder-description {
+    max-width: 315px;
+
+    font-size: 14px;
+  }
+
+  .fleet-builder-card-content {
+    min-height: 180px;
+  }
+
+  .fleet-builder-legacy {
+    min-height: 300px;
+    padding-top: 66px;
+  }
+
+  .fleet-builder-legacy h2 {
+    font-size: 17px;
+    line-height: 1.4;
+    letter-spacing: 0.2em;
+  }
+}
+
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .fleet-builder-hero-image,
+  .fleet-builder-hero::after,
+  .fleet-builder-card-image img {
+    animation: none;
+    transition: none;
+  }
+}
+/* Menu actif = Fleet Builder */
+.fleet-builder-page .main-navigation a.active {
+  color: var(--fleet-gold-light);
+}
+
+.fleet-builder-page .main-navigation a:first-child {
+  color: inherit;
+  border-bottom: none;
+}
+
+.fleet-builder-page .main-navigation a.active::after,
+.fleet-builder-page .main-navigation a:first-child::after {
+  display: none !important;
+}
