@@ -1644,3 +1644,30 @@ padding: 16px 19px !important;
   mix-blend-mode: normal !important;
   opacity: 1 !important;
 }
+/* SOFT FADE — BOTTOM OF HERO IMAGE ONLY */
+
+.business-foundry-page .foundry-hero-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.business-foundry-page .foundry-hero-image::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  height: 95px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 5, 5, 0) 0%,
+    rgba(5, 5, 5, 0.28) 45%,
+    #050505 100%
+  );
+
+  pointer-events: none;
+}
