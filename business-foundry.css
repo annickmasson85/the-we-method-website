@@ -1553,3 +1553,16 @@
   text-decoration: none !important;
   cursor: pointer !important;
 }
+.foundry-vault-invitation a.foundry-vault-button {
+  white-space: nowrap !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  padding: 16px 22px !important;
+  font-size: 10px !important;
+  letter-spacing: 0.18em !important;
+  gap: 18px !important;
+}
+
+.foundry-vault-invitation a.foundry-vault-button span:first-child {
+  white-space: nowrap !important;
+}
