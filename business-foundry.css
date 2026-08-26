@@ -1629,3 +1629,18 @@ padding: 16px 19px !important;
   mix-blend-mode: normal !important;
   opacity: 1 !important;
 }
+/* ORIGINAL HERO PHOTO — REMOVE GOLD OVERLAY */
+
+.business-foundry-page .foundry-hero-image {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(8, 8, 8, 0.72) 0%,
+      transparent 28%
+    ),
+    url("images/business-foundry-hero.png") !important;
+
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  opacity: 1 !important;
+}
