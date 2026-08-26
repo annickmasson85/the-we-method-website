@@ -1087,3 +1087,49 @@ html {
   position: relative;
   z-index: 30;
 }
+/* ======================================================
+   FIX — HERO WRITING INSIDE BLACK CORNER
+====================================================== */
+
+@media (min-width: 821px) {
+  .fleet-solution-page .fs-hero-content {
+    width: min(calc(100% - 80px), 1440px);
+    padding-block: 95px;
+  }
+
+  .fleet-solution-page .fs-hero h1 {
+    max-width: 430px;
+
+    font-size: clamp(70px, 5.2vw, 94px);
+    line-height: 0.79;
+    letter-spacing: -0.035em;
+  }
+
+  .fleet-solution-page .fs-hero h2 {
+    max-width: 420px;
+
+    font-size: clamp(30px, 2.8vw, 42px);
+    line-height: 1;
+  }
+
+  .fleet-solution-page .fs-hero-description {
+    max-width: 390px;
+  }
+
+  .fleet-solution-page .fs-hero-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(4, 4, 3, 0.99) 0%,
+        rgba(4, 4, 3, 0.97) 24%,
+        rgba(4, 4, 3, 0.88) 38%,
+        rgba(4, 4, 3, 0.47) 51%,
+        rgba(4, 4, 3, 0.05) 74%
+      ),
+      linear-gradient(
+        0deg,
+        rgba(4, 4, 3, 0.53) 0%,
+        transparent 42%
+      );
+  }
+}
