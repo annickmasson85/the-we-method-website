@@ -1047,7 +1047,6 @@
   min-width: min(390px, 100%);
   box-shadow: none !important;
 }
-}
 
 @media (max-width: 800px) {
   .business-foundry-page .foundry-scope {
@@ -1528,4 +1527,29 @@
   width: auto !important;
   min-width: min(390px, 100%);
   box-shadow: none !important;
+}
+/* FORCE bouton invitation */
+.foundry-vault-invitation a.foundry-vault-button {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  top: auto !important;
+  transform: none !important;
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: auto !important;
+  min-width: min(390px, 100%) !important;
+  margin: 0 !important;
+  padding: 19px 27px !important;
+  color: #d4aa62 !important;
+  background: rgba(3, 3, 3, 0.72) !important;
+  border: 1px solid #ad7c31 !important;
+  box-shadow: none !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 11px !important;
+  letter-spacing: 2.6px !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
 }
