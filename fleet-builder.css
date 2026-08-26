@@ -329,25 +329,15 @@
 }
 
 .fleet-builder-seal {
-  display: grid;
-  place-items: center;
-
-  width: 32px;
-  height: 22px;
-
-  margin: 21px auto 0;
-
-  border: 1px solid rgba(182, 138, 66, 0.56);
-  border-radius: 50%;
-
-  color: var(--fleet-gold);
-
-  font-family: "Brush Script MT", cursive;
-  font-size: 13px;
-
-  transform: rotate(-8deg);
+  margin: 18px auto 0;
+  color: var(--fleet-gold-light);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  border: none;
+  transform: none;
 }
-
 
 /* LEGACY */
 
@@ -410,33 +400,18 @@
 
 .fleet-builder-signature {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: center;
-  gap: 11px;
-
-  margin-top: 31px;
-
+  margin-top: 28px;
   color: var(--fleet-gold-light);
-
-  text-transform: uppercase;
-}
-
-.fleet-builder-signature small {
-  font-size: 9px;
-  letter-spacing: 0.28em;
 }
 
 .fleet-builder-signature strong {
-  font-family:
-    "Brush Script MT",
-    "Segoe Script",
-    cursive;
-
-  font-size: 61px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 42px;
   font-weight: 400;
-  line-height: 0.8;
-
-  text-transform: none;
+  letter-spacing: 0.12em;
+  line-height: 1;
 }
 
 
