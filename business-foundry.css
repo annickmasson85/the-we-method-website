@@ -1622,14 +1622,10 @@ padding: 16px 19px !important;
     letter-spacing: 1.5px !important;
   }
 }
-/* REMOVE GOLDEN FILTER — BUSINESS FOUNDRY HERO */
+/* RESTORE ORIGINAL HERO PHOTO */
 
 .business-foundry-page .foundry-hero-image {
-  filter:
-    grayscale(0.18)
-    saturate(0.68)
-    brightness(0.92)
-    contrast(1.07) !important;
-
+  filter: none !important;
   mix-blend-mode: normal !important;
+  opacity: 1 !important;
 }
