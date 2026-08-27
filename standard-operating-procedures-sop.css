@@ -1,0 +1,262 @@
+/* =========================================================
+   STANDARD OPERATING PROCEDURES — SOP
+
+   Shared visual foundation:
+   business-launcher.css
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   HERO
+--------------------------------------------------------- */
+
+.sop-details-page .bl-hero-copy {
+  max-width: 900px;
+}
+
+
+.sop-details-page .bl-hero h1 {
+  max-width: 900px;
+
+  font-size: clamp(50px, 5.6vw, 92px);
+
+  line-height: 0.76;
+
+  letter-spacing: -0.047em;
+}
+
+
+/* ---------------------------------------------------------
+   RESOURCE FORMAT
+--------------------------------------------------------- */
+
+.sop-resource-type {
+  display: block;
+
+  max-width: 270px;
+
+  margin: 14px auto 0;
+
+  color: #dec37e;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: clamp(22px, 2vw, 30px);
+
+  font-weight: 500;
+
+  line-height: 1.05;
+
+  letter-spacing: 0.04em;
+
+  text-transform: uppercase;
+}
+
+
+/* ---------------------------------------------------------
+   PDF BADGE
+--------------------------------------------------------- */
+
+.sop-details-page .sop-pdf-badge {
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* ---------------------------------------------------------
+   RESOURCE GRID
+--------------------------------------------------------- */
+
+.sop-details-page
+.sop-resource-grid
+.bl-resource-item {
+  grid-template-columns:
+    28px
+    minmax(0, 1fr);
+}
+
+
+.sop-details-page
+.sop-resource-grid
+.bl-resource-name {
+  max-width: 100%;
+}
+
+
+/* ---------------------------------------------------------
+   FINAL CTA
+--------------------------------------------------------- */
+
+.sop-details-page .bl-cta-copy {
+  max-width: 760px;
+}
+
+
+.sop-details-page .bl-cta-copy h2 {
+  max-width: 760px;
+
+  line-height: 0.95;
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER
+--------------------------------------------------------- */
+
+.sop-footer {
+  display: grid;
+
+  grid-template-columns:
+    minmax(260px, 1fr)
+    auto
+    minmax(260px, 1fr);
+
+  align-items: center;
+
+  gap: 30px;
+
+  min-height: 54px;
+
+  padding:
+    12px
+    clamp(28px, 4.4vw, 80px);
+
+  border-top:
+    1px solid
+    rgba(182, 146, 71, 0.42);
+
+  color: #82786a;
+
+  background: #020202;
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+
+/* FOOTER — LEFT */
+
+.sop-footer-left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+}
+
+
+.sop-footer-left strong {
+  color: #dec37e;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 20px;
+
+  font-weight: 500;
+
+  letter-spacing: -0.04em;
+}
+
+
+/* FOOTER — CENTER */
+
+.sop-footer-social {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+}
+
+
+.sop-footer-dot {
+  color: #b69247;
+}
+
+
+/* FOOTER — RIGHT */
+
+.sop-footer-right {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 22px;
+}
+
+
+/* ---------------------------------------------------------
+   TABLET
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+  .sop-footer {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+
+    padding-top: 20px;
+
+    padding-bottom: 20px;
+
+    text-align: center;
+  }
+
+
+  .sop-footer-left,
+  .sop-footer-social,
+  .sop-footer-right {
+    justify-content: center;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 560px) {
+
+  .sop-details-page .bl-hero h1 {
+    font-size: clamp(43px, 13.5vw, 65px);
+
+    line-height: 0.82;
+  }
+
+
+  .sop-footer-left,
+  .sop-footer-right {
+    flex-direction: column;
+
+    gap: 6px;
+  }
+
+}
