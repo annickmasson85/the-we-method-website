@@ -2080,3 +2080,19 @@
   visibility: visible !important;
   z-index: 25 !important;
 }
+/* Ne plus cacher le livre quand il est ouvert */
+.knowledge-vault-page .vault-hero.is-book-open .vault-system-layout,
+.knowledge-vault-page .vault-hero.is-book-opening .vault-system-layout {
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.knowledge-vault-page .vault-hero.is-book-open .vault-book-image {
+  height: clamp(280px, 38vh, 420px) !important;
+  max-width: min(100%, 720px) !important;
+}
+
+.knowledge-vault-page .vault-hero.is-book-open .vault-opening-layer {
+  display: none !important;
+}
