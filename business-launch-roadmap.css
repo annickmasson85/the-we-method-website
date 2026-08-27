@@ -1,0 +1,199 @@
+/* =========================================================
+   BUSINESS LAUNCH ROADMAP
+   Uses business-launcher.css as the shared visual foundation
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   HERO TITLE
+--------------------------------------------------------- */
+
+.business-launch-roadmap-page .bl-hero h1 {
+  max-width: 900px;
+
+  font-size: clamp(58px, 6.4vw, 106px);
+  line-height: 0.78;
+}
+
+
+/* ---------------------------------------------------------
+   PRICE CARD
+--------------------------------------------------------- */
+
+.blr-resource-type {
+  display: block;
+
+  max-width: 250px;
+
+  margin: 14px auto 0;
+
+  color: #dec37e;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 500;
+
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+
+  text-transform: uppercase;
+}
+
+
+/* ---------------------------------------------------------
+   PDF BADGE
+--------------------------------------------------------- */
+
+.business-launch-roadmap-page .blr-pdf-badge {
+  font-family: "Montserrat", Arial, sans-serif;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* ---------------------------------------------------------
+   RESOURCE LIST
+   No individual prices on this resource.
+--------------------------------------------------------- */
+
+.business-launch-roadmap-page .blr-resource-grid .bl-resource-item {
+  grid-template-columns: 28px minmax(0, 1fr);
+}
+
+.business-launch-roadmap-page .blr-resource-grid .bl-resource-name {
+  max-width: 100%;
+}
+
+
+/* ---------------------------------------------------------
+   FINAL FOOTER
+--------------------------------------------------------- */
+
+.blr-footer {
+  display: grid;
+
+  grid-template-columns:
+    minmax(260px, 1fr)
+    auto
+    minmax(260px, 1fr);
+
+  align-items: center;
+
+  gap: 30px;
+
+  min-height: 54px;
+
+  padding:
+    12px
+    clamp(28px, 4.4vw, 80px);
+
+  border-top: 1px solid rgba(182, 146, 71, 0.42);
+
+  color: #82786a;
+
+  background: #020202;
+
+  font-family: "Montserrat", Arial, sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+
+/* LEFT */
+
+.blr-footer-left {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+}
+
+.blr-footer-left strong {
+  color: #dec37e;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+
+  font-size: 20px;
+  font-weight: 500;
+
+  letter-spacing: -0.04em;
+}
+
+
+/* CENTER */
+
+.blr-footer-social {
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+}
+
+.blr-footer-dot {
+  color: #b69247;
+}
+
+
+/* RIGHT */
+
+.blr-footer-right {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 22px;
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+  .blr-footer {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    text-align: center;
+  }
+
+  .blr-footer-left,
+  .blr-footer-social,
+  .blr-footer-right {
+    justify-content: center;
+  }
+
+}
+
+
+@media (max-width: 560px) {
+
+  .business-launch-roadmap-page .bl-hero h1 {
+    font-size: clamp(48px, 16vw, 72px);
+    line-height: 0.82;
+  }
+
+  .blr-footer-left,
+  .blr-footer-right {
+    flex-direction: column;
+
+    gap: 6px;
+  }
+
+}
