@@ -476,3 +476,18 @@
     text-align: center;
   }
 }
+.knowledge-vault-page .main-navigation a:first-child {
+  color: inherit;
+  border-bottom: none;
+}
+
+.knowledge-vault-page .main-navigation a.active {
+  color: #e4c77a;
+}
+
+.knowledge-vault-page .main-navigation a::after,
+.knowledge-vault-page .main-navigation a:first-child::after,
+.knowledge-vault-page .main-navigation a.active::after {
+  display: none !important;
+  content: none !important;
+}
