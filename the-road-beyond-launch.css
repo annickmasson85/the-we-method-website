@@ -1,0 +1,262 @@
+/* =========================================================
+   THE ROAD BEYOND LAUNCH
+
+   Shared visual foundation:
+   business-launcher.css
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   HERO
+--------------------------------------------------------- */
+
+.road-beyond-launch-page .bl-hero-copy {
+  max-width: 950px;
+}
+
+
+.road-beyond-launch-page .bl-hero h1 {
+  max-width: 1000px;
+
+  font-size: clamp(58px, 6vw, 100px);
+
+  line-height: 0.77;
+
+  letter-spacing: -0.048em;
+}
+
+
+/* ---------------------------------------------------------
+   RESOURCE FORMAT
+--------------------------------------------------------- */
+
+.rbl-resource-type {
+  display: block;
+
+  max-width: 270px;
+
+  margin: 14px auto 0;
+
+  color: #dec37e;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: clamp(22px, 2vw, 30px);
+
+  font-weight: 500;
+
+  line-height: 1.05;
+
+  letter-spacing: 0.04em;
+
+  text-transform: uppercase;
+}
+
+
+/* ---------------------------------------------------------
+   PDF BADGE
+--------------------------------------------------------- */
+
+.road-beyond-launch-page .rbl-pdf-badge {
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* ---------------------------------------------------------
+   RESOURCE GRID
+--------------------------------------------------------- */
+
+.road-beyond-launch-page
+.rbl-resource-grid
+.bl-resource-item {
+  grid-template-columns:
+    28px
+    minmax(0, 1fr);
+}
+
+
+.road-beyond-launch-page
+.rbl-resource-grid
+.bl-resource-name {
+  max-width: 100%;
+}
+
+
+/* ---------------------------------------------------------
+   FINAL CTA
+--------------------------------------------------------- */
+
+.road-beyond-launch-page .bl-cta-copy {
+  max-width: 780px;
+}
+
+
+.road-beyond-launch-page .bl-cta-copy h2 {
+  max-width: 760px;
+
+  line-height: 0.95;
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER
+--------------------------------------------------------- */
+
+.rbl-footer {
+  display: grid;
+
+  grid-template-columns:
+    minmax(260px, 1fr)
+    auto
+    minmax(260px, 1fr);
+
+  align-items: center;
+
+  gap: 30px;
+
+  min-height: 54px;
+
+  padding:
+    12px
+    clamp(28px, 4.4vw, 80px);
+
+  border-top:
+    1px solid
+    rgba(182, 146, 71, 0.42);
+
+  color: #82786a;
+
+  background: #020202;
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+
+/* FOOTER — LEFT */
+
+.rbl-footer-left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+}
+
+
+.rbl-footer-left strong {
+  color: #dec37e;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 20px;
+
+  font-weight: 500;
+
+  letter-spacing: -0.04em;
+}
+
+
+/* FOOTER — CENTER */
+
+.rbl-footer-social {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+}
+
+
+.rbl-footer-dot {
+  color: #b69247;
+}
+
+
+/* FOOTER — RIGHT */
+
+.rbl-footer-right {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 22px;
+}
+
+
+/* ---------------------------------------------------------
+   TABLET
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+  .rbl-footer {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+
+    padding-top: 20px;
+
+    padding-bottom: 20px;
+
+    text-align: center;
+  }
+
+
+  .rbl-footer-left,
+  .rbl-footer-social,
+  .rbl-footer-right {
+    justify-content: center;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 560px) {
+
+  .road-beyond-launch-page .bl-hero h1 {
+    font-size: clamp(47px, 14vw, 70px);
+
+    line-height: 0.83;
+  }
+
+
+  .rbl-footer-left,
+  .rbl-footer-right {
+    flex-direction: column;
+
+    gap: 6px;
+  }
+
+}
