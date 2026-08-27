@@ -1,0 +1,267 @@
+/* =========================================================
+   BUSINESS PLAN TEMPLATE & EXAMPLE
+
+   Shared visual foundation:
+   business-launcher.css
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   HERO
+--------------------------------------------------------- */
+
+.business-plan-template-page .bl-hero-copy {
+  max-width: 900px;
+}
+
+
+.business-plan-template-page .bl-hero h1 {
+  max-width: 950px;
+
+  font-size: clamp(54px, 5.9vw, 98px);
+
+  line-height: 0.77;
+
+  letter-spacing: -0.047em;
+}
+
+
+/* ---------------------------------------------------------
+   RESOURCE FORMAT
+--------------------------------------------------------- */
+
+.bpe-resource-type {
+  display: block;
+
+  max-width: 260px;
+
+  margin: 14px auto 0;
+
+  color: #dec37e;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: clamp(22px, 2vw, 30px);
+
+  font-weight: 500;
+
+  line-height: 1.05;
+
+  letter-spacing: 0.04em;
+
+  text-transform: uppercase;
+}
+
+
+/* ---------------------------------------------------------
+   PDF BADGE
+--------------------------------------------------------- */
+
+.business-plan-template-page .bpe-pdf-badge {
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* ---------------------------------------------------------
+   RESOURCE GRID
+
+   Individual items do not display individual prices,
+   so the grid only needs number + title.
+--------------------------------------------------------- */
+
+.business-plan-template-page
+.bpe-resource-grid
+.bl-resource-item {
+  grid-template-columns:
+    28px
+    minmax(0, 1fr);
+}
+
+
+.business-plan-template-page
+.bpe-resource-grid
+.bl-resource-name {
+  max-width: 100%;
+}
+
+
+/* ---------------------------------------------------------
+   FINAL CTA
+
+   Long title needs slightly more room.
+--------------------------------------------------------- */
+
+.business-plan-template-page
+.bl-cta-copy {
+  max-width: 720px;
+}
+
+
+.business-plan-template-page
+.bl-cta-copy h2 {
+  line-height: 0.95;
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER
+--------------------------------------------------------- */
+
+.bpe-footer {
+  display: grid;
+
+  grid-template-columns:
+    minmax(260px, 1fr)
+    auto
+    minmax(260px, 1fr);
+
+  align-items: center;
+
+  gap: 30px;
+
+  min-height: 54px;
+
+  padding:
+    12px
+    clamp(28px, 4.4vw, 80px);
+
+  border-top:
+    1px solid
+    rgba(182, 146, 71, 0.42);
+
+  color: #82786a;
+
+  background: #020202;
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+
+/* FOOTER — LEFT */
+
+.bpe-footer-left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+}
+
+
+.bpe-footer-left strong {
+  color: #dec37e;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 20px;
+
+  font-weight: 500;
+
+  letter-spacing: -0.04em;
+}
+
+
+/* FOOTER — CENTER */
+
+.bpe-footer-social {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+}
+
+
+.bpe-footer-dot {
+  color: #b69247;
+}
+
+
+/* FOOTER — RIGHT */
+
+.bpe-footer-right {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 22px;
+}
+
+
+/* ---------------------------------------------------------
+   TABLET
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+  .bpe-footer {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+
+    padding-top: 20px;
+
+    padding-bottom: 20px;
+
+    text-align: center;
+  }
+
+
+  .bpe-footer-left,
+  .bpe-footer-social,
+  .bpe-footer-right {
+    justify-content: center;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 560px) {
+
+  .business-plan-template-page .bl-hero h1 {
+    font-size: clamp(45px, 14vw, 68px);
+
+    line-height: 0.82;
+  }
+
+
+  .bpe-footer-left,
+  .bpe-footer-right {
+    flex-direction: column;
+
+    gap: 6px;
+  }
+
+}
