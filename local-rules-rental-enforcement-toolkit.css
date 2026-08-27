@@ -1,0 +1,280 @@
+/* =========================================================
+   LOCAL RULES COMMUNICATION & RENTAL ENFORCEMENT TOOLKIT
+
+   Shared visual foundation:
+   business-launcher.css
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   HERO
+--------------------------------------------------------- */
+
+.local-rules-toolkit-page .bl-hero-copy {
+  max-width: 1000px;
+}
+
+
+.local-rules-toolkit-page .bl-hero h1 {
+  max-width: 1050px;
+
+  font-size: clamp(43px, 4.7vw, 79px);
+
+  line-height: 0.8;
+
+  letter-spacing: -0.045em;
+}
+
+
+/* ---------------------------------------------------------
+   RESOURCE FORMAT
+--------------------------------------------------------- */
+
+.lrt-resource-type {
+  display: block;
+
+  max-width: 270px;
+
+  margin: 14px auto 0;
+
+  color: #dec37e;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: clamp(22px, 2vw, 30px);
+
+  font-weight: 500;
+
+  line-height: 1.05;
+
+  letter-spacing: 0.04em;
+
+  text-transform: uppercase;
+}
+
+
+/* ---------------------------------------------------------
+   PDF BADGE
+--------------------------------------------------------- */
+
+.local-rules-toolkit-page .lrt-pdf-badge {
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* ---------------------------------------------------------
+   RESOURCE GRID
+--------------------------------------------------------- */
+
+.local-rules-toolkit-page
+.lrt-resource-grid
+.bl-resource-item {
+  grid-template-columns:
+    28px
+    minmax(0, 1fr);
+}
+
+
+.local-rules-toolkit-page
+.lrt-resource-grid
+.bl-resource-name {
+  max-width: 100%;
+}
+
+
+/* ---------------------------------------------------------
+   FINAL CTA
+--------------------------------------------------------- */
+
+.local-rules-toolkit-page .bl-cta-copy {
+  max-width: 880px;
+}
+
+
+.local-rules-toolkit-page .bl-cta-copy h2 {
+  max-width: 840px;
+
+  font-size: clamp(29px, 2.4vw, 41px);
+
+  line-height: 0.96;
+}
+
+
+/* ---------------------------------------------------------
+   PAYMENT CARD
+
+   Long resource name needs a little more room.
+--------------------------------------------------------- */
+
+.local-rules-toolkit-page
+.bl-payment-steps li {
+  grid-template-columns:
+    24px
+    minmax(0, 1fr);
+
+  line-height: 1.45;
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER
+--------------------------------------------------------- */
+
+.lrt-footer {
+  display: grid;
+
+  grid-template-columns:
+    minmax(260px, 1fr)
+    auto
+    minmax(260px, 1fr);
+
+  align-items: center;
+
+  gap: 30px;
+
+  min-height: 54px;
+
+  padding:
+    12px
+    clamp(28px, 4.4vw, 80px);
+
+  border-top:
+    1px solid
+    rgba(182, 146, 71, 0.42);
+
+  color: #82786a;
+
+  background: #020202;
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+
+/* FOOTER — LEFT */
+
+.lrt-footer-left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+}
+
+
+.lrt-footer-left strong {
+  color: #dec37e;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 20px;
+
+  font-weight: 500;
+
+  letter-spacing: -0.04em;
+}
+
+
+/* FOOTER — CENTER */
+
+.lrt-footer-social {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+}
+
+
+.lrt-footer-dot {
+  color: #b69247;
+}
+
+
+/* FOOTER — RIGHT */
+
+.lrt-footer-right {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 22px;
+}
+
+
+/* ---------------------------------------------------------
+   TABLET
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+  .lrt-footer {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+
+    padding-top: 20px;
+
+    padding-bottom: 20px;
+
+    text-align: center;
+  }
+
+
+  .lrt-footer-left,
+  .lrt-footer-social,
+  .lrt-footer-right {
+    justify-content: center;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 560px) {
+
+  .local-rules-toolkit-page .bl-hero h1 {
+    font-size: clamp(35px, 10.5vw, 53px);
+
+    line-height: 0.86;
+  }
+
+
+  .lrt-footer-left,
+  .lrt-footer-right {
+    flex-direction: column;
+
+    gap: 6px;
+  }
+
+}
