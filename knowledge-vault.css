@@ -2048,3 +2048,35 @@
     padding: 16px;
   }
 }
+/* Force l’affichage du livre ouvert */
+.knowledge-vault-page .vault-hero.is-book-open .vault-opening-layer {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 20 !important;
+  pointer-events: auto !important;
+}
+
+.knowledge-vault-page .vault-hero.is-book-open .vault-opening-layer[hidden] {
+  display: block !important;
+}
+
+.knowledge-vault-page .vault-hero.is-book-open .vault-opening-frame {
+  display: block !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+
+.knowledge-vault-page .vault-hero.is-book-open .vault-open-information {
+  display: none !important;
+}
+
+.knowledge-vault-page .vault-hero.is-book-open .vault-open-side-card {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 25 !important;
+}
