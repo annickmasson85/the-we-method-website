@@ -1,10 +1,21 @@
-const supabase = window.supabaseClient;
+document.addEventListener("DOMContentLoaded", () => {
+  const supabase = window.supabaseClient;
+  const signupForm = document.getElementById("signup-form");
 
-const signupForm = document.getElementById("signup-form");
+  document.querySelectorAll(".password-toggle").forEach((toggleButton) => {
+    toggleButton.addEventListener("click", () => {
+      const passwordField = toggleButton.closest(".password-field");
+      const passwordInput = passwordField?.querySelector("input");
+      if (!passwordInput) return;
 
-if (!signupForm) {
-  console.error("Formulaire #signup-form introuvable.");
-} else {
+      const hidden = passwordInput.type === "password";
+      passwordInput.type = hidden ? "text" : "password";
+      toggleButton.textContent = hidden ? "HIDE" : "SHOW";
+    });
+  });
+
+  if (!signupForm) return;
+
   signupForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -23,14 +34,15 @@ if (!signupForm) {
       return "";
     };
 
-    const firstName = getValue("first-name", "firstName", "first_name");
-    const lastName = getValue("last-name", "lastName", "last_name");
+    const firstName = getValue("first-name", "firstName");
+    const lastName = getValue("last-name", "lastName");
     const email = getValue("email").toLowerCase();
     const password = getValue("password");
-    const confirmPassword = getValue("confirm-password", "confirm_password", "confirmPassword");
+    const confirmPassword = getValue("confirm-password", "confirmPassword");
     const company = getValue("company");
     const city = getValue("city");
     const state = getValue("state");
+    const birthDate = getValue("birth-date", "birthDate");
 
     if (!email || !password) {
       alert("Enter your email and password.");
@@ -42,13 +54,14 @@ if (!signupForm) {
       return;
     }
 
-    if (confirmPassword && password !== confirmPassword) {
+    if (password !== confirmPassword) {
       alert("Passwords do not match.");
       return;
     }
 
     const submitButton = signupForm.querySelector('button[type="submit"]');
     const originalText = submitButton?.textContent;
+
     if (submitButton) {
       submitButton.disabled = true;
       submitButton.textContent = "CREATING ACCOUNT...";
@@ -64,7 +77,8 @@ if (!signupForm) {
             last_name: lastName,
             company_name: company || null,
             city: city || null,
-            state: state || null
+            state: state || null,
+            date_of_birth: birthDate || null
           }
         }
       });
@@ -85,7 +99,6 @@ if (!signupForm) {
         return;
       }
 
-      signupForm.reset();
       window.location.href = "account-created.html";
     } catch (error) {
       console.error(error);
@@ -96,16 +109,5 @@ if (!signupForm) {
         submitButton.textContent = originalText;
       }
     }
-  });
-}
-
-document.querySelectorAll(".password-toggle").forEach((toggleButton) => {
-  toggleButton.addEventListener("click", () => {
-    const passwordField = toggleButton.closest(".password-field");
-    const passwordInput = passwordField?.querySelector("input");
-    if (!passwordInput) return;
-    const hidden = passwordInput.type === "password";
-    passwordInput.type = hidden ? "text" : "password";
-    toggleButton.textContent = hidden ? "HIDE" : "SHOW";
   });
 });
