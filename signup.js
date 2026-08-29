@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const message = String(error.message || "");
         if (/already/i.test(message) || /registered/i.test(message)) {
           alert("This email already has an account. Please sign in.");
-          window.location.href = "signin.html";
+         window.location.href = "private-access.html";
           return;
         }
         throw error;
