@@ -512,3 +512,21 @@ a {
     padding: 16px;
   }
 }
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  position: relative;
+  z-index: 1;
+  padding-right: 72px;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  z-index: 5;
+  transform: translateY(-50%);
+  pointer-events: auto;
+}
