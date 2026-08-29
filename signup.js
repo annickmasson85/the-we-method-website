@@ -1,122 +1,95 @@
-const supabaseClient = window.supabaseClient;
-
-if (!supabaseClient) {
-  console.error("Supabase client missing. Check supabase-config.js script order.");
-}
+const supabase = window.supabaseClient;
 
 const signupForm = document.getElementById("signup-form");
 
 if (!signupForm) {
-  console.error("Le formulaire #signup-form est introuvable.");
+  console.error("Formulaire #signup-form introuvable.");
 } else {
   signupForm.addEventListener("submit", async (event) => {
     event.preventDefault();
+
+    if (!supabase) {
+      alert("Connection error. Refresh and try again.");
+      return;
+    }
 
     const getValue = (...names) => {
       for (const name of names) {
         const field =
           signupForm.elements.namedItem(name) ||
           document.getElementById(name);
-
-        if (field) {
-          return field.value.trim();
-        }
+        if (field && field.value) return field.value.trim();
       }
-
       return "";
     };
 
-    const company = getValue("company");
-    const firstName = getValue("first-name", "first_name", "firstname");
-    const lastName = getValue("last-name", "last_name", "lastname");
-    const dateOfBirth = getValue(
-      "date-of-birth",
-      "date_of_birth",
-      "birth-date",
-      "dob"
-    );
-    const email = getValue("email");
+    const firstName = getValue("first-name", "firstName", "first_name");
+    const lastName = getValue("last-name", "lastName", "last_name");
+    const email = getValue("email").toLowerCase();
     const password = getValue("password");
-    const confirmPassword = getValue(
-      "confirm-password",
-      "confirm_password"
-    );
+    const confirmPassword = getValue("confirm-password", "confirm_password", "confirmPassword");
+    const company = getValue("company");
     const city = getValue("city");
     const state = getValue("state");
 
     if (!email || !password) {
-      alert("Entre ton adresse e-mail et ton mot de passe.");
+      alert("Enter your email and password.");
       return;
     }
 
     if (password.length < 8) {
-      alert("Le mot de passe doit contenir au moins 8 caractères.");
+      alert("Password must be at least 8 characters.");
       return;
     }
 
-    if (password !== confirmPassword) {
-      alert("Les deux mots de passe ne correspondent pas.");
+    if (confirmPassword && password !== confirmPassword) {
+      alert("Passwords do not match.");
       return;
     }
 
-    const submitButton = signupForm.querySelector(
-      'button[type="submit"]'
-    );
-
+    const submitButton = signupForm.querySelector('button[type="submit"]');
     const originalText = submitButton?.textContent;
-
     if (submitButton) {
       submitButton.disabled = true;
       submitButton.textContent = "CREATING ACCOUNT...";
     }
 
     try {
-    const { data, error } = await supabaseClient.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {
           data: {
-            company_name: company || null,
             first_name: firstName,
             last_name: lastName,
-            date_of_birth: dateOfBirth || null,
-            city,
-            state
+            company_name: company || null,
+            city: city || null,
+            state: state || null
           }
         }
       });
-        if (error) {
-          const alreadyUsed =
-            /already/i.test(error.message || "") ||
-            /registered/i.test(error.message || "") ||
-            error.status === 422;
 
-          if (alreadyUsed) {
-            alert("This email already has an account. Please sign in.");
-            window.location.href = "signin.html";
-            return;
-          }
-
-          throw error;
-        }
-
-        const identities = data?.user?.identities || [];
-        if (!data?.user || identities.length === 0) {
+      if (error) {
+        const message = String(error.message || "");
+        if (/already/i.test(message) || /registered/i.test(message)) {
           alert("This email already has an account. Please sign in.");
           window.location.href = "signin.html";
           return;
         }
+        throw error;
+      }
 
-        signupForm.reset();
-        window.location.href = "account-created.html";
-        
+      if (!data?.user || (data.user.identities && data.user.identities.length === 0)) {
+        alert("This email already has an account. Please sign in.");
+        window.location.href = "signin.html";
+        return;
+      }
+
+      signupForm.reset();
+      window.location.href = "account-created.html";
     } catch (error) {
-      console.error("Erreur d'inscription :", error);
-
-      alert(
-        error.message ||
-          "Une erreur empêche la création du compte."
-      );
+      console.error(error);
+      alert(error.message || "Unable to create your account.");
     } finally {
       if (submitButton) {
         submitButton.disabled = false;
@@ -124,26 +97,15 @@ if (!signupForm) {
       }
     }
   });
-  }
-  const passwordToggles = document.querySelectorAll(".password-toggle");
+}
 
-passwordToggles.forEach((toggleButton) => {
+document.querySelectorAll(".password-toggle").forEach((toggleButton) => {
   toggleButton.addEventListener("click", () => {
     const passwordField = toggleButton.closest(".password-field");
     const passwordInput = passwordField?.querySelector("input");
-
-    if (!passwordInput) {
-      return;
-    }
-
-    const passwordIsHidden = passwordInput.type === "password";
-
-    passwordInput.type = passwordIsHidden ? "text" : "password";
-    toggleButton.textContent = passwordIsHidden ? "HIDE" : "SHOW";
-
-    toggleButton.setAttribute(
-      "aria-label",
-      passwordIsHidden ? "Hide password" : "Show password"
-    );
+    if (!passwordInput) return;
+    const hidden = passwordInput.type === "password";
+    passwordInput.type = hidden ? "text" : "password";
+    toggleButton.textContent = hidden ? "HIDE" : "SHOW";
   });
 });

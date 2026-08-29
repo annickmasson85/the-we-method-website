@@ -1,43 +1,25 @@
 const supabase = window.supabaseClient;
 
-const passwordToggle = document.querySelector(".password-toggle");
-const passwordInput = document.querySelector("#password");
-
-if (passwordToggle && passwordInput) {
-  passwordToggle.addEventListener("click", () => {
-    const passwordIsHidden = passwordInput.type === "password";
-
-    passwordInput.type = passwordIsHidden ? "text" : "password";
-    passwordToggle.textContent = passwordIsHidden ? "HIDE" : "SHOW";
-    passwordToggle.setAttribute(
-      "aria-label",
-      passwordIsHidden ? "Hide password" : "Show password"
-    );
-  });
-}
-
-function showSignInMessage(text) {
-  const el = document.getElementById("signin-message");
-  if (el) {
-    el.textContent = text;
-    return;
-  }
-  alert(text);
-}
-
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("signin-form") || document.querySelector("form");
+  const form = document.getElementById("signin-form");
+  const passwordToggle = document.querySelector(".password-toggle");
+  const passwordInput = document.querySelector("#password");
 
-  if (!form) {
-    console.error("Sign in form not found.");
-    return;
+  if (passwordToggle && passwordInput) {
+    passwordToggle.addEventListener("click", () => {
+      const hidden = passwordInput.type === "password";
+      passwordInput.type = hidden ? "text" : "password";
+      passwordToggle.textContent = hidden ? "HIDE" : "SHOW";
+    });
   }
+
+  if (!form) return;
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     if (!supabase) {
-      showSignInMessage("Connection error. Refresh and try again.");
+      alert("Connection error. Refresh and try again.");
       return;
     }
 
@@ -45,13 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = form.elements.namedItem("password")?.value || "";
 
     if (!email || !password) {
-      showSignInMessage("Enter your email and password.");
+      alert("Enter your email and password.");
       return;
     }
 
     const submitButton = form.querySelector('button[type="submit"]');
     const originalText = submitButton?.textContent;
-
     if (submitButton) {
       submitButton.disabled = true;
       submitButton.textContent = "SIGNING IN...";
@@ -63,25 +44,19 @@ document.addEventListener("DOMContentLoaded", () => {
         password
       });
 
-      if (error) {
-        throw error;
-      }
+      if (error) throw error;
+      if (!data.session) throw new Error("Unable to open your private access.");
 
-      if (!data.session) {
-        throw new Error("Unable to open your private access.");
-      }
-
-      window.location.href = "welcome.html";
+      window.location.href = "private-access.html";
     } catch (error) {
-      console.error("Sign in error:", error);
-
+      console.error(error);
       const message = String(error.message || "");
-      if (/confirm/i.test(message) || /not confirmed/i.test(message)) {
-        showSignInMessage("Confirm your email first, then sign in.");
+      if (/confirm/i.test(message)) {
+        alert("Confirm your email first, then sign in.");
       } else if (/invalid/i.test(message) || /credentials/i.test(message)) {
-        showSignInMessage("Email or password is incorrect.");
+        alert("Email or password is incorrect.");
       } else {
-        showSignInMessage(message || "Unable to sign in.");
+        alert(message || "Unable to sign in.");
       }
     } finally {
       if (submitButton) {

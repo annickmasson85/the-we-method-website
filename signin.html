@@ -1,149 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="description"
-    content="Sign in to your private account for The We Method."
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in to your private account for The We Method.">
   <title>Private Client Sign In | The We Method</title>
-
   <link rel="stylesheet" href="signin.css">
 </head>
-
 <body class="signin-page">
-
   <main class="signin-main">
-
-    <section
-      class="signin-card"
-      aria-labelledby="signin-title"
-    >
-
+    <section class="signin-card" aria-labelledby="signin-title">
       <header class="signin-heading">
-
-        <p class="signin-eyebrow">
-          WELCOME BACK
-        </p>
-
-        <h1 id="signin-title">
-          ENTER YOUR PRIVATE ACCESS
-        </h1>
-
+        <p class="signin-eyebrow">WELCOME BACK</p>
+        <h1 id="signin-title">ENTER YOUR PRIVATE ACCESS</h1>
         <p class="signin-description">
-          Sign in to continue to your Owner’s Suite
-          and Knowledge Vault.
+          Sign in to continue to your Private Client Access.
         </p>
-
       </header>
 
       <form class="signin-form" id="signin-form">
-
         <div class="form-field">
-
-          <label for="email">
-            EMAIL ADDRESS
-          </label>
-
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Enter your email"
-            autocomplete="email"
-            required
-          >
-
+          <label for="email">EMAIL ADDRESS</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="email" required>
         </div>
 
         <div class="form-field">
-
-          <label for="password">
-            PASSWORD
-          </label>
-
+          <label for="password">PASSWORD</label>
           <div class="password-field">
-
-            <input
-              type="password"
-              id="password"
-              name="password"
-              autocomplete="current-password"
-              required
-            >
-
-            <button
-  type="button"
-  class="password-toggle"
-  aria-label="Show password"
->
-  SHOW
-</button>
-
+            <input type="password" id="password" name="password" autocomplete="current-password" required>
+            <button type="button" class="password-toggle" aria-label="Show password">SHOW</button>
           </div>
-
         </div>
 
         <div class="signin-options">
-
           <label class="remember-option">
-
-            <input
-              type="checkbox"
-              id="remember-me"
-              name="remember-me"
-            >
-
+            <input type="checkbox" id="remember-me" name="remember-me">
             <span>Remember me</span>
-
           </label>
-
-          <a class="forgot-password" href="forgot-password.html">
-            FORGOT YOUR PASSWORD?
-          </a>
-
+          <a class="forgot-password" href="forgot-password.html">FORGOT YOUR PASSWORD?</a>
         </div>
 
-        <p class="security-message">
-          Secure private client access
-        </p>
-
+        <p class="security-message">Secure private client access</p>
         <p id="signin-message" class="signin-message" aria-live="polite"></p>
 
-        <button type="submit" class="signin-button">
-          SIGN IN
-        </button>
-
+        <button type="submit" class="signin-button">SIGN IN</button>
       </form>
 
       <div class="signin-bottom">
-
-        <p>
-          New to The We Method?
-          <a href="signup.html">
-            CREATE AN ACCOUNT
-          </a>
-        </p>
-
-        <a class="back-button" href="index.html">
-          ← BACK
-        </a>
-
+        <p>New to The We Method? <a href="signup.html">CREATE AN ACCOUNT</a></p>
+        <a class="back-button" href="index.html">← BACK</a>
       </div>
-
     </section>
-
   </main>
-
- 
 
   <footer class="site-footer impl-footer">
     <div class="impl-footer-inner">
@@ -151,16 +59,20 @@
         <strong>TWM</strong>
         <span>TESTED. PROVEN. BUILT TO LAST.</span>
       </div>
-
       <div class="impl-footer-social">
         <a href="https://www.instagram.com/thewemethod/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
         <span>·</span>
         <a href="https://www.facebook.com/profile.php?id=61593652130304" aria-label="Facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
       </div>
-
       <div class="impl-footer-right">
         <a href="mailto:info@thewemethod.com">info@thewemethod.com</a>
         <span>© 2026 The We Method</span>
       </div>
     </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="signin.js"></script>
+</body>
+</html>
