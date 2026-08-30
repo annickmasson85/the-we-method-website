@@ -4,11 +4,97 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Private Client Access | The We Method</title>
+  <link rel="stylesheet" href="private-access.css">
 </head>
-<body>
-  <h1>Private Client Access</h1>
-  <p>Welcome back, <span id="member-first-name">Client</span>.</p>
-  <p><a href="signin.html" id="signout-button">Sign out</a></p>
+<body class="pca-page">
+
+  <header class="pca-header">
+    <a class="pca-brand" href="index.html">
+      <strong>TWM</strong>
+      <span>THE WE METHOD</span>
+    </a>
+
+    <div class="pca-header-center">
+      <p>PRIVATE CLIENT ACCESS</p>
+      <small>BUILD · LAUNCH · GROW</small>
+    </div>
+
+    <div class="pca-profile">
+      <span class="pca-avatar" aria-hidden="true"></span>
+      <div>
+        <small>MEMBER PROFILE</small>
+        <strong id="member-profile-name">Client</strong>
+      </div>
+      <a class="pca-signout" href="signin.html" id="signout-button">SIGN OUT</a>
+    </div>
+  </header>
+
+  <section class="pca-hero">
+    <img class="pca-hero-image" src="images/private-access-hero.png" alt="">
+    <div class="pca-hero-overlay"></div>
+    <div class="pca-hero-copy">
+      <p class="pca-eyebrow">THE OWNER’S SUITE</p>
+      <h1>WELCOME BACK,<br><span id="member-first-name">CLIENT</span></h1>
+      <p class="pca-hero-text">
+        Your private collection, services,<br>
+        journey and documents are ready.
+      </p>
+      <p class="pca-hero-note">CONTINUE WITH CLARITY.<br>BUILD WITH INTENTION.</p>
+    </div>
+  </section>
+
+  <main class="pca-main">
+    <h2 class="pca-section-title">YOUR PRIVATE ACCESS</h2>
+
+    <div class="pca-cards">
+      <article class="pca-card">
+        <img src="images/private-access-suite.png" alt="">
+        <h3>THE OWNER'S SUITE</h3>
+        <p>Access the systems and professional resources you own.</p>
+        <a href="owners-suite.html">ENTER YOUR SUITE →</a>
+      </article>
+
+      <article class="pca-card">
+        <img src="images/private-access-services.png" alt="">
+        <h3>PRIVATE SERVICES</h3>
+        <p>View active services, appointments and implementation milestones.</p>
+        <a href="private-services.html">VIEW MY SERVICES →</a>
+      </article>
+
+      <article class="pca-card">
+        <img src="images/private-access-archive.png" alt="">
+        <h3>DOCUMENT ARCHIVE</h3>
+        <p>Review your approved documents and protected read-only records.</p>
+        <a href="document-archive.html">OPEN THE ARCHIVE →</a>
+      </article>
+    </div>
+
+    <section class="pca-remember">
+      <img src="images/private-access-why.png" alt="">
+      <div>
+        <p class="pca-eyebrow">REMEMBER</p>
+        <h2>WHY YOU STARTED</h2>
+        <p>You didn’t come this far to stop now. Keep building the life and business you’ve always dreamed of.</p>
+        <strong>STAY FOCUSED. STAY CONSISTENT. STAY YOU.</strong>
+      </div>
+    </section>
+
+    <section class="pca-glance">
+      <h2 class="pca-section-title">AT A GLANCE</h2>
+      <div class="pca-stats">
+        <div><b id="stat-resources">0</b><span>RESOURCES OWNED</span></div>
+        <div><b id="stat-services">0</b><span>ACTIVE SERVICES</span></div>
+        <div><b id="stat-appointments">0</b><span>UPCOMING APPOINTMENT</span></div>
+        <div><b id="stat-documents">0</b><span>DOCUMENTS ARCHIVED</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pca-footer">
+    <strong>TWM</strong>
+    <span>OWNER’S SUITE · SERVICES · ARCHIVE · SUPPORT</span>
+    <span>INFO@THEWEMETHOD.COM · © 2026 THE WE METHOD</span>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>

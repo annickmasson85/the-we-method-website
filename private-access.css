@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap");
+
+.pca-page {
+  margin: 0;
+  color: #eee6d8;
+  background: #050504;
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.pca-page * { box-sizing: border-box; }
+.pca-page img { display: block; width: 100%; }
+
+.pca-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+  min-height: 88px;
+  padding: 14px 4vw;
+  border-bottom: 1px solid rgba(201, 162, 77, 0.4);
+  background: #070604;
+}
+
+.pca-brand {
+  color: #e4c77a;
+  text-decoration: none;
+}
+.pca-brand strong {
+  display: block;
+  font-size: 34px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+.pca-brand span {
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 8px;
+  letter-spacing: 0.28em;
+}
+
+.pca-header-center { text-align: center; }
+.pca-header-center p {
+  margin: 0;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+}
+.pca-header-center small {
+  color: #c9a24d;
+  letter-spacing: 0.28em;
+}
+
+.pca-profile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  text-align: left;
+}
+.pca-avatar {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #c9a24d;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 30%, #3a2a12, #0b0906);
+}
+.pca-profile small {
+  display: block;
+  color: #c9a24d;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 8px;
+  letter-spacing: 0.18em;
+}
+.pca-signout {
+  color: #b9ae9e;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+}
+
+.pca-hero {
+  position: relative;
+  min-height: 620px;
+  overflow: hidden;
+}
+.pca-hero-image {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
+}
+.pca-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(5,5,4,0.88) 0%, rgba(5,5,4,0.28) 58%, rgba(5,5,4,0.2) 100%);
+}
+.pca-hero-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  padding: 90px 6vw 70px;
+}
+.pca-eyebrow {
+  margin: 0 0 16px;
+  color: #c9a24d;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+}
+.pca-hero h1 {
+  margin: 0;
+  font-size: clamp(48px, 6vw, 78px);
+  font-weight: 500;
+  line-height: 0.92;
+}
+.pca-hero-text {
+  margin: 22px 0;
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.4;
+}
+.pca-hero-note {
+  color: #c9a24d;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+}
+
+.pca-main { padding: 70px 5vw 40px; }
+.pca-section-title {
+  margin: 0 0 36px;
+  text-align: center;
+  font-size: 28px;
+  letter-spacing: 0.22em;
+}
+
+.pca-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.pca-card {
+  overflow: hidden;
+  border: 1px solid rgba(201, 162, 77, 0.45);
+  background: #0b0906;
+  text-align: center;
+}
+.pca-card img { height: 220px; object-fit: cover; }
+.pca-card h3 {
+  margin: 22px 18px 8px;
+  font-size: 18px;
+  letter-spacing: 0.12em;
+}
+.pca-card p {
+  margin: 0 22px 20px;
+  color: #b9ae9e;
+  font-size: 15px;
+}
+.pca-card a {
+  display: inline-block;
+  margin-bottom: 24px;
+  padding: 10px 18px;
+  border: 1px solid #c9a24d;
+  color: #e8dfcf;
+  text-decoration: none;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+}
+
+.pca-remember {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 0;
+  margin-top: 46px;
+  border: 1px solid rgba(201, 162, 77, 0.45);
+}
+.pca-remember img { height: 100%; min-height: 280px; object-fit: cover; }
+.pca-remember div { padding: 48px 42px; }
+.pca-remember h2 { margin: 0 0 16px; font-size: 42px; }
+.pca-remember p { color: #cfc4b3; font-size: 18px; font-style: italic; line-height: 1.5; }
+
+.pca-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid rgba(201, 162, 77, 0.4);
+}
+.pca-stats div {
+  padding: 28px 10px;
+  text-align: center;
+  border-right: 1px solid rgba(201, 162, 77, 0.28);
+}
+.pca-stats div:last-child { border-right: 0; }
+.pca-stats b { display: block; font-size: 42px; color: #e4c77a; }
+.pca-stats span {
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+}
+
+.pca-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 5vw;
+  border-top: 1px solid rgba(201, 162, 77, 0.35);
+  color: #8d8375;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+.pca-footer strong { color: #c9a24d; font-size: 20px; font-family: "Cormorant Garamond", Georgia, serif; }
+
+@media (max-width: 900px) {
+  .pca-header,
+  .pca-cards,
+  .pca-remember,
+  .pca-stats,
+  .pca-footer {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+  .pca-header { text-align: center; }
+  .pca-profile { justify-content: center; }
+}

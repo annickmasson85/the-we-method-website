@@ -7,15 +7,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   const { data } = await supabase.auth.getSession();
-
   if (!data.session) {
     window.location.href = "signin.html";
     return;
   }
 
   const firstName = data.session.user.user_metadata?.first_name || "Client";
-  const nameEl = document.getElementById("member-first-name");
-  if (nameEl) nameEl.textContent = firstName;
+  const welcome = document.getElementById("member-first-name");
+  const profile = document.getElementById("member-profile-name");
+  if (welcome) welcome.textContent = firstName.toUpperCase();
+  if (profile) profile.textContent = firstName;
 
   document.getElementById("signout-button")?.addEventListener("click", async (event) => {
     event.preventDefault();
