@@ -3,101 +3,223 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Private Client Access | The We Method</title>
-  <link rel="stylesheet" href="private-access.css">
-</head>
-<body class="pca-page">
+  <meta
+    name="description"
+    content="Private Client Access for The We Method."
+  >
 
-  <header class="pca-header">
-    <a class="pca-brand" href="index.html">
-      <strong>TWM</strong>
-      <span>THE WE METHOD</span>
+  <title>Private Client Access | The We Method</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="private-client-access.css">
+</head>
+
+<body class="private-access-page">
+  <header class="site-header">
+    <a class="brand-mark" href="index.html" aria-label="The We Method home">
+      <span class="brand-monogram">TWM</span>
+      <span class="brand-name">THE WE METHOD</span>
     </a>
 
-    <div class="pca-header-center">
-      <p>PRIVATE CLIENT ACCESS</p>
-      <small>BUILD · LAUNCH · GROW</small>
+    <span class="header-rule" aria-hidden="true"></span>
+
+    <div class="header-title" aria-label="Private Client Access">
+      <span>PRIVATE CLIENT ACCESS</span>
+      <small>BUILD <b aria-hidden="true">◆</b> LAUNCH <b aria-hidden="true">◆</b> GROW</small>
     </div>
 
-    <div class="pca-profile">
-      <span class="pca-avatar" aria-hidden="true"></span>
-      <div>
+    <span class="header-rule" aria-hidden="true"></span>
+
+    <!-- Change profile.html if your profile page uses another filename. -->
+    <a class="member-profile" href="profile.html" aria-label="Open member profile">
+      <span class="profile-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="img">
+          <circle cx="24" cy="16.5" r="8"></circle>
+          <path d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"></path>
+        </svg>
+      </span>
+
+      <span class="profile-copy">
         <small>MEMBER PROFILE</small>
-        <strong id="member-profile-name">Client</strong>
-      </div>
-      <a class="pca-signout" href="signin.html" id="signout-button">SIGN OUT</a>
-    </div>
+        <!-- Replace YOUR NAME with the member's name. -->
+        <strong>YOUR NAME</strong>
+      </span>
+
+      <span class="profile-chevron" aria-hidden="true"></span>
+    </a>
   </header>
 
-  <section class="pca-hero">
-    <img class="pca-hero-image" src="images/private-access-hero.png" alt="">
-    <div class="pca-hero-overlay"></div>
-    <div class="pca-hero-copy">
-      <p class="pca-eyebrow">THE OWNER’S SUITE</p>
-      <h1>WELCOME BACK,<br><span id="member-first-name">CLIENT</span></h1>
-      <p class="pca-hero-text">
-        Your private collection, services,<br>
-        journey and documents are ready.
-      </p>
-      <p class="pca-hero-note">CONTINUE WITH CLARITY.<br>BUILD WITH INTENTION.</p>
-    </div>
-  </section>
+  <main>
+    <section class="welcome-hero" aria-labelledby="welcome-title">
+      <div class="hero-content">
+        <p class="eyebrow">THE OWNER’S SUITE</p>
+        <span class="short-gold-rule" aria-hidden="true"></span>
 
-  <main class="pca-main">
-    <h2 class="pca-section-title">YOUR PRIVATE ACCESS</h2>
+        <h1 id="welcome-title">
+          WELCOME BACK,<br>
+          <span>YOUR NAME</span>
+        </h1>
 
-    <div class="pca-cards">
-      <article class="pca-card">
-        <img src="images/private-access-suite.png" alt="">
-        <h3>THE OWNER'S SUITE</h3>
-        <p>Access the systems and professional resources you own.</p>
-        <a href="owners-suite.html">ENTER YOUR SUITE →</a>
-      </article>
+        <div class="ornament" aria-hidden="true">
+          <span></span>
+          <i></i>
+          <span></span>
+        </div>
 
-      <article class="pca-card">
-        <img src="images/private-access-services.png" alt="">
-        <h3>PRIVATE SERVICES</h3>
-        <p>View active services, appointments and implementation milestones.</p>
-        <a href="private-services.html">VIEW MY SERVICES →</a>
-      </article>
+        <p class="hero-intro">
+          Your private collection, services,<br>
+          journey and documents are ready.
+        </p>
 
-      <article class="pca-card">
-        <img src="images/private-access-archive.png" alt="">
-        <h3>DOCUMENT ARCHIVE</h3>
-        <p>Review your approved documents and protected read-only records.</p>
-        <a href="document-archive.html">OPEN THE ARCHIVE →</a>
-      </article>
-    </div>
-
-    <section class="pca-remember">
-      <img src="images/private-access-why.png" alt="">
-      <div>
-        <p class="pca-eyebrow">REMEMBER</p>
-        <h2>WHY YOU STARTED</h2>
-        <p>You didn’t come this far to stop now. Keep building the life and business you’ve always dreamed of.</p>
-        <strong>STAY FOCUSED. STAY CONSISTENT. STAY YOU.</strong>
+        <p class="hero-note">
+          CONTINUE WITH CLARITY.<br>
+          BUILD WITH INTENTION.
+        </p>
       </div>
     </section>
 
-    <section class="pca-glance">
-      <h2 class="pca-section-title">AT A GLANCE</h2>
-      <div class="pca-stats">
-        <div><b id="stat-resources">0</b><span>RESOURCES OWNED</span></div>
-        <div><b id="stat-services">0</b><span>ACTIVE SERVICES</span></div>
-        <div><b id="stat-appointments">0</b><span>UPCOMING APPOINTMENT</span></div>
-        <div><b id="stat-documents">0</b><span>DOCUMENTS ARCHIVED</span></div>
+    <section class="private-access-section" aria-labelledby="access-title">
+      <div class="section-heading">
+        <span aria-hidden="true"></span>
+        <h2 id="access-title">YOUR PRIVATE ACCESS</h2>
+        <span aria-hidden="true"></span>
+        <i aria-hidden="true"></i>
+      </div>
+
+      <div class="access-grid">
+        <article class="access-card">
+          <div class="card-image-wrap">
+            <img
+              src="images/owners-suite-vault.png"
+              alt="Luxury black and antique-gold vault door"
+            >
+          </div>
+
+          <div class="card-content">
+            <h3>THE OWNER’S SUITE</h3>
+            <p>Access the systems and<br>professional resources you own.</p>
+
+            <!-- Change the href if your page uses another filename. -->
+            <a class="gold-button" href="owners-suite.html">
+              <span>ENTER YOUR SUITE</span>
+              <b aria-hidden="true">⟶</b>
+            </a>
+          </div>
+        </article>
+
+        <article class="access-card">
+          <div class="card-image-wrap">
+            <img
+              src="images/private-services-portfolio-with-logo.png"
+              alt="The We Method black leather portfolio on a marble desk"
+            >
+          </div>
+
+          <div class="card-content">
+            <h3>PRIVATE SERVICES</h3>
+            <p>View active services, appointments<br>and implementation milestones.</p>
+
+            <!-- Change the href if your page uses another filename. -->
+            <a class="gold-button" href="private-services.html">
+              <span>VIEW MY SERVICES</span>
+              <b aria-hidden="true">⟶</b>
+            </a>
+          </div>
+        </article>
+
+        <article class="access-card">
+          <div class="card-image-wrap">
+            <img
+              src="images/document-archive-with-labels.png"
+              alt="Black leather archive with Documents, Templates and Archives folders"
+            >
+          </div>
+
+          <div class="card-content">
+            <h3>DOCUMENT ARCHIVE</h3>
+            <p>Review your approved documents<br>and protected read-only records.</p>
+
+            <!-- Change the href if your page uses another filename. -->
+            <a class="gold-button" href="document-archive.html">
+              <span>OPEN THE ARCHIVE</span>
+              <b aria-hidden="true">⟶</b>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="motivation-section" aria-labelledby="motivation-title">
+      <div class="motivation-copy">
+        <p class="eyebrow">REMEMBER</p>
+        <h2 id="motivation-title">WHY YOU STARTED</h2>
+        <span class="short-gold-rule" aria-hidden="true"></span>
+
+        <p class="motivation-message">
+          You didn’t come this far to stop now.<br>
+          Keep building the life and business<br>
+          you’ve always dreamed of.
+        </p>
+
+        <span class="short-gold-rule motivation-rule" aria-hidden="true"></span>
+        <p class="focus-message">STAY FOCUSED. STAY CONSISTENT. STAY YOU.</p>
+      </div>
+    </section>
+
+    <section class="glance-section" aria-labelledby="glance-title">
+      <div class="section-heading glance-heading">
+        <span aria-hidden="true"></span>
+        <h2 id="glance-title">AT A GLANCE</h2>
+        <span aria-hidden="true"></span>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-item">
+          <strong>10</strong>
+          <span>RESOURCES OWNED</span>
+        </article>
+
+        <article class="stat-item">
+          <strong>3</strong>
+          <span>ACTIVE SERVICES</span>
+        </article>
+
+        <article class="stat-item">
+          <strong>1</strong>
+          <span>UPCOMING APPOINTMENT</span>
+        </article>
+
+        <article class="stat-item">
+          <strong>7</strong>
+          <span>DOCUMENTS ARCHIVED</span>
+        </article>
       </div>
     </section>
   </main>
 
-  <footer class="pca-footer">
-    <strong>TWM</strong>
-    <span>OWNER’S SUITE · SERVICES · ARCHIVE · SUPPORT</span>
-    <span>INFO@THEWEMETHOD.COM · © 2026 THE WE METHOD</span>
-  </footer>
+  <footer class="site-footer">
+    <a class="brand-mark footer-brand" href="index.html" aria-label="The We Method home">
+      <span class="brand-monogram">TWM</span>
+      <span class="brand-name">THE WE METHOD</span>
+    </a>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="supabase-config.js"></script>
-  <script src="private-access.js"></script>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="owners-suite.html">OWNER’S SUITE</a>
+      <a href="private-services.html">SERVICES</a>
+      <a href="document-archive.html">ARCHIVE</a>
+      <a href="support.html">SUPPORT</a>
+    </nav>
+
+    <a class="footer-email" href="mailto:info@thewemethod.com">
+      INFO@THEWEMETHOD.COM
+    </a>
+
+    <p class="copyright">© 2026 THE WE METHOD. ALL RIGHTS RESERVED.</p>
+  </footer>
 </body>
 </html>
