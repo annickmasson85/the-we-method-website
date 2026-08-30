@@ -16,50 +16,92 @@
     </a>
     <span class="header-rule"></span>
     <div class="header-title">
-      <span>MEMBER PROFILE</span>
-      <small>PRIVATE CLIENT ACCESS</small>
+      <span>PRIVATE CLIENT ACCESS</span>
+      <small>BUILD ◆ LAUNCH ◆ GROW</small>
     </div>
     <span class="header-rule"></span>
-    <div class="member-profile">
+    <a class="member-profile" href="profile.html">
       <span class="profile-icon"></span>
       <span class="profile-copy">
         <small>MEMBER PROFILE</small>
         <strong id="member-profile-name">Client</strong>
       </span>
-    </div>
+    </a>
   </header>
 
-  <main class="profile-main">
-    <section class="profile-card">
-      <p class="eyebrow">YOUR ACCOUNT</p>
-      <h1>Member Profile</h1>
-      <p class="profile-intro">Your private client details are held securely with your account.</p>
+  <main class="profile-layout">
+    <aside class="profile-id">
+      <p class="eyebrow">PRIVATE ACCOUNT</p>
+      <h1>MEMBER PROFILE</h1>
+      <p>Manage your personal information, business details and account security.</p>
 
-      <form id="profile-form">
-        <label>FIRST NAME
-          <input id="first-name" name="first-name" type="text">
+      <div class="profile-card-photo">
+        <img id="profile-photo" src="" alt="" hidden>
+        <div id="profile-photo-fallback" class="photo-fallback"></div>
+        <h2 id="profile-card-name">YOUR NAME</h2>
+        <p>PRIVATE MEMBER</p>
+        <p id="member-since">MEMBER SINCE 2026</p>
+        <p>ACCOUNT STATUS · ACTIVE</p>
+        <label class="photo-button">
+          CHANGE PHOTO
+          <input id="photo-input" type="file" accept="image/*" hidden>
         </label>
-        <label>LAST NAME
-          <input id="last-name" name="last-name" type="text">
+      </div>
+    </aside>
+
+    <form class="profile-panel" id="profile-form">
+      <section>
+        <h3>PERSONAL INFORMATION</h3>
+        <div class="two">
+          <label>FULL NAME
+            <input id="full-name" type="text" readonly>
+          </label>
+          <label>EMAIL ADDRESS
+            <input id="email" type="email" readonly>
+          </label>
+        </div>
+        <label>PHONE NUMBER
+          <input id="phone" type="tel" placeholder="+1 (000) 000-0000">
         </label>
-        <label>COMPANY
-          <input id="company" name="company" type="text">
+      </section>
+
+      <section>
+        <h3>BUSINESS INFORMATION</h3>
+        <div class="two">
+          <label>BUSINESS NAME
+            <input id="company" type="text">
+          </label>
+          <label>LOCATION
+            <input id="location" type="text" placeholder="City, State">
+          </label>
+        </div>
+        <label>BUSINESS STAGE
+          <select id="stage">
+            <option value="">Select Your Stage</option>
+            <option>Aspiring</option>
+            <option>Launching</option>
+            <option>Operating</option>
+            <option>Growing</option>
+          </select>
         </label>
-        <label>EMAIL
-          <input id="email" name="email" type="email" readonly>
-        </label>
-        <label>CITY
-          <input id="city" name="city" type="text">
-        </label>
-        <label>STATE
-          <input id="state" name="state" type="text">
-        </label>
+      </section>
+
+      <section>
+        <h3>SECURITY & ACCESS</h3>
+        <div class="password-row">
+          <label>PASSWORD
+            <input type="password" value="••••••••••••" readonly>
+          </label>
+          <a class="ghost" href="forgot-password.html">CHANGE PASSWORD</a>
+        </div>
+      </section>
+
+      <div class="profile-actions">
+        <a id="signout-button" href="signin.html">LOG OUT</a>
         <p id="profile-status"></p>
-        <button type="submit">SAVE PROFILE</button>
-      </form>
-
-      <a href="private-access.html">← BACK TO PRIVATE ACCESS</a>
-    </section>
+        <button type="submit">SAVE CHANGES</button>
+      </div>
+    </form>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
