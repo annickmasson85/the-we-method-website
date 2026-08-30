@@ -187,7 +187,7 @@ img {
   align-items: center;
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.17), transparent 52%),
-    url("images/private-access-hero-with-logo.png") center / cover no-repeat;
+    url("images/private-access-hero.png") center / cover no-repeat;
   border-bottom: 1px solid rgba(200, 148, 59, 0.42);
 }
 
@@ -445,7 +445,7 @@ img {
   overflow: hidden;
   margin-top: 0;
   background:
-    url("images/why-you-started-golf-cart.png") center / cover no-repeat;
+    url("images/private-access-why.png") center / cover no-repeat;
   border: 1px solid var(--antique-gold);
   border-radius: 6px;
 }
