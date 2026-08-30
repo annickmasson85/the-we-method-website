@@ -1,7 +1,7 @@
 .pca-menu-button {
-  position: fixed;
-  top: 22px;
-  right: 22px;
+  position: absolute;
+  top: 32px;
+  right: 268px;
   z-index: 80;
   width: 42px;
   height: 42px;
@@ -13,6 +13,10 @@
   background: transparent;
   border: 0;
   cursor: pointer;
+}
+
+.site-header {
+  position: relative;
 }
 
 .pca-menu-button span {
