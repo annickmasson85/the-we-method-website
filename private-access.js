@@ -12,11 +12,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  const firstName = data.session.user.user_metadata?.first_name || "Client";
+  const meta = data.session.user.user_metadata || {};
+  const firstName = (meta.first_name || "Client").trim();
+  const lastName = (meta.last_name || "").trim();
+  const fullName = [firstName, lastName].filter(Boolean).join(" ");
+
   const welcome = document.getElementById("member-first-name");
   const profile = document.getElementById("member-profile-name");
+
   if (welcome) welcome.textContent = firstName.toUpperCase();
-  if (profile) profile.textContent = firstName;
+  if (profile) profile.textContent = fullName;
 
   document.getElementById("signout-button")?.addEventListener("click", async (event) => {
     event.preventDefault();
