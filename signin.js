@@ -1,15 +1,14 @@
-const supabase = window.supabaseClient;
-
 document.addEventListener("DOMContentLoaded", () => {
+  const supabase = window.supabaseClient;
   const form = document.getElementById("signin-form");
-  const passwordToggle = document.querySelector(".password-toggle");
-  const passwordInput = document.querySelector("#password");
+  const toggle = document.querySelector(".password-toggle");
+  const password = document.getElementById("password");
 
-  if (passwordToggle && passwordInput) {
-    passwordToggle.addEventListener("click", () => {
-      const hidden = passwordInput.type === "password";
-      passwordInput.type = hidden ? "text" : "password";
-      passwordToggle.textContent = hidden ? "HIDE" : "SHOW";
+  if (toggle && password) {
+    toggle.addEventListener("click", () => {
+      const hidden = password.type === "password";
+      password.type = hidden ? "text" : "password";
+      toggle.textContent = hidden ? "HIDE" : "SHOW";
     });
   }
 
@@ -19,29 +18,22 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
 
     if (!supabase) {
-      alert("Connection error. Refresh and try again.");
+      alert("Connection error. Refresh the page.");
       return;
     }
 
-    const email = (form.elements.namedItem("email")?.value || "").trim().toLowerCase();
-    const password = form.elements.namedItem("password")?.value || "";
+    const email = (document.getElementById("email")?.value || "").trim().toLowerCase();
+    const value = document.getElementById("password")?.value || "";
 
-    if (!email || !password) {
-      alert("Enter your email and password.");
-      return;
-    }
-
-    const submitButton = form.querySelector('button[type="submit"]');
-    const originalText = submitButton?.textContent;
-    if (submitButton) {
-      submitButton.disabled = true;
-      submitButton.textContent = "SIGNING IN...";
-    }
+    const button = form.querySelector('button[type="submit"]');
+    const original = button.textContent;
+    button.disabled = true;
+    button.textContent = "SIGNING IN...";
 
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
-        password
+        password: value
       });
 
       if (error) throw error;
@@ -49,20 +41,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
       window.location.href = "private-access.html";
     } catch (error) {
-      console.error(error);
-      const message = String(error.message || "");
-      if (/confirm/i.test(message)) {
+      const text = String(error.message || "");
+      if (/confirm/i.test(text)) {
         alert("Confirm your email first, then sign in.");
-      } else if (/invalid/i.test(message) || /credentials/i.test(message)) {
+      } else if (/invalid/i.test(text) || /credentials/i.test(text)) {
         alert("Email or password is incorrect.");
       } else {
-        alert(message || "Unable to sign in.");
+        alert(text || "Unable to sign in.");
       }
     } finally {
-      if (submitButton) {
-        submitButton.disabled = false;
-        submitButton.textContent = originalText;
-      }
+      button.disabled = false;
+      button.textContent = original;
     }
   });
 });
