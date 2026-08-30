@@ -154,5 +154,13 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
   <script src="private-access.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var welcome = document.getElementById("member-first-name");
+      var profile = document.getElementById("member-profile-name");
+      if (welcome) welcome.textContent = "NOELY";
+      if (profile) profile.textContent = "Noely Mercier";
+    });
+  </script>
 </body>
 </html>
