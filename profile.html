@@ -21,7 +21,12 @@
     </div>
     <span class="header-rule"></span>
     <a class="member-profile" href="profile.html">
-      <span class="profile-icon"></span>
+      <span class="profile-icon">
+        <svg viewBox="0 0 48 48">
+          <circle cx="24" cy="16.5" r="8"></circle>
+          <path d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"></path>
+        </svg>
+      </span>
       <span class="profile-copy">
         <small>MEMBER PROFILE</small>
         <strong id="member-profile-name">Client</strong>
@@ -36,72 +41,39 @@
       <p>Manage your personal information, business details and account security.</p>
 
       <div class="profile-card-photo">
-        <img id="profile-photo" src="" alt="" hidden>
-        <div id="profile-photo-fallback" class="photo-fallback"></div>
-        <h2 id="profile-card-name">YOUR NAME</h2>
+        <div class="photo-fallback"></div>
+        <h2 id="profile-card-name">CLIENT</h2>
         <p>PRIVATE MEMBER</p>
         <p id="member-since">MEMBER SINCE 2026</p>
         <p>ACCOUNT STATUS · ACTIVE</p>
-        <label class="photo-button">
-          CHANGE PHOTO
-          <input id="photo-input" type="file" accept="image/*" hidden>
-        </label>
+        <a class="photo-button" href="edit-profile.html">MODIFY YOUR PROFILE</a>
       </div>
     </aside>
 
-    <form class="profile-panel" id="profile-form">
-      <section>
+    <section class="profile-panel">
+      <div>
         <h3>PERSONAL INFORMATION</h3>
         <div class="two">
-          <label>FULL NAME
-            <input id="full-name" type="text" readonly>
-          </label>
-          <label>EMAIL ADDRESS
-            <input id="email" type="email" readonly>
-          </label>
+          <p><small>FULL NAME</small><strong id="full-name">—</strong></p>
+          <p><small>EMAIL ADDRESS</small><strong id="email">—</strong></p>
         </div>
-        <label>PHONE NUMBER
-          <input id="phone" type="tel" placeholder="+1 (000) 000-0000">
-        </label>
-      </section>
+        <p><small>PHONE NUMBER</small><strong id="phone">—</strong></p>
+      </div>
 
-      <section>
+      <div>
         <h3>BUSINESS INFORMATION</h3>
         <div class="two">
-          <label>BUSINESS NAME
-            <input id="company" type="text">
-          </label>
-          <label>LOCATION
-            <input id="location" type="text" placeholder="City, State">
-          </label>
+          <p><small>BUSINESS NAME</small><strong id="company">—</strong></p>
+          <p><small>LOCATION</small><strong id="location">—</strong></p>
         </div>
-        <label>BUSINESS STAGE
-          <select id="stage">
-            <option value="">Select Your Stage</option>
-            <option>Aspiring</option>
-            <option>Launching</option>
-            <option>Operating</option>
-            <option>Growing</option>
-          </select>
-        </label>
-      </section>
-
-      <section>
-        <h3>SECURITY & ACCESS</h3>
-        <div class="password-row">
-          <label>PASSWORD
-            <input type="password" value="••••••••••••" readonly>
-          </label>
-          <a class="ghost" href="forgot-password.html">CHANGE PASSWORD</a>
-        </div>
-      </section>
+        <p><small>BUSINESS STAGE</small><strong id="stage">—</strong></p>
+      </div>
 
       <div class="profile-actions">
         <a id="signout-button" href="signin.html">LOG OUT</a>
-        <p id="profile-status"></p>
-        <button type="submit">SAVE CHANGES</button>
+        <a class="save" href="edit-profile.html">MODIFY YOUR PROFILE</a>
       </div>
-    </form>
+    </section>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
