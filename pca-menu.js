@@ -35,6 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
     </aside>
   `;
   document.body.prepend(wrap);
+    const profile = document.querySelector(".member-profile");
+  const button = document.getElementById("pca-menu-button");
+  if (profile && button) {
+    profile.appendChild(button);
+  }
 
   document.getElementById("pca-menu-button").onclick = () => {
     document.body.classList.toggle("menu-open");
