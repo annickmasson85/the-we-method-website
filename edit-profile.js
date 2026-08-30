@@ -1,6 +1,5 @@
-const supabase = window.supabaseClient;
-
 document.addEventListener("DOMContentLoaded", async () => {
+  const supabase = window.supabaseClient;
   if (!supabase) {
     window.location.href = "signin.html";
     return;
@@ -21,14 +20,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("full-name").value = fullName;
   document.getElementById("email").value = user.email || "";
   document.getElementById("phone").value = meta.phone || "";
-  document.getElementById("company").value = meta.company_name || "";
+  document.getElementById("company").value = meta.company_name || meta.company || "";
   document.getElementById("location").value = [meta.city, meta.state].filter(Boolean).join(", ");
   document.getElementById("stage").value = meta.business_stage || "";
 
   document.getElementById("edit-form").addEventListener("submit", async (event) => {
     event.preventDefault();
     const status = document.getElementById("edit-status");
-    status.textContent = "Saving...";
+    if (status) status.textContent = "Saving...";
 
     const parts = document.getElementById("location").value.split(",");
     const { error } = await supabase.auth.updateUser({
@@ -36,13 +35,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         phone: document.getElementById("phone").value.trim(),
         company_name: document.getElementById("company").value.trim(),
         city: (parts[0] || "").trim(),
-        state: (parts[1] || "").trim(),
+        state: (parts.slice(1).join(",") || "").trim(),
         business_stage: document.getElementById("stage").value
       }
     });
 
     if (error) {
-      status.textContent = error.message || "Unable to save.";
+      if (status) status.textContent = error.message;
+      alert(error.message);
       return;
     }
 
