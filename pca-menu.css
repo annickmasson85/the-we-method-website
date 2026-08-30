@@ -1,21 +1,32 @@
 .pca-menu-button {
   position: fixed;
-  top: 18px;
-  right: 18px;
-  z-index: 40;
+  top: 22px;
+  right: 22px;
+  z-index: 80;
   width: 42px;
   height: 42px;
-  color: #e4c77a;
-  background: #070604;
-  border: 1px solid rgba(200, 148, 59, 0.55);
-  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 0;
+  background: transparent;
+  border: 0;
   cursor: pointer;
+}
+
+.pca-menu-button span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  margin-inline: auto;
+  background: #d7a650;
 }
 
 .pca-menu-overlay {
   position: fixed;
   inset: 0;
-  z-index: 50;
+  z-index: 70;
   display: none;
   background: rgba(0, 0, 0, 0.55);
 }
@@ -24,13 +35,13 @@
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 60;
+  z-index: 90;
   width: min(320px, 88vw);
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 70px 28px 28px;
+  padding: 80px 28px 28px;
   background: #070605;
   border-left: 1px solid rgba(200, 148, 59, 0.35);
   transform: translateX(100%);
@@ -40,7 +51,8 @@
 body.menu-open .pca-menu { transform: translateX(0); }
 body.menu-open .pca-menu-overlay { display: block; }
 
-.pca-menu nav {
+.pca-menu nav,
+.pca-menu-bottom {
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -51,18 +63,6 @@ body.menu-open .pca-menu-overlay { display: block; }
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 22px;
   text-decoration: none;
-}
-
-.pca-menu a:hover { color: #f3d78a; }
-
-.pca-menu-bottom {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.pca-menu-bottom a {
-  font-size: 18px;
 }
 
 .pca-menu-bottom a:last-child {
