@@ -123,3 +123,26 @@
   .profile-layout,
   .two { grid-template-columns: 1fr; }
 }
+.profile-panel strong {
+  font-size: 18px;
+}
+
+.profile-card-photo h2 {
+  font-size: 24px;
+}
+
+.profile-actions .save {
+  color: #1a1206;
+  background: linear-gradient(135deg, #f0d487, #c89a38);
+  font-weight: 700;
+}
+.profile-page .brand-monogram {
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-shadow: none;
+}
+
+.profile-page .logo-monogram,
+.profile-page .brand-mark {
+  font-weight: 400;
+}

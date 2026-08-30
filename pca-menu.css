@@ -111,3 +111,19 @@ body.menu-open .pca-menu-overlay { display: block; }
   text-align: center;
   text-decoration: none;
 }
+.pca-menu-button {
+  position: fixed;
+  top: 28px;
+  right: 24px;
+  z-index: 120;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}

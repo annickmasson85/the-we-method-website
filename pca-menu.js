@@ -12,15 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
         <p class="pca-menu-brand">TWM</p>
         <p class="pca-menu-sub">THE WE METHOD</p>
         <div class="pca-menu-diamond"></div>
-
         <p class="pca-menu-label">PRIVATE ACCESS</p>
         <nav>
-          <a class="is-active" href="private-access.html">Private Client Access</a>
+          <a href="private-access.html">Private Client Access</a>
           <a href="owners-suite.html">Owner’s Suite</a>
           <a href="knowledge-vault.html">Founder Library</a>
-          <a href="assessment.html">Assessment</a>
+          <a href="profile.html">Member Profile</a>
         </nav>
-
         <div class="pca-menu-diamond"></div>
         <p class="pca-menu-label">YOUR BUSINESS</p>
         <nav>
@@ -30,26 +28,26 @@ document.addEventListener("DOMContentLoaded", () => {
           <a href="my-cart.html">My Cart</a>
         </nav>
       </div>
-
       <a class="pca-menu-logout" href="signin.html" id="menu-signout">LOG OUT</a>
     </aside>
   `;
-  document.body.prepend(wrap);
-    const profile = document.querySelector(".member-profile");
-  const button = document.getElementById("pca-menu-button");
-  if (profile && button) {
-    profile.appendChild(button);
-  }
+  document.body.appendChild(wrap);
 
-  document.getElementById("pca-menu-button").onclick = () => {
+  const button = document.getElementById("pca-menu-button");
+  const overlay = document.getElementById("pca-menu-overlay");
+
+  button.addEventListener("click", (event) => {
+    event.stopPropagation();
     document.body.classList.toggle("menu-open");
-  };
-  document.getElementById("pca-menu-overlay").onclick = () => {
+  });
+
+  overlay.addEventListener("click", () => {
     document.body.classList.remove("menu-open");
-  };
-  document.getElementById("menu-signout").onclick = async (event) => {
+  });
+
+  document.getElementById("menu-signout").addEventListener("click", async (event) => {
     event.preventDefault();
     if (window.supabaseClient) await window.supabaseClient.auth.signOut();
     window.location.href = "signin.html";
-  };
+  });
 });
