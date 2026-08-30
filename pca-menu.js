@@ -8,20 +8,30 @@ document.addEventListener("DOMContentLoaded", () => {
     </button>
     <div class="pca-menu-overlay" id="pca-menu-overlay"></div>
     <aside class="pca-menu" id="pca-menu">
-      <nav>
-        <a href="private-access.html">Dashboard</a>
-        <a href="my-journey.html">My Journey</a>
-        <a href="business-launcher.html">Business Launch</a>
-        <a href="implementation-services.html">Implementation Service</a>
-        <a href="fleet-solution.html">Fleet Solution</a>
-        <a href="fleet-builder.html">Fleet Builder</a>
-        <a href="assessment.html">Assessment</a>
-        <a href="my-cart.html">My Cart</a>
-      </nav>
-      <div class="pca-menu-bottom">
-        <a href="mailto:info@thewemethod.com">Support</a>
-        <a href="signin.html" id="menu-signout">Log out</a>
+      <div>
+        <p class="pca-menu-brand">TWM</p>
+        <p class="pca-menu-sub">THE WE METHOD</p>
+        <div class="pca-menu-diamond"></div>
+
+        <p class="pca-menu-label">PRIVATE ACCESS</p>
+        <nav>
+          <a class="is-active" href="private-access.html">Private Client Access</a>
+          <a href="owners-suite.html">Owner’s Suite</a>
+          <a href="knowledge-vault.html">Founder Library</a>
+          <a href="assessment.html">Assessment</a>
+        </nav>
+
+        <div class="pca-menu-diamond"></div>
+        <p class="pca-menu-label">YOUR BUSINESS</p>
+        <nav>
+          <a href="implementation-services.html">Implementation Services</a>
+          <a href="fleet-solution.html">Fleet Solution</a>
+          <a href="fleet-builder.html">Fleet Builder</a>
+          <a href="my-cart.html">My Cart</a>
+        </nav>
       </div>
+
+      <a class="pca-menu-logout" href="signin.html" id="menu-signout">LOG OUT</a>
     </aside>
   `;
   document.body.prepend(wrap);
