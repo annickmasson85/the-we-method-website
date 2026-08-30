@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modify Profile | The We Method</title>
+  <link rel="stylesheet" href="private-access.css">
+  <link rel="stylesheet" href="pca-menu.css">
+  <link rel="stylesheet" href="profile.css">
+  <link rel="stylesheet" href="edit-profile.css">
+</head>
+<body class="private-access-page profile-page">
+  <header class="site-header">
+    <a class="brand-mark" href="index.html">
+      <span class="brand-monogram">TWM</span>
+      <span class="brand-name">THE WE METHOD</span>
+    </a>
+    <span class="header-rule"></span>
+    <div class="header-title">
+      <span>MODIFY YOUR PROFILE</span>
+      <small>PRIVATE CLIENT ACCESS</small>
+    </div>
+    <span class="header-rule"></span>
+    <a class="member-profile" href="profile.html">
+      <span class="profile-icon"></span>
+      <span class="profile-copy">
+        <small>MEMBER PROFILE</small>
+        <strong id="member-profile-name">Client</strong>
+      </span>
+    </a>
+  </header>
+
+  <main class="edit-wrap">
+    <form id="edit-form" class="profile-panel">
+      <h1>Modify Your Profile</h1>
+      <p class="edit-note">Your name and email stay protected.</p>
+
+      <label>FULL NAME
+        <input id="full-name" type="text" readonly>
+      </label>
+      <label>EMAIL ADDRESS
+        <input id="email" type="email" readonly>
+      </label>
+      <label>PHONE NUMBER
+        <input id="phone" type="tel" placeholder="+1 (000) 000-0000">
+      </label>
+      <label>BUSINESS NAME
+        <input id="company" type="text">
+      </label>
+      <label>LOCATION
+        <input id="location" type="text" placeholder="City, State">
+      </label>
+      <label>BUSINESS STAGE
+        <select id="stage">
+          <option value="">Select Your Stage</option>
+          <option>Aspiring</option>
+          <option>Launching</option>
+          <option>Operating</option>
+          <option>Growing</option>
+        </select>
+      </label>
+
+      <p id="edit-status"></p>
+      <div class="profile-actions">
+        <a href="profile.html">← BACK</a>
+        <button type="submit">SAVE CHANGES</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="pca-menu.js"></script>
+  <script src="edit-profile.js"></script>
+</body>
+</html>

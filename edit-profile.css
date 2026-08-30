@@ -1,0 +1,58 @@
+.edit-wrap {
+  width: min(720px, calc(100% - 40px));
+  margin: 48px auto 80px;
+}
+
+.edit-wrap h1 {
+  margin: 0 0 8px;
+  color: #e1b35c;
+  font-size: 42px;
+  font-weight: 400;
+}
+
+.edit-note {
+  margin: 0 0 28px;
+  color: #b9ae9e;
+  font-style: italic;
+}
+
+#edit-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+  color: #c9a24d;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+
+#edit-form input,
+#edit-form select {
+  padding: 10px 0;
+  color: #eee6d8;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(200, 148, 59, 0.4);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 20px;
+}
+
+#edit-form input[readonly] {
+  opacity: 0.55;
+}
+
+#edit-form button {
+  padding: 12px 24px;
+  color: #1a1206;
+  background: linear-gradient(135deg, #f0d487, #c89a38);
+  border: 0;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+}
+
+#edit-status {
+  min-height: 20px;
+  color: #e4c77a;
+}
