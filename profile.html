@@ -39,7 +39,6 @@
       <p class="eyebrow">PRIVATE ACCOUNT</p>
       <h1>MEMBER PROFILE</h1>
       <p>Manage your personal information, business details and account security.</p>
-
       <div class="profile-card-photo">
         <div class="photo-fallback"></div>
         <h2 id="profile-card-name">CLIENT</h2>
@@ -59,7 +58,6 @@
         </div>
         <p><small>PHONE NUMBER</small><strong id="phone">—</strong></p>
       </div>
-
       <div>
         <h3>BUSINESS INFORMATION</h3>
         <div class="two">
@@ -68,6 +66,48 @@
         </div>
         <p><small>BUSINESS STAGE</small><strong id="stage">—</strong></p>
       </div>
-
       <div class="profile-actions">
         <a id="signout-button" href="signin.html">LOG OUT</a>
+        <a class="save" href="edit-profile.html">MODIFY YOUR PROFILE</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="pca-menu.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async function () {
+      var supabase = window.supabaseClient;
+      if (!supabase) return;
+
+      var session = await supabase.auth.getSession();
+      if (!session.data || !session.data.session) {
+        window.location.href = "signin.html";
+        return;
+      }
+
+      var userRes = await supabase.auth.getUser();
+      var user = (userRes.data && userRes.data.user) || session.data.session.user;
+      var meta = (user && user.user_metadata) || {};
+      var fullName = [meta.first_name, meta.last_name].filter(Boolean).join(" ") || "Client";
+      var year = new Date((user && user.created_at) || Date.now()).getFullYear();
+
+      function set(id, value) {
+        var el = document.getElementById(id);
+        if (el) el.textContent = value || "—";
+      }
+
+      set("member-profile-name", fullName);
+      set("profile-card-name", fullName.toUpperCase());
+      set("full-name", fullName);
+      set("email", user.email);
+      set("phone", meta.phone);
+      set("company", meta.company_name);
+      set("location", [meta.city, meta.state].filter(Boolean).join(", "));
+      set("stage", meta.business_stage);
+      set("member-since", "MEMBER SINCE " + year);
+    });
+  </script>
+</body>
+</html>
