@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Owner’s Suite | The We Method</title>
+  <link rel="stylesheet" href="private-access.css">
+  <link rel="stylesheet" href="pca-menu.css">
+  <link rel="stylesheet" href="owners-suite.css">
+</head>
+<body class="private-access-page owners-suite-page">
+  <header class="site-header">
+    <a class="brand-mark" href="index.html">
+      <span class="brand-monogram">TWM</span>
+      <span class="brand-name">THE WE METHOD</span>
+    </a>
+    <span class="header-rule"></span>
+    <div class="header-title">
+      <span>OWNER’S SUITE</span>
+      <small>PRIVATE CLIENT ACCESS</small>
+    </div>
+    <span class="header-rule"></span>
+    <a class="member-profile" href="profile.html">
+      <span class="profile-icon">
+        <img id="header-photo" alt="" hidden>
+        <svg id="header-icon" viewBox="0 0 48 48">
+          <circle cx="24" cy="16.5" r="8"></circle>
+          <path d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"></path>
+        </svg>
+      </span>
+      <span class="profile-copy">
+        <small>MEMBER PROFILE</small>
+        <strong id="member-profile-name">Client</strong>
+      </span>
+    </a>
+  </header>
+
+  <main class="suite-wrap">
+    <section class="suite-intro">
+      <p>OWNER’S SUITE</p>
+      <h1>Ready to continue building?</h1>
+      <span>Your results, resources, and progress—all in one place.</span>
+    </section>
+
+    <section class="suite-grid">
+      <article class="suite-card">
+        <img src="images/owners-suite-assessment.png" alt="">
+        <div>
+          <small>YOUR ASSESSMENT</small>
+          <p>YOUR CURRENT RESULT</p>
+          <h2>Build & Prepare</h2>
+          <p>Your complete results and personalized recommendations are saved here.</p>
+          <a class="suite-button" href="assessment.html">VIEW MY RESULTS</a>
+          <a class="suite-link" href="assessment.html">RETAKE ASSESSMENT</a>
+        </div>
+      </article>
+
+      <article class="suite-card">
+        <img src="images/owners-suite-system.png" alt="">
+        <div>
+          <small>YOUR SYSTEM</small>
+          <h2>Business Launcher</h2>
+          <p>12 RESOURCES AVAILABLE</p>
+          <p>Access through August 30, 2027</p>
+          <a class="suite-button" href="business-launcher.html">ENTER BUSINESS LAUNCHER</a>
+          <a class="suite-link" href="knowledge-vault.html">VIEW ALL MY RESOURCES</a>
+        </div>
+      </article>
+
+      <article class="suite-card suite-progress">
+        <small>YOUR PROGRESS</small>
+        <strong>58%</strong>
+        <div class="suite-stats">
+          <p><b>7 OF 12</b><span>Resources completed</span></p>
+          <p><b>2</b><span>Currently in progress</span></p>
+          <p><b>3</b><span>Resources remaining</span></p>
+        </div>
+        <p>Current focus: Financial Planning System</p>
+        <a class="suite-button" href="knowledge-vault.html">CONTINUE BUILDING</a>
+      </article>
+
+      <article class="suite-card">
+        <img src="images/owners-suite-subscription.png" alt="">
+        <div>
+          <small>YOUR SUBSCRIPTION</small>
+          <h2>AI Companion + Journey Journal</h2>
+          <p>ACTIVE</p>
+          <p>Your private guidance and reflection space.</p>
+          <a class="suite-button" href="private-services.html">OPEN SUBSCRIPTION</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="pca-menu.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async function () {
+      var supabase = window.supabaseClient;
+      if (!supabase) return;
+      var session = await supabase.auth.getSession();
+      if (!session.data || !session.data.session) {
+        window.location.href = "signin.html";
+        return;
+      }
+      var userRes = await supabase.auth.getUser();
+      var user = (userRes.data && userRes.data.user) || session.data.session.user;
+      var meta = (user && user.user_metadata) || {};
+      var name = document.getElementById("member-profile-name");
+      if (name) name.textContent = [meta.first_name, meta.last_name].filter(Boolean).join(" ") || "Client";
+      if (meta.avatar_url) {
+        var photo = document.getElementById("header-photo");
+        var icon = document.getElementById("header-icon");
+        if (photo) { photo.src = meta.avatar_url; photo.hidden = false; }
+        if (icon) icon.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
