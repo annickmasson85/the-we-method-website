@@ -113,3 +113,17 @@
     grid-template-columns: 1fr;
   }
 }
+.suite-header,
+.suite-masthead,
+.suite-nav {
+  display: none !important;
+}
+
+.owners-suite-page .site-header {
+  position: relative;
+  z-index: 30;
+}
+
+.suite-hero {
+  min-height: 240px;
+}

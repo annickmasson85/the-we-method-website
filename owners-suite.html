@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Your private home for assessment results, owned resources, progress, and subscription access."
+  >
   <title>Owner’s Suite | The We Method</title>
   <link rel="stylesheet" href="private-access.css">
   <link rel="stylesheet" href="pca-menu.css">
-  <link rel="stylesheet" href="owners-suite.css">
+  <link rel="stylesheet" href="owner-suite.css">
 </head>
 <body class="private-access-page owners-suite-page">
   <header class="site-header">
@@ -35,61 +39,104 @@
     </a>
   </header>
 
-  <main class="suite-wrap">
-    <section class="suite-intro">
-      <p>OWNER’S SUITE</p>
-      <h1>Ready to continue building?</h1>
-      <span>Your results, resources, and progress—all in one place.</span>
+  <main>
+    <section class="suite-hero" aria-labelledby="suite-title">
+      <img
+        class="suite-hero-image"
+        src="images/owners-suite-office-background.png"
+        alt=""
+      >
+      <div class="suite-hero-overlay" aria-hidden="true"></div>
+      <div class="suite-hero-content">
+        <p class="suite-eyebrow">OWNER’S SUITE</p>
+        <h1 id="suite-title">Ready to continue building?</h1>
+        <p>Your results, resources, and progress—all in one place.</p>
+      </div>
     </section>
 
-    <section class="suite-grid">
-      <article class="suite-card">
-        <img src="images/owners-suite-assessment.png" alt="">
-        <div>
-          <small>YOUR ASSESSMENT</small>
-          <p>YOUR CURRENT RESULT</p>
-          <h2>Build & Prepare</h2>
-          <p>Your complete results and personalized recommendations are saved here.</p>
-          <a class="suite-button" href="assessment.html">VIEW MY RESULTS</a>
-          <a class="suite-link" href="assessment.html">RETAKE ASSESSMENT</a>
-        </div>
-      </article>
+    <div class="suite-dashboard">
+      <section class="suite-grid suite-grid-primary">
+        <article class="suite-panel assessment-panel">
+          <p class="panel-kicker">YOUR ASSESSMENT</p>
+          <div class="assessment-layout">
+            <div class="panel-visual assessment-visual">
+              <img src="images/assessment-results-folder-transparent.png" alt="">
+            </div>
+            <div class="panel-copy">
+              <p class="detail-label">YOUR CURRENT RESULT</p>
+              <h2>Build &amp; Prepare</h2>
+              <p class="panel-description">
+                Your complete results and personalized recommendations are saved here.
+              </p>
+              <a class="suite-button" href="assessment.html">VIEW MY RESULTS</a>
+              <a class="suite-text-link" href="assessment.html">RETAKE ASSESSMENT</a>
+            </div>
+          </div>
+        </article>
 
-      <article class="suite-card">
-        <img src="images/owners-suite-system.png" alt="">
-        <div>
-          <small>YOUR SYSTEM</small>
-          <h2>Business Launcher</h2>
-          <p>12 RESOURCES AVAILABLE</p>
-          <p>Access through August 30, 2027</p>
-          <a class="suite-button" href="business-launcher.html">ENTER BUSINESS LAUNCHER</a>
-          <a class="suite-link" href="knowledge-vault.html">VIEW ALL MY RESOURCES</a>
-        </div>
-      </article>
+        <article class="suite-panel system-panel">
+          <div class="system-layout">
+            <div class="panel-copy system-copy">
+              <p class="panel-kicker">YOUR SYSTEM</p>
+              <h2>Business Launcher</h2>
+              <p class="resource-count">12 RESOURCES AVAILABLE</p>
+              <p class="access-date">Access through August 30, 2027</p>
+              <a class="suite-button" href="business-launcher.html">ENTER BUSINESS LAUNCHER</a>
+              <a class="suite-text-link" href="knowledge-vault.html">VIEW ALL MY RESOURCES</a>
+            </div>
+            <div class="panel-visual system-visual">
+              <img src="images/business-launcher-system-transparent.png" alt="">
+            </div>
+          </div>
+        </article>
+      </section>
 
-      <article class="suite-card suite-progress">
-        <small>YOUR PROGRESS</small>
-        <strong>58%</strong>
-        <div class="suite-stats">
-          <p><b>7 OF 12</b><span>Resources completed</span></p>
-          <p><b>2</b><span>Currently in progress</span></p>
-          <p><b>3</b><span>Resources remaining</span></p>
-        </div>
-        <p>Current focus: Financial Planning System</p>
-        <a class="suite-button" href="knowledge-vault.html">CONTINUE BUILDING</a>
-      </article>
+      <section class="suite-grid suite-grid-secondary">
+        <article class="suite-panel progress-panel">
+          <p class="panel-kicker">YOUR PROGRESS</p>
+          <div class="progress-layout">
+            <div class="progress-ring progress-58">
+              <div class="progress-ring-inner"><span>58%</span></div>
+            </div>
+            <div class="progress-details">
+              <dl class="progress-stats">
+                <div class="progress-stat">
+                  <dt>7 OF 12</dt>
+                  <dd>Resources completed</dd>
+                </div>
+                <div class="progress-stat">
+                  <dt>2</dt>
+                  <dd>Currently in progress</dd>
+                </div>
+                <div class="progress-stat">
+                  <dt>3</dt>
+                  <dd>Resources remaining</dd>
+                </div>
+              </dl>
+              <div class="current-focus">
+                <p>Current focus: <strong>Financial Planning System</strong></p>
+                <a class="suite-button suite-button-small" href="business-launcher.html">CONTINUE BUILDING</a>
+              </div>
+            </div>
+          </div>
+        </article>
 
-      <article class="suite-card">
-        <img src="images/owners-suite-subscription.png" alt="">
-        <div>
-          <small>YOUR SUBSCRIPTION</small>
-          <h2>AI Companion + Journey Journal</h2>
-          <p>ACTIVE</p>
-          <p>Your private guidance and reflection space.</p>
-          <a class="suite-button" href="private-services.html">OPEN SUBSCRIPTION</a>
-        </div>
-      </article>
-    </section>
+        <article class="suite-panel subscription-panel">
+          <p class="panel-kicker">YOUR SUBSCRIPTION</p>
+          <div class="subscription-layout">
+            <div class="panel-visual subscription-visual">
+              <img src="images/subscription-ai-journal-transparent.png" alt="">
+            </div>
+            <div class="panel-copy subscription-copy">
+              <h2>AI Companion +<br>Journey Journal</h2>
+              <p class="subscription-status">ACTIVE</p>
+              <p class="panel-description">Your private guidance and reflection space.</p>
+              <a class="suite-button suite-button-small" href="private-services.html">OPEN SUBSCRIPTION</a>
+            </div>
+          </div>
+        </article>
+      </section>
+    </div>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
