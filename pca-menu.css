@@ -1,217 +1,71 @@
-.pca-menu-button {
-  width: 28px;
-  height: 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  padding: 0;
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-}
+.owners-suite-page .site-header { position: relative; z-index: 30; }
 
-.pca-menu-button span {
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: #d7a650;
-}
-
-.profile-chevron {
-  display: none;
-}
-
-.pca-menu-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 70;
-  display: none;
-  background: rgba(0, 0, 0, 0.55);
-}
-
-.pca-menu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 90;
-  width: min(340px, 90vw);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 36px 28px 28px;
-  color: #e4c77a;
-  background: #070605;
-  border: 1px solid rgba(200, 148, 59, 0.4);
-  transform: translateX(100%);
-  transition: transform 280ms ease;
-}
-
-body.menu-open .pca-menu { transform: translateX(0); }
-body.menu-open .pca-menu-overlay { display: block; }
-
-.pca-menu-brand {
-  margin: 0;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 42px;
-  letter-spacing: 0.08em;
-  text-align: center;
-}
-
-.pca-menu-sub {
-  margin: 0 0 18px;
-  font-family: Montserrat, Arial, sans-serif;
-  font-size: 9px;
-  letter-spacing: 0.28em;
-  text-align: center;
-}
-
-.pca-menu-diamond {
-  width: 70%;
-  height: 1px;
-  margin: 18px auto;
-  background: linear-gradient(90deg, transparent, #c8943b, transparent);
-}
-
-.pca-menu-label {
-  margin: 8px 0 14px;
-  font-family: Montserrat, Arial, sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.28em;
-  text-align: center;
-}
-
-.pca-menu nav {
-  display: flex;
-  flex-direction: column;
-}
-
-.pca-menu nav a {
-  padding: 14px 8px;
-  border-bottom: 1px solid rgba(200, 148, 59, 0.22);
-  color: #e4c77a;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 22px;
-  text-decoration: none;
-}
-
-.pca-menu nav a.is-active {
-  background: rgba(200, 148, 59, 0.08);
-  box-shadow: inset 3px 0 0 #c8943b;
-}
-
-.pca-menu-logout {
-  display: block;
-  padding-top: 18px;
-  color: #c9a24d;
-  font-family: Montserrat, Arial, sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.28em;
-  text-align: center;
-  text-decoration: none;
-}
-.pca-menu-button {
-  position: fixed;
-  top: 28px;
-  right: 24px;
-  z-index: 120;
-  width: 42px;
-  height: 42px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 6px;
-  padding: 0;
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-}
-.pca-menu nav a {
-  display: block;
-  padding: 14px 8px;
-  border-bottom: 1px solid rgba(200, 148, 59, 0.35);
-  color: #e8d09f;
-}
-
-.pca-menu-label {
+.suite-hero {
   position: relative;
-  margin: 22px 0 10px;
-  text-align: center;
+  min-height: 240px;
+  overflow: hidden;
+  isolation: isolate;
 }
 
-.pca-menu-label::before,
-.pca-menu-label::after,
-.pca-menu-diamond {
-  display: block;
-  height: 1px;
-  margin: 12px auto;
-  background: linear-gradient(90deg, transparent, #c9a24d, transparent);
-}
-
-.pca-menu a[href="private-access.html"] {
-  border-left: 3px solid #c9a24d;
-  padding-left: 12px;
-  background: rgba(200, 148, 59, 0.08);
-}
-.pca-logout-overlay {
-  position: fixed;
+.suite-hero-image {
+  position: absolute;
   inset: 0;
-  z-index: 200;
-  display: none;
-  place-items: center;
-  background: rgba(0, 0, 0, 0.72);
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-body.logout-open .pca-logout-overlay {
+.suite-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(90deg, rgba(3,4,4,.96), rgba(3,4,4,.35) 70%);
+}
+
+.suite-hero-content {
+  width: min(1280px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+.suite-eyebrow { margin: 0 0 10px; color: #c9a24d; letter-spacing: .22em; font-size: 12px; }
+.suite-hero h1 { margin: 0 0 10px; color: #eee6d8; font-size: clamp(36px,5vw,58px); font-weight: 400; }
+.suite-hero p { color: #b9ae9e; }
+
+.suite-dashboard { width: min(1280px, calc(100% - 48px)); margin: 28px auto 80px; }
+.suite-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+.suite-card {
   display: grid;
-}
-
-.pca-logout-card {
-  width: min(420px, calc(100% - 32px));
-  padding: 36px 28px 28px;
-  color: #eee6d8;
+  grid-template-columns: 160px 1fr;
+  gap: 18px;
+  align-items: center;
+  min-height: 220px;
+  padding: 22px;
+  border: 1px solid rgba(200,148,59,.45);
   background: #090806;
+}
+
+.suite-card img { width: 100%; height: 150px; object-fit: contain; }
+.suite-card small { display: block; margin-bottom: 8px; color: #c9a24d; letter-spacing: .16em; font-size: 11px; }
+.suite-card h2 { margin: 0 0 8px; color: #eee6d8; font-size: 26px; font-weight: 400; }
+.suite-card p { margin: 0 0 10px; color: #b9ae9e; }
+
+.suite-button {
+  display: inline-block;
+  padding: 10px 16px;
   border: 1px solid #c9a24d;
-  text-align: center;
-}
-
-.pca-logout-card h2 {
-  margin: 0 0 10px;
-  color: #e1b35c;
-  font-size: 28px;
-  font-weight: 400;
-}
-
-.pca-logout-card p {
-  margin: 0 0 26px;
-  color: #b9ae9e;
-}
-
-.pca-logout-actions {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-}
-
-.pca-logout-actions a,
-.pca-logout-actions button {
-  min-width: 120px;
-  padding: 11px 16px;
-  font-family: Montserrat, Arial, sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  cursor: pointer;
-}
-
-.pca-logout-back {
   color: #e8d09f;
-  background: transparent;
-  border: 1px solid rgba(200, 148, 59, 0.45);
+  letter-spacing: .12em;
+  font-size: 11px;
 }
 
-.pca-logout-confirm {
-  color: #1a1206;
-  background: linear-gradient(135deg, #f0d487, #c89a38);
-  border: 0;
+.suite-progress { grid-template-columns: 1fr; }
+.suite-progress strong { color: #e1b35c; font-size: 54px; font-weight: 400; }
+.suite-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 12px 0; }
+.suite-stats b { display: block; color: #eee6d8; font-size: 22px; }
+
+@media (max-width: 900px) {
+  .suite-grid, .suite-card, .suite-stats { grid-template-columns: 1fr; }
 }

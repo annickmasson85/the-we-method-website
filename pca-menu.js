@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="pca-menu-label">PRIVATE ACCESS</p>
           <nav>
             <a href="private-access.html">Private Client Access</a>
-            <a href="owner-suite.html">Owner’s Suite</a>
+            <a href="owners-suite.html">Owner’s Suite</a>
             <a href="knowledge-vault.html">Founder Library</a>
             <a href="assessment.html">Assessment</a>
           </nav>
