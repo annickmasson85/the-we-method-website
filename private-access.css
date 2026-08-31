@@ -543,3 +543,23 @@ img {
 #header-photo[hidden] {
   display: none;
 }
+.brand-monogram {
+  font-weight: 400 !important;
+  letter-spacing: 0.06em !important;
+  text-shadow: none !important;
+}
+
+.brand-name {
+  font-weight: 400 !important;
+  letter-spacing: 0.28em !important;
+}
+
+.header-title {
+  font-weight: 400 !important;
+  letter-spacing: 0.34em !important;
+}
+
+.header-title span,
+.header-title small {
+  font-weight: 400 !important;
+}
