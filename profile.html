@@ -22,7 +22,8 @@
     <span class="header-rule"></span>
     <a class="member-profile" href="profile.html">
       <span class="profile-icon">
-        <svg viewBox="0 0 48 48">
+        <img id="header-photo" alt="" hidden>
+        <svg id="header-icon" viewBox="0 0 48 48">
           <circle cx="24" cy="16.5" r="8"></circle>
           <path d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"></path>
         </svg>
@@ -40,12 +41,12 @@
       <h1>MEMBER PROFILE</h1>
       <p>Manage your personal information, business details and account security.</p>
       <div class="profile-card-photo">
-        <div class="photo-fallback"></div>
+        <img id="profile-photo" alt="" hidden>
+        <div id="profile-photo-fallback" class="photo-fallback"></div>
         <h2 id="profile-card-name">CLIENT</h2>
         <p>PRIVATE MEMBER</p>
         <p id="member-since">MEMBER SINCE 2026</p>
         <p>ACCOUNT STATUS · ACTIVE</p>
-        
       </div>
     </aside>
 
@@ -89,9 +90,9 @@
 
       var userRes = await supabase.auth.getUser();
       var user = (userRes.data && userRes.data.user) || session.data.session.user;
-      var meta = (user && user.user_metadata) || {};
+      var meta = user.user_metadata || {};
       var fullName = [meta.first_name, meta.last_name].filter(Boolean).join(" ") || "Client";
-      var year = new Date((user && user.created_at) || Date.now()).getFullYear();
+      var year = new Date(user.created_at || Date.now()).getFullYear();
 
       function set(id, value) {
         var el = document.getElementById(id);
@@ -107,6 +108,23 @@
       set("location", [meta.city, meta.state].filter(Boolean).join(", "));
       set("stage", meta.business_stage);
       set("member-since", "MEMBER SINCE " + year);
+
+      if (meta.avatar_url) {
+        var card = document.getElementById("profile-photo");
+        var fallback = document.getElementById("profile-photo-fallback");
+        var header = document.getElementById("header-photo");
+        var icon = document.getElementById("header-icon");
+        if (card) {
+          card.src = meta.avatar_url;
+          card.hidden = false;
+        }
+        if (fallback) fallback.hidden = true;
+        if (header) {
+          header.src = meta.avatar_url;
+          header.hidden = false;
+        }
+        if (icon) icon.style.display = "none";
+      }
     });
   </script>
 </body>
