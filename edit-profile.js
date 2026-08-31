@@ -24,6 +24,22 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("location").value = [meta.city, meta.state].filter(Boolean).join(", ");
   document.getElementById("stage").value = meta.business_stage || "";
 
+  const preview = document.getElementById("photo-preview");
+  const empty = document.getElementById("photo-empty");
+  if (meta.avatar_url && preview) {
+    preview.src = meta.avatar_url;
+    preview.hidden = false;
+    if (empty) empty.hidden = true;
+  }
+
+  document.getElementById("photo")?.addEventListener("change", (event) => {
+    const file = event.target.files?.[0];
+    if (!file || !preview) return;
+    preview.src = URL.createObjectURL(file);
+    preview.hidden = false;
+    if (empty) empty.hidden = true;
+  });
+
   document.getElementById("edit-form").addEventListener("submit", async (event) => {
     event.preventDefault();
     const status = document.getElementById("edit-status");

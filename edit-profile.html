@@ -35,6 +35,15 @@
       <h1>Modify Your Profile</h1>
       <p class="edit-note">Your name and email stay protected.</p>
 
+      <div class="photo-box">
+        <img id="photo-preview" alt="" hidden>
+        <div id="photo-empty" class="photo-fallback"></div>
+        <label class="photo-button">
+          CHOOSE PHOTO
+          <input id="photo" type="file" accept="image/*" hidden>
+        </label>
+      </div>
+
       <label>FULL NAME
         <input id="full-name" type="text" readonly>
       </label>
@@ -58,9 +67,6 @@
           <option>Operating</option>
           <option>Growing</option>
         </select>
-      </label>
-      <label>PROFILE PHOTO
-        <input id="photo" type="file" accept="image/*">
       </label>
 
       <p id="edit-status"></p>
