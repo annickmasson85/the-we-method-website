@@ -563,3 +563,13 @@ img {
 .header-title small {
   font-weight: 400 !important;
 }
+.pca-menu nav a {
+  border-bottom: 1px solid rgba(200, 148, 59, 0.28);
+}
+
+.pca-menu nav a.is-active {
+  border-left: 3px solid #c9a24d;
+  padding-left: 12px;
+  color: #e8d09f;
+  background: rgba(200, 148, 59, 0.08);
+}

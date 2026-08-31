@@ -14,9 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="pca-menu-label">PRIVATE ACCESS</p>
           <nav>
             <a href="private-access.html">Private Client Access</a>
-            <a href="owners-suite.html">Owner’s Suite</a>
+            <a href="owner-suite.html">Owner’s Suite</a>
             <a href="knowledge-vault.html">Founder Library</a>
-            <a href="profile.html">Member Profile</a>
+            <a href="assessment.html">Assessment</a>
           </nav>
           <div class="pca-menu-diamond"></div>
           <p class="pca-menu-label">YOUR BUSINESS</p>
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <a href="my-cart.html">My Cart</a>
           </nav>
         </div>
-        <a class="pca-menu-logout" href="signin.html" id="menu-signout">LOG OUT</a>
+        <a class="pca-menu-logout" href="index.html" id="menu-signout">LOG OUT</a>
       </aside>
       <div class="pca-logout-overlay" id="logout-overlay">
         <div class="pca-logout-card">
@@ -42,6 +42,14 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     document.body.appendChild(wrap);
   }
+
+  const page = (window.location.pathname.split("/").pop() || "").toLowerCase();
+  document.querySelectorAll("#pca-menu nav a").forEach((link) => {
+    const href = (link.getAttribute("href") || "").toLowerCase();
+    if (href && href === page) {
+      link.classList.add("is-active");
+    }
+  });
 
   const openLogout = (event) => {
     event.preventDefault();
