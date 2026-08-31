@@ -44,13 +44,22 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const page = (window.location.pathname.split("/").pop() || "").toLowerCase();
+  const isProfile = page === "profile.html" || page === "edit-profile.html";
+
   document.querySelectorAll("#pca-menu nav a").forEach((link) => {
     const href = (link.getAttribute("href") || "").toLowerCase();
+    const isOwnerPage = page === "owners-suite.html" || page === "owner-suite.html";
+    const ownerLink = href === "owners-suite.html";
+
+    if (isProfile) return;
+    if (isOwnerPage && ownerLink) {
+      link.classList.add("is-active");
+      return;
+    }
     if (href && href === page) {
       link.classList.add("is-active");
     }
   });
-
   const openLogout = (event) => {
     event.preventDefault();
     document.body.classList.add("logout-open");
