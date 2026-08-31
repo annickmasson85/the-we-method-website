@@ -154,3 +154,64 @@ body.menu-open .pca-menu-overlay { display: block; }
   padding-left: 12px;
   background: rgba(200, 148, 59, 0.08);
 }
+.pca-logout-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.72);
+}
+
+body.logout-open .pca-logout-overlay {
+  display: grid;
+}
+
+.pca-logout-card {
+  width: min(420px, calc(100% - 32px));
+  padding: 36px 28px 28px;
+  color: #eee6d8;
+  background: #090806;
+  border: 1px solid #c9a24d;
+  text-align: center;
+}
+
+.pca-logout-card h2 {
+  margin: 0 0 10px;
+  color: #e1b35c;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.pca-logout-card p {
+  margin: 0 0 26px;
+  color: #b9ae9e;
+}
+
+.pca-logout-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.pca-logout-actions a,
+.pca-logout-actions button {
+  min-width: 120px;
+  padding: 11px 16px;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+}
+
+.pca-logout-back {
+  color: #e8d09f;
+  background: transparent;
+  border: 1px solid rgba(200, 148, 59, 0.45);
+}
+
+.pca-logout-confirm {
+  color: #1a1206;
+  background: linear-gradient(135deg, #f0d487, #c89a38);
+  border: 0;
+}
