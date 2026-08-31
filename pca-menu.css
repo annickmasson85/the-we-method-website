@@ -127,3 +127,30 @@ body.menu-open .pca-menu-overlay { display: block; }
   border: 0;
   cursor: pointer;
 }
+.pca-menu nav a {
+  display: block;
+  padding: 14px 8px;
+  border-bottom: 1px solid rgba(200, 148, 59, 0.35);
+  color: #e8d09f;
+}
+
+.pca-menu-label {
+  position: relative;
+  margin: 22px 0 10px;
+  text-align: center;
+}
+
+.pca-menu-label::before,
+.pca-menu-label::after,
+.pca-menu-diamond {
+  display: block;
+  height: 1px;
+  margin: 12px auto;
+  background: linear-gradient(90deg, transparent, #c9a24d, transparent);
+}
+
+.pca-menu a[href="private-access.html"] {
+  border-left: 3px solid #c9a24d;
+  padding-left: 12px;
+  background: rgba(200, 148, 59, 0.08);
+}
