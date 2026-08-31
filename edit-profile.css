@@ -19,7 +19,7 @@
 .photo-box {
   width: min(260px, 100%);
   margin: 0 auto 28px;
-  padding: 24px;
+  padding: 22px 18px 16px;
   border: 1px solid rgba(200, 148, 59, 0.5);
   text-align: center;
 }
@@ -28,7 +28,7 @@
 #photo-preview {
   width: 110px;
   height: 110px;
-  margin: 0 auto 16px;
+  margin: 0 auto 14px;
   border: 1px solid #c9a24d;
   border-radius: 50%;
   object-fit: cover;
@@ -44,14 +44,23 @@
 }
 
 .photo-button {
-  display: inline-block;
+  display: block;
+  width: 100%;
+  margin: 0;
   padding: 10px 16px;
   border: 1px solid #c9a24d;
   color: #e8d09f;
+  background: transparent;
   font-family: Montserrat, Arial, sans-serif;
   font-size: 10px;
   letter-spacing: 0.16em;
   cursor: pointer;
+}
+
+.photo-button.remove {
+  margin-top: 8px;
+  border-color: rgba(200, 148, 59, 0.35);
+  color: #b9ae9e;
 }
 
 #edit-form label {
@@ -78,7 +87,7 @@
 
 #edit-form input[readonly] { opacity: 0.55; }
 
-#edit-form button {
+#edit-form .profile-actions button {
   padding: 12px 24px;
   color: #1a1206;
   background: linear-gradient(135deg, #f0d487, #c89a38);

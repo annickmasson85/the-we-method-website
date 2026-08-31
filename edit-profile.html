@@ -22,7 +22,13 @@
     </div>
     <span class="header-rule"></span>
     <a class="member-profile" href="profile.html">
-      <span class="profile-icon"></span>
+      <span class="profile-icon">
+        <img id="header-photo" alt="" hidden>
+        <svg id="header-icon" viewBox="0 0 48 48">
+          <circle cx="24" cy="16.5" r="8"></circle>
+          <path d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"></path>
+        </svg>
+      </span>
       <span class="profile-copy">
         <small>MEMBER PROFILE</small>
         <strong id="member-profile-name">Client</strong>
@@ -42,6 +48,9 @@
           CHOOSE PHOTO
           <input id="photo" type="file" accept="image/*" hidden>
         </label>
+        <button id="remove-photo" type="button" class="photo-button remove">
+          REMOVE PHOTO
+        </button>
       </div>
 
       <label>FULL NAME
@@ -80,6 +89,4 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
   <script src="pca-menu.js"></script>
-  <script src="edit-profile.js"></script>
-</body>
-</html>
+  <script 

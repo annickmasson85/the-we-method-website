@@ -26,18 +26,46 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const preview = document.getElementById("photo-preview");
   const empty = document.getElementById("photo-empty");
-  if (meta.avatar_url && preview) {
-    preview.src = meta.avatar_url;
-    preview.hidden = false;
+  const header = document.getElementById("header-photo");
+  const icon = document.getElementById("header-icon");
+  let removed = false;
+
+  function showPhoto(url) {
+    if (preview) {
+      preview.src = url;
+      preview.hidden = false;
+    }
     if (empty) empty.hidden = true;
+    if (header && url && url.indexOf("blob:") !== 0) {
+      header.src = url;
+      header.hidden = false;
+      if (icon) icon.style.display = "none";
+    }
   }
+
+  function hidePhoto() {
+    if (preview) {
+      preview.removeAttribute("src");
+      preview.hidden = true;
+    }
+    if (empty) empty.hidden = false;
+    if (header) header.hidden = true;
+    if (icon) icon.style.display = "";
+  }
+
+  if (meta.avatar_url) showPhoto(meta.avatar_url);
 
   document.getElementById("photo")?.addEventListener("change", (event) => {
     const file = event.target.files?.[0];
     if (!file || !preview) return;
-    preview.src = URL.createObjectURL(file);
-    preview.hidden = false;
-    if (empty) empty.hidden = true;
+    removed = false;
+    showPhoto(URL.createObjectURL(file));
+  });
+
+  document.getElementById("remove-photo")?.addEventListener("click", () => {
+    removed = true;
+    document.getElementById("photo").value = "";
+    hidePhoto();
   });
 
   document.getElementById("edit-form").addEventListener("submit", async (event) => {
@@ -45,10 +73,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const status = document.getElementById("edit-status");
     if (status) status.textContent = "Saving...";
 
-    let avatarUrl = meta.avatar_url || null;
+    let avatarUrl = removed ? null : (meta.avatar_url || null);
     const file = document.getElementById("photo")?.files?.[0];
 
-    if (file) {
+    if (file && !removed) {
       const path = user.id + "/avatar." + (file.name.split(".").pop() || "jpg");
       const { error: uploadError } = await supabase.storage
         .from("Avatar")
