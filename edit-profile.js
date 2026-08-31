@@ -29,6 +29,24 @@ document.addEventListener("DOMContentLoaded", async () => {
     const status = document.getElementById("edit-status");
     if (status) status.textContent = "Saving...";
 
+    let avatarUrl = meta.avatar_url || null;
+    const file = document.getElementById("photo")?.files?.[0];
+
+    if (file) {
+      const path = user.id + "/avatar." + (file.name.split(".").pop() || "jpg");
+      const { error: uploadError } = await supabase.storage
+        .from("Avatar")
+        .upload(path, file, { upsert: true });
+
+      if (uploadError) {
+        if (status) status.textContent = uploadError.message;
+        return;
+      }
+
+      const { data } = supabase.storage.from("Avatar").getPublicUrl(path);
+      avatarUrl = data.publicUrl + "?t=" + Date.now();
+    }
+
     const parts = document.getElementById("location").value.split(",");
     const { error } = await supabase.auth.updateUser({
       data: {
@@ -36,13 +54,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         company_name: document.getElementById("company").value.trim(),
         city: (parts[0] || "").trim(),
         state: (parts.slice(1).join(",") || "").trim(),
-        business_stage: document.getElementById("stage").value
+        business_stage: document.getElementById("stage").value,
+        avatar_url: avatarUrl
       }
     });
 
     if (error) {
       if (status) status.textContent = error.message;
-      alert(error.message);
       return;
     }
 
