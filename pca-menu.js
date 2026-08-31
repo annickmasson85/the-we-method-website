@@ -67,6 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   document.getElementById("logout-confirm")?.addEventListener("click", async () => {
     if (window.supabaseClient) await window.supabaseClient.auth.signOut();
-    window.location.href = "signin.html";
+    window.location.href = "index.html";
   });
 });
