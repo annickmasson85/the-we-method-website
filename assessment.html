@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Foundry Assessment | The We Method</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="private-access.css">
+  <link rel="stylesheet" href="pca-menu.css">
+  <link rel="stylesheet" href="assessment.css">
+</head>
+<body class="private-access-page assessment-page">
+  <header class="site-header">
+    <a class="brand-mark" href="index.html">
+      <span class="brand-monogram">TWM</span>
+      <span class="brand-name">THE WE METHOD</span>
+    </a>
+    <span class="header-rule"></span>
+    <div class="header-title">
+      <span>ASSESSMENT</span>
+      <small>BUILD <b>◆</b> LAUNCH <b>◆</b> GROW</small>
+    </div>
+    <span class="header-rule"></span>
+    <a class="member-profile" href="profile.html">
+      <span class="profile-icon">
+        <img id="header-photo" alt="" hidden>
+        <svg id="header-icon" viewBox="0 0 48 48">
+          <circle cx="24" cy="16.5" r="8"></circle>
+          <path d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"></path>
+        </svg>
+      </span>
+      <span class="profile-copy">
+        <small>MEMBER PROFILE</small>
+        <strong id="member-profile-name">Client</strong>
+      </span>
+    </a>
+  </header>
+
+  <main class="as-main">
+    <section class="as-hero">
+      <p class="as-eyebrow">PRIVATE DIAGNOSTIC</p>
+    <h1>Business Foundry Assessment</h1>
+      <span class="as-line"></span>
+      <p class="as-lead">Seven focused questions. A clear stage. A precise next system.</p>
+    </section>
+
+    <form id="assessment-form" class="as-panel">
+      <div class="as-progress">
+        <span id="as-step-label">QUESTION 01 OF 07</span>
+        <div class="as-progress-track"><i id="as-progress-bar"></i></div>
+      </div>
+
+      <section class="as-question is-active" data-step="1">
+        <p class="as-kicker">YOUR JOURNEY</p>
+        <h2>Where are you in your business journey?</h2>
+        <p class="as-note">Select one.</p>
+        <div class="as-options" data-name="journey" data-type="single">
+          <label><input type="radio" name="journey" value="explore"><span>Exploring the idea of a golf cart rental business</span></label>
+          <label><input type="radio" name="journey" value="plan"><span>Planning the launch</span></label>
+          <label><input type="radio" name="journey" value="operate"><span>Already operating</span></label>
+          <label><input type="radio" name="journey" value="expand"><span>Expanding an existing business</span></label>
+        </div>
+      </section>
+
+      <section class="as-question" data-step="2">
+        <p class="as-kicker">YOUR FLEET</p>
+        <h2>What does your fleet look like today?</h2>
+        <p class="as-note">Select one.</p>
+        <div class="as-options" data-name="fleet" data-type="single">
+          <label><input type="radio" name="fleet" value="none"><span>No carts yet</span></label>
+          <label><input type="radio" name="fleet" value="small"><span>A first small fleet</span></label>
+          <label><input type="radio" name="fleet" value="established"><span>An established commercial fleet</span></label>
+          <label><input type="radio" name="fleet" value="upgrade"><span>Ready to upgrade or customize</span></label>
+        </div>
+      </section>
+
+      <section class="as-question" data-step="3">
+        <p class="as-kicker">YOUR FOUNDATION</p>
+        <h2>Are you building in the United States as an international founder?</h2>
+        <p class="as-note">Select one.</p>
+        <div class="as-options" data-name="international" data-type="single">
+          <label><input type="radio" name="international" value="no"><span>No</span></label>
+          <label><input type="radio" name="international" value="yes"><span>Yes, or considering it</span></label>
+        </div>
+      </section>
+
+      <section class="as-question" data-step="4">
+        <p class="as-kicker">ALREADY IN PLACE</p>
+        <h2>What do you already have?</h2>
+        <p class="as-note">Select everything that applies.</p>
+        <div class="as-groups">
+          <div>
+            <p>Foundation</p>
+            <label><input type="checkbox" name="have" value="business-plan"><span>Business plan</span></label>
+            <label><input type="checkbox" name="have" value="registered"><span>Registered business</span></label>
+            <label><input type="checkbox" name="have" value="insurance"><span>Commercial insurance</span></label>
+          </div>
+          <div>
+            <p>Operations</p>
+            <label><input type="checkbox" name="have" value="sops"><span>Standard operating procedures</span></label>
+            <label><input type="checkbox" name="have" value="training"><span>Employee training</span></label>
+            <label><input type="checkbox" name="have" value="pickup"><span>Pickup and return process</span></label>
+            <label><input type="checkbox" name="have" value="office"><span>Office setup</span></label>
+          </div>
+          <div>
+            <p>Documents</p>
+            <label><input type="checkbox" name="have" value="agreement"><span>Rental agreement</span></label>
+            <label><input type="checkbox" name="have" value="waiver"><span>Liability waiver</span></label>
+            <label><input type="checkbox" name="have" value="rules"><span>Local rules communication</span></label>
+          </div>
+          <div>
+            <p>Systems</p>
+            <label><input type="checkbox" name="have" value="reservations"><span>Reservations and booking</span></label>
+            <label><input type="checkbox" name="have" value="maintenance"><span>Maintenance and inspection</span></label>
+            <label><input type="checkbox" name="have" value="fleet-system"><span>Fleet management</span></label>
+            <label><input type="checkbox" name="have" value="marketing"><span>Marketing and branding</span></label>
+          </div>
+        </div>
+      </section>
+
+      <section class="as-question" data-step="5">
+        <p class="as-kicker">YOUR AIM</p>
+        <h2>What is your primary goal right now?</h2>
+        <p class="as-note">Select one.</p>
+        <div class="as-options" data-name="goal" data-type="single">
+          <label><input type="radio" name="goal" value="launch"><span>Launch the first business</span></label>
+          <label><input type="radio" name="goal" value="operations"><span>Organize daily operations</span></label>
+          <label><input type="radio" name="goal" value="documents"><span>Strengthen documents and risk protection</span></label>
+          <label><input type="radio" name="goal" value="grow"><span>Grow revenue and the fleet</span></label>
+          <label><input type="radio" name="goal" value="custom-fleet"><span>Design a stronger custom fleet</span></label>
+        </div>
+      </section>
+
+      <section class="as-question" data-step="6">
+        <p class="as-kicker">YOUR SUPPORT</p>
+        <h2>What kind of support do you want next?</h2>
+        <p class="as-note">Select everything that applies.</p>
+        <div class="as-options">
+          <label><input type="checkbox" name="support" value="system"><span>A complete Signature System</span></label>
+          <label><input type="checkbox" name="support" value="manuals"><span>Printable manuals and templates</span></label>
+          <label><input type="checkbox" name="support" value="implementation"><span>On-site Implementation Services</span></label>
+          <label><input type="checkbox" name="support" value="fleet-solution"><span>Fleet Solution</span></label>
+          <label><input type="checkbox" name="support" value="fleet-builder"><span>Fleet Builder</span></label>
+          <label><input type="checkbox" name="support" value="insight"><span>Operation Insight</span></label>
+          <label><input type="checkbox" name="support" value="unsure"><span>I’m not sure yet</span></label>
+        </div>
+      </section>
+
+      <section class="as-question" data-step="7">
+        <p class="as-kicker">YOUR TIMING</p>
+        <h2>How soon do you want to move forward?</h2>
+        <p class="as-note">Select one.</p>
+        <div class="as-options">
+          <label><input type="radio" name="timing" value="30"><span>Within 30 days</span></label>
+          <label><input type="radio" name="timing" value="90"><span>Within 3 months</span></label>
+          <label><input type="radio" name="timing" value="180"><span>Within 6 months</span></label>
+          <label><input type="radio" name="timing" value="explore"><span>Still exploring</span></label>
+        </div>
+      </section>
+
+      <p class="as-error" id="as-error" hidden>Please complete this question to continue.</p>
+
+      <div class="as-actions">
+        <button type="button" class="as-back" id="as-back">BACK</button>
+        <button type="button" class="as-next" id="as-next">CONTINUE</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="pca-menu.js"></script>
+  <script src="assessment.js"></script>
+</body>
+</html>
