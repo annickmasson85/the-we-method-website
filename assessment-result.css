@@ -121,3 +121,20 @@
   .ar-stats, .ar-grid { grid-template-columns: 1fr; }
   .ar-hero, .ar-primary { padding: 28px 20px; }
 }
+.ar-primary {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.ar-primary img,
+#ar-service-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .ar-primary { grid-template-columns: 1fr; }
+}

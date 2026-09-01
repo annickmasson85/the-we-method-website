@@ -174,6 +174,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
   }
 
+  const systemImages = {
+    "Business Launcher": "images/assessment-business-launcher.png",
+    "International Business Launcher": "images/assessment-international-business-launcher.png",
+    "Operation Bundle": "images/assessment-operation-bundle.png",
+    "The Road Beyond Launch": "images/assessment-hero.png",
+    "Fleet Cleaning & Maintenance Toolkit": "images/assessment-fleet-builder.png"
+  };
+
+  const serviceImages = {
+    "Implementation Services": "images/assessment-implementation-services.png",
+    "Fleet Solution": "images/assessment-fleet-solution.png",
+    "Fleet Builder": "images/assessment-fleet-builder.png",
+    "Operation Insight": "images/assessment-operation-insight.png"
+  };
+
   document.getElementById("ar-summary").textContent = summary;
   document.getElementById("ar-stage").textContent = stage;
   document.getElementById("ar-score").textContent = score + " / 100";
@@ -181,6 +196,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("ar-system-title").textContent = system.title;
   document.getElementById("ar-system-text").textContent = system.text;
   document.getElementById("ar-system-link").href = system.href;
+
+  const systemImage = document.getElementById("ar-system-image");
+  if (systemImage) {
+    systemImage.src = systemImages[system.title] || "images/assessment-hero.png";
+  }
 
   document.getElementById("ar-resources").innerHTML = resources.map((item) =>
     `<a class="ar-resource" href="${item.href}"><small>${item.collection}</small>${item.title}</a>`
@@ -200,6 +220,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const link = document.getElementById("ar-service-link");
     link.hidden = false;
     link.href = service.href;
+    const serviceImage = document.getElementById("ar-service-image");
+    if (serviceImage) {
+      serviceImage.src = serviceImages[service.title] || serviceImage.src;
+    }
   }
 
   localStorage.setItem("twm-assessment-result", JSON.stringify({
