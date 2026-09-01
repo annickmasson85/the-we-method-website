@@ -336,6 +336,46 @@
           profileIcon.style.display = "none";
         }
       }
+
+      var result = null;
+      try {
+        result = JSON.parse(localStorage.getItem("twm-assessment-result") || "null");
+      } catch (error) {
+        result = null;
+      }
+
+      if (result) {
+        var title = document.getElementById("assessment-result-title");
+        var description = document.getElementById("assessment-result-description");
+        var action = document.getElementById("assessment-primary-action");
+        var systemTitle = document.getElementById("system-title");
+        var systemDescription = document.getElementById("system-description");
+        var systemAction = document.getElementById("system-primary-action");
+        var focus = document.getElementById("current-focus-title");
+
+        if (title) title.textContent = result.stage || "Completed";
+        if (description) {
+          description.textContent =
+            "Readiness score " +
+            (result.score || 0) +
+            " / 100. Primary system: " +
+            (result.system || "Saved") +
+            ".";
+        }
+        if (action) {
+          action.textContent = "VIEW RESULT";
+          action.href = "assessment-result.html";
+        }
+        if (systemTitle && result.system) systemTitle.textContent = result.system;
+        if (systemDescription && result.system) {
+          systemDescription.textContent =
+            "Your assessment selected this as the system to open first.";
+        }
+        if (systemAction && result.system) {
+          systemAction.textContent = "OPEN SYSTEM";
+        }
+        if (focus && result.system) focus.textContent = result.system;
+      }
     });
   </script>
 
