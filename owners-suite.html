@@ -3,151 +3,94 @@
 
 <head>
   <meta charset="UTF-8">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
+    name="description"
+    content="Access your private results, resources, progress, and subscription inside The We Method Owner’s Suite."
   >
 
   <title>Owner’s Suite | The We Method</title>
 
-  <!-- FONTS -->
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap"
     rel="stylesheet"
   >
 
-  <!-- GLOBAL PRIVATE ACCESS -->
-  <link
-    rel="stylesheet"
-    href="private-access.css"
-  >
+  <!-- Keep these two existing global files. -->
+  <link rel="stylesheet" href="private-access.css">
+  <link rel="stylesheet" href="pca-menu.css">
 
-  <!-- PRIVATE CLIENT MENU -->
-  <link
-    rel="stylesheet"
-    href="pca-menu.css"
-  >
-
-  <!-- OWNER'S SUITE -->
-  <link
-    rel="stylesheet"
-    href="owners-suite.css"
-  >
+  <!-- Replace the former Owner’s Suite stylesheet with this one. -->
+  <link rel="stylesheet" href="owners-suite.css">
 </head>
-
 
 <body class="private-access-page owners-suite-page">
 
-
   <!-- =====================================================
-       TOP HEADER
+       PRIVATE CLIENT HEADER
        ===================================================== -->
-
   <header class="site-header">
+    <a
+      class="brand-mark"
+      href="index.html"
+      aria-label="The We Method home"
+    >
+      <span class="brand-monogram">TWM</span>
+      <span class="brand-name">THE WE METHOD</span>
+    </a>
 
-  <a
-    class="brand-mark"
-    href="index.html"
-    aria-label="The We Method home"
-  >
-    <span class="brand-monogram">TWM</span>
-    <span class="brand-name">THE WE METHOD</span>
-  </a>
+    <span class="header-rule" aria-hidden="true"></span>
 
-  <span
-    class="header-rule"
-    aria-hidden="true"
-  ></span>
+    <div class="header-title" aria-label="Private Client Access">
+      <span>PRIVATE CLIENT ACCESS</span>
+      <small>
+        BUILD
+        <b aria-hidden="true">◆</b>
+        LAUNCH
+        <b aria-hidden="true">◆</b>
+        GROW
+      </small>
+    </div>
 
-  <div
-    class="header-title"
-    aria-label="Private Client Access"
-  >
-    <span>PRIVATE CLIENT ACCESS</span>
+    <span class="header-rule" aria-hidden="true"></span>
 
-    <small>
-      BUILD
-      <b aria-hidden="true">◆</b>
-      LAUNCH
-      <b aria-hidden="true">◆</b>
-      GROW
-    </small>
-  </div>
+    <a
+      class="member-profile"
+      href="profile.html"
+      aria-label="Open member profile"
+    >
+      <span class="profile-icon">
+        <img
+          id="header-photo"
+          alt="Member profile"
+          hidden
+        >
 
-  <span
-    class="header-rule"
-    aria-hidden="true"
-  ></span>
+        <svg
+          id="header-icon"
+          viewBox="0 0 48 48"
+          aria-hidden="true"
+        >
+          <circle cx="24" cy="16.5" r="8"></circle>
+          <path d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"></path>
+        </svg>
+      </span>
 
-  <a
-    class="member-profile"
-    href="profile.html"
-    aria-label="Open member profile"
-  >
+      <span class="profile-copy">
+        <small>MEMBER PROFILE</small>
+        <strong id="member-profile-name">Client</strong>
+      </span>
 
-    <span class="profile-icon">
-
-      <img
-        id="header-photo"
-        alt="Member profile"
-        hidden
-      >
-
-      <svg
-        id="header-icon"
-        viewBox="0 0 48 48"
-        aria-hidden="true"
-      >
-        <circle
-          cx="24"
-          cy="16.5"
-          r="8"
-        ></circle>
-
-        <path
-          d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"
-        ></path>
-      </svg>
-
-    </span>
-
-    <span class="profile-copy">
-      <small>MEMBER PROFILE</small>
-
-      <strong id="member-profile-name">
-        Client
-      </strong>
-    </span>
-
-    <span
-      class="profile-chevron"
-      aria-hidden="true"
-    ></span>
-
-  </a>
-
-</header>
-
+      <span class="profile-chevron" aria-hidden="true"></span>
+    </a>
+  </header>
 
   <!-- =====================================================
-       OWNER'S SUITE NAVIGATION
+       PRIVATE CLIENT NAVIGATION
        ===================================================== -->
-
-  
-  >
-
+  <nav class="private-access-nav" aria-label="Private client navigation">
     <a
       class="active"
       href="owners-suite.html"
@@ -156,345 +99,184 @@
       OWNER’S SUITE
     </a>
 
-
-    <a href="knowledge-vault.html">
-      KNOWLEDGE VAULT
-    </a>
-
-
-    <!--
-      We will replace # with the real Archives page
-      when its exact filename is confirmed.
-    -->
-    <a href="#">
-      ARCHIVES
-    </a>
-
-
-    <a href="profile.html">
-      ACCOUNT
-    </a>
-
+    <a href="knowledge-vault.html">KNOWLEDGE VAULT</a>
+    <a href="#">ARCHIVES</a>
+    <a href="profile.html">ACCOUNT</a>
   </nav>
 
-
-
   <!-- =====================================================
-       MAIN CONTENT
+       OWNER’S SUITE
        ===================================================== -->
+  <main class="suite-main">
 
-  <main>
-
-
-    <!-- ===================================================
-         HERO
-         =================================================== -->
-
-    <section class="suite-hero">
-
+    <!-- HERO -->
+    <section class="suite-hero" aria-labelledby="suite-title">
       <img
         class="suite-hero-image"
-        src="images/owners-suite-office-background.png"
-        alt=""
+        src="images/owners-suite-hero.png"
+        alt="Private executive office for The We Method Owner’s Suite"
       >
 
-      <div class="suite-hero-overlay"></div>
-
+      <div class="suite-hero-shade" aria-hidden="true"></div>
 
       <div class="suite-hero-content">
+        <p class="suite-eyebrow">OWNER’S SUITE</p>
 
-        <p class="suite-eyebrow">
-          OWNER’S SUITE
-        </p>
-
-
-        <h1>
-          Ready to continue building?
-        </h1>
-
+        <h1 id="suite-title">Ready to continue building?</h1>
 
         <p class="suite-hero-description">
           Your results, resources, and progress—all in one place.
         </p>
 
+        <span class="suite-hero-accent" aria-hidden="true"></span>
       </div>
-
     </section>
 
+    <!-- DASHBOARD -->
+    <section class="suite-dashboard" aria-label="Your private access overview">
+      <div class="suite-grid">
 
-
-    <!-- ===================================================
-         OWNER'S DASHBOARD
-         =================================================== -->
-
-    <div class="suite-dashboard">
-
-
-      <section class="suite-grid">
-
-
-        <!-- ===============================================
-             YOUR ASSESSMENT
-             =============================================== -->
-
+        <!-- YOUR ASSESSMENT -->
         <article class="suite-card assessment-card">
+          <p class="suite-card-label">YOUR ASSESSMENT</p>
 
-          <p class="suite-card-label">
-            YOUR ASSESSMENT
-          </p>
-
-
-          <div class="assessment-card-content">
-
-
-            <div class="suite-card-visual">
-
+          <div class="suite-card-layout assessment-layout">
+            <figure class="suite-card-visual assessment-visual">
               <img
-                src="images/assessment-results-folder-transparent.png"
-                alt="Assessment results"
+                src="images/owners-suite-assessment.png"
+                alt="The We Method assessment results folder"
               >
-
-            </div>
-
+            </figure>
 
             <div class="suite-card-copy">
+              <p class="suite-card-kicker">YOUR CURRENT RESULT</p>
 
-              <p class="suite-card-kicker">
-                YOUR CURRENT RESULT
+              <h2 id="assessment-result-title">Not Started</h2>
+
+              <p
+                class="suite-card-description"
+                id="assessment-result-description"
+              >
+                Your complete results and personalized recommendations will be saved here.
               </p>
-
-
-              <h2>
-                Not Started
-              </h2>
-
-
-              <p class="suite-card-description">
-                Your results will appear here.
-              </p>
-
 
               <a
                 class="suite-button"
+                id="assessment-primary-action"
                 href="assessment.html"
               >
                 START ASSESSMENT
               </a>
-
             </div>
-
-
           </div>
-
         </article>
 
-
-
-        <!-- ===============================================
-             YOUR SYSTEM
-             =============================================== -->
-
+        <!-- YOUR SYSTEM -->
         <article class="suite-card system-card">
+          <p class="suite-card-label">YOUR SYSTEM</p>
 
-          <p class="suite-card-label">
-            YOUR SYSTEM
-          </p>
-
-
-          <div class="system-card-content">
-
-
+          <div class="suite-card-layout system-layout">
             <div class="suite-card-copy">
+              <h2 id="system-title">No System Yet</h2>
 
-              <h2>
-                No System Yet
-              </h2>
-
-
-              <p class="resource-count">
+              <p class="resource-count" id="system-resource-count">
                 0 RESOURCES AVAILABLE
               </p>
 
-
-              <p class="suite-card-description">
-                Your private system will appear here once access is active.
+              <p class="suite-card-description" id="system-description">
+                Your private system will appear here once your access becomes active.
               </p>
-
 
               <a
                 class="suite-button"
+                id="system-primary-action"
                 href="knowledge-vault.html"
               >
                 VIEW THE VAULT
               </a>
-
             </div>
 
-
-            <div class="suite-card-visual">
-
+            <figure class="suite-card-visual system-visual">
               <img
-                src="images/business-launcher-system-transparent.png"
-                alt="Business Launcher system"
+                src="images/owners-suite-business-system.png"
+                alt="The We Method Business Launcher system"
               >
-
-            </div>
-
-
+            </figure>
           </div>
-
         </article>
 
-
-
-        <!-- ===============================================
-             YOUR PROGRESS
-             =============================================== -->
-
+        <!-- YOUR PROGRESS -->
         <article class="suite-card progress-card">
+          <p class="suite-card-label">YOUR PROGRESS</p>
 
-          <p class="suite-card-label">
-            YOUR PROGRESS
-          </p>
-
-
-          <div class="progress-card-content">
-
-
-            <!-- PROGRESS CIRCLE -->
+          <div class="progress-layout">
             <div
               class="progress-ring"
+              id="progress-ring"
+              role="img"
+              aria-label="0 percent complete"
               style="--progress: 0;"
             >
-
               <div class="progress-ring-inner">
-
-                <strong>
-                  0%
-                </strong>
-
+                <strong id="progress-percentage">0%</strong>
               </div>
-
             </div>
 
-
-
-            <!-- PROGRESS INFORMATION -->
             <div class="progress-information">
-
-
-              <div class="suite-stats">
-
-
+              <div class="suite-stats" aria-label="Progress details">
                 <p>
-                  <b>
-                    0 OF 0
-                  </b>
-
-                  <small>
-                    Completed
-                  </small>
+                  <b id="completed-resources">0 OF 0</b>
+                  <small>Completed</small>
                 </p>
 
-
                 <p>
-                  <b>
-                    0
-                  </b>
-
-                  <small>
-                    In progress
-                  </small>
+                  <b id="active-resources">0</b>
+                  <small>In progress</small>
                 </p>
 
-
                 <p>
-                  <b>
-                    0
-                  </b>
-
-                  <small>
-                    Remaining
-                  </small>
+                  <b id="remaining-resources">0</b>
+                  <small>Remaining</small>
                 </p>
-
-
               </div>
-
-
 
               <p class="current-focus">
-
-                <span>
-                  CURRENT FOCUS
-                </span>
-
-                <strong>
-                  Not started yet
-                </strong>
-
+                <span>CURRENT FOCUS</span>
+                <strong id="current-focus-title">Not started yet</strong>
               </p>
 
-
-
-              <a
-                class="suite-button"
-                href="knowledge-vault.html"
-              >
+              <a class="suite-button" href="knowledge-vault.html">
                 BEGIN BUILDING
               </a>
-
-
             </div>
-
-
           </div>
-
         </article>
 
-
-
-        <!-- ===============================================
-             YOUR SUBSCRIPTION
-             =============================================== -->
-
+        <!-- YOUR SUBSCRIPTION -->
         <article class="suite-card subscription-card">
+          <p class="suite-card-label">YOUR SUBSCRIPTION</p>
 
-          <p class="suite-card-label">
-            YOUR SUBSCRIPTION
-          </p>
-
-
-          <div class="subscription-card-content">
-
-
-            <div class="suite-card-visual">
-
+          <div class="suite-card-layout subscription-layout">
+            <figure class="suite-card-visual subscription-visual">
               <img
-                src="images/subscription-ai-journal-transparent.png"
-                alt="AI Companion and Journey Journal"
+                src="images/owners-suite-subscription.png"
+                alt="The We Method Journey Journal and private companion"
               >
-
-            </div>
-
+            </figure>
 
             <div class="suite-card-copy">
-
               <h2>
                 AI Companion +<br>
                 Journey Journal
               </h2>
 
-
-              <p class="subscription-status">
+              <p class="subscription-status" id="subscription-status">
                 INACTIVE
               </p>
-
 
               <p class="suite-card-description">
                 Your private guidance and reflection space.
               </p>
-
 
               <a
                 class="suite-button"
@@ -502,176 +284,76 @@
               >
                 VIEW SUBSCRIPTION
               </a>
-
             </div>
-
-
           </div>
-
         </article>
 
-
-      </section>
-
-    </div>
-
-
+      </div>
+    </section>
   </main>
 
-
-
-  <!-- =====================================================
-       SUPABASE
-       ===================================================== -->
-
+  <!-- Keep these existing technical files. -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
   <script src="supabase-config.js"></script>
-
   <script src="pca-menu.js"></script>
 
-
-
-  <!-- =====================================================
-       MEMBER SESSION + PROFILE
-       ===================================================== -->
-
+  <!-- MEMBER SESSION + PROFILE -->
   <script>
+    document.addEventListener("DOMContentLoaded", async function () {
+      var supabase = window.supabaseClient;
 
-    document.addEventListener(
-      "DOMContentLoaded",
-      async function () {
-
-        var supabase = window.supabaseClient;
-
-
-        /*
-         * If Supabase has not loaded,
-         * stop here.
-         */
-        if (!supabase) {
-          return;
-        }
-
-
-
-        /*
-         * Check current session.
-         */
-        var session =
-          await supabase.auth.getSession();
-
-
-
-        /*
-         * No active session:
-         * send the visitor to Sign In.
-         */
-        if (
-          !session.data ||
-          !session.data.session
-        ) {
-
-          window.location.href =
-            "signin.html";
-
-          return;
-
-        }
-
-
-
-        /*
-         * Get authenticated user.
-         */
-        var userRes =
-          await supabase.auth.getUser();
-
-
-        var user =
-          (
-            userRes.data &&
-            userRes.data.user
-          ) ||
-          session.data.session.user;
-
-
-        var meta =
-          (
-            user &&
-            user.user_metadata
-          ) ||
-          {};
-
-
-
-        /*
-         * Member name.
-         */
-        var name =
-          document.getElementById(
-            "member-profile-name"
-          );
-
-
-        if (name) {
-
-          name.textContent =
-            [
-              meta.first_name,
-              meta.last_name
-            ]
-              .filter(Boolean)
-              .join(" ") ||
-            "Client";
-
-        }
-
-
-
-        /*
-         * Member profile photo.
-         */
-        if (meta.avatar_url) {
-
-          var photo =
-            document.getElementById(
-              "header-photo"
-            );
-
-
-          var icon =
-            document.getElementById(
-              "header-icon"
-            );
-
-
-          if (photo) {
-
-            photo.src =
-              meta.avatar_url;
-
-            photo.hidden =
-              false;
-
-          }
-
-
-          if (icon) {
-
-            icon.style.display =
-              "none";
-
-          }
-
-        }
-
+      if (!supabase) {
+        return;
       }
-    );
 
+      var sessionResponse = await supabase.auth.getSession();
+      var session =
+        sessionResponse.data &&
+        sessionResponse.data.session;
+
+      if (!session) {
+        window.location.href = "signin.html";
+        return;
+      }
+
+      var userResponse = await supabase.auth.getUser();
+      var user =
+        (userResponse.data && userResponse.data.user) ||
+        session.user;
+      var metadata = (user && user.user_metadata) || {};
+
+      var profileName = document.getElementById("member-profile-name");
+      var fullName = [metadata.first_name, metadata.last_name]
+        .filter(Boolean)
+        .join(" ");
+
+      if (profileName) {
+        profileName.textContent = fullName || "Client";
+      }
+
+      if (metadata.avatar_url) {
+        var profilePhoto = document.getElementById("header-photo");
+        var profileIcon = document.getElementById("header-icon");
+
+        if (profilePhoto) {
+          profilePhoto.src = metadata.avatar_url;
+          profilePhoto.hidden = false;
+
+          profilePhoto.addEventListener("error", function () {
+            profilePhoto.hidden = true;
+
+            if (profileIcon) {
+              profileIcon.style.display = "block";
+            }
+          });
+        }
+
+        if (profileIcon) {
+          profileIcon.style.display = "none";
+        }
+      }
+    });
   </script>
 
-
 </body>
-
 </html>
