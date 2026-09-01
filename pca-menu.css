@@ -162,3 +162,16 @@ body.logout-open .pca-logout-overlay {
   background: linear-gradient(135deg, #f0d487, #c89a38);
   border: 0;
 }
+.pca-menu-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.pca-menu-button span {
+  width: 16px;
+  height: 1.5px;
+  margin: 0;
+}

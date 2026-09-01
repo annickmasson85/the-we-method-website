@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <nav>
             <a href="private-access.html">Private Client Access</a>
             <a href="owners-suite.html">Owner’s Suite</a>
+            <a href="private-services.html">Private Services</a>
+            <a href="archives.html">Archives</a>
             <a href="knowledge-vault.html">Founder Library</a>
             <a href="assessment.html">Assessment</a>
           </nav>
@@ -22,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="pca-menu-label">YOUR BUSINESS</p>
           <nav>
             <a href="implementation-services.html">Implementation Services</a>
+            <a href="operation-insight.html">Operation Insight</a>
             <a href="fleet-solution.html">Fleet Solution</a>
             <a href="fleet-builder.html">Fleet Builder</a>
             <a href="my-cart.html">My Cart</a>
@@ -60,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
       link.classList.add("is-active");
     }
   });
+
   const openLogout = (event) => {
     event.preventDefault();
     document.body.classList.add("logout-open");
