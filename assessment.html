@@ -41,7 +41,7 @@
   <main class="as-main">
     <section class="as-hero">
       <p class="as-eyebrow">PRIVATE DIAGNOSTIC</p>
-    <h1>Business Foundry Assessment</h1>
+      <h1>Business Foundry Assessment</h1>
       <span class="as-line"></span>
       <p class="as-lead">Seven focused questions. A clear stage. A precise next system.</p>
     </section>
@@ -56,7 +56,7 @@
         <p class="as-kicker">YOUR JOURNEY</p>
         <h2>Where are you in your business journey?</h2>
         <p class="as-note">Select one.</p>
-        <div class="as-options" data-name="journey" data-type="single">
+        <div class="as-options">
           <label><input type="radio" name="journey" value="explore"><span>Exploring the idea of a golf cart rental business</span></label>
           <label><input type="radio" name="journey" value="plan"><span>Planning the launch</span></label>
           <label><input type="radio" name="journey" value="operate"><span>Already operating</span></label>
@@ -68,7 +68,7 @@
         <p class="as-kicker">YOUR FLEET</p>
         <h2>What does your fleet look like today?</h2>
         <p class="as-note">Select one.</p>
-        <div class="as-options" data-name="fleet" data-type="single">
+        <div class="as-options">
           <label><input type="radio" name="fleet" value="none"><span>No carts yet</span></label>
           <label><input type="radio" name="fleet" value="small"><span>A first small fleet</span></label>
           <label><input type="radio" name="fleet" value="established"><span>An established commercial fleet</span></label>
@@ -80,7 +80,7 @@
         <p class="as-kicker">YOUR FOUNDATION</p>
         <h2>Are you building in the United States as an international founder?</h2>
         <p class="as-note">Select one.</p>
-        <div class="as-options" data-name="international" data-type="single">
+        <div class="as-options">
           <label><input type="radio" name="international" value="no"><span>No</span></label>
           <label><input type="radio" name="international" value="yes"><span>Yes, or considering it</span></label>
         </div>
@@ -89,8 +89,12 @@
       <section class="as-question" data-step="4">
         <p class="as-kicker">ALREADY IN PLACE</p>
         <h2>What do you already have?</h2>
-        <p class="as-note">Select everything that applies.</p>
+        <p class="as-note">Select everything that applies. If you are at the very beginning, choose the first option only.</p>
         <div class="as-groups">
+          <div>
+            <p>Starting point</p>
+            <label><input type="checkbox" name="have" value="nothing"><span>I don’t have anything in place yet</span></label>
+          </div>
           <div>
             <p>Foundation</p>
             <label><input type="checkbox" name="have" value="business-plan"><span>Business plan</span></label>
@@ -124,7 +128,7 @@
         <p class="as-kicker">YOUR AIM</p>
         <h2>What is your primary goal right now?</h2>
         <p class="as-note">Select one.</p>
-        <div class="as-options" data-name="goal" data-type="single">
+        <div class="as-options">
           <label><input type="radio" name="goal" value="launch"><span>Launch the first business</span></label>
           <label><input type="radio" name="goal" value="operations"><span>Organize daily operations</span></label>
           <label><input type="radio" name="goal" value="documents"><span>Strengthen documents and risk protection</span></label>
@@ -138,12 +142,12 @@
         <h2>What kind of support do you want next?</h2>
         <p class="as-note">Select everything that applies.</p>
         <div class="as-options">
-          <label><input type="checkbox" name="support" value="system"><span>A complete Signature System</span></label>
+          <label><input type="checkbox" name="support" value="system"><span>A complete system I can follow</span></label>
           <label><input type="checkbox" name="support" value="manuals"><span>Printable manuals and templates</span></label>
-          <label><input type="checkbox" name="support" value="implementation"><span>On-site Implementation Services</span></label>
-          <label><input type="checkbox" name="support" value="fleet-solution"><span>Fleet Solution</span></label>
-          <label><input type="checkbox" name="support" value="fleet-builder"><span>Fleet Builder</span></label>
-          <label><input type="checkbox" name="support" value="insight"><span>Operation Insight</span></label>
+          <label><input type="checkbox" name="support" value="start"><span>Help starting the business the right way</span></label>
+          <label><input type="checkbox" name="support" value="operations"><span>Help organizing daily operations</span></label>
+          <label><input type="checkbox" name="support" value="documents"><span>Help with contracts and customer documents</span></label>
+          <label><input type="checkbox" name="support" value="growth"><span>Help growing the business and fleet</span></label>
           <label><input type="checkbox" name="support" value="unsure"><span>I’m not sure yet</span></label>
         </div>
       </section>
