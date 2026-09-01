@@ -184,3 +184,11 @@
 .as-start label {
   max-width: 520px;
 }
+.as-start {
+  grid-column: 1 / -1;
+  margin-top: 10px;
+}
+
+.as-start label {
+  max-width: 560px;
+}
