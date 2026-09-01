@@ -176,3 +176,11 @@
   .as-hero, .as-panel { padding: 28px 20px; }
   .as-groups { grid-template-columns: 1fr; }
 }
+.as-start {
+  grid-column: 1 / -1;
+  margin-top: 8px;
+}
+
+.as-start label {
+  max-width: 520px;
+}
