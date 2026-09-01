@@ -1,0 +1,123 @@
+.ar-main {
+  width: min(1180px, calc(100% - 48px));
+  margin: 36px auto 90px;
+}
+
+.ar-hero,
+.ar-primary,
+.ar-card,
+.ar-stats article {
+  border: 1px solid rgba(201, 162, 77, 0.45);
+  background: #090806;
+}
+
+.ar-hero,
+.ar-primary {
+  padding: 42px 48px;
+  margin-bottom: 18px;
+}
+
+.ar-eyebrow,
+.ar-stats p {
+  margin: 0 0 12px;
+  color: #c9a24d;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+}
+
+.ar-hero h1,
+.ar-primary h2,
+.ar-card h3,
+.ar-stats strong {
+  margin: 0;
+  color: #eee6d8;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 400;
+}
+
+.ar-hero h1 { font-size: clamp(46px, 6vw, 76px); }
+.ar-primary h2 { font-size: clamp(34px, 4vw, 52px); }
+
+.ar-line {
+  display: block;
+  width: 84px;
+  height: 1px;
+  margin: 16px 0;
+  background: linear-gradient(90deg, #e1b65e, transparent);
+}
+
+.ar-lead, .ar-primary p, .ar-card p, .ar-card li {
+  color: #b9ae9e;
+  line-height: 1.65;
+}
+
+.ar-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.ar-stats article { padding: 28px; }
+.ar-stats strong { font-size: clamp(28px, 3vw, 40px); }
+
+.ar-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 18px;
+}
+
+.ar-card { padding: 28px; }
+
+.ar-resource {
+  display: block;
+  margin: 0 0 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(201, 162, 77, 0.2);
+  color: #eee6d8;
+}
+
+.ar-resource small {
+  display: block;
+  margin-bottom: 4px;
+  color: #c9a24d;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+}
+
+.ar-missing { margin: 0; padding-left: 18px; }
+
+.ar-button, .ar-ghost, .ar-link {
+  display: inline-flex;
+  margin-top: 22px;
+  min-height: 46px;
+  padding: 0 20px;
+  align-items: center;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+}
+
+.ar-button {
+  color: #1a1206;
+  background: linear-gradient(135deg, #f0d487, #c89a38);
+}
+
+.ar-ghost, .ar-link {
+  color: #e8d09f;
+  border: 1px solid rgba(201, 162, 77, 0.45);
+}
+
+.ar-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+@media (max-width: 900px) {
+  .ar-stats, .ar-grid { grid-template-columns: 1fr; }
+  .ar-hero, .ar-primary { padding: 28px 20px; }
+}

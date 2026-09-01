@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Assessment Result | The We Method</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="private-access.css">
+  <link rel="stylesheet" href="pca-menu.css">
+  <link rel="stylesheet" href="assessment-result.css">
+</head>
+<body class="private-access-page assessment-result-page">
+  <header class="site-header">
+    <a class="brand-mark" href="index.html">
+      <span class="brand-monogram">TWM</span>
+      <span class="brand-name">THE WE METHOD</span>
+    </a>
+    <span class="header-rule"></span>
+    <div class="header-title">
+      <span>ASSESSMENT RESULT</span>
+      <small>BUILD <b>◆</b> LAUNCH <b>◆</b> GROW</small>
+    </div>
+    <span class="header-rule"></span>
+    <a class="member-profile" href="profile.html">
+      <span class="profile-icon">
+        <img id="header-photo" alt="" hidden>
+        <svg id="header-icon" viewBox="0 0 48 48">
+          <circle cx="24" cy="16.5" r="8"></circle>
+          <path d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"></path>
+        </svg>
+      </span>
+      <span class="profile-copy">
+        <small>MEMBER PROFILE</small>
+        <strong id="member-profile-name">Client</strong>
+      </span>
+    </a>
+  </header>
+
+  <main class="ar-main">
+    <section class="ar-hero">
+      <p class="ar-eyebrow">BUSINESS FOUNDRY ASSESSMENT</p>
+      <h1>Your Result</h1>
+      <span class="ar-line"></span>
+      <p class="ar-lead" id="ar-summary">Your private diagnostic is ready.</p>
+    </section>
+
+    <section class="ar-stats">
+      <article>
+        <p>YOUR CURRENT STAGE</p>
+        <strong id="ar-stage">—</strong>
+      </article>
+      <article>
+        <p>READINESS SCORE</p>
+        <strong id="ar-score">— / 100</strong>
+      </article>
+      <article>
+        <p>TIMING</p>
+        <strong id="ar-timing">—</strong>
+      </article>
+    </section>
+
+    <section class="ar-primary">
+      <p class="ar-eyebrow">YOUR PRIMARY SYSTEM</p>
+      <h2 id="ar-system-title">—</h2>
+      <p id="ar-system-text"></p>
+      <a class="ar-button" id="ar-system-link" href="knowledge-vault.html">OPEN THIS SYSTEM</a>
+    </section>
+
+    <section class="ar-grid">
+      <article class="ar-card">
+        <p class="ar-eyebrow">RECOMMENDED RESOURCES</p>
+        <div id="ar-resources"></div>
+      </article>
+      <article class="ar-card">
+        <p class="ar-eyebrow">RECOMMENDED SERVICE</p>
+        <h3 id="ar-service-title">None required yet</h3>
+        <p id="ar-service-text">Stay with the system and documents first.</p>
+        <a class="ar-link" id="ar-service-link" hidden href="#">OPEN SERVICE</a>
+      </article>
+      <article class="ar-card">
+        <p class="ar-eyebrow">NOT YET IN PLACE</p>
+        <ul id="ar-missing"></ul>
+      </article>
+    </section>
+
+    <div class="ar-actions">
+      <a class="ar-ghost" href="assessment.html">RETAKE ASSESSMENT</a>
+      <a class="ar-button" href="owners-suite.html">SAVE TO OWNER’S SUITE</a>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="pca-menu.js"></script>
+  <script src="assessment-result.js"></script>
+</body>
+</html>
