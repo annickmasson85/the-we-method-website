@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <a href="owners-suite.html">Owner’s Suite</a>
             <a href="private-services.html">Private Services</a>
             <a href="archives.html">Archives</a>
-            <a href="knowledge-vault.html">Founder Library</a>
+            <a href="founder-library.html">Founder Library</a>
             <a href="assessment.html">Assessment</a>
           </nav>
           <div class="pca-menu-diamond"></div>
@@ -48,14 +48,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const page = (window.location.pathname.split("/").pop() || "").toLowerCase();
   const isProfile = page === "profile.html" || page === "edit-profile.html";
+  const isLibrary = page === "founder-library.html" || page === "founder-library-detail.html";
+  const isOwnerPage = page === "owners-suite.html" || page === "owner-suite.html";
+  const isAssessment = page === "assessment.html" || page === "assessment-result.html";
 
   document.querySelectorAll("#pca-menu nav a").forEach((link) => {
     const href = (link.getAttribute("href") || "").toLowerCase();
-    const isOwnerPage = page === "owners-suite.html" || page === "owner-suite.html";
-    const ownerLink = href === "owners-suite.html";
-
     if (isProfile) return;
-    if (isOwnerPage && ownerLink) {
+    if (isOwnerPage && href === "owners-suite.html") {
+      link.classList.add("is-active");
+      return;
+    }
+    if (isLibrary && href === "founder-library.html") {
+      link.classList.add("is-active");
+      return;
+    }
+    if (isAssessment && href === "assessment.html") {
       link.classList.add("is-active");
       return;
     }
