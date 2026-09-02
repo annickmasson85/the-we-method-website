@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="The We Method private collection of signature systems and founder resources.">
-  <title>Founder Library | The We Method</title>
+  <title>The Method Library | The We Method</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -13,75 +13,36 @@
   <link rel="stylesheet" href="founder-library.css">
 </head>
 <body class="private-access-page founder-library-page">
-  <header class="site-header">
-    <a class="brand-mark" href="index.html">
-      <span class="brand-monogram">TWM</span>
-      <span class="brand-name">THE WE METHOD</span>
-    </a>
-    <span class="header-rule"></span>
-    <div class="header-title">
-      <span>FOUNDER LIBRARY</span>
-      <small>BUILD <b>◆</b> LAUNCH <b>◆</b> GROW</small>
-    </div>
-    <span class="header-rule"></span>
-    <a class="member-profile" href="profile.html">
-      <span class="profile-icon">
-        <img id="header-photo" alt="" hidden>
-        <svg id="header-icon" viewBox="0 0 48 48">
-          <circle cx="24" cy="16.5" r="8"></circle>
-          <path d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"></path>
-        </svg>
-      </span>
-      <span class="profile-copy">
-        <small>MEMBER PROFILE</small>
-        <strong id="member-profile-name">Client</strong>
-      </span>
-    </a>
-  </header>
-
   <main class="library-shell">
     <section class="library-stage" aria-labelledby="library-title">
+      <header class="library-header">
+        <a class="library-brand" href="index.html" aria-label="The We Method home">
+          <span class="library-monogram">TWM</span>
+          <span class="library-brand-name">THE WE METHOD</span>
+        </a>
+        <div class="library-heading">
+          <p>THE WE METHOD<sup>®</sup></p>
+          <h1 id="library-title">THE METHOD LIBRARY</h1>
+          <span>BUILD <b>◆</b> LAUNCH <b>◆</b> GROW</span>
+        </div>
+        <button class="library-menu" type="button" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </header>
       <p class="collection-label signature-label">SIGNATURE SYSTEMS</p>
       <div id="signature-systems" class="signature-grid" aria-label="Signature systems"></div>
-
       <p class="collection-label resource-label">FOUNDER RESOURCES</p>
       <div id="founder-resources" class="resource-shelves" aria-label="Founder resources"></div>
     </section>
-
     <div class="library-key" aria-label="Access status legend">
       <span><img src="images/library-owned.png" alt=""> In your library</span>
       <span><img src="images/library-lock.png" alt=""> Available to purchase</span>
     </div>
   </main>
-
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
   <script src="pca-menu.js"></script>
   <script src="founder-library-data.js"></script>
   <script src="founder-library.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", async function () {
-      var supabase = window.supabaseClient;
-      if (!supabase) return;
-      var session = await supabase.auth.getSession();
-      if (!session.data || !session.data.session) {
-        window.location.href = "signin.html";
-        return;
-      }
-      var userRes = await supabase.auth.getUser();
-      var user = (userRes.data && userRes.data.user) || session.data.session.user;
-      var meta = (user && user.user_metadata) || {};
-      var name = document.getElementById("member-profile-name");
-      if (name) {
-        name.textContent = [meta.first_name, meta.last_name].filter(Boolean).join(" ") || "Client";
-      }
-      if (meta.avatar_url) {
-        var photo = document.getElementById("header-photo");
-        var icon = document.getElementById("header-icon");
-        if (photo) { photo.src = meta.avatar_url; photo.hidden = false; }
-        if (icon) icon.style.display = "none";
-      }
-    });
-  </script>
 </body>
 </html>
