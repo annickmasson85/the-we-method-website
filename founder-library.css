@@ -1,337 +1,482 @@
 :root {
-  --ink: #050403;
-  --panel: #0a0805;
-  --ivory: #f2eadc;
-  --muted: #b8aa93;
-  --gold: #d5aa4d;
-  --gold-soft: #a7782d;
-  --line: rgba(213, 170, 77, 0.48);
+  --fl-black: #030303;
+  --fl-gold: #c8943b;
+  --fl-muted: #a99a82;
 }
 
-* { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-html { background: var(--ink); }
-
+html,
 body {
-  min-width: 320px;
   margin: 0;
-  color: var(--ivory);
-  background:
-    radial-gradient(circle at 50% -10%, rgba(114, 76, 24, 0.18), transparent 38rem),
-    var(--ink);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  background: var(--fl-black);
 }
 
-img { display: block; max-width: 100%; }
-button, a { font: inherit; }
-[hidden] { display: none !important; }
-
-.founder-library-page .pca-menu-button,
-.founder-library-page .library-menu {
-  display: none !important;
+body.founder-library-page {
+  min-width: 320px;
+  overflow-x: hidden;
+  color: #e6dccb;
+  background: #030303;
 }
 
-.library-shell {
+.founder-library-page img {
+  display: block;
+  max-width: 100%;
+}
+
+/* =========================================================
+   MAIN LIBRARY
+   ========================================================= */
+
+.founder-library-page .library-shell {
   width: 100%;
-  padding: 0 0 30px;
+  margin: 0;
+  padding: 0 0 26px;
   overflow: hidden;
+  background: #030303;
 }
 
-.library-stage {
+/*
+  IMPORTANT:
+  library-background.png contains an empty title panel at the top.
+  Your HTML already has the real site header, so this crops that
+  empty panel and keeps only the shelves.
+*/
+.founder-library-page .library-stage {
   position: relative;
-  width: min(100%, 1672px);
-  aspect-ratio: 1672 / 941;
+  isolation: isolate;
+  width: min(100%, 1664px);
+  aspect-ratio: 1664 / 709;
   margin: 0 auto;
   overflow: hidden;
-  background: url("images/library-background.png") center / 100% 100% no-repeat;
-  isolation: isolate;
+  background:
+    url("images/library-background.png")
+    center bottom / 100% auto no-repeat;
 }
 
-.library-header {
+.founder-library-page .library-stage::after {
+  content: "";
   position: absolute;
-  z-index: 5;
-  top: 3.3%;
-  left: 13.4%;
-  display: grid;
-  grid-template-columns: minmax(110px, 0.85fr) 3fr minmax(70px, 0.85fr);
-  align-items: center;
-  width: 73.2%;
-  height: 18.4%;
-  padding: 0 2.3%;
+  inset: 0;
+  z-index: 12;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.10),
+      transparent 10%,
+      transparent 90%,
+      rgba(0, 0, 0, 0.10)
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.04),
+      transparent 12%,
+      transparent 90%,
+      rgba(0, 0, 0, 0.12)
+    );
 }
 
-.library-brand {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-self: start;
-  color: var(--gold);
-  text-decoration: none;
-}
+/* =========================================================
+   COLLECTION PLAQUES
+   ========================================================= */
 
-.library-monogram {
-  font-size: clamp(26px, 3.2vw, 58px);
-  line-height: 0.8;
-}
-
-.library-brand-name {
-  margin-top: 0.65em;
-  font-family: Montserrat, Arial, sans-serif;
-  font-size: clamp(7px, 0.5vw, 10px);
-  letter-spacing: 0.22em;
-}
-
-.library-heading { text-align: center; }
-
-.library-heading p,
-.library-heading h1,
-.library-heading span {
-  margin: 0;
-  color: var(--gold);
-}
-
-.library-heading p {
-  font-size: clamp(8px, 0.9vw, 15px);
-  letter-spacing: 0.12em;
-}
-
-.library-heading h1 {
-  margin: 0.04em 0;
-  font-size: clamp(25px, 3.25vw, 60px);
-  font-weight: 500;
-  line-height: 0.98;
-  letter-spacing: 0.035em;
-}
-
-.library-heading span {
-  font-family: Montserrat, Arial, sans-serif;
-  font-size: clamp(7px, 0.65vw, 12px);
-  letter-spacing: 0.34em;
-}
-
-.library-heading b {
-  margin: 0 0.7em;
-  font-size: 0.55em;
-}
-
-.collection-label {
+.founder-library-page .collection-plaque {
   position: absolute;
-  z-index: 4;
   left: 50%;
-  margin: 0;
+  z-index: 20;
+  display: block;
+  width: 19.5%;
+  height: auto;
   transform: translateX(-50%);
-  color: #e4bd69;
-  font-size: clamp(9px, 1.05vw, 18px);
-  font-weight: 500;
-  letter-spacing: 0.13em;
-  text-align: center;
-  white-space: nowrap;
-  text-shadow: 0 2px 12px #000;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 7px rgba(0, 0, 0, 0.92));
 }
 
-.collection-label::before,
-.collection-label::after {
-  content: "◆";
-  display: inline-block;
-  margin: 0 0.9em;
-  color: #a7792c;
-  font-size: 0.45em;
-  vertical-align: middle;
+.founder-library-page .signature-plaque {
+  top: 0.25%;
 }
 
-.signature-label { top: 24.28%; }
-.resource-label { top: 49.88%; }
+.founder-library-page .resource-plaque {
+  top: 33.9%;
+}
 
-.signature-grid {
+/* =========================================================
+   SIGNATURE SYSTEMS — 3 LARGE NICHES
+   ========================================================= */
+
+.founder-library-page .signature-grid {
   position: absolute;
-  z-index: 3;
-  top: 26.55%;
-  left: 12.45%;
+  top: 2.9%;
+  left: 11.78%;
+  z-index: 5;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  width: 75.1%;
-  height: 23.25%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 75.56%;
+  height: 30.7%;
+  padding: 0;
+  margin: 0;
 }
 
-.resource-shelves {
+/* =========================================================
+   FOUNDER RESOURCES — 4 / 4 / 3
+   ========================================================= */
+
+.founder-library-page .resource-shelves {
   position: absolute;
-  z-index: 3;
-  top: 52.15%;
-  left: 12.45%;
-  width: 75.1%;
-  height: 41.7%;
+  top: 36.35%;
+  left: 11.78%;
+  z-index: 5;
+  width: 75.56%;
+  height: 56.2%;
+  padding: 0;
+  margin: 0;
 }
 
-.resource-row {
+.founder-library-page .resource-row {
   position: absolute;
   left: 0;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   width: 100%;
-  height: 31%;
+  height: 33.2%;
+  padding: 0;
+  margin: 0;
 }
 
-.resource-row--1 { top: 0; }
-.resource-row--2 { top: 34.7%; }
-.resource-row--3 {
-  top: 69.3%;
-  left: 12.35%;
-  grid-template-columns: repeat(3, 1fr);
-  width: 75.3%;
+.founder-library-page .resource-row--1 {
+  top: 0;
 }
 
-.library-item {
+.founder-library-page .resource-row--2 {
+  top: 34.2%;
+}
+
+.founder-library-page .resource-row--3 {
+  top: 68.55%;
+  left: 11.45%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 76.65%;
+  height: 30.3%;
+}
+
+/* =========================================================
+   BOOK CELLS
+   ========================================================= */
+
+.founder-library-page .library-item {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
   color: inherit;
   text-decoration: none;
+  outline: none;
+  isolation: isolate;
 }
 
-.library-book {
-  position: relative;
-  z-index: 1;
-  width: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 10px 13px rgba(0, 0, 0, 0.82));
-  transform-origin: 50% 80%;
-  transition: transform 220ms ease, filter 220ms ease, opacity 220ms ease;
-}
-
-.library-item--signature .library-book {
-  max-width: 80%;
-  height: 90%;
-}
-
-.library-item--resource .library-book {
-  max-width: 66%;
-  height: 84%;
-}
-
-.library-item:hover .library-book,
-.library-item:focus-visible .library-book {
-  filter: drop-shadow(0 15px 18px rgba(0, 0, 0, 0.9)) brightness(1.08);
-  transform: translateY(-2.5%) scale(1.04);
-}
-
-.library-item.is-locked .library-book {
-  filter: drop-shadow(0 9px 12px rgba(0, 0, 0, 0.86)) brightness(0.72) saturate(0.8);
-}
-
-.access-mark {
+.founder-library-page .library-item::before {
+  content: "";
   position: absolute;
-  z-index: 3;
+  inset: 9% 8% 7%;
+  z-index: 0;
+  border: 1px solid transparent;
+  background:
+    radial-gradient(
+      circle at 50% 63%,
+      rgba(211, 161, 70, 0.08),
+      transparent 57%
+    );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease, border-color 0.22s ease;
+}
+
+.founder-library-page .library-item:hover::before,
+.founder-library-page .library-item:focus-visible::before {
+  opacity: 1;
+  border-color: rgba(211, 161, 70, 0.20);
+}
+
+/* =========================================================
+   BOOK SIZE — THIS IS THE PART THAT FIXES YOUR SCREENSHOT
+   ========================================================= */
+
+.founder-library-page .library-book {
+  position: relative !important;
+  z-index: 2 !important;
+  display: block !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 auto !important;
+  object-fit: contain !important;
+  object-position: center bottom !important;
+  transform-origin: 50% 100%;
+  filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.88));
+  transition:
+    transform 0.22s ease,
+    filter 0.22s ease,
+    opacity 0.22s ease;
+}
+
+/* 3 Signature Systems: fit completely inside the large shelf */
+.founder-library-page .library-item--signature .library-book {
+  height: 86% !important;
+  max-height: 86% !important;
+}
+
+/* Founder Resources: small, clean, centered in each niche */
+.founder-library-page .library-item--resource .library-book {
+  height: 78% !important;
+  max-height: 78% !important;
+}
+
+.founder-library-page .library-item.is-locked .library-book {
+  opacity: 0.88;
+  filter:
+    drop-shadow(0 7px 9px rgba(0, 0, 0, 0.90))
+    brightness(0.66)
+    saturate(0.78);
+}
+
+.founder-library-page .library-item:hover .library-book,
+.founder-library-page .library-item:focus-visible .library-book {
+  transform: translateY(-1.6%) scale(1.025);
+  filter:
+    drop-shadow(0 11px 14px rgba(0, 0, 0, 0.94))
+    brightness(1.05);
+}
+
+.founder-library-page .library-item.is-locked:hover .library-book,
+.founder-library-page .library-item.is-locked:focus-visible .library-book {
+  filter:
+    drop-shadow(0 11px 14px rgba(0, 0, 0, 0.94))
+    brightness(0.78)
+    saturate(0.88);
+}
+
+/* =========================================================
+   OWNED + LOCK MARKS
+   ========================================================= */
+
+.founder-library-page .access-mark {
+  position: absolute !important;
+  z-index: 8 !important;
+  display: block;
+  height: auto !important;
   object-fit: contain;
   pointer-events: none;
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.88));
 }
 
-.library-item--signature .access-mark--owned { right: 7%; bottom: 2.2%; width: 27%; }
-.library-item--signature .access-mark--locked { right: 8%; bottom: 7%; width: 8%; }
-.library-item--resource .access-mark--owned { right: 6%; bottom: 2%; width: 36%; }
-.library-item--resource .access-mark--locked { right: 8%; bottom: 8%; width: 11%; }
+.founder-library-page .library-item--signature .access-mark--owned {
+  left: 50% !important;
+  right: auto !important;
+  bottom: 0.6% !important;
+  width: 27% !important;
+  transform: translateX(-50%);
+}
 
-.library-key {
+.founder-library-page .library-item--signature .access-mark--locked {
+  right: 8.5% !important;
+  bottom: 7% !important;
+  width: 7.2% !important;
+}
+
+.founder-library-page .library-item--resource .access-mark--owned {
+  left: 50% !important;
+  right: auto !important;
+  bottom: 1.5% !important;
+  width: 30% !important;
+  transform: translateX(-50%);
+}
+
+.founder-library-page .library-item--resource .access-mark--locked {
+  right: 7.5% !important;
+  bottom: 8% !important;
+  width: 8.5% !important;
+}
+
+/* =========================================================
+   BOTTOM KEY
+   ========================================================= */
+
+.founder-library-page .library-key {
+  min-height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(24px, 5vw, 70px);
-  width: min(100% - 32px, 920px);
-  margin: 22px auto 0;
-  color: #a99a82;
-  font-family: Montserrat, Arial, sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.11em;
+  gap: clamp(30px, 5vw, 72px);
+  width: 100%;
+  margin: 0;
+  padding: 13px 24px 9px;
+  border-top: 1px solid rgba(200, 148, 59, 0.18);
+  color: var(--fl-muted);
+  background: #020202;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.17em;
   text-transform: uppercase;
 }
 
-.library-key span {
+.founder-library-page .library-key span {
   display: inline-flex;
   align-items: center;
   gap: 12px;
+  white-space: nowrap;
 }
 
-.library-key span:first-child img { width: 90px; }
-.library-key span:last-child img { width: 25px; }
+.founder-library-page .library-key span:first-child img {
+  width: 76px;
+  height: auto;
+}
 
-.visually-hidden {
+.founder-library-page .library-key span:last-child img {
+  width: 20px;
+  height: auto;
+}
+
+.founder-library-page .visually-hidden {
   position: absolute !important;
   width: 1px !important;
   height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
   overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
-@media (max-width: 900px) {
-  .library-shell { padding: 16px; }
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
 
-  .library-stage {
-    aspect-ratio: auto;
-    overflow: visible;
-    padding: 24px 18px 28px;
-    background:
-      radial-gradient(circle at 50% 0%, rgba(152, 101, 34, 0.2), transparent 28rem),
-      linear-gradient(180deg, #0b0906, #040302);
+@media (max-width: 900px) {
+  .founder-library-page .library-shell {
+    padding: 18px 14px 30px;
   }
 
-  .library-header,
-  .collection-label,
-  .signature-grid,
-  .resource-shelves,
-  .resource-row {
+  .founder-library-page .library-stage {
+    aspect-ratio: auto;
+    padding: 20px 14px 26px;
+    overflow: visible;
+    border: 1px solid rgba(200, 148, 59, 0.28);
+    background:
+      radial-gradient(
+        circle at 50% 0%,
+        rgba(124, 83, 27, 0.16),
+        transparent 30rem
+      ),
+      #080604;
+  }
+
+  .founder-library-page .library-stage::after {
+    display: none;
+  }
+
+  .founder-library-page .collection-plaque,
+  .founder-library-page .signature-grid,
+  .founder-library-page .resource-shelves,
+  .founder-library-page .resource-row {
     position: static;
     width: auto;
     height: auto;
     transform: none;
   }
 
-  .library-header {
-    display: grid;
-    grid-template-columns: 70px 1fr 46px;
-    min-height: 120px;
-    padding: 0 0 22px;
-    border-bottom: 1px solid var(--line);
+  .founder-library-page .collection-plaque {
+    width: min(390px, 78vw);
+    margin: 8px auto 16px;
   }
 
-  .signature-grid,
-  .resource-row {
+  .founder-library-page .resource-plaque {
+    margin-top: 30px;
+  }
+
+  .founder-library-page .signature-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px;
   }
 
-  .resource-row { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .resource-row--3 {
+  .founder-library-page .resource-shelves {
+    display: grid;
+    gap: 12px;
+  }
+
+  .founder-library-page .resource-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .founder-library-page .resource-row--3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     width: 76%;
     margin: 0 auto;
   }
 
-  .library-item {
-    min-height: 190px;
-    border: 1px solid rgba(213, 170, 77, 0.28);
-    background: #0a0805;
+  .founder-library-page .library-item {
+    min-height: 180px !important;
+    align-items: center !important;
+    border: 1px solid rgba(200, 148, 59, 0.20);
+    background:
+      linear-gradient(180deg, rgba(200, 148, 59, 0.08), transparent 35%),
+      #090705;
   }
 
-  .library-item--signature { min-height: 260px; }
+  .founder-library-page .library-item--signature {
+    min-height: 250px !important;
+  }
 
-  .library-item--signature .library-book,
-  .library-item--resource .library-book {
-    max-width: 78%;
-    height: 80%;
+  .founder-library-page .library-item--signature .library-book,
+  .founder-library-page .library-item--resource .library-book {
+    height: 72% !important;
+    max-height: 72% !important;
   }
 }
 
 @media (max-width: 620px) {
-  .signature-grid,
-  .resource-row,
-  .resource-row--3 {
-    grid-template-columns: 1fr 1fr;
+  .founder-library-page .signature-grid,
+  .founder-library-page .resource-row,
+  .founder-library-page .resource-row--3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     width: auto;
+  }
+
+  .founder-library-page .resource-row--3 .library-item:last-child {
+    grid-column: 1 / -1;
+    width: calc(50% - 6px);
+    justify-self: center;
+  }
+
+  .founder-library-page .library-item,
+  .founder-library-page .library-item--signature {
+    min-height: 230px !important;
+  }
+
+  .founder-library-page .library-key {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 9px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .library-book { transition: none; }
+  .founder-library-page .library-book,
+  .founder-library-page .library-item::before {
+    transition: none;
+  }
 }
