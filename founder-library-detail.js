@@ -78,6 +78,15 @@
         owned ? "Open " + product.title : "Add " + product.title + " to cart"
       );
     }
+
+    const includesToggle = document.getElementById("includes-toggle");
+    const includesBox = document.getElementById("product-includes");
+    includesToggle?.addEventListener("click", () => {
+      const open = includesBox.hasAttribute("hidden");
+      if (open) includesBox.removeAttribute("hidden");
+      else includesBox.setAttribute("hidden", "");
+      includesToggle.classList.toggle("is-open", open);
+    });
   }
 
   document.addEventListener("DOMContentLoaded", renderProduct);
