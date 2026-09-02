@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The We Method Library product details.">
+  <title>Library Details | The We Method</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="private-access.css">
+  <link rel="stylesheet" href="pca-menu.css">
+  <link rel="stylesheet" href="founder-library-detail.css">
+</head>
+<body class="private-access-page library-detail-page">
+  <header class="site-header">
+    <a class="brand-mark" href="index.html">
+      <span class="brand-monogram">TWM</span>
+      <span class="brand-name">THE WE METHOD</span>
+    </a>
+    <span class="header-rule"></span>
+    <div class="header-title">
+      <span>FOUNDER LIBRARY</span>
+      <small>BUILD <b>◆</b> LAUNCH <b>◆</b> GROW</small>
+    </div>
+    <span class="header-rule"></span>
+    <a class="member-profile" href="profile.html">
+      <span class="profile-icon">
+        <img id="header-photo" alt="" hidden>
+        <svg id="header-icon" viewBox="0 0 48 48">
+          <circle cx="24" cy="16.5" r="8"></circle>
+          <path d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"></path>
+        </svg>
+      </span>
+      <span class="profile-copy">
+        <small>MEMBER PROFILE</small>
+        <strong id="member-profile-name">Client</strong>
+      </span>
+    </a>
+  </header>
+
+  <main class="detail-shell">
+    <section class="detail-stage" aria-labelledby="product-title">
+      <div class="product-art">
+        <img id="product-image" src="images/knowledge-vault-business-launcher-book.png" alt="">
+      </div>
+
+      <article class="product-info">
+        <p class="product-eyebrow">
+          <span>THE WE METHOD LIBRARY</span>
+          <b>◆</b>
+          <span id="product-method">METHOD 1</span>
+        </p>
+        <h1 id="product-title">Business Launcher</h1>
+        <p class="product-summary" id="product-summary"></p>
+
+        <div class="product-values">
+          <div>
+            <small>TOTAL VALUE</small>
+            <strong id="product-value">—</strong>
+          </div>
+          <div>
+            <small>SIGNATURE INVESTMENT</small>
+            <strong id="product-investment">—</strong>
+          </div>
+        </div>
+
+        <dl class="product-meta">
+          <div><dt>TYPE</dt><dd id="product-type"></dd></div>
+          <div><dt>AUDIENCE</dt><dd id="product-audience"></dd></div>
+          <div><dt>FOCUS</dt><dd id="product-focus"></dd></div>
+          <div><dt>LEVEL</dt><dd id="product-level"></dd></div>
+          <div><dt>DURATION</dt><dd id="product-duration"></dd></div>
+          <div><dt>FORMAT</dt><dd id="product-format"></dd></div>
+        </dl>
+
+        <div class="product-access">
+          <div id="locked-state" class="product-state product-state--locked">
+            <img src="images/library-lock.png" alt="">
+            <span>LOCKED</span>
+          </div>
+          <div id="owned-state" class="product-state product-state--owned" hidden>
+            <img src="images/library-owned.png" alt="">
+          </div>
+          <a id="product-action" class="product-action" href="my-cart.html">ADD TO CART</a>
+        </div>
+      </article>
+
+      <section class="product-includes" aria-labelledby="includes-title">
+        <h2 id="includes-title">WHAT YOU WILL GET</h2>
+        <ol id="product-includes-list"></ol>
+      </section>
+
+      <a class="stage-back" href="founder-library.html">‹ BACK TO LIBRARY</a>
+      <p class="stage-note">12 MONTHS ACCESS <b>◆</b> SECURE CHECKOUT</p>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="pca-menu.js"></script>
+  <script src="founder-library-data.js"></script>
+  <script src="founder-library-detail.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async function () {
+      var supabase = window.supabaseClient;
+      if (!supabase) return;
+      var session = await supabase.auth.getSession();
+      if (!session.data || !session.data.session) {
+        window.location.href = "signin.html";
+        return;
+      }
+      var userRes = await supabase.auth.getUser();
+      var user = (userRes.data && userRes.data.user) || session.data.session.user;
+      var meta = (user && user.user_metadata) || {};
+      var name = document.getElementById("member-profile-name");
+      if (name) {
+        name.textContent = [meta.first_name, meta.last_name].filter(Boolean).join(" ") || "Client";
+      }
+      if (meta.avatar_url) {
+        var photo = document.getElementById("header-photo");
+        var icon = document.getElementById("header-icon");
+        if (photo) { photo.src = meta.avatar_url; photo.hidden = false; }
+        if (icon) icon.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
