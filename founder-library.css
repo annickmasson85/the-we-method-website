@@ -531,3 +531,90 @@ a {
     transition: none;
   }
 }
+
+/*
+  Desktop isolation fix
+  ---------------------
+  These selectors are intentionally scoped to this page and more specific
+  than the site's older library styles. This prevents existing CSS from
+  enlarging the books or hiding the title after the page is integrated.
+*/
+@media (min-width: 901px) {
+  .founder-library-page .library-stage {
+    container-type: inline-size;
+  }
+
+  .founder-library-page .library-header {
+    z-index: 20 !important;
+    display: grid !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .founder-library-page .library-heading,
+  .founder-library-page .library-brand,
+  .founder-library-page .library-menu {
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .founder-library-page .collection-label {
+    z-index: 18 !important;
+  }
+
+  .founder-library-page .signature-grid,
+  .founder-library-page .resource-shelves,
+  .founder-library-page .resource-row {
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+
+  .founder-library-page .library-item {
+    min-height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .founder-library-page .signature-grid .library-book {
+    width: auto !important;
+    max-width: 68% !important;
+    height: 11cqw !important;
+    max-height: 84% !important;
+    object-fit: contain !important;
+  }
+
+  .founder-library-page .resource-shelves .library-book {
+    width: auto !important;
+    max-width: 52% !important;
+    height: 5.8cqw !important;
+    max-height: 76% !important;
+    object-fit: contain !important;
+  }
+
+  .founder-library-page .signature-grid .access-mark--owned {
+    right: 7% !important;
+    bottom: 3% !important;
+    width: 25% !important;
+    height: auto !important;
+  }
+
+  .founder-library-page .signature-grid .access-mark--locked {
+    right: 8% !important;
+    bottom: 8% !important;
+    width: 7% !important;
+    height: auto !important;
+  }
+
+  .founder-library-page .resource-shelves .access-mark--owned {
+    right: 6% !important;
+    bottom: 3% !important;
+    width: 34% !important;
+    height: auto !important;
+  }
+
+  .founder-library-page .resource-shelves .access-mark--locked {
+    right: 8% !important;
+    bottom: 9% !important;
+    width: 10% !important;
+    height: auto !important;
+  }
+}
