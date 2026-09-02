@@ -480,3 +480,44 @@ body.founder-library-page {
     transition: none;
   }
 }
+.library-tip {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  z-index: 8;
+  width: max-content;
+  max-width: 90%;
+  padding: 8px 12px;
+  color: #e4c77a;
+  background: rgba(5, 4, 3, 0.88);
+  border: 1px solid rgba(213, 170, 77, 0.55);
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%);
+  transition: opacity 180ms ease;
+}
+
+.library-tip strong,
+.library-tip small {
+  display: block;
+}
+
+.library-tip strong {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.library-tip small {
+  margin-top: 4px;
+  color: #d5aa4d;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+
+.library-item:hover .library-tip,
+.library-item:focus-visible .library-tip {
+  opacity: 1;
+}

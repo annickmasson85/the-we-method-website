@@ -53,7 +53,13 @@
     name.className = "visually-hidden";
     name.textContent = product.title;
 
-    link.append(book, ownedBadge, lock, name);
+    const tip = document.createElement("span");
+    tip.className = "library-tip";
+    tip.innerHTML =
+      "<strong>" + product.title + "</strong>" +
+      "<small>" + (owned ? "IN YOUR LIBRARY" : (product.investment || product.totalValue || "SEE DETAILS")) + "</small>";
+
+    link.append(book, ownedBadge, lock, name, tip);
     return link;
   }
 
