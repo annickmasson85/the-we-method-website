@@ -537,3 +537,38 @@ img {
     transition: none;
   }
 }
+.product-includes {
+  width: min(92%, 720px);
+  margin: 0 auto;
+  padding: 18px 28px 22px;
+  text-align: center;
+}
+
+.includes-arrow {
+  margin: 0 0 6px;
+  color: #d5aa4d;
+  font-size: 22px;
+  letter-spacing: 0;
+}
+
+.product-includes h2 {
+  margin: 0 0 14px;
+  color: #e4c77a;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+}
+
+.product-includes ol {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #d8c7a4;
+  font-size: 15px;
+}
+
+.product-includes li {
+  letter-spacing: 0.04em;
+}
