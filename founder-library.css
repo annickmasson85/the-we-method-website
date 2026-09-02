@@ -278,6 +278,10 @@ body.founder-library-page {
   pointer-events: none;
   filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.88));
 }
+/* Hide status artwork unless JavaScript says it should be visible */
+.founder-library-page .access-mark[hidden] {
+  display: none !important;
+}
 
 .founder-library-page .library-item--signature .access-mark--owned {
   left: 50% !important;
