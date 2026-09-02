@@ -9,7 +9,6 @@
     level: "All stages",
     duration: "Self-paced",
     format: "PDF, guide & working pages",
-    investment: "See checkout",
     includes: [
       "Complete printable resource",
       "Step-by-step guidance",
@@ -31,8 +30,8 @@
       duration: "10+ hours",
       format: "PDF, guides, templates & more",
       summary: "The complete starting system for building a structured golf cart rental business in the United States.",
-      totalValue: "Complete system",
-      investment: "See checkout",
+      totalValue: "$5,023",
+      investment: "$1,997",
       openUrl: "business-launcher.html",
       includes: [
         "Business Launch — 10 phases",
@@ -94,8 +93,8 @@
       duration: "Self-paced",
       format: "PDF, guides, templates & more",
       summary: "The operating system for daily consistency, team clarity and documented procedures.",
-      totalValue: "Complete system",
-      investment: "See checkout",
+      totalValue: "$2,235",
+      investment: "$1,495",
       openUrl: "operation-bundle.html",
       includes: [
         "Employee Training Guide",
@@ -114,17 +113,19 @@
       image: "images/knowledge-vault-business-launch-roadmap-book.png",
       focus: "Launch planning",
       summary: "A strategic roadmap from early research to launch readiness.",
-      totalValue: "$250 Value",
+      totalValue: "$250",
+      investment: "$250",
       openUrl: "business-launch-roadmap.html"
     },
     {
       ...resourceDefaults,
       slug: "business-plan-template",
       title: "Business Plan Template & Example",
-      image: "images/knowledge-vault-business-plan-template-example-book.png",
+      image: "images/business-plan-template.png",
       focus: "Business planning",
       summary: "A guided resource for turning research and assumptions into a structured plan.",
-      totalValue: "$297 Value",
+      totalValue: "$297",
+      investment: "$297",
       openUrl: "business-plan-template-example.html"
     },
     {
@@ -134,27 +135,30 @@
       image: "images/knowledge-vault-employee-training-guide-book.png",
       focus: "Team training",
       summary: "A training system for daily responsibilities, service and consistent operations.",
-      totalValue: "$495 Value",
+      totalValue: "$495",
+      investment: "$495",
       openUrl: "employee-training-guide.html"
     },
     {
       ...resourceDefaults,
       slug: "office-setup-checklist",
       title: "Essential Office Setup Checklist",
-      image: "images/knowledge-vault-essential-office-setup-book.png",
+      image: "images/office-setup-checklist.png",
       focus: "Office setup",
       summary: "A practical checklist for a functional rental workspace.",
-      totalValue: "$147 Value",
+      totalValue: "$147",
+      investment: "$147",
       openUrl: "essential-office-setup-equipment-checklist.html"
     },
     {
       ...resourceDefaults,
       slug: "standard-operating-procedures",
       title: "Standard Operating Procedures",
-      image: "images/knowledge-vault-standard-operating-procedures-book.png",
+      image: "images/standard-operating-procedures.png",
       focus: "Daily operations",
       summary: "A documented system for consistent procedures across every shift.",
-      totalValue: "$497 Value",
+      totalValue: "$497",
+      investment: "$497",
       openUrl: "standard-operating-procedures-sop.html"
     },
     {
@@ -164,17 +168,19 @@
       image: "images/knowledge-vault-pickup-return-template-book.png",
       focus: "Customer handoff",
       summary: "An inspection and documentation system from departure to return.",
-      totalValue: "$99 Value",
+      totalValue: "$99",
+      investment: "$99",
       openUrl: "golf-cart-pickup-return-template.html"
     },
     {
       ...resourceDefaults,
       slug: "three-year-revenue-forecasting",
       title: "Three-Year Revenue Forecasting",
-      image: "images/knowledge-vault-three-year-revenue-forecasting-book.png",
+      image: "images/three-year-revenue-forecasting.png",
       focus: "Financial forecasting",
       summary: "A planning resource for revenue goals and growth scenarios.",
-      totalValue: "$397 Value",
+      totalValue: "$397",
+      investment: "$397",
       openUrl: "three-year-revenue-forecasting.html"
     },
     {
@@ -184,7 +190,8 @@
       image: "images/knowledge-vault-rental-agreement-book.png",
       focus: "Rental documents",
       summary: "A structured template for terms, responsibilities and risk acknowledgments.",
-      totalValue: "$450 Value",
+      totalValue: "$450",
+      investment: "$450",
       openUrl: "rental-agreement-liability-waiver.html"
     },
     {
@@ -194,7 +201,8 @@
       image: "images/knowledge-vault-local-rules-toolkit-book.png",
       focus: "Rules & enforcement",
       summary: "A toolkit for explaining local rules and documenting policy violations.",
-      totalValue: "$397 Value",
+      totalValue: "$397",
+      investment: "$397",
       openUrl: "local-rules-rental-enforcement-toolkit.html"
     },
     {
@@ -204,17 +212,19 @@
       image: "images/knowledge-vault-fleet-maintenance-toolkit-book.png",
       focus: "Fleet care",
       summary: "A practical system for cleaning, inspection and preventive maintenance.",
-      totalValue: "$297 Value",
+      totalValue: "$297",
+      investment: "$297",
       openUrl: "fleet-cleaning-preventive-maintenance-toolkit.html"
     },
     {
       ...resourceDefaults,
       slug: "road-beyond-launch",
       title: "The Road Beyond Launch",
-      image: "images/knowledge-vault-the-road-beyond-launch-book.png",
+      image: "images/road-beyond-launch.png",
       focus: "Post-launch growth",
       summary: "A review and growth-planning system after the business is launched.",
-      totalValue: "$197 Value",
+      totalValue: "$197",
+      investment: "$197",
       openUrl: "the-road-beyond-launch.html"
     }
   ].map((product) => ({
