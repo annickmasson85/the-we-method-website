@@ -68,6 +68,7 @@ body.library-detail-page {
   height: auto;
   max-height: 88%;
   object-fit: contain;
+  transform: translateY(3.2%);
   filter: drop-shadow(0 30px 26px rgba(0, 0, 0, 0.86));
 }
 
@@ -75,10 +76,10 @@ body.library-detail-page {
 
 .product-panel {
   position: absolute;
-  top: 4.2%;
+  top: 7%;
   right: 3.4%;
   width: 42%;
-  height: 71.5%;
+  height: 68.7%;
 }
 
 .product-viewframe {
@@ -547,6 +548,7 @@ body.library-detail-page {
   .product-art img {
     width: min(66%, 390px);
     max-height: 390px;
+    transform: none;
   }
 
   .product-panel {
