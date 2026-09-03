@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The We Method Library product details.">
+  <meta name="description" content="The We Method Founder Library product details.">
   <title>Library Details | The We Method</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,22 +12,27 @@
   <link rel="stylesheet" href="pca-menu.css">
   <link rel="stylesheet" href="founder-library-detail.css">
 </head>
+
 <body class="private-access-page library-detail-page">
   <header class="site-header">
     <a class="brand-mark" href="index.html">
       <span class="brand-monogram">TWM</span>
       <span class="brand-name">THE WE METHOD</span>
     </a>
+
     <span class="header-rule"></span>
+
     <div class="header-title">
       <span>FOUNDER LIBRARY</span>
       <small>BUILD <b>◆</b> LAUNCH <b>◆</b> GROW</small>
     </div>
+
     <span class="header-rule"></span>
+
     <a class="member-profile" href="profile.html">
       <span class="profile-icon">
         <img id="header-photo" alt="" hidden>
-        <svg id="header-icon" viewBox="0 0 48 48">
+        <svg id="header-icon" viewBox="0 0 48 48" aria-hidden="true">
           <circle cx="24" cy="16.5" r="8"></circle>
           <path d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"></path>
         </svg>
@@ -41,63 +46,94 @@
 
   <main class="detail-shell">
     <section class="detail-stage" aria-labelledby="product-title">
-      <div class="product-art">
-        <img id="product-image" src="images/knowledge-vault-business-launcher-book.png" alt="">
+      <div class="product-art" aria-hidden="true">
+        <img
+          id="product-image"
+          src="images/knowledge-vault-business-launcher-book.png"
+          alt=""
+        >
       </div>
 
-      <article class="product-info">
-        <p class="product-eyebrow">
-          <span>THE WE METHOD LIBRARY</span>
-          <b>◆</b>
-          <span id="product-method">METHOD 1</span>
-        </p>
-        <h1 id="product-title">Business Launcher</h1>
-        <p class="product-summary" id="product-summary"></p>
+      <article class="product-panel" id="product-panel">
+        <div class="product-viewframe">
+          <div class="product-slider" id="product-slider">
+            <section class="product-view product-overview" aria-label="Product details">
+              <p class="product-eyebrow">
+                <span>THE WE METHOD LIBRARY</span>
+                <b>◆</b>
+                <span id="product-method">METHOD 1</span>
+              </p>
 
-        <div class="product-values">
-          <div>
-            <small>TOTAL VALUE</small>
-            <strong id="product-value">—</strong>
-          </div>
-          <div>
-            <small>SIGNATURE INVESTMENT</small>
-            <strong id="product-investment">—</strong>
+              <h1 id="product-title">Business Foundry</h1>
+              <p class="product-summary" id="product-summary"></p>
+
+              <div class="product-values">
+                <div>
+                  <small>TOTAL VALUE</small>
+                  <strong id="product-value">—</strong>
+                </div>
+                <div>
+                  <small>SIGNATURE INVESTMENT</small>
+                  <strong id="product-investment">—</strong>
+                </div>
+              </div>
+
+              <dl class="product-meta">
+                <div><dt>TYPE</dt><dd id="product-type"></dd></div>
+                <div><dt>AUDIENCE</dt><dd id="product-audience"></dd></div>
+                <div><dt>FOCUS</dt><dd id="product-focus"></dd></div>
+                <div><dt>LEVEL</dt><dd id="product-level"></dd></div>
+                <div><dt>DURATION</dt><dd id="product-duration"></dd></div>
+                <div><dt>FORMAT</dt><dd id="product-format"></dd></div>
+              </dl>
+            </section>
+
+            <section
+              class="product-view product-includes"
+              id="product-includes"
+              aria-labelledby="includes-title"
+              aria-hidden="true"
+            >
+              <p class="includes-collection" id="includes-collection">SIGNATURE SYSTEM</p>
+              <h2 id="includes-title">WHAT’S INCLUDED</h2>
+              <ul id="product-includes-list"></ul>
+            </section>
           </div>
         </div>
 
-        <dl class="product-meta">
-          <div><dt>TYPE</dt><dd id="product-type"></dd></div>
-          <div><dt>AUDIENCE</dt><dd id="product-audience"></dd></div>
-          <div><dt>FOCUS</dt><dd id="product-focus"></dd></div>
-          <div><dt>LEVEL</dt><dd id="product-level"></dd></div>
-          <div><dt>DURATION</dt><dd id="product-duration"></dd></div>
-          <div><dt>FORMAT</dt><dd id="product-format"></dd></div>
-        </dl>
+        <button
+          class="includes-toggle"
+          id="includes-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="product-includes"
+        >
+          <span class="includes-toggle__label">SEE WHAT’S INSIDE</span>
+          <span class="includes-toggle__arrow" aria-hidden="true">→</span>
+        </button>
+      </article>
+
+      <div class="purchase-zone">
+        <p class="stage-note">12 MONTHS ACCESS <b>◆</b> SECURE CHECKOUT</p>
 
         <div class="product-access">
           <div id="locked-state" class="product-state product-state--locked">
             <img src="images/library-lock.png" alt="">
             <span>LOCKED</span>
           </div>
+
           <div id="owned-state" class="product-state product-state--owned" hidden>
-            <img src="images/library-owned.png" alt="">
+            <img src="images/library-owned.png" alt="Owned">
           </div>
+
           <a id="product-action" class="product-action" href="my-cart.html">ADD TO CART</a>
         </div>
-      </article>
+      </div>
 
-      <button class="includes-toggle" id="includes-toggle" type="button">
-        <span>↓</span>
-        SEE WHAT’S INSIDE
-      </button>
-
-      <section class="product-includes" id="product-includes" hidden>
-        <h2 id="includes-title">WHAT’S INCLUDED</h2>
-        <ol id="product-includes-list"></ol>
-      </section>
-
-      <a class="stage-back" href="founder-library.html">‹ BACK TO LIBRARY</a>
-      <p class="stage-note">12 MONTHS ACCESS <b>◆</b> SECURE CHECKOUT</p>
+      <a class="stage-back" href="founder-library.html">
+        <span aria-hidden="true">‹</span>
+        BACK TO LIBRARY
+      </a>
     </section>
   </main>
 
@@ -110,22 +146,32 @@
     document.addEventListener("DOMContentLoaded", async function () {
       var supabase = window.supabaseClient;
       if (!supabase) return;
+
       var session = await supabase.auth.getSession();
       if (!session.data || !session.data.session) {
         window.location.href = "signin.html";
         return;
       }
+
       var userRes = await supabase.auth.getUser();
       var user = (userRes.data && userRes.data.user) || session.data.session.user;
       var meta = (user && user.user_metadata) || {};
       var name = document.getElementById("member-profile-name");
+
       if (name) {
-        name.textContent = [meta.first_name, meta.last_name].filter(Boolean).join(" ") || "Client";
+        name.textContent =
+          [meta.first_name, meta.last_name].filter(Boolean).join(" ") || "Client";
       }
+
       if (meta.avatar_url) {
         var photo = document.getElementById("header-photo");
         var icon = document.getElementById("header-icon");
-        if (photo) { photo.src = meta.avatar_url; photo.hidden = false; }
+
+        if (photo) {
+          photo.src = meta.avatar_url;
+          photo.hidden = false;
+        }
+
         if (icon) icon.style.display = "none";
       }
     });
