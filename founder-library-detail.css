@@ -114,7 +114,7 @@ body.library-detail-page {
 .product-includes {
   display: flex;
   flex-direction: column;
-  padding: 1.6% 2.5% 1%;
+  padding: 8.5% 2.5% 1%;
   transform: translateX(108%);
   opacity: 0;
   pointer-events: none;
