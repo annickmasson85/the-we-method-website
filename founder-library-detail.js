@@ -472,6 +472,42 @@
     setOpen(false);
   }
 
+  function setupCartModal(product, displayTitle) {
+    const action = document.getElementById("product-action");
+    const modal = document.getElementById("cart-modal");
+    const continueBtn = document.getElementById("cart-continue");
+
+    if (!action || !modal) return;
+
+    action.addEventListener("click", function (event) {
+      if (action.textContent.trim() === "OPEN SYSTEM") return;
+
+      event.preventDefault();
+
+      try {
+        const key = "twm-cart";
+        let cart = JSON.parse(localStorage.getItem(key) || "[]");
+        if (!Array.isArray(cart)) cart = [];
+        if (!cart.includes(product.slug)) {
+          cart.push(product.slug);
+          localStorage.setItem(key, JSON.stringify(cart));
+        }
+      } catch (error) {
+        console.warn("Cart could not be saved.", error);
+      }
+
+      modal.hidden = false;
+    });
+
+    continueBtn?.addEventListener("click", function () {
+      modal.hidden = true;
+    });
+
+    modal.addEventListener("click", function (event) {
+      if (event.target === modal) modal.hidden = true;
+    });
+  }
+
   function renderProduct() {
     const product = findRequestedProduct();
     if (!product) return;
@@ -507,17 +543,19 @@
     if (ownedState) ownedState.hidden = !owned;
 
     if (action) {
-      action.textContent = owned ? "OPEN SYSTEM" : "ADD TO CART";
-      action.href = owned
-        ? product.openUrl || "founder-library.html"
-        : product.cartUrl || "my-cart.html";
-      action.setAttribute(
-        "aria-label",
-        owned ? "Open " + displayTitle : "Add " + displayTitle + " to cart"
-      );
+      if (owned) {
+        action.textContent = "OPEN SYSTEM";
+        action.href = product.openUrl || "founder-library.html";
+        action.setAttribute("aria-label", "Open " + displayTitle);
+      } else {
+        action.textContent = "ADD TO CART";
+        action.href = "#";
+        action.setAttribute("aria-label", "Add " + displayTitle + " to cart");
+      }
     }
 
     setupSlider();
+    setupCartModal(product, displayTitle);
   }
 
   document.addEventListener("DOMContentLoaded", renderProduct);

@@ -137,6 +137,17 @@
     </section>
   </main>
 
+  <div class="cart-modal-overlay" id="cart-modal" hidden>
+    <div class="cart-modal" role="dialog" aria-labelledby="cart-modal-title">
+      <h2 id="cart-modal-title">Added to Cart</h2>
+      <p>This item has been successfully added to your cart.</p>
+      <div class="cart-modal-actions">
+        <button type="button" id="cart-continue">CONTINUE SHOPPING</button>
+        <a id="cart-go" href="my-cart.html">GO TO CART</a>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
   <script src="pca-menu.js"></script>
