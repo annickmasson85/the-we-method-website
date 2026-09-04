@@ -61,71 +61,56 @@ body.assessment-details-page #main-content > .assessment-hero {
 body.assessment-details-page .assessment-hero__visual {
   position: relative !important;
   inset: auto !important;
-
   width: 100% !important;
   height: 520px !important;
   min-height: 520px !important;
-
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   overflow: hidden !important;
-
   background: #030303 !important;
 }
 
-/* IMAGE DU HERO */
+/* IMAGE DU HERO — IMAGE ENTIÈRE, SANS COUPE */
 body.assessment-details-page .assessment-hero__visual > img {
-  position: absolute !important;
-  inset: 0 !important;
-
+  position: relative !important;
+  inset: auto !important;
   display: block !important;
-
   width: 100% !important;
   height: 100% !important;
-  min-width: 100% !important;
-  min-height: 100% !important;
-  max-width: none !important;
-
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
   margin: 0 !important;
-
-  object-fit: cover !important;
-
-  /* cadrage de la photo */
-  object-position: 42% 58% !important;
-
+  object-fit: contain !important;
+  object-position: center center !important;
+  transform: none !important;
+  transform-origin: center center !important;
   border: 0 !important;
   border-radius: 0 !important;
-
-  filter:
-    saturate(.92)
-    contrast(1.05)
-    brightness(.92) !important;
-
-  transform: scale(1.06) !important;
-  transform-origin: center center !important;
-
+  filter: saturate(.92) contrast(1.04) brightness(.92) !important;
   box-shadow: none !important;
-
   -webkit-mask-image: none !important;
   mask-image: none !important;
 }
 
-/* FONDU UNIQUEMENT SUR LE CÔTÉ DROIT */
+/* PETIT FONDU VERS LE TEXTE */
 body.assessment-details-page .assessment-hero__visual::after {
   content: "";
   position: absolute;
   z-index: 2;
-  inset: 0;
-
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 16%;
   pointer-events: none;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(3, 3, 3, 0) 0%,
-      rgba(3, 3, 3, 0) 63%,
-      rgba(3, 3, 3, .10) 72%,
-      rgba(3, 3, 3, .45) 86%,
-      #030303 100%
-    );
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(3, 3, 3, .35) 55%,
+    #030303 100%
+  );
 }
 
 
@@ -451,7 +436,11 @@ body.assessment-details-page .assessment-final__action .assessment-meta { justif
   body.assessment-details-page #main-content > .assessment-hero { display: flex !important; flex-direction: column; min-height: 0 !important; }
   body.assessment-details-page .assessment-hero__visual { min-height: 280px !important; height: 280px !important; }
   body.assessment-details-page .assessment-hero__visual img { min-height: 280px !important; }
-  body.assessment-details-page .assessment-hero__visual::after { background: linear-gradient(180deg, transparent 55%, #030303 100%); }
+  body.assessment-details-page .assessment-hero__visual::after {
+    inset: 0;
+    width: 100%;
+    background: linear-gradient(180deg, transparent 55%, #030303 100%);
+  }
   body.assessment-details-page .assessment-hero__content { align-items: center; padding: 12px 24px 42px !important; text-align: center !important; }
   body.assessment-details-page .assessment-hero h1,
   body.assessment-details-page .assessment-hero__description,
