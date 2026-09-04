@@ -458,32 +458,31 @@ body.assessment-details-page .assessment-final__action .assessment-meta { justif
 }
 .assessment-details-page .assessment-hero {
   display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
+  grid-template-columns: 1.2fr 0.8fr !important;
   min-height: 640px;
-  background:
-    linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(3, 3, 3, 0.18) 42%,
-      rgba(3, 3, 3, 0.88) 62%,
-      #030303 78%
-    ),
-    url("images/assessment-page-hero.png") left center / cover no-repeat;
+  background: #030303;
 }
 
 .assessment-details-page .assessment-hero__visual {
+  display: block !important;
+  opacity: 1 !important;
   min-height: 640px;
-  opacity: 0;
 }
 
 .assessment-details-page .assessment-hero__visual img {
-  display: none;
-}
-
-.assessment-details-page .assessment-hero__content {
-  background: transparent !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 640px !important;
+  object-fit: cover !important;
+  object-position: left center !important;
+  transform: none !important;
 }
 
 .assessment-details-page .assessment-hero__visual::after {
-  display: none;
+  background: linear-gradient(90deg, transparent 72%, #030303 100%);
+}
+
+.assessment-details-page .assessment-hero__content {
+  background: #030303 !important;
 }
