@@ -1,0 +1,949 @@
+:root {
+  --black: #020202;
+  --black-soft: #080706;
+  --ivory: #e2dbce;
+  --ivory-muted: #bcb3a4;
+  --gold-pale: #efd48a;
+  --gold: #c79642;
+  --gold-deep: #895c20;
+  --gold-line: rgba(190, 137, 52, 0.68);
+  --gold-faint: rgba(190, 137, 52, 0.22);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+
+  color: var(--ivory);
+  background:
+    linear-gradient(rgba(2, 2, 2, 0.78), rgba(2, 2, 2, 0.84)),
+    url("images/assessment-marble-background.png") center top / cover fixed,
+    var(--black);
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+
+  padding: 11px 16px;
+  color: #050403;
+  background: var(--gold-pale);
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  transform: translateY(-150%);
+  transition: transform 180ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.assessment-header,
+.assessment-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 2.2vw, 32px);
+
+  width: min(100% - 40px, 1180px);
+  margin-inline: auto;
+}
+
+.assessment-header {
+  min-height: 76px;
+}
+
+.assessment-header__line,
+.assessment-footer__line {
+  width: clamp(62px, 14vw, 180px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-line));
+}
+
+.assessment-header__line:last-child,
+.assessment-footer__line:nth-of-type(2) {
+  background: linear-gradient(90deg, var(--gold-line), transparent);
+}
+
+.assessment-brand {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 2px;
+  flex: 0 0 auto;
+
+  color: var(--gold);
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.assessment-brand sup {
+  margin-top: -2px;
+  font-size: 0.43rem;
+  letter-spacing: 0;
+}
+
+main {
+  width: min(100% - 24px, 1180px);
+  margin-inline: auto;
+  border-right: 1px solid rgba(190, 137, 52, 0.5);
+  border-left: 1px solid rgba(190, 137, 52, 0.5);
+  background: rgba(2, 2, 2, 0.64);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.72);
+}
+
+.assessment-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 52% 48%;
+  min-height: 500px;
+  overflow: hidden;
+  border-top: 1px solid var(--gold-line);
+  border-bottom: 1px solid var(--gold-line);
+  background:
+    radial-gradient(circle at 80% 35%, rgba(132, 84, 20, 0.11), transparent 42%),
+    #030303;
+}
+
+.assessment-hero__visual {
+  position: relative;
+  min-height: 500px;
+  overflow: hidden;
+}
+
+.assessment-hero__visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 64%, #030303 100%),
+    linear-gradient(180deg, rgba(2, 2, 2, 0.06), transparent 58%, rgba(2, 2, 2, 0.32));
+}
+
+.assessment-hero__visual img {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  object-fit: cover;
+  object-position: 29% center;
+  filter: saturate(0.9) contrast(1.05);
+  transform: scale(1.025);
+}
+
+.assessment-hero__content {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding: 58px clamp(42px, 5.5vw, 82px) 54px clamp(34px, 4.4vw, 68px);
+  background: linear-gradient(90deg, rgba(3, 3, 3, 0.9), #030303 18%, rgba(3, 3, 3, 0.96));
+}
+
+.section-label {
+  margin: 0 0 8px;
+  color: var(--gold);
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.assessment-hero h1 {
+  margin: 0;
+  color: var(--ivory);
+
+  font-size: clamp(4rem, 6.4vw, 6.55rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.76;
+  text-transform: uppercase;
+}
+
+.assessment-hero__script {
+  margin: 18px 0 13px;
+  color: var(--gold);
+
+  font-size: clamp(2rem, 3.15vw, 3.15rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 0.94;
+}
+
+.assessment-hero__description {
+  max-width: 530px;
+  margin: 0 0 25px;
+  color: var(--ivory-muted);
+
+  font-size: 1.08rem;
+  line-height: 1.48;
+}
+
+.assessment-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+
+  min-width: 286px;
+  min-height: 51px;
+  padding: 14px 24px;
+
+  border: 1px solid var(--gold);
+  color: #110c04;
+  background: linear-gradient(105deg, #aa762c, #e1b961 53%, #a66f28);
+  box-shadow:
+    inset 0 1px rgba(255, 238, 185, 0.42),
+    0 10px 26px rgba(0, 0, 0, 0.32);
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition:
+    color 180ms ease,
+    filter 180ms ease,
+    transform 180ms ease;
+}
+
+.assessment-button::before,
+.assessment-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border: solid rgba(55, 34, 6, 0.82);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.assessment-button::before {
+  left: 10px;
+  border-width: 0 0 1px 1px;
+}
+
+.assessment-button::after {
+  right: 10px;
+  border-width: 1px 1px 0 0;
+}
+
+.assessment-button:hover {
+  color: #050301;
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+.assessment-button:focus-visible,
+.assessment-brand:focus-visible {
+  outline: 2px solid var(--gold-pale);
+  outline-offset: 4px;
+}
+
+.assessment-button__arrow {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  transition: transform 180ms ease;
+}
+
+.assessment-button:hover .assessment-button__arrow {
+  transform: translateX(4px);
+}
+
+.assessment-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+
+  margin: 13px 0 0;
+  color: #d0c7b7;
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.58rem;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.assessment-meta i {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  background: var(--gold);
+  transform: rotate(45deg);
+}
+
+.assessment-hero__ornament {
+  position: absolute;
+  top: 22px;
+  right: 15px;
+  bottom: 22px;
+  width: 1px;
+  z-index: 4;
+  background: linear-gradient(transparent, var(--gold-line) 12%, var(--gold-line) 88%, transparent);
+}
+
+.assessment-hero__ornament::before,
+.assessment-hero__ornament::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--gold-line);
+  background: #030303;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.assessment-hero__ornament::before {
+  top: 0;
+}
+
+.assessment-hero__ornament::after {
+  bottom: 0;
+}
+
+.assessment-process {
+  padding: 24px clamp(24px, 4vw, 60px) 32px;
+  border-bottom: 1px solid var(--gold-line);
+  background:
+    linear-gradient(90deg, rgba(165, 103, 25, 0.08), transparent 22%, transparent 78%, rgba(165, 103, 25, 0.06)),
+    rgba(2, 2, 2, 0.94);
+}
+
+.ornament-heading {
+  display: grid;
+  grid-template-columns: minmax(40px, 1fr) auto minmax(40px, 1fr);
+  align-items: center;
+  gap: 20px;
+  width: min(100%, 820px);
+  margin: 0 auto 19px;
+}
+
+.ornament-heading span {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-line));
+}
+
+.ornament-heading span:last-child {
+  background: linear-gradient(90deg, var(--gold-line), transparent);
+}
+
+.ornament-heading h2 {
+  margin: 0;
+  color: var(--gold-pale);
+
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.11em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.assessment-process__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: min(100%, 940px);
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.process-step {
+  position: relative;
+  padding: 0 clamp(20px, 3.5vw, 58px);
+  text-align: center;
+}
+
+.process-step + .process-step::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  bottom: 5px;
+  left: 0;
+  width: 1px;
+  background: linear-gradient(transparent, var(--gold-line) 20%, var(--gold-line) 82%, transparent);
+}
+
+.process-step__number {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--gold);
+
+  font-size: 2.1rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.process-step h3 {
+  margin: 0 0 7px;
+  color: var(--ivory);
+
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.03;
+  text-transform: uppercase;
+}
+
+.process-step p {
+  margin: 0;
+  color: var(--ivory-muted);
+  font-size: 0.96rem;
+  line-height: 1.16;
+}
+
+.assessment-results {
+  padding: 25px clamp(22px, 4.3vw, 68px) 21px;
+  border-bottom: 1px solid var(--gold-line);
+  background:
+    radial-gradient(circle at 6% 45%, rgba(165, 104, 27, 0.11), transparent 24%),
+    radial-gradient(circle at 94% 52%, rgba(165, 104, 27, 0.08), transparent 25%),
+    rgba(3, 3, 3, 0.92);
+}
+
+.assessment-results__frame {
+  position: relative;
+  padding: 16px 16px 13px;
+  border: 1px solid var(--gold-line);
+  background: rgba(2, 2, 2, 0.72);
+  box-shadow: inset 0 0 48px rgba(150, 95, 21, 0.04);
+}
+
+.assessment-results__frame::before,
+.assessment-results__frame::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #050403;
+  transform: rotate(45deg);
+}
+
+.assessment-results__frame::before {
+  top: -6px;
+  left: -6px;
+  border-right: 1px solid var(--gold-line);
+}
+
+.assessment-results__frame::after {
+  right: -6px;
+  bottom: -6px;
+  border-left: 1px solid var(--gold-line);
+}
+
+.assessment-results__heading {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.assessment-results__heading h2 {
+  margin: 0;
+  color: var(--ivory);
+  font-size: clamp(1.75rem, 3vw, 2.45rem);
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.assessment-results__heading p {
+  margin: 4px 0 0;
+  color: var(--gold);
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1;
+}
+
+.assessment-results__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.result-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(190, 137, 52, 0.66);
+  background: rgba(5, 5, 5, 0.91);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+}
+
+.result-card__image {
+  position: relative;
+  aspect-ratio: 1.55 / 1;
+  overflow: hidden;
+}
+
+.result-card__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 54%, rgba(3, 3, 3, 0.9) 100%);
+}
+
+.result-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.04) brightness(0.86);
+  transition: filter 260ms ease, transform 500ms ease;
+}
+
+.result-card:hover .result-card__image img {
+  filter: saturate(0.94) contrast(1.03) brightness(0.96);
+  transform: scale(1.025);
+}
+
+.result-card__content {
+  flex: 1;
+  padding: 2px 16px 16px;
+  text-align: center;
+}
+
+.result-card__content h3 {
+  margin: 0 0 8px;
+  color: var(--ivory);
+
+  font-size: 1.11rem;
+  font-weight: 500;
+  letter-spacing: 0.045em;
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.result-card__content p {
+  margin: 0;
+  color: var(--ivory-muted);
+  font-size: 0.89rem;
+  line-height: 1.2;
+}
+
+.assessment-results__note {
+  margin: 13px auto 0;
+  color: #a99f90;
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.assessment-clarity {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.8fr) 1px minmax(0, 1.7fr);
+  align-items: center;
+  gap: clamp(28px, 4.5vw, 65px);
+  padding: 36px clamp(45px, 8vw, 130px);
+  border-bottom: 1px solid var(--gold-line);
+  background:
+    linear-gradient(90deg, rgba(142, 89, 19, 0.09), transparent 36%),
+    rgba(3, 3, 3, 0.91);
+}
+
+.assessment-clarity__title h2 {
+  margin: 0;
+  color: var(--ivory);
+
+  font-size: clamp(2.4rem, 4.5vw, 4.25rem);
+  font-weight: 400;
+  letter-spacing: 0.035em;
+  line-height: 0.85;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.assessment-clarity__divider {
+  align-self: stretch;
+  min-height: 80px;
+  background: linear-gradient(transparent, var(--gold-line) 20%, var(--gold-line) 80%, transparent);
+}
+
+.assessment-clarity > p {
+  max-width: 680px;
+  margin: 0;
+  color: var(--ivory-muted);
+  font-size: 1.07rem;
+  line-height: 1.48;
+}
+
+.assessment-clarity > p::first-line {
+  color: var(--ivory);
+}
+
+.assessment-final {
+  padding: 16px clamp(28px, 5vw, 80px) 22px;
+  background:
+    radial-gradient(circle at 8% 40%, rgba(185, 119, 27, 0.1), transparent 28%),
+    radial-gradient(circle at 91% 62%, rgba(185, 119, 27, 0.08), transparent 28%),
+    rgba(2, 2, 2, 0.96);
+}
+
+.assessment-final__frame {
+  display: grid;
+  grid-template-columns: 1fr 1px 1.1fr;
+  align-items: center;
+  gap: clamp(28px, 5vw, 72px);
+
+  padding: 25px clamp(28px, 5.5vw, 86px);
+  border: 1px solid var(--gold-line);
+  background: rgba(3, 3, 3, 0.78);
+}
+
+.assessment-final__copy {
+  text-align: right;
+}
+
+.assessment-final__copy h2 {
+  margin: 0;
+  color: var(--ivory);
+  font-size: clamp(1.85rem, 3.2vw, 2.9rem);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.assessment-final__copy p {
+  margin: 6px 0 0;
+  color: var(--gold);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.assessment-final__divider {
+  align-self: stretch;
+  min-height: 70px;
+  background: linear-gradient(transparent, var(--gold-line) 15%, var(--gold-line) 85%, transparent);
+}
+
+.assessment-final__action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.assessment-final__action .assessment-button {
+  width: min(100%, 315px);
+}
+
+.assessment-final__action .assessment-meta {
+  justify-content: center;
+  width: min(100%, 315px);
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+}
+
+.assessment-footer {
+  position: relative;
+  flex-wrap: wrap;
+  min-height: 110px;
+  padding: 27px 20px 42px;
+}
+
+.assessment-footer::after {
+  content: "◆";
+  position: absolute;
+  top: 56px;
+  left: 50%;
+  color: var(--gold-deep);
+  font-size: 0.44rem;
+  transform: translateX(-50%);
+}
+
+.assessment-footer p {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  margin: 0;
+  color: var(--gold-deep);
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.54rem;
+  font-weight: 600;
+  letter-spacing: 0.38em;
+  line-height: 1;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 960px) {
+  .assessment-hero {
+    grid-template-columns: 47% 53%;
+  }
+
+  .assessment-hero__content {
+    padding-inline: 38px;
+  }
+
+  .assessment-results__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .result-card__image {
+    aspect-ratio: 1.8 / 1;
+  }
+}
+
+@media (max-width: 760px) {
+  .assessment-header {
+    min-height: 64px;
+  }
+
+  main {
+    width: min(100% - 16px, 1180px);
+  }
+
+  .assessment-hero {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .assessment-hero__visual {
+    min-height: 340px;
+  }
+
+  .assessment-hero__visual::after {
+    background: linear-gradient(180deg, transparent 62%, #030303 100%);
+  }
+
+  .assessment-hero__visual img {
+    min-height: 340px;
+    object-position: 32% center;
+  }
+
+  .assessment-hero__content {
+    align-items: center;
+    padding: 20px 28px 50px;
+    text-align: center;
+    background: #030303;
+  }
+
+  .assessment-hero h1 {
+    font-size: clamp(3.4rem, 15vw, 5.3rem);
+  }
+
+  .assessment-hero__description {
+    max-width: 560px;
+  }
+
+  .assessment-meta {
+    justify-content: center;
+  }
+
+  .assessment-process {
+    padding-bottom: 10px;
+  }
+
+  .assessment-process__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-step {
+    padding: 20px 15px 24px;
+  }
+
+  .process-step + .process-step::before {
+    top: 0;
+    right: 18%;
+    bottom: auto;
+    left: 18%;
+    width: auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-line), transparent);
+  }
+
+  .assessment-clarity {
+    grid-template-columns: 1fr;
+    gap: 21px;
+    padding: 40px 34px;
+    text-align: center;
+  }
+
+  .assessment-clarity__title h2 {
+    text-align: center;
+  }
+
+  .assessment-clarity__divider {
+    width: min(100%, 260px);
+    min-height: 1px;
+    height: 1px;
+    margin-inline: auto;
+    background: linear-gradient(90deg, transparent, var(--gold-line), transparent);
+  }
+
+  .assessment-clarity > p {
+    margin-inline: auto;
+  }
+
+  .assessment-final__frame {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 31px 25px;
+  }
+
+  .assessment-final__copy,
+  .assessment-final__action {
+    align-items: center;
+    text-align: center;
+  }
+
+  .assessment-final__divider {
+    width: min(100%, 270px);
+    min-height: 1px;
+    height: 1px;
+    margin-inline: auto;
+    background: linear-gradient(90deg, transparent, var(--gold-line), transparent);
+  }
+}
+
+@media (max-width: 560px) {
+  .assessment-header,
+  .assessment-footer {
+    width: calc(100% - 28px);
+    gap: 12px;
+  }
+
+  .assessment-header__line,
+  .assessment-footer__line {
+    width: 35px;
+  }
+
+  .assessment-brand {
+    font-size: 0.62rem;
+    letter-spacing: 0.24em;
+  }
+
+  .assessment-hero__visual,
+  .assessment-hero__visual img {
+    min-height: 285px;
+  }
+
+  .assessment-hero__content {
+    padding-inline: 20px;
+  }
+
+  .assessment-hero__script {
+    font-size: 2rem;
+  }
+
+  .assessment-button {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .assessment-meta {
+    max-width: 310px;
+    font-size: 0.54rem;
+    letter-spacing: 0.12em;
+  }
+
+  .ornament-heading {
+    gap: 12px;
+  }
+
+  .ornament-heading h2 {
+    font-size: 1.06rem;
+    white-space: nowrap;
+  }
+
+  .assessment-results {
+    padding-inline: 12px;
+  }
+
+  .assessment-results__frame {
+    padding: 15px 10px 12px;
+  }
+
+  .assessment-results__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .result-card__image {
+    aspect-ratio: 1.7 / 1;
+  }
+
+  .result-card__content {
+    padding-bottom: 20px;
+  }
+
+  .assessment-clarity {
+    padding-inline: 22px;
+  }
+
+  .assessment-final {
+    padding-inline: 10px;
+  }
+
+  .assessment-final__frame {
+    padding-inline: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
