@@ -88,7 +88,7 @@ body.assessment-details-page .result-card__image img {
 
 body.assessment-details-page .assessment-hero__visual img {
   min-height: 520px !important;
-  object-position: center center !important;
+  object-position: 8% center;
   filter: saturate(.88) contrast(1.04) brightness(.88);
 }
 
