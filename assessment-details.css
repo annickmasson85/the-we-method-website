@@ -38,6 +38,7 @@ body.assessment-details-page #main-content > .assessment-hero {
   left: auto !important;
   display: grid !important;
   grid-template-columns: 52% 48% !important;
+  align-items: stretch !important;
   width: 100% !important;
   max-width: none !important;
   min-height: 520px !important;
@@ -443,7 +444,6 @@ body.assessment-details-page .assessment-final__action .assessment-meta { justif
   body.assessment-details-page #main-content > .assessment-hero { grid-template-columns: 46% 54% !important; }
   body.assessment-details-page .assessment-hero__content { padding-right: 28px !important; }
   body.assessment-details-page .assessment-results__grid { grid-template-columns: repeat(2, 1fr); }
-  align-items: stretch !important;
 }
 
 @media (max-width: 700px) {
