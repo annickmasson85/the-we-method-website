@@ -12,7 +12,10 @@ body.assessment-details-page {
   min-width: 320px;
   overflow-x: hidden;
   color: var(--ad-ivory);
-  background: #020202;
+  background:
+    linear-gradient(rgba(2, 2, 2, .78), rgba(2, 2, 2, .86)),
+    url("images/assessment-marble-background.png") center top / cover fixed,
+    #020202;
 }
 
 body.assessment-details-page #main-content {
@@ -85,7 +88,7 @@ body.assessment-details-page .result-card__image img {
 
 body.assessment-details-page .assessment-hero__visual img {
   min-height: 520px !important;
-  object-position: 31% center !important;
+  object-position: center center !important;
   filter: saturate(.88) contrast(1.04) brightness(.88);
 }
 
@@ -126,7 +129,7 @@ body.assessment-details-page .assessment-hero h1 {
   -webkit-text-fill-color: currentColor !important;
 }
 
-body.assessment-details-page .assessment-hero__script {
+body.assessment-details-page #main-content .assessment-hero__script {
   margin: 17px 0 11px !important;
   color: var(--ad-gold) !important;
   font: italic 400 clamp(1.8rem, 2.6vw, 2.65rem)/1 "Cormorant Garamond", serif !important;
@@ -195,16 +198,16 @@ body.assessment-details-page a.assessment-button:hover {
   transform: translateY(-2px) !important;
 }
 
-body.assessment-details-page .assessment-meta {
+body.assessment-details-page #main-content .assessment-meta {
   display: flex !important;
   align-items: center;
   flex-wrap: wrap;
-  gap: 8px !important;
+  gap: 7px !important;
   width: auto !important;
   margin: 11px 0 0 !important;
   color: #bdb4a6 !important;
-  font: 500 .55rem/1.4 Montserrat, sans-serif !important;
-  letter-spacing: .13em !important;
+  font: 500 .48rem/1.35 Montserrat, sans-serif !important;
+  letter-spacing: .16em !important;
   text-align: left !important;
   text-transform: uppercase !important;
 }
@@ -332,7 +335,11 @@ body.assessment-details-page .assessment-clarity {
   background: #030303 !important;
 }
 
-body.assessment-details-page .assessment-clarity h2 { font-size: clamp(2.75rem, 4vw, 4rem) !important; line-height: .84 !important; text-align: right !important; text-transform: uppercase; }
+body.assessment-details-page .assessment-clarity h2 { font-size: clamp(2.75rem, 4vw, 4rem) !important; line-height: .84 !important; text-align: center !important; text-transform: uppercase; }
+body.assessment-details-page .assessment-clarity__title { display: flex; justify-content: center; }
+body.assessment-details-page .assessment-clarity h2 span,
+body.assessment-details-page .assessment-clarity h2 strong { font: inherit; letter-spacing: inherit; }
+body.assessment-details-page .assessment-clarity h2 strong { color: var(--ad-gold-light); }
 body.assessment-details-page .assessment-clarity__divider,
 body.assessment-details-page .assessment-final__divider { width: 1px; height: 92px; background: var(--ad-line); }
 body.assessment-details-page .assessment-clarity > p { margin: 0 !important; color: var(--ad-muted) !important; font: 400 1.03rem/1.47 "Cormorant Garamond", serif !important; text-align: left !important; text-transform: none !important; }
@@ -367,10 +374,11 @@ body.assessment-details-page .assessment-final__frame {
 }
 
 body.assessment-details-page .assessment-final__copy { text-align: right; }
-body.assessment-details-page .assessment-final__copy h2 { font-size: clamp(2rem, 3vw, 2.8rem) !important; letter-spacing: .05em !important; text-align: right !important; text-transform: uppercase; }
-body.assessment-details-page .assessment-final__copy p { margin: 5px 0 0 !important; color: var(--ad-gold) !important; font: italic 1rem/1.2 "Cormorant Garamond", serif !important; text-align: right !important; text-transform: none !important; }
+body.assessment-details-page #main-content .assessment-final__copy { text-align: center !important; }
+body.assessment-details-page #main-content .assessment-final__copy h2 { font-size: clamp(1.8rem, 2.5vw, 2.35rem) !important; letter-spacing: .05em !important; line-height: 1 !important; text-align: center !important; text-transform: uppercase; }
+body.assessment-details-page #main-content .assessment-final__copy p { margin: 9px 0 0 !important; color: var(--ad-gold-light) !important; font: italic 1.08rem/1.35 "Cormorant Garamond", serif !important; text-align: center !important; text-transform: none !important; }
 body.assessment-details-page .assessment-final__action { display: flex; flex-direction: column; align-items: flex-start; }
-body.assessment-details-page .assessment-final__action .assessment-meta { justify-content: flex-start; }
+body.assessment-details-page .assessment-final__action .assessment-meta { justify-content: flex-start; font-size: .45rem !important; }
 
 @media (max-width: 900px) {
   body.assessment-details-page #main-content > .assessment-hero { grid-template-columns: 46% 54% !important; }
