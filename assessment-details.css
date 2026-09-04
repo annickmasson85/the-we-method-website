@@ -421,3 +421,19 @@ body.assessment-details-page .assessment-final__action .assessment-meta { justif
   body.assessment-details-page #main-content > .assessment-final { padding-inline: 9px !important; }
   body.assessment-details-page a.assessment-button { width: min(100%, 300px) !important; min-width: 0 !important; }
 }
+.assessment-details-page .skip-link {
+  display: none !important;
+}
+
+.assessment-hero__visual {
+  min-height: 560px;
+}
+
+.assessment-hero__visual img {
+  width: 100%;
+  height: 100%;
+  min-height: 560px;
+  object-fit: cover;
+  object-position: 18% center;
+  transform: none;
+}
