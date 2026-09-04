@@ -456,33 +456,17 @@ body.assessment-details-page .assessment-final__action .assessment-meta { justif
   background:
     linear-gradient(90deg, transparent 55%, rgba(3, 3, 3, 0.55) 82%, #030303 100%);
 }
-.assessment-details-page .assessment-hero {
-  display: grid !important;
-  grid-template-columns: 1.2fr 0.8fr !important;
-  min-height: 640px;
-  background: #030303;
-}
-
 .assessment-details-page .assessment-hero__visual {
-  display: block !important;
-  opacity: 1 !important;
+  overflow: hidden;
   min-height: 640px;
 }
 
 .assessment-details-page .assessment-hero__visual img {
   display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  min-height: 640px !important;
+  width: 180% !important;
+  max-width: none !important;
+  height: 130% !important;
   object-fit: cover !important;
   object-position: left center !important;
-  transform: none !important;
-}
-
-.assessment-details-page .assessment-hero__visual::after {
-  background: linear-gradient(90deg, transparent 72%, #030303 100%);
-}
-
-.assessment-details-page .assessment-hero__content {
-  background: #030303 !important;
+  transform: translate(22%, -8%) !important;
 }
