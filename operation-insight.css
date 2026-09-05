@@ -1095,3 +1095,14 @@ body.operation-insight-page {
 .oi-main-nav a.is-active::before {
   display: none !important;
 }
+html,
+body.operation-insight-page {
+  background-color: #030303 !important;
+  background-image:
+    linear-gradient(rgba(3, 3, 3, 0.28), rgba(3, 3, 3, 0.42)),
+    url("images/operation-insight-background.png") !important;
+  background-position: center top !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
