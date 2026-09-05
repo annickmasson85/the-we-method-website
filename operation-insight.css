@@ -1106,3 +1106,11 @@ body.operation-insight-page {
   background-repeat: no-repeat !important;
   background-attachment: fixed !important;
 }
+.main-navigation a:first-child {
+  color: inherit !important;
+  border-bottom: none !important;
+}
+
+.main-navigation a.active {
+  color: #d8b158 !important;
+}
