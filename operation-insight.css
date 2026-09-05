@@ -1128,3 +1128,14 @@ body.operation-insight-page {
 .oi-bundle-panel {
   background: #050505;
 }
+.oi-bundle-reveal > summary {
+  background: #0a0908;
+}
+
+.oi-bundle-panel {
+  background: #1a140b;
+}
+
+.oi-bundle-side {
+  background: #120e08;
+}
