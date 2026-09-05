@@ -1025,3 +1025,32 @@
     text-align: left;
   }
 }
+.impl-insight-bar { margin: 0; background: #0a0908; }
+.impl-insight-bar > summary {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 16px 40px;
+  padding: 34px clamp(24px, 6vw, 80px);
+  list-style: none;
+  cursor: pointer;
+  background:
+    linear-gradient(rgba(10,8,5,.58), rgba(10,8,5,.58)),
+    url("images/operation-insight-background.png") center / cover;
+}
+.impl-insight-bar > summary::-webkit-details-marker { display: none; }
+.impl-insight-copy h2 { margin: 0; color: #eee6d8; font-size: clamp(26px,2.4vw,38px); font-weight: 400; line-height: 1; }
+.impl-insight-copy p { margin: 10px 0 0; color: #d4ae5c; font-size: 22px; font-style: italic; }
+.impl-insight-button {
+  display: flex; align-items: center; justify-content: space-between;
+  min-height: 58px; padding: 0 22px; border: 1px solid #c9a24d;
+  color: #e8d09f; font-family: Arial, sans-serif; font-size: 11px;
+  letter-spacing: .14em;
+}
+.impl-insight-bar small { grid-column: 2; color: #c9a24d; font-size: 10px; letter-spacing: .16em; text-align: center; }
+.impl-insight-bar[open] .impl-insight-button b { transform: rotate(45deg); }
+.impl-insight-panel { padding: 28px clamp(24px,6vw,80px) 40px; background: #1a140b; color: #eee6d8; }
+.impl-insight-panel a { color: #c9a24d; }
+@media (max-width: 800px) {
+  .impl-insight-bar > summary { grid-template-columns: 1fr; }
+  .impl-insight-bar small { grid-column: auto; text-align: left; }
+}
