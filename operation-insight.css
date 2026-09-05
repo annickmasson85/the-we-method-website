@@ -1087,3 +1087,7 @@ body.operation-insight-page {
     font-size: 44px;
   }
 }
+.oi-header-logo i,
+.oi-main-nav a.is-active::before {
+  display: none !important;
+}

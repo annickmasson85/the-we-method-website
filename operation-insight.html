@@ -8,71 +8,60 @@
     content="Operation Insight by The We Method — on-site observation, operational analysis, a detailed report, roadmap and remote follow-up."
   >
   <title>Operation Insight | The We Method</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap"
     rel="stylesheet"
   >
-
-  <!-- Keep your existing global stylesheet if you already use it site-wide. -->
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="operation-insight.css">
 </head>
 
 <body class="operation-insight-page">
-  <header class="oi-site-header">
-    <div class="oi-header-top">
-      <a class="oi-brand-mark" href="index.html" aria-label="The We Method home">
-        <span class="oi-monogram">TWM</span>
-        <span class="oi-brand-tagline">BUILD. LAUNCH. GROW.</span>
-      </a>
 
-      <a class="oi-header-logo" href="index.html">
-        <span>THE WE METHOD</span>
-        <small>TESTED. PROVEN. BUILT TO LAST.</small>
-        <i aria-hidden="true"></i>
+  <header class="site-header">
+    <div class="header-top">
+      <a class="header-logo" href="index.html">
+        <span class="logo-monogram">TWM</span>
+        <span class="logo-tagline">BUILD. LAUNCH. GROW.</span>
       </a>
-
-      <div class="oi-private-access">
-        <span>PRIVATE CLIENT ACCESS</span>
-        <div class="oi-header-actions">
-          <a href="login.html" class="oi-header-btn oi-header-btn--outline">CLIENT SIGN IN</a>
-          <a href="index.html" class="oi-header-btn oi-header-btn--gold">EXPLORE TWM</a>
+      <div class="header-brand">
+        <h1>THE WE METHOD</h1>
+        <p>TESTED. PROVEN. BUILT TO LAST.</p>
+        <span class="gold-ornament">◇</span>
+      </div>
+      <div class="client-access">
+        <p>PRIVATE CLIENT ACCESS</p>
+        <div class="client-buttons">
+          <a class="button-outline" href="signin.html">CLIENT SIGN IN</a>
+          <a class="button-gold" href="index.html#explore">EXPLORE TWM</a>
         </div>
       </div>
     </div>
 
-    <nav class="oi-main-nav" aria-label="Main navigation">
+    <nav class="main-navigation" aria-label="Main navigation">
       <a href="index.html">HOME</a>
-      <span class="oi-nav-diamond">◇</span>
+      <span>◇</span>
       <a href="business-foundry.html">BUSINESS FOUNDRY</a>
-      <span class="oi-nav-diamond">◇</span>
+      <span>◇</span>
       <a href="implementation-services.html">IMPLEMENTATION SERVICES</a>
-      <span class="oi-nav-diamond">◇</span>
-      <a href="operation-insight.html" class="is-active">OPERATION INSIGHT</a>
-      <span class="oi-nav-diamond">◇</span>
+      <span>◇</span>
+      <a class="active" href="operation-insight.html">OPERATION INSIGHT</a>
+      <span>◇</span>
       <a href="fleet-solution.html">FLEET SOLUTION</a>
-      <span class="oi-nav-diamond">◇</span>
+      <span>◇</span>
       <a href="fleet-builder.html">FLEET BUILDER</a>
-      <span class="oi-nav-diamond">◇</span>
-      <a href="about.html">ABOUT US</a>
+      <span>◇</span>
+      <a href="about-us.html">ABOUT US</a>
     </nav>
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="oi-hero" aria-labelledby="oi-hero-title">
       <div class="oi-hero-visual">
-        <<img
-  src="images/operation-insight-hero.jpg"
-  alt=""
->
-          alt="Luxury operations workspace with reports, laptop, documents and golf carts in the background"
-        >
+        <img src="images/operation-insight-hero.jpg" alt="">
       </div>
-
       <div class="oi-hero-content">
         <p class="oi-eyebrow">OPERATION INSIGHT</p>
         <h1 id="oi-hero-title">SEE WHAT’S<br>REALLY HAPPENING<br>INSIDE YOUR<br>OPERATION.</h1>
@@ -82,21 +71,18 @@
           processes, documents, team and service actually work together — then turn
           what we see into a clear set of priorities and a practical roadmap.
         </p>
-
         <div class="oi-price-line">
           <span>STARTS AT</span>
           <strong>$1,995</strong>
         </div>
-
-        <div class="oi-meta-line" aria-label="Service highlights">
+        <div class="oi-meta-line">
           <span>1 DAY ON-SITE</span>
           <i>◇</i>
           <span>NEXT-DAY REPORT</span>
           <i>◇</i>
           <span>REMOTE FOLLOW-UP</span>
         </div>
-
-        <a class="oi-primary-cta" href="contact.html">
+        <a class="oi-primary-cta" href="signin.html">
           <span>BOOK YOUR OPERATION INSIGHT</span>
           <span aria-hidden="true">→</span>
         </a>
@@ -104,7 +90,6 @@
       </div>
     </section>
 
-    <!-- CLICK TO REVEAL THE COMBINED OFFER -->
     <details class="oi-bundle-reveal">
       <summary>
         <span class="oi-bundle-prompt">
@@ -123,17 +108,14 @@
             <p class="oi-eyebrow">RECOMMENDED</p>
             <h2>OPERATION INSIGHT<br>+ IMPLEMENTATION</h2>
             <p class="oi-bundle-subtitle">Full diagnostic. Hands-on implementation. One clear direction.</p>
-
             <div class="oi-price-line oi-price-line--bundle">
               <span>STARTS AT</span>
               <strong>$5,495</strong>
             </div>
-
             <p class="oi-bundle-intro">
               Begin with the full Operation Insight diagnostic, then move directly into
               hands-on implementation tailored to what we find inside your business.
             </p>
-
             <div class="oi-bundle-features">
               <article>
                 <span>01</span>
@@ -142,7 +124,6 @@
                   <p>We create a simple structure so employees can find the right document in under 30 seconds.</p>
                 </div>
               </article>
-
               <article>
                 <span>02</span>
                 <div>
@@ -150,7 +131,6 @@
                   <p>We standardize key processes so every customer receives the same quality of service, regardless of the employee.</p>
                 </div>
               </article>
-
               <article>
                 <span>03</span>
                 <div>
@@ -158,7 +138,6 @@
                   <p>We work with your employees to introduce the structure, procedures, expectations and practical tools.</p>
                 </div>
               </article>
-
               <article>
                 <span>04</span>
                 <div>
@@ -167,7 +146,6 @@
                 </div>
               </article>
             </div>
-
             <div class="oi-bundle-notes">
               <span>FULL OPERATION INSIGHT INCLUDED</span>
               <i>◇</i>
@@ -192,13 +170,12 @@
           </aside>
         </div>
 
-        <section class="oi-travel" aria-labelledby="travel-title">
+        <section class="oi-travel">
           <div class="oi-travel-heading">
             <p class="oi-eyebrow">TRAVEL &amp; LODGING</p>
-            <h2 id="travel-title">PLANNED SEPARATELY.<br>PRICED CLEARLY.</h2>
+            <h2>PLANNED SEPARATELY.<br>PRICED CLEARLY.</h2>
             <p>Travel and lodging are billed separately from the service fee.</p>
           </div>
-
           <div class="oi-travel-table-wrap">
             <table class="oi-travel-table">
               <tbody>
@@ -226,34 +203,29 @@
       </div>
     </details>
 
-    <!-- WHAT WE LOOK AT -->
-    <section class="oi-observe" aria-labelledby="observe-title">
+    <section class="oi-observe">
       <div class="oi-section-heading">
         <span></span>
         <p>WHAT WE LOOK AT</p>
         <span></span>
       </div>
-      <h2 id="observe-title">WE OBSERVE THE BUSINESS<br>AS IT ACTUALLY OPERATES.</h2>
-
+      <h2>WE OBSERVE THE BUSINESS<br>AS IT ACTUALLY OPERATES.</h2>
       <div class="oi-observe-grid">
         <article>
           <div class="oi-number-row"><b>01</b><span></span></div>
           <h3>PROCESS FLOW</h3>
           <p>How work moves from one person, task or customer touchpoint to another.</p>
         </article>
-
         <article>
           <div class="oi-number-row"><b>02</b><span></span></div>
           <h3>DOCUMENTS &amp; ACCESS</h3>
           <p>Where information lives, how employees find it and where unnecessary friction exists.</p>
         </article>
-
         <article>
           <div class="oi-number-row"><b>03</b><span></span></div>
           <h3>SERVICE CONSISTENCY</h3>
           <p>Whether the customer experience stays consistent from one employee to another.</p>
         </article>
-
         <article>
           <div class="oi-number-row"><b>04</b><span></span></div>
           <h3>TEAM EXECUTION</h3>
@@ -262,39 +234,42 @@
       </div>
     </section>
 
-    <!-- TIMELINE -->
-    <section class="oi-timeline" aria-labelledby="timeline-title">
+    <section class="oi-timeline">
       <div class="oi-section-heading">
         <span></span>
         <p>THE NEXT DAY</p>
         <span></span>
       </div>
-      <h2 id="timeline-title">OBSERVATION BECOMES DIRECTION.</h2>
-
+      <h2>OBSERVATION BECOMES DIRECTION.</h2>
       <div class="oi-timeline-grid">
         <article>
-          <div class="oi-step-image"><img src="operation-insight-day1.jpg" alt="Golf carts prepared for operation"></div>
+          <div class="oi-step-image">
+            <img src="images/operation-insight-day1.jpg" alt="">
+          </div>
           <p class="oi-step-label">DAY 01</p>
           <h3>ON-SITE OBSERVATION</h3>
           <p>One full operating day with your business, from opening through the day’s real workflow.</p>
         </article>
-
         <article>
-          <div class="oi-step-image"><img src="operation-insight-day2.jpg" alt="Operation report and roadmap on a desk"></div>
+          <div class="oi-step-image">
+            <img src="images/operation-insight-day2.jpg" alt="">
+          </div>
           <p class="oi-step-label">DAY 02</p>
           <h3>REPORT &amp; ROADMAP</h3>
           <p>A clear written report identifying priorities, inconsistencies, opportunities and recommended next steps.</p>
         </article>
-
         <article>
-          <div class="oi-step-image"><img src="operation-insight-review.jpg" alt="Private report review at a laptop"></div>
+          <div class="oi-step-image">
+            <img src="images/operation-insight-review.jpg" alt="">
+          </div>
           <p class="oi-step-label">UP TO 2 HOURS</p>
           <h3>PRIVATE REVIEW</h3>
           <p>We walk through the report with you, explain our findings and answer your questions.</p>
         </article>
-
         <article>
-          <div class="oi-step-image"><img src="operation-insight-followup.jpg" alt="Remote follow-up workspace"></div>
+          <div class="oi-step-image">
+            <img src="images/operation-insight-followup.jpg" alt="">
+          </div>
           <p class="oi-step-label">AFTERWARD</p>
           <h3>REMOTE FOLLOW-UP</h3>
           <p>A remote follow-up is included to help you move forward with clarity.</p>
@@ -302,21 +277,33 @@
       </div>
     </section>
 
-    <!-- QUOTE -->
     <section class="oi-closing">
       <div class="oi-closing-copy">
         <p>You can’t standardize<br>what you can’t see.</p>
         <span>Operation Insight shows you where to begin.</span>
       </div>
-      <div class="oi-closing-image" aria-hidden="true">
-        <img src="operation-insight-direction.jpg" alt="">
+      <div class="oi-closing-image">
+        <img src="images/operation-insight-direction.jpg" alt="">
       </div>
     </section>
   </main>
 
-  <footer class="oi-footer">
-    <span>THE WE METHOD</span>
-    <span>BUILD. LAUNCH. GROW.</span>
+  <footer class="site-footer impl-footer">
+    <div class="impl-footer-inner">
+      <div class="impl-footer-left">
+        <strong>TWM</strong>
+        <span>TESTED. PROVEN. BUILT TO LAST.</span>
+      </div>
+      <div class="impl-footer-social">
+        <a href="https://www.instagram.com/thewemethod/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <span>·</span>
+        <a href="https://www.facebook.com/profile.php?id=61593652130304" target="_blank" rel="noopener noreferrer">Facebook</a>
+      </div>
+      <div class="impl-footer-right">
+        <a href="mailto:info@thewemethod.com">info@thewemethod.com</a>
+        <span>© 2026 The We Method</span>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
