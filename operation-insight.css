@@ -26,10 +26,14 @@ body.operation-insight-page {
   margin: 0;
   min-width: 320px;
   color: var(--oi-ivory);
-  background:
-    radial-gradient(circle at 15% 20%, rgba(117, 77, 24, .10), transparent 23%),
-    radial-gradient(circle at 88% 61%, rgba(117, 77, 24, .07), transparent 28%),
-    #030303;
+
+  background-image: url("operation-insight-background.png");
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #030303;
+
   font-family: var(--oi-serif);
   font-weight: 400;
 }
