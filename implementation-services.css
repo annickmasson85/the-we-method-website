@@ -963,3 +963,65 @@
     max-width: 100%;
   }
 }
+.impl-insight-bar {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 24px 48px;
+  padding: 36px clamp(24px, 6vw, 80px);
+  border-top: 1px solid rgba(201, 162, 77, 0.45);
+  border-bottom: 1px solid rgba(201, 162, 77, 0.45);
+  background:
+    linear-gradient(rgba(10, 8, 5, 0.58), rgba(10, 8, 5, 0.58)),
+    url("images/operation-insight-background.png") center / cover;
+}
+
+.impl-insight-copy h2 {
+  margin: 0;
+  color: #eee6d8;
+  font-size: clamp(26px, 2.4vw, 38px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.impl-insight-copy p {
+  margin: 10px 0 0;
+  color: #d4ae5c;
+  font-size: 22px;
+  font-style: italic;
+}
+
+.impl-insight-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 58px;
+  padding: 0 22px;
+  border: 1px solid #c9a24d;
+  color: #e8d09f;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+}
+
+.impl-insight-note {
+  grid-column: 2;
+  margin: -8px 0 0;
+  color: #c9a24d;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .impl-insight-bar,
+  .impl-insight-note {
+    grid-template-columns: 1fr;
+    grid-column: auto;
+    text-align: left;
+  }
+}
