@@ -1114,3 +1114,17 @@ body.operation-insight-page {
 .main-navigation a.active {
   color: #d8b158 !important;
 }
+.oi-bundle-reveal {
+  background: transparent !important;
+}
+
+.oi-bundle-reveal > summary {
+  background:
+    linear-gradient(rgba(18, 12, 6, 0.55), rgba(18, 12, 6, 0.55)),
+    url("images/operation-insight-background.png") center / cover;
+  border-bottom: 1px solid rgba(198, 154, 57, 0.55);
+}
+
+.oi-bundle-panel {
+  background: #050505;
+}
