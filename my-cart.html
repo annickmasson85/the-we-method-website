@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart | The We Method</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="private-access.css">
+  <link rel="stylesheet" href="pca-menu.css">
+  <link rel="stylesheet" href="my-cart.css">
+</head>
+<body class="private-access-page cart-page">
+  <header class="site-header">
+    <a class="brand-mark" href="index.html">
+      <span class="brand-monogram">TWM</span>
+      <span class="brand-name">THE WE METHOD</span>
+    </a>
+    <span class="header-rule"></span>
+    <div class="header-title">
+      <span>YOUR CART</span>
+      <small>SECURE CHECKOUT</small>
+    </div>
+    <span class="header-rule"></span>
+    <a class="member-profile" href="profile.html">
+      <span class="profile-icon">
+        <img id="header-photo" alt="" hidden>
+        <svg id="header-icon" viewBox="0 0 48 48">
+          <circle cx="24" cy="16.5" r="8"></circle>
+          <path d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"></path>
+        </svg>
+      </span>
+      <span class="profile-copy">
+        <small>MEMBER PROFILE</small>
+        <strong id="member-profile-name">Client</strong>
+      </span>
+    </a>
+  </header>
+
+  <main id="cart-content">
+    <section class="cart-hero">
+      <div class="cart-hero-content">
+        <p class="cart-eyebrow">Private Checkout</p>
+        <h1>Your Cart</h1>
+        <p class="cart-hero-copy">Review your selections before continuing<br>to secure checkout.</p>
+      </div>
+    </section>
+
+    <section class="cart-checkout">
+      <div class="cart-items-panel">
+        <h2>Your Cart <span id="cart-count">(0 items)</span></h2>
+        <div class="cart-column-headings">
+          <span>Item</span><span>Unit Price</span><span>Quantity</span><span>Total</span>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <p class="cart-empty" id="cart-empty" hidden>Your cart is empty.</p>
+      </div>
+
+      <aside class="order-summary">
+        <h2>Order Summary</h2>
+        <dl class="summary-lines">
+          <div><dt>Subtotal</dt><dd id="cart-subtotal">$0</dd></div>
+        </dl>
+        <div class="summary-total">
+          <span>Estimated total</span>
+          <strong id="cart-total">$0</strong>
+        </div>
+        <a class="checkout-button" id="checkout-button" href="signin.html">Proceed to Secure Checkout</a>
+        <p class="secure-note">Secure payment • Private access</p>
+        <a class="continue-shopping" href="founder-library.html">← Continue shopping</a>
+      </aside>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="pca-menu.js"></script>
+  <script src="my-cart.js"></script>
+</body>
+</html>

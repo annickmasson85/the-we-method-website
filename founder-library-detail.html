@@ -19,16 +19,12 @@
       <span class="brand-monogram">TWM</span>
       <span class="brand-name">THE WE METHOD</span>
     </a>
-
     <span class="header-rule"></span>
-
     <div class="header-title">
       <span>FOUNDER LIBRARY</span>
       <small>BUILD <b>◆</b> LAUNCH <b>◆</b> GROW</small>
     </div>
-
     <span class="header-rule"></span>
-
     <a class="member-profile" href="profile.html">
       <span class="profile-icon">
         <img id="header-photo" alt="" hidden>
@@ -47,26 +43,20 @@
   <main class="detail-shell">
     <section class="detail-stage" aria-labelledby="product-title">
       <div class="product-art" aria-hidden="true">
-        <img
-          id="product-image"
-          src="images/knowledge-vault-business-launcher-book.png"
-          alt=""
-        >
+        <img id="product-image" src="images/knowledge-vault-business-launcher-book.png" alt="">
       </div>
 
       <article class="product-panel" id="product-panel">
         <div class="product-viewframe">
           <div class="product-slider" id="product-slider">
-            <section class="product-view product-overview" aria-label="Product details">
+            <section class="product-view product-overview">
               <p class="product-eyebrow">
                 <span>THE WE METHOD LIBRARY</span>
                 <b>◆</b>
                 <span id="product-method">METHOD 1</span>
               </p>
-
               <h1 id="product-title">Business Foundry</h1>
               <p class="product-summary" id="product-summary"></p>
-
               <div class="product-values">
                 <div>
                   <small>TOTAL VALUE</small>
@@ -77,7 +67,6 @@
                   <strong id="product-investment">—</strong>
                 </div>
               </div>
-
               <dl class="product-meta">
                 <div><dt>TYPE</dt><dd id="product-type"></dd></div>
                 <div><dt>AUDIENCE</dt><dd id="product-audience"></dd></div>
@@ -88,12 +77,7 @@
               </dl>
             </section>
 
-            <section
-              class="product-view product-includes"
-              id="product-includes"
-              aria-labelledby="includes-title"
-              aria-hidden="true"
-            >
+            <section class="product-view product-includes" id="product-includes" aria-hidden="true">
               <p class="includes-collection" id="includes-collection">SIGNATURE SYSTEM</p>
               <h2 id="includes-title">WHAT’S INCLUDED</h2>
               <ul id="product-includes-list"></ul>
@@ -101,32 +85,23 @@
           </div>
         </div>
 
-        <button
-          class="includes-toggle"
-          id="includes-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="product-includes"
-        >
+        <button class="includes-toggle" id="includes-toggle" type="button" aria-expanded="false">
           <span class="includes-toggle__label">SEE WHAT’S INSIDE</span>
-          <span class="includes-toggle__arrow" aria-hidden="true">→</span>
+          <span class="includes-toggle__arrow">→</span>
         </button>
       </article>
 
       <div class="purchase-zone">
         <p class="stage-note">12 MONTHS ACCESS <b>◆</b> SECURE CHECKOUT</p>
-
         <div class="product-access">
           <div id="locked-state" class="product-state product-state--locked">
             <img src="images/library-lock.png" alt="">
             <span>LOCKED</span>
           </div>
-
           <div id="owned-state" class="product-state product-state--owned" hidden>
             <img src="images/library-owned.png" alt="Owned">
           </div>
-
-          <a id="product-action" class="product-action" href="my-cart.html">ADD TO CART</a>
+          <button id="product-action" class="product-action" type="button">ADD TO CART</button>
         </div>
       </div>
 
@@ -138,8 +113,8 @@
   </main>
 
   <div class="cart-modal-overlay" id="cart-modal" hidden>
-    <div class="cart-modal" role="dialog" aria-labelledby="cart-modal-title">
-      <h2 id="cart-modal-title">Added to Cart</h2>
+    <div class="cart-modal" role="dialog">
+      <h2>Added to Cart</h2>
       <p>This item has been successfully added to your cart.</p>
       <div class="cart-modal-actions">
         <button type="button" id="cart-continue">CONTINUE SHOPPING</button>
@@ -154,35 +129,73 @@
   <script src="founder-library-data.js"></script>
   <script src="founder-library-detail.js"></script>
   <script>
+    function getCart() {
+      try { return JSON.parse(localStorage.getItem("twmCart") || "[]"); }
+      catch (e) { return []; }
+    }
+
+    function priceFromText(text) {
+      return Number(String(text || "").replace(/[^0-9.]/g, "")) || 0;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var action = document.getElementById("product-action");
+      var modal = document.getElementById("cart-modal");
+      var cont = document.getElementById("cart-continue");
+
+      action?.addEventListener("click", function () {
+        var id = new URLSearchParams(window.location.search).get("product") || "business-launcher";
+        var name = document.getElementById("product-title")?.textContent.trim() || "Library Item";
+        var price = priceFromText(document.getElementById("product-investment")?.textContent);
+        var cart = getCart();
+        var existing = cart.find(function (item) { return item.id === id; });
+
+        if (existing) {
+          existing.qty += 1;
+        } else {
+          cart.push({
+            id: id,
+            name: name,
+            category: document.getElementById("product-type")?.textContent.trim() || "Founder Library",
+            price: price,
+            note: "12 months access",
+            qty: 1
+          });
+        }
+
+        localStorage.setItem("twmCart", JSON.stringify(cart));
+        if (modal) modal.hidden = false;
+      });
+
+      cont?.addEventListener("click", function () {
+        if (modal) modal.hidden = true;
+      });
+
+      modal?.addEventListener("click", function (event) {
+        if (event.target === modal) modal.hidden = true;
+      });
+    });
+  </script>
+  <script>
     document.addEventListener("DOMContentLoaded", async function () {
       var supabase = window.supabaseClient;
       if (!supabase) return;
-
       var session = await supabase.auth.getSession();
       if (!session.data || !session.data.session) {
         window.location.href = "signin.html";
         return;
       }
-
       var userRes = await supabase.auth.getUser();
       var user = (userRes.data && userRes.data.user) || session.data.session.user;
       var meta = (user && user.user_metadata) || {};
       var name = document.getElementById("member-profile-name");
-
       if (name) {
-        name.textContent =
-          [meta.first_name, meta.last_name].filter(Boolean).join(" ") || "Client";
+        name.textContent = [meta.first_name, meta.last_name].filter(Boolean).join(" ") || "Client";
       }
-
       if (meta.avatar_url) {
         var photo = document.getElementById("header-photo");
         var icon = document.getElementById("header-icon");
-
-        if (photo) {
-          photo.src = meta.avatar_url;
-          photo.hidden = false;
-        }
-
+        if (photo) { photo.src = meta.avatar_url; photo.hidden = false; }
         if (icon) icon.style.display = "none";
       }
     });
