@@ -167,7 +167,7 @@ a {
   border-bottom: 1px solid var(--cart-border);
   background-image:
     linear-gradient(90deg, #050505 0%, rgba(5, 5, 5, 0.95) 18%, rgba(5, 5, 5, 0.34) 51%, rgba(5, 5, 5, 0.03) 78%),
-    url("cart-hero-luxury.png");
+    url("images/cart-hero-luxury.png");
   background-position: center, center;
   background-size: cover;
 }
@@ -923,7 +923,7 @@ a {
     min-height: 490px;
     background-image:
       linear-gradient(90deg, rgba(5, 5, 5, 0.98) 0%, rgba(5, 5, 5, 0.78) 70%, rgba(5, 5, 5, 0.42) 100%),
-      url("cart-hero-luxury.png");
+      url("images/cart-hero-luxury.png");
     background-position: center, 66% center;
   }
 
@@ -1008,4 +1008,18 @@ a {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+}
+.profile-icon {
+  overflow: hidden;
+}
+
+#header-photo {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#header-photo[hidden] {
+  display: none;
 }
