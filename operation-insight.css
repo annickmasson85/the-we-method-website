@@ -1119,21 +1119,28 @@ body.operation-insight-page {
 }
 
 .oi-bundle-reveal > summary {
+  background-color: #070604;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(4, 4, 4, 0.7) 0%,
+      rgba(6, 5, 4, 0.92) 24%,
+      rgba(6, 5, 4, 0.96) 50%,
+      rgba(6, 5, 4, 0.92) 76%,
+      rgba(4, 4, 4, 0.7) 100%
+    ),
+    url("images/operation-insight-background.png");
+  background-position: center, center 46%;
+  background-size: cover, cover;
+  background-repeat: no-repeat;
+  border-top: 1px solid rgba(198, 154, 57, 0.5);
+  border-bottom: 1px solid rgba(198, 154, 57, 0.5);
+}
+
+.oi-bundle-panel {
   background:
-    linear-gradient(rgba(18, 12, 6, 0.55), rgba(18, 12, 6, 0.55)),
-    url("images/operation-insight-background.png") center / cover;
-  border-bottom: 1px solid rgba(198, 154, 57, 0.55);
-}
-
-.oi-bundle-panel {
-  background: #050505;
-}
-.oi-bundle-reveal > summary {
-  background: #0a0908;
-}
-
-.oi-bundle-panel {
-  background: #1a140b;
+    linear-gradient(180deg, rgba(131, 91, 25, 0.08), transparent 22%),
+    #060606;
 }
 
 .oi-bundle-side {
