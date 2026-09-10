@@ -17,6 +17,8 @@
 </head>
 
 <body class="private-access-page implementation-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header class="site-header">
     <a class="brand-mark" href="index.html">
       <span class="brand-monogram">TWM</span>
@@ -31,7 +33,7 @@
     <a class="member-profile" href="profile.html">
       <span class="profile-icon">
         <img id="header-photo" alt="" hidden>
-        <svg id="header-icon" viewBox="0 0 48 48">
+        <svg id="header-icon" viewBox="0 0 48 48" aria-hidden="true">
           <circle cx="24" cy="16.5" r="8"></circle>
           <path d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"></path>
         </svg>
@@ -58,7 +60,7 @@
             the systems that keep your rental business moving.
           </p>
           <div class="implementation-hero-actions">
-            <a class="implementation-button implementation-button-gold" href="#apply">
+            <a class="implementation-button implementation-button-gold" href="private-implementation-application.html">
               Apply for Implementation
               <span aria-hidden="true">→</span>
             </a>
@@ -103,12 +105,56 @@
           Each system or document must be purchased separately.
         </p>
       </div>
+
+      <div class="implementation-values" aria-label="Why choose implementation services">
+        <article>
+          <svg aria-hidden="true" viewBox="0 0 48 48">
+            <path d="M24 44s15-14 15-27a15 15 0 1 0-30 0c0 13 15 27 15 27z"></path>
+            <circle cx="24" cy="17" r="5"></circle>
+          </svg>
+          <div>
+            <h3>We Come to You</h3>
+            <p>On-site implementation inside your rental business.</p>
+          </div>
+        </article>
+
+        <article>
+          <svg aria-hidden="true" viewBox="0 0 48 48">
+            <path d="M4 13h15l4 5h21l-4 22H7z"></path>
+          </svg>
+          <div>
+            <h3>Systems That Stick</h3>
+            <p>Custom-fit documents, processes and training for your team.</p>
+          </div>
+        </article>
+
+        <article>
+          <svg aria-hidden="true" viewBox="0 0 48 48">
+            <path d="M24 4l17 6v12c0 11-7 18-17 22C14 40 7 33 7 22V10z"></path>
+            <path d="M16 24l5 5 11-12"></path>
+          </svg>
+          <div>
+            <h3>Built for Rental</h3>
+            <p>Purpose-built for golf cart and low-speed vehicle operations.</p>
+          </div>
+        </article>
+
+        <article>
+          <svg aria-hidden="true" viewBox="0 0 48 48">
+            <path d="M7 40V29h7v11M20 40V21h7v19M33 40V10h7v30"></path>
+          </svg>
+          <div>
+            <h3>Real Results</h3>
+            <p>Smoother operations. Happier guests. A stronger bottom line.</p>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <section class="implementation-journey" id="journey">
+    <section class="implementation-journey" id="journey" aria-labelledby="journey-title">
       <div class="implementation-section-heading">
         <p class="implementation-eyebrow">A Private Four-Step Engagement</p>
-        <h2>The Implementation Journey</h2>
+        <h2 id="journey-title">The Implementation Journey</h2>
       </div>
       <ol class="implementation-timeline">
         <li>
@@ -134,10 +180,10 @@
       </ol>
     </section>
 
-    <section class="implementation-scope">
+    <section class="implementation-scope" aria-labelledby="scope-title">
       <div class="implementation-section-heading">
         <p class="implementation-eyebrow">Defined From the Start</p>
-        <h2>A defined scope. Clear expectations.</h2>
+        <h2 id="scope-title">A defined scope. Clear expectations.</h2>
       </div>
       <div class="implementation-scope-grid">
         <article class="implementation-scope-card implementation-scope-includes">
@@ -165,10 +211,10 @@
       </div>
     </section>
 
-    <section class="implementation-investment" id="apply">
+    <section class="implementation-investment" id="investment" aria-labelledby="investment-title">
       <div class="implementation-investment-copy">
         <p class="implementation-eyebrow">Private Implementation Experience</p>
-        <h2>Built around your operation.</h2>
+        <h2 id="investment-title">Built around your operation.</h2>
         <p>A focused on-site engagement designed to make your selected systems practical.</p>
       </div>
       <div class="implementation-price">
@@ -176,8 +222,8 @@
         <strong>$3,995</strong>
         <small>Travel, mileage &amp; RV accommodations additional.</small>
       </div>
-      <a class="implementation-button implementation-button-gold" href="my-cart.html?product=implementation-services">
-        Add to Cart
+      <a class="implementation-button implementation-button-gold" href="private-implementation-application.html">
+        Apply for Implementation
         <span aria-hidden="true">→</span>
       </a>
     </section>
@@ -190,22 +236,29 @@
     document.addEventListener("DOMContentLoaded", async function () {
       var supabase = window.supabaseClient;
       if (!supabase) return;
+
       var session = await supabase.auth.getSession();
       if (!session.data || !session.data.session) {
         window.location.href = "signin.html";
         return;
       }
+
       var userRes = await supabase.auth.getUser();
       var user = (userRes.data && userRes.data.user) || session.data.session.user;
       var meta = (user && user.user_metadata) || {};
       var name = document.getElementById("member-profile-name");
+
       if (name) {
         name.textContent = [meta.first_name, meta.last_name].filter(Boolean).join(" ") || "Client";
       }
+
       if (meta.avatar_url) {
         var photo = document.getElementById("header-photo");
         var icon = document.getElementById("header-icon");
-        if (photo) { photo.src = meta.avatar_url; photo.hidden = false; }
+        if (photo) {
+          photo.src = meta.avatar_url;
+          photo.hidden = false;
+        }
         if (icon) icon.style.display = "none";
       }
     });
