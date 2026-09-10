@@ -229,6 +229,7 @@
     }
   ].map((product) => ({
     ...product,
+    openUrl: "founder-library-detail.html?product=" + encodeURIComponent(product.slug),
     cartUrl: "my-cart.html?product=" + encodeURIComponent(product.slug)
   }));
 
