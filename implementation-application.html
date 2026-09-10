@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Private application for The We Method Implementation Services.">
+  <title>Implementation Services Application | The We Method</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="private-access.css">
+  <link rel="stylesheet" href="pca-menu.css">
+  <link rel="stylesheet" href="implementation-application.css">
+</head>
+<body class="private-access-page implementation-application-page">
+  <header class="site-header">
+    <a class="brand-mark" href="index.html">
+      <span class="brand-monogram">TWM</span>
+      <span class="brand-name">THE WE METHOD</span>
+    </a>
+    <span class="header-rule"></span>
+    <div class="header-title">
+      <span>IMPLEMENTATION APPLICATION</span>
+      <small>BUILD <b>◆</b> LAUNCH <b>◆</b> GROW</small>
+    </div>
+    <span class="header-rule"></span>
+    <a class="member-profile" href="profile.html">
+      <span class="profile-icon">
+        <img id="header-photo" alt="" hidden>
+        <svg id="header-icon" viewBox="0 0 48 48">
+          <circle cx="24" cy="16.5" r="8"></circle>
+          <path d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"></path>
+        </svg>
+      </span>
+      <span class="profile-copy">
+        <small>MEMBER PROFILE</small>
+        <strong id="member-profile-name">Client</strong>
+      </span>
+    </a>
+  </header>
+
+  <section class="application-hero">
+    <div class="hero-background"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>IMPLEMENTATION SERVICES</h1>
+      <div class="hero-subtitle">PRIVATE APPLICATION</div>
+      <p>Tell us where your business stands — and where you want it to go.</p>
+    </div>
+  </section>
+
+  <main class="application-main">
+    <form class="application-form" id="implementation-application-form">
+      <!-- garde TOUTES tes sections 01 à 06 exactement comme avant -->
+
+      <div class="submit-wrap">
+        <a class="implementation-text-link" href="private-implementation.html">← BACK TO SERVICE</a>
+        <button type="submit" class="submit-application">
+          <span>SUBMIT APPLICATION</span>
+          <span class="submit-arrow">→</span>
+        </button>
+      </div>
+    </form>
+
+    <aside class="application-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-price-area">
+          <div class="sidebar-eyebrow">IMPLEMENTATION<br>EXPERIENCE</div>
+          <div class="sidebar-price">$3,995</div>
+          <p>Travel fees, mileage &amp;<br>RV accommodations<br>additional.</p>
+        </div>
+        <div class="sidebar-contact">
+          <h3>HAVE QUESTIONS?</h3>
+          <a href="mailto:info@thewemethod.com" class="contact-button">CONTACT US</a>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="pca-menu.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async function () {
+      var supabase = window.supabaseClient;
+      if (!supabase) return;
+      var session = await supabase.auth.getSession();
+      if (!session.data || !session.data.session) {
+        window.location.href = "signin.html";
+        return;
+      }
+      var userRes = await supabase.auth.getUser();
+      var user = (userRes.data && userRes.data.user) || session.data.session.user;
+      var meta = (user && user.user_metadata) || {};
+      var name = document.getElementById("member-profile-name");
+      if (name) {
+        name.textContent = [meta.first_name, meta.last_name].filter(Boolean).join(" ") || "Client";
+      }
+      var first = document.getElementById("first-name");
+      var last = document.getElementById("last-name");
+      var email = document.getElementById("email");
+      if (first && meta.first_name) first.value = meta.first_name;
+      if (last && meta.last_name) last.value = meta.last_name;
+      if (email && user.email) email.value = user.email;
+      if (meta.avatar_url) {
+        var photo = document.getElementById("header-photo");
+        var icon = document.getElementById("header-icon");
+        if (photo) { photo.src = meta.avatar_url; photo.hidden = false; }
+        if (icon) icon.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
