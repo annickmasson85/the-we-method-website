@@ -922,11 +922,17 @@ a {
   .cart-hero {
     min-height: 490px;
     background-image:
-      linear-gradient(90deg, rgba(5, 5, 5, 0.98) 0%, rgba(5, 5, 5, 0.78) 70%, rgba(5, 5, 5, 0.42) 100%),
+      linear-gradient(
+        90deg,
+        rgba(5, 5, 5, 0.98) 0%,
+        rgba(5, 5, 5, 0.78) 70%,
+        rgba(5, 5, 5, 0.42) 100%
+      ),
       url("images/cart-hero-luxury.png");
     background-position: center, 66% center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
-
   .cart-hero-content {
     width: calc(100% - 36px);
     padding-top: 72px;
@@ -1022,4 +1028,10 @@ a {
 
 #header-photo[hidden] {
   display: none;
+}
+.cart-empty {
+  padding: 48px 12px 56px;
+  color: #b9ae9e;
+  font-size: 20px;
+  text-align: center;
 }
