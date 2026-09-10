@@ -1606,14 +1606,14 @@ input[type="date"] {
 
 .hero-background {
   background:
-    url("images/implementation-hero.jpg")
+    url("implementation-hero.jpg")
     center 52% / cover no-repeat;
 }
 
 .sidebar-image {
   background:
     linear-gradient(180deg, rgba(4,4,4,0.05), rgba(3,3,3,0.12)),
-    url("images/implementation-sidebar.jpg")
+    url("implementation-sidebar.jpg")
     center center / cover no-repeat;
 }
 

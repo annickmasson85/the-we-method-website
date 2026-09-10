@@ -43,36 +43,138 @@
     <div class="hero-background"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1>IMPLEMENTATION SERVICES</h1>
-      <div class="hero-subtitle">PRIVATE APPLICATION</div>
-      <p>Tell us where your business stands — and where you want it to go.</p>
+      <div class="hero-mini-logo">
+        <span class="mini-monogram">TWM</span>
+        <span class="mini-brand">THE WE METHOD</span>
+      </div>
+      <h1>Implementation Services</h1>
+      <p class="hero-subtitle">APPLICATION</p>
+      <p>Tell us about your operation so we can confirm the right path forward.</p>
     </div>
   </section>
 
+  <div class="application-progress" aria-hidden="true">
+    <div class="progress-line"></div>
+    <div class="progress-step active"><span class="progress-number">01</span><span class="progress-dot"></span><small>Contact</small></div>
+    <div class="progress-step"><span class="progress-number">02</span><span class="progress-dot"></span><small>Business</small></div>
+    <div class="progress-step"><span class="progress-number">03</span><span class="progress-dot"></span><small>Team</small></div>
+    <div class="progress-step"><span class="progress-number">04</span><span class="progress-dot"></span><small>Vision</small></div>
+    <div class="progress-step"><span class="progress-number">05</span><span class="progress-dot"></span><small>Readiness</small></div>
+    <div class="progress-step"><span class="progress-number">06</span><span class="progress-dot"></span><small>Fleet</small></div>
+    <div class="progress-step"><span class="progress-number">07</span><span class="progress-dot"></span><small>Submit</small></div>
+  </div>
+
   <main class="application-main">
     <form class="application-form" id="implementation-application-form">
-      <!-- garde TOUTES tes sections 01 à 06 exactement comme avant -->
+      <section class="form-section">
+        <div class="section-heading">
+          <span class="section-number">1</span>
+          <div>
+            <h2>Your Contact</h2>
+            <p>Your name and email stay connected to your private account.</p>
+          </div>
+        </div>
+        <div class="form-grid two-columns">
+          <div class="form-field">
+            <label for="first-name">First Name</label>
+            <input id="first-name" name="first-name" type="text" required>
+          </div>
+          <div class="form-field">
+            <label for="last-name">Last Name</label>
+            <input id="last-name" name="last-name" type="text" required>
+          </div>
+          <div class="form-field">
+            <label for="email">Email Address</label>
+            <input id="email" name="email" type="email" required>
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel">
+          </div>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <div class="section-heading">
+          <span class="section-number">2</span>
+          <div>
+            <h2>Your Business</h2>
+            <p>Help us understand where your operation stands today.</p>
+          </div>
+        </div>
+        <div class="form-grid two-columns">
+          <div class="form-field">
+            <label for="company">Business Name</label>
+            <input id="company" name="company" type="text">
+          </div>
+          <div class="form-field">
+            <label for="location">City, State</label>
+            <input id="location" name="location" type="text">
+          </div>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <div class="section-heading">
+          <span class="section-number">3</span>
+          <div>
+            <h2>What You Need</h2>
+            <p>Select the support that matters most right now.</p>
+          </div>
+        </div>
+        <div class="question-block">
+          <p class="question-title">Primary focus</p>
+          <div class="choice-row">
+            <label class="custom-radio"><input type="radio" name="focus" value="systems"><span></span> Systems & documents</label>
+            <label class="custom-radio"><input type="radio" name="focus" value="operations"><span></span> Daily operations</label>
+            <label class="custom-radio"><input type="radio" name="focus" value="growth"><span></span> Growth & fleet</label>
+          </div>
+        </div>
+      </section>
 
       <div class="submit-wrap">
-        <a class="implementation-text-link" href="private-implementation.html">← BACK TO SERVICE</a>
-        <button type="submit" class="submit-application">
-          <span>SUBMIT APPLICATION</span>
-          <span class="submit-arrow">→</span>
+        <button class="submit-application" type="submit">
+          SUBMIT APPLICATION <span class="submit-arrow">→</span>
         </button>
+        <a href="private-implementation.html">← BACK TO IMPLEMENTATION</a>
       </div>
     </form>
 
     <aside class="application-sidebar">
       <div class="sidebar-card">
         <div class="sidebar-price-area">
-          <div class="sidebar-eyebrow">IMPLEMENTATION<br>EXPERIENCE</div>
-          <div class="sidebar-price">$3,995</div>
-          <p>Travel fees, mileage &amp;<br>RV accommodations<br>additional.</p>
+          <p class="sidebar-eyebrow">Private Implementation</p>
+          <p class="sidebar-price">$3,995</p>
+          <p>Starting investment. Travel and accommodations additional.</p>
         </div>
+        <div class="sidebar-rule"></div>
+        <div class="sidebar-next">
+          <h3>WHAT HAPPENS NEXT</h3>
+          <div class="next-item">
+            <div class="next-icon check-icon">✓</div>
+            <div><strong>1.</strong><p>We review your application privately.</p></div>
+          </div>
+          <div class="next-item">
+            <div class="next-icon">2</div>
+            <div><strong>2.</strong><p>We confirm fit, timing and next steps.</p></div>
+          </div>
+          <div class="next-item">
+            <div class="next-icon">3</div>
+            <div><strong>3.</strong><p>We move forward together if it is the right path.</p></div>
+          </div>
+        </div>
+        <div class="sidebar-rule"></div>
         <div class="sidebar-contact">
           <h3>HAVE QUESTIONS?</h3>
-          <a href="mailto:info@thewemethod.com" class="contact-button">CONTACT US</a>
+          <p>We’re here to help.</p>
+          <a class="contact-button" href="mailto:info@thewemethod.com">CONTACT US</a>
         </div>
+        <div class="sidebar-ornament"><span></span><i>◉</i><span></span></div>
+        <blockquote>
+          “The right systems create freedom.”
+          <small>THE WE METHOD</small>
+        </blockquote>
+        <div class="sidebar-image"></div>
       </div>
     </aside>
   </main>
@@ -84,11 +186,13 @@
     document.addEventListener("DOMContentLoaded", async function () {
       var supabase = window.supabaseClient;
       if (!supabase) return;
+
       var session = await supabase.auth.getSession();
       if (!session.data || !session.data.session) {
         window.location.href = "signin.html";
         return;
       }
+
       var userRes = await supabase.auth.getUser();
       var user = (userRes.data && userRes.data.user) || session.data.session.user;
       var meta = (user && user.user_metadata) || {};
@@ -96,18 +200,29 @@
       if (name) {
         name.textContent = [meta.first_name, meta.last_name].filter(Boolean).join(" ") || "Client";
       }
+
       var first = document.getElementById("first-name");
       var last = document.getElementById("last-name");
       var email = document.getElementById("email");
+      var phone = document.getElementById("phone");
+      var company = document.getElementById("company");
       if (first && meta.first_name) first.value = meta.first_name;
       if (last && meta.last_name) last.value = meta.last_name;
       if (email && user.email) email.value = user.email;
+      if (phone && meta.phone) phone.value = meta.phone;
+      if (company && (meta.company_name || meta.company)) company.value = meta.company_name || meta.company;
+
       if (meta.avatar_url) {
         var photo = document.getElementById("header-photo");
         var icon = document.getElementById("header-icon");
         if (photo) { photo.src = meta.avatar_url; photo.hidden = false; }
         if (icon) icon.style.display = "none";
       }
+
+      document.getElementById("implementation-application-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        window.location.href = "mailto:info@thewemethod.com?subject=Implementation%20Application";
+      });
     });
   </script>
 </body>
