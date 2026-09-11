@@ -1332,3 +1332,886 @@ input[type="checkbox"]:checked {
 .implementation-application-page #header-photo[hidden] {
   display: none;
 }
+/* THE WE METHOD - IMPLEMENTATION APPLICATION
+   Load this file AFTER your existing stylesheets.
+   Scoped to this page: header, menu, data and submission are not replaced. */
+
+body.implementation-application-page {
+  --ia-bg: #080908;
+  --ia-panel: #101210;
+  --ia-text: #f4f1e9;
+  --ia-muted: #c1beb6;
+  --ia-gold: #c5a570;
+  --ia-gold-light: #ead5a5;
+  --ia-line: rgba(197, 165, 112, .34);
+  --ia-sans: "Montserrat", Arial, sans-serif;
+  --ia-serif: "Cormorant Garamond", Georgia, serif;
+  min-width: 0;
+  background: radial-gradient(ellipse at 12% 20%, #14130e 0, transparent 42%), var(--ia-bg);
+  color: var(--ia-text);
+}
+
+.implementation-application-page :is(.application-hero, .application-form, .application-sidebar),
+.implementation-application-page :is(.application-hero, .application-form, .application-sidebar) * {
+  box-sizing: border-box;
+}
+
+/* HERO: one image layer, with enough contrast behind the real HTML text. */
+.implementation-application-page .application-hero {
+  position: relative;
+  min-height: 0;
+  padding: 30px 24px 24px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--ia-line);
+  background:
+    linear-gradient(180deg, rgba(8,9,8,.12), rgba(8,9,8,.26) 48%, #080908 100%),
+    linear-gradient(90deg, rgba(0,0,0,.3), rgba(0,0,0,.84) 35%, rgba(0,0,0,.84) 65%, rgba(0,0,0,.3)),
+    url("images/implementation-application-hero.webp") center 52% / cover no-repeat;
+}
+
+.implementation-application-page :is(.hero-background, .hero-overlay, .hero-shade) {
+  display: none;
+}
+
+.implementation-application-page .hero-content {
+  position: relative;
+  width: min(100%, 980px);
+  min-width: 0;
+  min-height: 0;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.implementation-application-page .application-hero h1 {
+  max-width: 100%;
+  margin: 16px 0 10px;
+  padding: 0;
+  color: var(--ia-text);
+  font: 500 clamp(32px, 3.7vw, 54px)/1.12 var(--ia-serif);
+  letter-spacing: .018em;
+  white-space: normal;
+  text-shadow: 0 2px 18px #000;
+}
+
+.implementation-application-page :is(.hero-kicker, .hero-subtitle) {
+  margin: 0;
+  color: var(--ia-gold-light);
+  font: 500 12px/1.8 var(--ia-sans);
+  letter-spacing: .34em;
+}
+
+.implementation-application-page :is(.hero-intro, .hero-content > p:not(.hero-kicker)) {
+  max-width: 620px;
+  margin: 16px 0 0;
+  color: #e2dfd7;
+  font: 400 16px/1.7 var(--ia-sans);
+  letter-spacing: normal;
+}
+
+/* SECTION INDEX: preserve all labels, including on small screens. */
+.implementation-application-page :is(.application-steps, .application-progress) {
+  position: relative;
+  width: min(100%, 840px);
+  max-width: 100%;
+  margin: 30px auto 0;
+  padding: 0 0 4px;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: start;
+  gap: 0;
+  list-style: none;
+}
+
+.implementation-application-page :is(.application-steps li, .progress-step) {
+  position: relative;
+  min-width: 0;
+  min-height: 82px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.implementation-application-page :is(.application-steps li::before, .application-steps li::after) {
+  top: 34px;
+  background: #686354;
+}
+
+.implementation-application-page .progress-line {
+  top: 34px;
+  background: #686354;
+}
+
+.implementation-application-page :is(.step-number, .progress-number) {
+  height: 18px;
+  color: var(--ia-gold-light);
+  font: 400 13px/18px var(--ia-sans);
+}
+
+.implementation-application-page :is(.step-dot, .progress-dot) {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  margin: 0;
+  border: 1px solid #a79b84;
+  border-radius: 50%;
+  background: #080908;
+}
+
+.implementation-application-page :is(.is-active .step-dot, .progress-step.active .progress-dot) {
+  border-color: var(--ia-gold);
+  background: var(--ia-gold);
+  box-shadow: 0 0 0 4px rgba(197,165,112,.1);
+}
+
+.implementation-application-page :is(.step-name, .progress-step small) {
+  display: block;
+  align-self: auto;
+  margin: 0;
+  color: #ddd9d0;
+  font: 400 12px/1.45 var(--ia-sans);
+  letter-spacing: normal;
+}
+
+/* MAIN LAYOUT */
+.implementation-application-page :is(.application-layout, .application-main) {
+  width: min(1440px, calc(100% - 80px));
+  max-width: 1440px;
+  margin: 32px auto 72px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  align-items: start;
+  gap: 28px;
+}
+
+.implementation-application-page .application-form {
+  min-width: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  color: var(--ia-text);
+  font: 400 16px/1.6 var(--ia-sans);
+}
+
+.implementation-application-page .application-form :is(.form-panel, .form-section) {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 32px;
+  display: block;
+  border: 1px solid var(--ia-line);
+  border-radius: 7px;
+  background: linear-gradient(125deg, #161712, #101210 58%, #0d0f0d);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04), 0 16px 36px rgba(0,0,0,.18);
+}
+
+.implementation-application-page .application-form .section-content {
+  width: 100%;
+  min-width: 0;
+  display: block;
+}
+
+/* Cancel the old negative margins without changing any field names. */
+.implementation-application-page .application-form .section-content > :is(
+  .field-grid, .choice-group, .business-bottom, .fleet-grid,
+  .team-grid, .vision-grid, .readiness-grid
+) {
+  width: 100%;
+  margin-left: 0;
+}
+
+.implementation-application-page .application-form .section-number {
+  position: absolute;
+  top: 34px;
+  left: 32px;
+  width: 58px;
+  margin: 0;
+  color: var(--ia-gold-light);
+  font: 400 52px/1 var(--ia-serif);
+  letter-spacing: -.035em;
+}
+
+.implementation-application-page .application-form .section-heading {
+  position: static;
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 74px;
+  margin: 0 0 26px;
+  padding: 0 0 22px 76px;
+  border: 0;
+  border-bottom: 1px solid rgba(197,165,112,.18);
+  text-align: left;
+}
+
+.implementation-application-page .application-form .section-heading > div {
+  width: 100%;
+  min-width: 0;
+  display: block;
+}
+
+.implementation-application-page .application-form .section-heading h2 {
+  display: block;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  color: var(--ia-text);
+  font: 500 28px/1.2 var(--ia-serif);
+  letter-spacing: .018em;
+  text-align: left;
+}
+
+.implementation-application-page .application-form .section-heading p {
+  width: auto;
+  max-width: none;
+  margin: 7px 0 0;
+  padding: 0;
+  color: var(--ia-muted);
+  font: 400 14px/1.6 var(--ia-sans);
+  letter-spacing: normal;
+  text-align: left;
+}
+
+.implementation-application-page .application-form :is(
+  .section-heading::before, .section-heading::after,
+  .section-heading h2::before, .section-heading h2::after
+) {
+  content: none;
+}
+
+/* FIELDS: labels and answers are intentionally larger than the old design. */
+.implementation-application-page .application-form :is(.field, .form-field) {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 0;
+}
+
+.implementation-application-page .application-form :is(.choice-group, .unit-counts) {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.implementation-application-page .application-form :is(
+  .field > span, .form-field > label,
+  .choice-group legend, .unit-counts legend, .question-title
+) {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  color: var(--ia-text);
+  font: 500 16px/1.55 var(--ia-sans);
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.implementation-application-page .application-form :is(.choice-group legend, .unit-counts legend, p.question-title) {
+  margin-bottom: 12px;
+}
+
+.implementation-application-page .application-form :is(.field b, .choice-group b, .form-field label > span) {
+  color: var(--ia-gold-light);
+  font-weight: 500;
+}
+
+.implementation-application-page .application-form :is(em, label small, .question-title small) {
+  color: var(--ia-muted);
+  font: 400 14px/1.5 var(--ia-sans);
+  letter-spacing: normal;
+}
+
+.implementation-application-page .application-form :is(
+  input[type="text"], input[type="email"], input[type="tel"],
+  input[type="date"], input[type="number"], select, textarea
+) {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: 52px;
+  min-height: 52px;
+  margin: 0;
+  padding: 13px 15px;
+  border: 1px solid #74756b;
+  border-radius: 4px;
+  color: var(--ia-text);
+  background: #0d100e;
+  font: 400 16px/1.5 var(--ia-sans);
+  letter-spacing: normal;
+  text-transform: none;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,.16);
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+.implementation-application-page .application-form textarea[name] {
+  height: auto;
+  min-height: 140px;
+  resize: vertical;
+}
+
+.implementation-application-page .application-form :is(input, textarea)::placeholder {
+  color: #adafa5;
+  opacity: 1;
+  font: 400 15px/1.5 var(--ia-sans);
+}
+
+.implementation-application-page .application-form :is(input, select, textarea):focus {
+  border-color: var(--ia-gold-light);
+  box-shadow: 0 0 0 3px rgba(197,165,112,.12);
+}
+
+.implementation-application-page .application-form :is(select, input[type="date"]) {
+  color-scheme: dark;
+}
+
+.implementation-application-page .application-form select[name] {
+  appearance: none;
+  padding-right: 42px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%23d8bb88' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+}
+
+.implementation-application-page .select-wrap::after { display: none; }
+
+/* Native controls stay keyboard-accessible. */
+.implementation-application-page .application-form input:is([type="radio"], [type="checkbox"]),
+.implementation-application-page .application-form input:is([type="radio"], [type="checkbox"]):checked {
+  appearance: auto;
+  position: static;
+  display: inline-block;
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  opacity: 1;
+  pointer-events: auto;
+  accent-color: var(--ia-gold);
+  color-scheme: dark;
+  background: transparent;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.implementation-application-page .application-form :is(.custom-radio, .custom-checkbox) > span {
+  display: none;
+}
+
+.implementation-application-page .application-form .choice-row {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.implementation-application-page .application-form .choice-row > label {
+  min-width: 100px;
+  min-height: 46px;
+  margin: 0;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #696a60;
+  border-radius: 4px;
+  color: var(--ia-text);
+  background: #0d100e;
+  font: 400 15px/1.5 var(--ia-sans);
+  letter-spacing: normal;
+  cursor: pointer;
+}
+
+.implementation-application-page .application-form .choice-row > label:has(input:checked) {
+  border-color: var(--ia-gold);
+  background: #252218;
+}
+
+.implementation-application-page .application-form .choice-row--stage {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.implementation-application-page .application-form :is(.fleet-types, .improvement-list) {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+}
+
+.implementation-application-page .application-form :is(.fleet-types > label, .improvement-list > label, .custom-checkbox) {
+  min-width: 0;
+  min-height: 42px;
+  margin: 0;
+  padding: 7px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ia-text);
+  font: 400 15px/1.5 var(--ia-sans);
+  letter-spacing: normal;
+  cursor: pointer;
+}
+
+.implementation-application-page .application-form .inline-other {
+  display: grid !important;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 10px 12px;
+  align-items: center;
+}
+
+.implementation-application-page .application-form .inline-other input[type="text"] {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-height: 52px;
+  margin: 0;
+  padding: 13px 15px;
+}
+
+/* TWO-COLUMN QUESTION GROUPS */
+.implementation-application-page .application-form :is(
+  .field-grid, .form-grid, .business-bottom, .fleet-grid,
+  .team-grid, .vision-grid, .readiness-grid
+) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+}
+
+.implementation-application-page .application-form :is(.field-grid--personal-bottom, .three-columns) {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 24px;
+}
+
+.implementation-application-page .application-form :is(.business-bottom, .fleet-grid) {
+  margin-top: 26px;
+}
+
+.implementation-application-page .application-form .business-bottom > :first-child,
+.implementation-application-page .application-form .team-grid > :last-child,
+.implementation-application-page .application-form .readiness-grid > :last-child {
+  grid-column: 1 / -1;
+}
+
+.implementation-application-page .application-form .team-grid > :last-child {
+  margin-top: 4px;
+}
+
+.implementation-application-page .application-form :is(.field--short, .small-field) {
+  max-width: 190px;
+}
+
+.implementation-application-page .application-form .vision-grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.implementation-application-page .application-form .unit-counts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.implementation-application-page .application-form :is(.unit-counts label, .fleet-count-row) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 112px;
+  align-items: center;
+  gap: 16px;
+  color: var(--ia-text);
+  font: 400 15px/1.5 var(--ia-sans);
+}
+
+.implementation-application-page .application-form :is(.unit-counts input, .fleet-count-row input) {
+  text-align: center;
+}
+
+.implementation-application-page .application-form .form-section > .question-block {
+  margin: 0 0 24px;
+}
+
+.implementation-application-page .application-form :is(.other-fleet-row, .other-improvement-row) {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+/* SIDEBAR: no fixed height, and a real column for the text. */
+.implementation-application-page .application-sidebar {
+  position: static;
+  top: auto;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  display: block;
+  align-self: start;
+  overflow: hidden;
+  border: 1px solid var(--ia-line);
+  border-radius: 7px;
+  color: var(--ia-text);
+  background: #10120f;
+  font: 400 15px/1.65 var(--ia-sans);
+  box-shadow: 0 16px 36px rgba(0,0,0,.2);
+}
+
+.implementation-application-page .sidebar-card {
+  border: 0;
+  background: none;
+}
+
+.implementation-application-page :is(.sidebar-top, .sidebar-price-area) {
+  padding: 30px 26px;
+  text-align: center;
+  background: linear-gradient(145deg, #181911, #0d100e 60%);
+}
+
+.implementation-application-page .application-sidebar :is(.eyebrow, .sidebar-eyebrow) {
+  margin: 0;
+  color: var(--ia-gold);
+  font: 500 12px/1.8 var(--ia-sans);
+  letter-spacing: .18em;
+}
+
+.implementation-application-page :is(.service-price, .sidebar-price) {
+  margin: 20px 0 16px;
+  color: var(--ia-gold-light);
+  font: 500 60px/1 var(--ia-serif);
+  letter-spacing: -.035em;
+}
+
+.implementation-application-page :is(.price-note, .sidebar-price-area > p, .help-copy, .sidebar-contact > p) {
+  margin: 0;
+  color: var(--ia-muted);
+  font: 400 15px/1.7 var(--ia-sans);
+  letter-spacing: normal;
+}
+
+.implementation-application-page .sidebar-rule {
+  width: 100%;
+  height: 1px;
+  margin: 28px 0;
+  border: 0;
+  background: linear-gradient(90deg, transparent, #7c6944, transparent);
+}
+
+.implementation-application-page .sidebar-card > .sidebar-rule {
+  width: calc(100% - 52px);
+  margin-inline: 26px;
+}
+
+.implementation-application-page .application-sidebar :is(h2, h3) {
+  width: 100%;
+  margin: 0 0 14px;
+  color: var(--ia-gold-light);
+  font: 500 13px/1.7 var(--ia-sans);
+  letter-spacing: .13em;
+  text-align: center;
+}
+
+.implementation-application-page :is(.next-steps, .sidebar-next) {
+  width: 100%;
+  max-width: none;
+  margin: 22px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 24px;
+  list-style: none;
+  counter-reset: ia-next;
+  text-align: left;
+}
+
+.implementation-application-page .sidebar-next {
+  padding: 0 26px;
+}
+
+.implementation-application-page :is(.next-steps li, .next-item) {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+  color: var(--ia-text);
+  font: 400 15px/1.65 var(--ia-sans);
+  letter-spacing: normal;
+  counter-increment: ia-next;
+}
+
+.implementation-application-page :is(.next-steps li, .next-item)::before {
+  content: counter(ia-next, decimal-leading-zero);
+  grid-column: 1;
+  grid-row: 1;
+  color: var(--ia-gold);
+  font: 500 16px/1.6 var(--ia-sans);
+}
+
+.implementation-application-page :is(.next-steps li > span:last-child, .next-item > div:last-child) {
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  display: block;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.implementation-application-page :is(.next-icon, .next-steps b, .next-item strong) {
+  display: none;
+}
+
+.implementation-application-page .next-item p {
+  margin: 0;
+  color: var(--ia-text);
+  font: 400 15px/1.65 var(--ia-sans);
+}
+
+.implementation-application-page .sidebar-contact {
+  padding: 0 26px 24px;
+  text-align: center;
+}
+
+.implementation-application-page .contact-button {
+  width: 100%;
+  min-height: 52px;
+  margin: 20px 0 0;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid #a68b5e;
+  border-radius: 4px;
+  color: var(--ia-gold-light);
+  background: transparent;
+  font: 500 12px/1.5 var(--ia-sans);
+  letter-spacing: .12em;
+  text-decoration: none;
+}
+
+.implementation-application-page .contact-button svg {
+  width: 20px;
+  height: 16px;
+  flex: 0 0 20px;
+}
+
+.implementation-application-page .contact-button:hover {
+  color: #fff2d3;
+  background: #252218;
+}
+
+.implementation-application-page .sidebar-image {
+  position: relative;
+  height: auto;
+  min-height: 480px;
+  margin: 0;
+  padding: 18px 24px 300px;
+  overflow: hidden;
+  text-align: center;
+  background:
+    linear-gradient(180deg, #0d100e 0%, rgba(13,16,14,.91) 28%, rgba(13,16,14,.16) 68%),
+    url("images/implementation-application-sidebar.webp") 72% bottom / cover no-repeat;
+}
+
+.implementation-application-page .sidebar-card > .sidebar-image {
+  min-height: 330px;
+  margin-top: 22px;
+  padding: 0;
+}
+
+.implementation-application-page :is(.ornament, .sidebar-ornament) {
+  width: 110px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: var(--ia-gold);
+  font-size: 8px;
+}
+
+.implementation-application-page .ornament i,
+.implementation-application-page .sidebar-ornament > span {
+  display: block;
+  flex: 1;
+  height: 1px;
+  width: auto;
+  transform: none;
+  background: #78633c;
+}
+
+.implementation-application-page .application-sidebar blockquote {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: #f1e6ce;
+  font: italic 400 28px/1.4 var(--ia-serif);
+  text-align: center;
+}
+
+.implementation-application-page :is(.quote-credit, .sidebar-card blockquote small) {
+  display: block;
+  margin: 16px 0 0;
+  color: var(--ia-gold-light);
+  font: 400 10px/1.5 var(--ia-sans);
+  letter-spacing: .22em;
+  text-align: center;
+}
+
+.implementation-application-page .notebook-message { display: none; }
+
+/* PRIMARY ACTION */
+.implementation-application-page :is(.submit-button, .submit-application) {
+  width: min(430px, 100%);
+  height: auto;
+  min-height: 58px;
+  margin: 12px auto 0;
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border: 1px solid #d8bf8b;
+  border-radius: 4px;
+  color: #18170f;
+  background: linear-gradient(110deg, #b99a62, #ead5a6 50%, #b79a65);
+  font: 600 13px/1.5 var(--ia-sans);
+  letter-spacing: .13em;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 8px 24px rgba(0,0,0,.24);
+  transition: filter .18s ease, transform .18s ease;
+}
+
+.implementation-application-page :is(.submit-button, .submit-application):hover {
+  filter: brightness(1.07);
+  transform: translateY(-1px);
+}
+
+.implementation-application-page .application-form :is(input, select, textarea, button):focus-visible,
+.implementation-application-page .application-sidebar a:focus-visible {
+  outline: 2px solid var(--ia-gold-light);
+  outline-offset: 4px;
+}
+
+/* TABLETS */
+@media (max-width: 1100px) {
+  .implementation-application-page :is(.application-layout, .application-main) {
+    width: min(880px, calc(100% - 48px));
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .implementation-application-page .application-sidebar {
+    width: min(600px, 100%);
+    margin-inline: auto;
+  }
+}
+
+/* PHONES */
+@media (max-width: 720px) {
+  .implementation-application-page .application-hero { padding: 26px 16px 20px; }
+
+  .implementation-application-page .application-hero h1 {
+    font-size: clamp(30px, 7vw, 40px);
+  }
+
+  .implementation-application-page :is(.hero-kicker, .hero-subtitle) {
+    font-size: 11px;
+    letter-spacing: .22em;
+  }
+
+  .implementation-application-page :is(.application-steps, .application-progress) {
+    grid-template-columns: repeat(7, 94px);
+    justify-content: start;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: #a78e60 #141510;
+  }
+
+  .implementation-application-page :is(.application-layout, .application-main) {
+    width: calc(100% - 28px);
+    margin-top: 20px;
+    gap: 24px;
+  }
+
+  .implementation-application-page .application-form :is(.form-panel, .form-section) {
+    padding: 24px 20px;
+  }
+
+  .implementation-application-page .application-form .section-number {
+    top: 26px;
+    left: 20px;
+    width: 46px;
+    font-size: 44px;
+  }
+
+  .implementation-application-page .application-form .section-heading {
+    padding-left: 60px;
+    padding-bottom: 20px;
+  }
+
+  .implementation-application-page .application-form .section-heading h2 { font-size: 25px; }
+
+  .implementation-application-page .application-form :is(
+    .field-grid, .form-grid, .business-bottom, .fleet-grid,
+    .team-grid, .vision-grid, .readiness-grid
+  ) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .implementation-application-page .application-form .choice-row {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .implementation-application-page .application-form .choice-row > label {
+    min-width: 0;
+    padding: 10px 12px;
+  }
+
+  .implementation-application-page :is(.sidebar-top, .sidebar-price-area) { padding: 28px 22px; }
+}
+
+@media (max-width: 420px) {
+  .implementation-application-page .application-form .choice-row--stage {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .implementation-application-page :is(.application-form, .application-sidebar) * {
+    transition: none;
+  }
+}
