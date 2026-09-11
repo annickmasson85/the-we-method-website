@@ -7,7 +7,7 @@
   <title>Implementation Services Application | The We Method</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="private-access.css">
   <link rel="stylesheet" href="pca-menu.css">
   <link rel="stylesheet" href="implementation-application.css">
@@ -39,144 +39,299 @@
     </a>
   </header>
 
-  <section class="application-hero">
-    <div class="hero-background"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="hero-mini-logo">
-        <span class="mini-monogram">TWM</span>
-        <span class="mini-brand">THE WE METHOD</span>
+  <main>
+    <section class="application-hero" aria-labelledby="page-title">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <div class="hero-brand" aria-hidden="true">
+          <span class="hero-brand__letters">T<span>W</span>M</span>
+          <span class="hero-brand__name">THE WE METHOD</span>
+        </div>
+        <h1 id="page-title">IMPLEMENTATION SERVICES</h1>
+        <p class="hero-kicker">PRIVATE APPLICATION</p>
+        <p class="hero-intro">Tell us where your business stands — and where you want it to go.</p>
+        <ol class="application-steps" aria-label="Application progress">
+          <li class="is-active"><span class="step-number">01</span><span class="step-dot"></span><span class="step-name">Personal<br>Information</span></li>
+          <li><span class="step-number">02</span><span class="step-dot"></span><span class="step-name">Business</span></li>
+          <li><span class="step-number">03</span><span class="step-dot"></span><span class="step-name">Fleet</span></li>
+          <li><span class="step-number">04</span><span class="step-dot"></span><span class="step-name">Team</span></li>
+          <li><span class="step-number">05</span><span class="step-dot"></span><span class="step-name">Vision</span></li>
+          <li><span class="step-number">06</span><span class="step-dot"></span><span class="step-name">Readiness</span></li>
+          <li><span class="step-number">07</span><span class="step-dot"></span><span class="step-name">Review</span></li>
+        </ol>
       </div>
-      <h1>Implementation Services</h1>
-      <p class="hero-subtitle">APPLICATION</p>
-      <p>Tell us about your operation so we can confirm the right path forward.</p>
-    </div>
-  </section>
+    </section>
 
-  <div class="application-progress" aria-hidden="true">
-    <div class="progress-line"></div>
-    <div class="progress-step active"><span class="progress-number">01</span><span class="progress-dot"></span><small>Contact</small></div>
-    <div class="progress-step"><span class="progress-number">02</span><span class="progress-dot"></span><small>Business</small></div>
-    <div class="progress-step"><span class="progress-number">03</span><span class="progress-dot"></span><small>Team</small></div>
-    <div class="progress-step"><span class="progress-number">04</span><span class="progress-dot"></span><small>Vision</small></div>
-    <div class="progress-step"><span class="progress-number">05</span><span class="progress-dot"></span><small>Readiness</small></div>
-    <div class="progress-step"><span class="progress-number">06</span><span class="progress-dot"></span><small>Fleet</small></div>
-    <div class="progress-step"><span class="progress-number">07</span><span class="progress-dot"></span><small>Submit</small></div>
-  </div>
+    <div class="application-layout">
+      <form class="application-form" id="implementation-application-form" action="#" method="post">
+        <section class="form-panel" aria-labelledby="personal-title">
+          <div class="section-number">01</div>
+          <div class="section-content">
+            <div class="section-heading">
+              <h2 id="personal-title">PERSONAL INFORMATION</h2>
+              <p>Let’s start with a few details about you.</p>
+            </div>
+            <div class="field-grid field-grid--two">
+              <label class="field">
+                <span>First Name <b>*</b></span>
+                <input id="first-name" type="text" name="first_name" placeholder="First name" autocomplete="given-name" required>
+              </label>
+              <label class="field">
+                <span>Last Name <b>*</b></span>
+                <input id="last-name" type="text" name="last_name" placeholder="Last name" autocomplete="family-name" required>
+              </label>
+              <label class="field">
+                <span>Email Address <b>*</b></span>
+                <input id="email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+              </label>
+              <label class="field">
+                <span>Phone Number <b>*</b></span>
+                <input id="phone" type="tel" name="phone" placeholder="(123) 456-7890" autocomplete="tel" required>
+              </label>
+            </div>
+            <div class="field-grid field-grid--personal-bottom">
+              <label class="field">
+                <span>State / Province <b>*</b></span>
+                <span class="select-wrap">
+                  <select name="region" required>
+                    <option value="" selected disabled>Select</option>
+                    <option>Texas</option>
+                    <option>Other U.S. state</option>
+                    <option>Canadian province</option>
+                    <option>Other</option>
+                  </select>
+                </span>
+              </label>
+              <label class="field">
+                <span>City <b>*</b></span>
+                <input type="text" name="city" placeholder="City" autocomplete="address-level2" required>
+              </label>
+              <label class="field">
+                <span>Date of birth <b>*</b></span>
+                <input type="date" name="date_of_birth" required>
+              </label>
+            </div>
+          </div>
+        </section>
 
-  <main class="application-main">
-    <form class="application-form" id="implementation-application-form">
-      <section class="form-section">
-        <div class="section-heading">
-          <span class="section-number">1</span>
-          <div>
-            <h2>Your Contact</h2>
-            <p>Your name and email stay connected to your private account.</p>
+        <section class="form-panel" aria-labelledby="business-title">
+          <div class="section-number">02</div>
+          <div class="section-content">
+            <div class="section-heading">
+              <h2 id="business-title">YOUR BUSINESS</h2>
+              <p>Help us understand your current business.</p>
+            </div>
+            <fieldset class="choice-group">
+              <legend>What is the current stage of your business? <b>*</b></legend>
+              <div class="choice-row choice-row--stage">
+                <label><input type="radio" name="business_stage" value="planning" required><span>Planning</span></label>
+                <label><input type="radio" name="business_stage" value="preparing"><span>Preparing to launch</span></label>
+                <label><input type="radio" name="business_stage" value="operational"><span>Operational</span></label>
+                <label><input type="radio" name="business_stage" value="established"><span>Established</span></label>
+              </div>
+            </fieldset>
+            <div class="business-bottom">
+              <fieldset class="choice-group">
+                <legend>Is your business currently operational? <b>*</b></legend>
+                <div class="choice-row">
+                  <label><input type="radio" name="is_operational" value="yes" required><span>Yes</span></label>
+                  <label><input type="radio" name="is_operational" value="no"><span>No</span></label>
+                </div>
+              </fieldset>
+              <label class="field">
+                <span>Business name <em>(if applicable)</em></span>
+                <input id="company" type="text" name="business_name" placeholder="Business name" autocomplete="organization">
+              </label>
+              <label class="field">
+                <span>Type of business <b>*</b></span>
+                <span class="select-wrap">
+                  <select name="business_type" required>
+                    <option value="" selected disabled>Select</option>
+                    <option>Golf cart rental</option>
+                    <option>Kayak rental</option>
+                    <option>Multi-activity rental</option>
+                    <option>Other</option>
+                  </select>
+                </span>
+              </label>
+            </div>
           </div>
-        </div>
-        <div class="form-grid two-columns">
-          <div class="form-field">
-            <label for="first-name">First Name</label>
-            <input id="first-name" name="first-name" type="text" required>
-          </div>
-          <div class="form-field">
-            <label for="last-name">Last Name</label>
-            <input id="last-name" name="last-name" type="text" required>
-          </div>
-          <div class="form-field">
-            <label for="email">Email Address</label>
-            <input id="email" name="email" type="email" required>
-          </div>
-          <div class="form-field">
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone" type="tel">
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="form-section">
-        <div class="section-heading">
-          <span class="section-number">2</span>
-          <div>
-            <h2>Your Business</h2>
-            <p>Help us understand where your operation stands today.</p>
+        <section class="form-panel" aria-labelledby="fleet-title">
+          <div class="section-number">03</div>
+          <div class="section-content">
+            <div class="section-heading">
+              <h2 id="fleet-title">YOUR FLEET</h2>
+              <p>Tell us about your current or planned fleet.</p>
+            </div>
+            <fieldset class="choice-group">
+              <legend>Do you currently have a rental fleet? <b>*</b></legend>
+              <div class="choice-row">
+                <label><input type="radio" name="has_fleet" value="yes" required><span>Yes</span></label>
+                <label><input type="radio" name="has_fleet" value="no"><span>No</span></label>
+              </div>
+            </fieldset>
+            <div class="fleet-grid">
+              <fieldset class="choice-group fleet-types">
+                <legend>What type(s) of fleet do you have or plan to have?</legend>
+                <label><input type="checkbox" name="fleet_types[]" value="golf-carts"><span>Golf carts</span></label>
+                <label><input type="checkbox" name="fleet_types[]" value="kayaks"><span>Kayaks</span></label>
+                <label class="inline-other">
+                  <input type="checkbox" name="fleet_types[]" value="other">
+                  <span>Other <em>(please specify)</em></span>
+                  <input type="text" name="fleet_other" placeholder="Please specify">
+                </label>
+              </fieldset>
+              <fieldset class="unit-counts">
+                <legend>How many units do you currently have?</legend>
+                <label><span>Golf carts</span><input type="number" name="golf_cart_units" min="0" placeholder="#"></label>
+                <label><span>Kayaks</span><input type="number" name="kayak_units" min="0" placeholder="#"></label>
+                <label><span>Other</span><input type="number" name="other_units" min="0" placeholder="#"></label>
+              </fieldset>
+            </div>
           </div>
-        </div>
-        <div class="form-grid two-columns">
-          <div class="form-field">
-            <label for="company">Business Name</label>
-            <input id="company" name="company" type="text">
-          </div>
-          <div class="form-field">
-            <label for="location">City, State</label>
-            <input id="location" name="location" type="text">
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="form-section">
-        <div class="section-heading">
-          <span class="section-number">3</span>
-          <div>
-            <h2>What You Need</h2>
-            <p>Select the support that matters most right now.</p>
+        <section class="form-panel" aria-labelledby="team-title">
+          <div class="section-number">04</div>
+          <div class="section-content">
+            <div class="section-heading">
+              <h2 id="team-title">YOUR TEAM</h2>
+              <p>Let’s talk about your people.</p>
+            </div>
+            <div class="team-grid">
+              <fieldset class="choice-group">
+                <legend>Do you currently have employees? <b>*</b></legend>
+                <div class="choice-row">
+                  <label><input type="radio" name="has_employees" value="yes" required><span>Yes</span></label>
+                  <label><input type="radio" name="has_employees" value="no"><span>No</span></label>
+                </div>
+              </fieldset>
+              <label class="field field--short">
+                <span>If yes, how many?</span>
+                <input type="number" name="employee_count" min="0" placeholder="#">
+              </label>
+              <fieldset class="choice-group">
+                <legend>Would you like your team to participate in the implementation? <b>*</b></legend>
+                <div class="choice-row">
+                  <label><input type="radio" name="team_participation" value="yes" required><span>Yes</span></label>
+                  <label><input type="radio" name="team_participation" value="no"><span>No</span></label>
+                </div>
+              </fieldset>
+            </div>
           </div>
-        </div>
-        <div class="question-block">
-          <p class="question-title">Primary focus</p>
-          <div class="choice-row">
-            <label class="custom-radio"><input type="radio" name="focus" value="systems"><span></span> Systems & documents</label>
-            <label class="custom-radio"><input type="radio" name="focus" value="operations"><span></span> Daily operations</label>
-            <label class="custom-radio"><input type="radio" name="focus" value="growth"><span></span> Growth & fleet</label>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <div class="submit-wrap">
-        <button class="submit-application" type="submit">
-          SUBMIT APPLICATION <span class="submit-arrow">→</span>
+        <section class="form-panel" aria-labelledby="vision-title">
+          <div class="section-number">05</div>
+          <div class="section-content">
+            <div class="section-heading">
+              <h2 id="vision-title">YOUR VISION</h2>
+              <p>Tell us about your goals.</p>
+            </div>
+            <div class="vision-grid">
+              <div>
+                <label class="field">
+                  <span>What are your expectations from the implementation? <b>*</b></span>
+                  <input type="text" name="expectations" placeholder="Examples: streamline operations, set up FareHarbor, improve workflows…" required>
+                </label>
+                <label class="field">
+                  <span>What is your primary objective? <b>*</b></span>
+                  <span class="select-wrap">
+                    <select name="primary_objective" required>
+                      <option value="" selected disabled>Select</option>
+                      <option>Launch with the right systems</option>
+                      <option>Improve daily operations</option>
+                      <option>Strengthen team consistency</option>
+                      <option>Prepare for growth</option>
+                    </select>
+                  </span>
+                </label>
+              </div>
+              <fieldset class="choice-group improvement-list">
+                <legend>What would you like to improve? <em>(Select all that apply)</em></legend>
+                <label><input type="checkbox" name="improvements[]" value="reservations"><span>Reservations &amp; technology (FareHarbor)</span></label>
+                <label><input type="checkbox" name="improvements[]" value="operations"><span>Operations &amp; workflows</span></label>
+                <label><input type="checkbox" name="improvements[]" value="training"><span>Team training</span></label>
+                <label><input type="checkbox" name="improvements[]" value="fleet"><span>Fleet management</span></label>
+                <label><input type="checkbox" name="improvements[]" value="customer-experience"><span>Customer experience</span></label>
+                <label><input type="checkbox" name="improvements[]" value="documents"><span>Documents &amp; processes</span></label>
+                <label class="inline-other">
+                  <input type="checkbox" name="improvements[]" value="other">
+                  <span>Other <em>(please specify)</em></span>
+                  <input type="text" name="improvement_other" placeholder="Please specify">
+                </label>
+              </fieldset>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-panel" aria-labelledby="readiness-title">
+          <div class="section-number">06</div>
+          <div class="section-content">
+            <div class="section-heading">
+              <h2 id="readiness-title">READINESS</h2>
+              <p>Almost there.</p>
+            </div>
+            <div class="readiness-grid">
+              <fieldset class="choice-group">
+                <legend>Is your business ready to receive the implementation service? <b>*</b></legend>
+                <div class="choice-row">
+                  <label><input type="radio" name="ready" value="yes" required><span>Yes</span></label>
+                  <label><input type="radio" name="ready" value="no"><span>No</span></label>
+                </div>
+              </fieldset>
+              <label class="field">
+                <span>When do you plan to start your implementation? <b>*</b></span>
+                <span class="select-wrap">
+                  <select name="start_timing" required>
+                    <option value="" selected disabled>Select</option>
+                    <option>Within 30 days</option>
+                    <option>Within 60 days</option>
+                    <option>Within 90 days</option>
+                    <option>I am still exploring</option>
+                  </select>
+                </span>
+              </label>
+              <label class="field">
+                <span>Anything else you’d like us to know?</span>
+                <textarea name="additional_details" placeholder="Share any additional details, questions or specific needs…"></textarea>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <button class="submit-button" type="submit">
+          <span>SUBMIT APPLICATION</span>
+          <span aria-hidden="true">→</span>
         </button>
-        <a href="private-implementation.html">← BACK TO IMPLEMENTATION</a>
-      </div>
-    </form>
+      </form>
 
-    <aside class="application-sidebar">
-      <div class="sidebar-card">
-        <div class="sidebar-price-area">
-          <p class="sidebar-eyebrow">Private Implementation</p>
-          <p class="sidebar-price">$3,995</p>
-          <p>Starting investment. Travel and accommodations additional.</p>
-        </div>
-        <div class="sidebar-rule"></div>
-        <div class="sidebar-next">
-          <h3>WHAT HAPPENS NEXT</h3>
-          <div class="next-item">
-            <div class="next-icon check-icon">✓</div>
-            <div><strong>1.</strong><p>We review your application privately.</p></div>
-          </div>
-          <div class="next-item">
-            <div class="next-icon">2</div>
-            <div><strong>2.</strong><p>We confirm fit, timing and next steps.</p></div>
-          </div>
-          <div class="next-item">
-            <div class="next-icon">3</div>
-            <div><strong>3.</strong><p>We move forward together if it is the right path.</p></div>
-          </div>
-        </div>
-        <div class="sidebar-rule"></div>
-        <div class="sidebar-contact">
-          <h3>HAVE QUESTIONS?</h3>
-          <p>We’re here to help.</p>
+      <aside class="application-sidebar" aria-label="Implementation service details">
+        <div class="sidebar-top">
+          <p class="eyebrow">IMPLEMENTATION<br>EXPERIENCE</p>
+          <p class="service-price">$3,995</p>
+          <p class="price-note">Travel fees, mileage &amp;<br>RV accommodations<br>additional.</p>
+          <div class="sidebar-rule"></div>
+          <h2>WHAT HAPPENS NEXT</h2>
+          <ol class="next-steps">
+            <li><span><b>1.</b> We review your<br>application personally.</span></li>
+            <li><span><b>2.</b> If aligned, we’ll schedule<br>a discovery call.</span></li>
+            <li><span><b>3.</b> We’ll confirm the right<br>path forward — together.</span></li>
+          </ol>
+          <div class="sidebar-rule"></div>
+          <h2>HAVE QUESTIONS?</h2>
+          <p class="help-copy">We’re here to help.</p>
           <a class="contact-button" href="mailto:info@thewemethod.com">CONTACT US</a>
         </div>
-        <div class="sidebar-ornament"><span></span><i>◉</i><span></span></div>
-        <blockquote>
-          “The right systems create freedom.”
-          <small>THE WE METHOD</small>
-        </blockquote>
-        <div class="sidebar-image"></div>
-      </div>
-    </aside>
+        <div class="sidebar-image">
+          <div class="ornament" aria-hidden="true"><i></i><span>◉</span><i></i></div>
+          <blockquote>“The right systems<br>create freedom.”</blockquote>
+          <p class="quote-credit">THE WE METHOD</p>
+        </div>
+      </aside>
+    </div>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
