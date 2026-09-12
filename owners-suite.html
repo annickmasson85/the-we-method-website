@@ -18,25 +18,15 @@
     rel="stylesheet"
   >
 
-  <!-- Keep these two existing global files. -->
   <link rel="stylesheet" href="private-access.css">
   <link rel="stylesheet" href="pca-menu.css">
-
-  <!-- Replace the former Owner’s Suite stylesheet with this one. -->
   <link rel="stylesheet" href="owners-suite.css">
 </head>
 
 <body class="private-access-page owners-suite-page">
 
-  <!-- =====================================================
-       PRIVATE CLIENT HEADER
-       ===================================================== -->
   <header class="site-header">
-    <a
-      class="brand-mark"
-      href="index.html"
-      aria-label="The We Method home"
-    >
+    <a class="brand-mark" href="index.html" aria-label="The We Method home">
       <span class="brand-monogram">TWM</span>
       <span class="brand-name">THE WE METHOD</span>
     </a>
@@ -56,23 +46,10 @@
 
     <span class="header-rule" aria-hidden="true"></span>
 
-    <a
-      class="member-profile"
-      href="profile.html"
-      aria-label="Open member profile"
-    >
+    <a class="member-profile" href="profile.html" aria-label="Open member profile">
       <span class="profile-icon">
-        <img
-          id="header-photo"
-          alt="Member profile"
-          hidden
-        >
-
-        <svg
-          id="header-icon"
-          viewBox="0 0 48 48"
-          aria-hidden="true"
-        >
+        <img id="header-photo" alt="Member profile" hidden>
+        <svg id="header-icon" viewBox="0 0 48 48" aria-hidden="true">
           <circle cx="24" cy="16.5" r="8"></circle>
           <path d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"></path>
         </svg>
@@ -87,40 +64,25 @@
     </a>
   </header>
 
- 
-  <!-- =====================================================
-       OWNER’S SUITE
-       ===================================================== -->
   <main class="suite-main">
 
-    <!-- HERO -->
     <section class="suite-hero" aria-labelledby="suite-title">
-      <img
-        class="suite-hero-image"
-        src="images/owners-suite-hero.png"
-        alt=""
-      >
-
+      <img class="suite-hero-image" src="images/owners-suite-hero.png" alt="">
       <div class="suite-hero-shade" aria-hidden="true"></div>
 
       <div class="suite-hero-content">
         <p class="suite-eyebrow">OWNER’S SUITE</p>
-
         <h1 id="suite-title">Ready to continue building?</h1>
-
         <p class="suite-hero-description">
           Your results, resources, and progress—all in one place.
         </p>
-
         <span class="suite-hero-accent" aria-hidden="true"></span>
       </div>
     </section>
 
-    <!-- DASHBOARD -->
     <section class="suite-dashboard" aria-label="Your private access overview">
       <div class="suite-grid">
 
-        <!-- YOUR ASSESSMENT -->
         <article class="suite-card assessment-card">
           <p class="suite-card-label">YOUR ASSESSMENT</p>
 
@@ -134,62 +96,41 @@
 
             <div class="suite-card-copy">
               <p class="suite-card-kicker">YOUR CURRENT RESULT</p>
-
               <h2 id="assessment-result-title">Not Started</h2>
-
-              <p
-                class="suite-card-description"
-                id="assessment-result-description"
-              >
+              <p class="suite-card-description" id="assessment-result-description">
                 Your complete results and personalized recommendations will be saved here.
               </p>
-
-              <a
-                class="suite-button"
-                id="assessment-primary-action"
-                href="assessment.html"
-              >
+              <a class="suite-button" id="assessment-primary-action" href="assessment.html">
                 START ASSESSMENT
               </a>
             </div>
           </div>
         </article>
 
-        <!-- YOUR COLLECTION -->
         <article class="suite-card system-card">
           <p class="suite-card-label">YOUR COLLECTION</p>
 
           <div class="suite-card-layout system-layout">
             <div class="suite-card-copy">
-              <h2 id="system-title">No System Yet</h2>
-
-              <p class="resource-count" id="system-resource-count">
-                PRIVATE LIBRARY
+              <h2>All your purchased systems and manuals, in one private space.</h2>
+              <p class="resource-count">PRIVATE LIBRARY</p>
+              <p class="suite-card-description">
+                Everything you own stays here, ready when you are.
               </p>
-
-              <p class="suite-card-description" id="system-description">
-                Your private system will appear here once your access becomes active.
-              </p>
-
-              <a
-                class="suite-button"
-                id="system-primary-action"
-                href="knowledge-vault.html"
-              >
-                VIEW THE VAULT
+              <a class="suite-button" href="founder-library.html">
+                OPEN COLLECTION
               </a>
             </div>
 
             <figure class="suite-card-visual system-visual">
               <img
                 src="images/owners-suite-business-system.png"
-                alt="The We Method Business Launcher system"
+                alt="The We Method private collection"
               >
             </figure>
           </div>
         </article>
 
-        <!-- YOUR PROGRESS -->
         <article class="suite-card progress-card">
           <p class="suite-card-label">YOUR PROGRESS</p>
 
@@ -212,12 +153,10 @@
                   <b id="completed-resources">0 OF 0</b>
                   <small>Completed</small>
                 </p>
-
                 <p>
                   <b id="active-resources">0</b>
                   <small>In progress</small>
                 </p>
-
                 <p>
                   <b id="remaining-resources">0</b>
                   <small>Remaining</small>
@@ -229,14 +168,13 @@
                 <strong id="current-focus-title">Not started yet</strong>
               </p>
 
-              <a class="suite-button" href="knowledge-vault.html">
+              <a class="suite-button" href="founder-library.html">
                 BEGIN BUILDING
               </a>
             </div>
           </div>
         </article>
 
-        <!-- YOUR SUBSCRIPTION -->
         <article class="suite-card subscription-card">
           <p class="suite-card-label">YOUR SUBSCRIPTION</p>
 
@@ -253,19 +191,11 @@
                 AI Companion +<br>
                 Journey Journal
               </h2>
-
-              <p class="subscription-status" id="subscription-status">
-                INACTIVE
-              </p>
-
+              <p class="subscription-status" id="subscription-status">INACTIVE</p>
               <p class="suite-card-description">
                 Your private guidance and reflection space.
               </p>
-
-              <a
-                class="suite-button"
-                href="private-services.html"
-              >
+              <a class="suite-button" href="private-services.html">
                 VIEW SUBSCRIPTION
               </a>
             </div>
@@ -276,24 +206,17 @@
     </section>
   </main>
 
-  <!-- Keep these existing technical files. -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
   <script src="pca-menu.js"></script>
 
-  <!-- MEMBER SESSION + PROFILE -->
   <script>
     document.addEventListener("DOMContentLoaded", async function () {
       var supabase = window.supabaseClient;
-
-      if (!supabase) {
-        return;
-      }
+      if (!supabase) return;
 
       var sessionResponse = await supabase.auth.getSession();
-      var session =
-        sessionResponse.data &&
-        sessionResponse.data.session;
+      var session = sessionResponse.data && sessionResponse.data.session;
 
       if (!session) {
         window.location.href = "signin.html";
@@ -301,9 +224,7 @@
       }
 
       var userResponse = await supabase.auth.getUser();
-      var user =
-        (userResponse.data && userResponse.data.user) ||
-        session.user;
+      var user = (userResponse.data && userResponse.data.user) || session.user;
       var metadata = (user && user.user_metadata) || {};
 
       var profileName = document.getElementById("member-profile-name");
@@ -322,19 +243,13 @@
         if (profilePhoto) {
           profilePhoto.src = metadata.avatar_url;
           profilePhoto.hidden = false;
-
           profilePhoto.addEventListener("error", function () {
             profilePhoto.hidden = true;
-
-            if (profileIcon) {
-              profileIcon.style.display = "block";
-            }
+            if (profileIcon) profileIcon.style.display = "block";
           });
         }
 
-        if (profileIcon) {
-          profileIcon.style.display = "none";
-        }
+        if (profileIcon) profileIcon.style.display = "none";
       }
 
       var result = null;
@@ -348,9 +263,6 @@
         var title = document.getElementById("assessment-result-title");
         var description = document.getElementById("assessment-result-description");
         var action = document.getElementById("assessment-primary-action");
-        var systemTitle = document.getElementById("system-title");
-        var systemDescription = document.getElementById("system-description");
-        var systemAction = document.getElementById("system-primary-action");
         var focus = document.getElementById("current-focus-title");
 
         if (title) title.textContent = result.stage || "Completed";
@@ -365,14 +277,6 @@
         if (action) {
           action.textContent = "VIEW RESULT";
           action.href = "assessment-result.html";
-        }
-        if (systemTitle && result.system) systemTitle.textContent = result.system;
-        if (systemDescription && result.system) {
-          systemDescription.textContent =
-            "Everything you own stays here, ready when you are.";
-        }
-        if (systemAction && result.system) {
-          systemAction.textContent = "OPEN SYSTEM";
         }
         if (focus && result.system) focus.textContent = result.system;
       }
