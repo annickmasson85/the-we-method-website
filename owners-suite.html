@@ -155,16 +155,16 @@
           </div>
         </article>
 
-        <!-- YOUR SYSTEM -->
+        <!-- YOUR COLLECTION -->
         <article class="suite-card system-card">
-          <p class="suite-card-label">YOUR SYSTEM</p>
+          <p class="suite-card-label">YOUR COLLECTION</p>
 
           <div class="suite-card-layout system-layout">
             <div class="suite-card-copy">
               <h2 id="system-title">No System Yet</h2>
 
               <p class="resource-count" id="system-resource-count">
-                0 RESOURCES AVAILABLE
+                PRIVATE LIBRARY
               </p>
 
               <p class="suite-card-description" id="system-description">
@@ -369,7 +369,7 @@
         if (systemTitle && result.system) systemTitle.textContent = result.system;
         if (systemDescription && result.system) {
           systemDescription.textContent =
-            "Your assessment selected this as the system to open first.";
+            "Everything you own stays here, ready when you are.";
         }
         if (systemAction && result.system) {
           systemAction.textContent = "OPEN SYSTEM";
