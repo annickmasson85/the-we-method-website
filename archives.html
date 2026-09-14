@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Private access to The We Method systems, printable resources, and service documents.">
+  <meta name="description" content="Print the official The We Method templates from your private archives.">
   <title>Archives | The We Method</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +11,26 @@
   <link rel="stylesheet" href="private-access.css">
   <link rel="stylesheet" href="pca-menu.css">
   <link rel="stylesheet" href="archives.css">
-  <link rel="stylesheet" href="private-library.css">
+  <style>
+    .archive-index { width: min(1180px, calc(100% - 48px)); margin: 36px auto 90px; }
+    .archive-group { margin-bottom: 42px; }
+    .archive-group h2 { margin: 0 0 8px; color: #eee6d8; font-size: 34px; font-weight: 400; }
+    .archive-group p { margin: 0 0 18px; color: #b9ae9e; }
+    .archive-item { border: 1px solid rgba(201,162,77,.35); background: #0a0907; margin-bottom: 10px; }
+    .archive-item-toggle { width: 100%; display: flex; justify-content: space-between; gap: 16px; align-items: center; padding: 18px 20px; color: #eee6d8; background: transparent; border: 0; text-align: left; cursor: pointer; }
+    .archive-item-toggle small { color: #c9a24d; letter-spacing: .16em; font-family: Montserrat, Arial, sans-serif; font-size: 10px; }
+    .archive-files { display: none; padding: 0 20px 18px; }
+    .archive-item.is-open .archive-files { display: grid; gap: 10px; }
+    .archive-file { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 0; border-top: 1px solid rgba(201,162,77,.22); color: #e8d09f; }
+    .archive-file span { color: #b9ae9e; }
+    .archive-file button, .archive-file em { font-family: Montserrat, Arial, sans-serif; font-size: 10px; letter-spacing: .16em; }
+    .archive-file button { padding: 10px 14px; color: #1a1206; background: linear-gradient(135deg,#f0d487,#c89a38); border: 0; cursor: pointer; }
+    .print-layer { position: fixed; inset: 0; z-index: 80; display: none; place-items: center; background: rgba(0,0,0,.78); }
+    body.print-open .print-layer { display: grid; }
+    .print-card { width: min(980px, calc(100% - 32px)); height: min(86vh, 900px); display: grid; grid-template-rows: auto 1fr auto; background: #080806; border: 1px solid #c9a24d; }
+    .print-card header, .print-card footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 20px; }
+    .print-card object { width: 100%; height: 100%; border: 0; background: #111; }
+  </style>
 </head>
 <body class="private-access-page archives-page">
   <header class="site-header">
@@ -43,276 +62,179 @@
   <main>
     <section class="archives-hero">
       <div class="hero-copy">
-        <p class="eyebrow">PRIVATE CLIENT ACCESS</p>
+        <p class="eyebrow">PRIVATE DOCUMENT ROOM</p>
         <h1>Archives</h1>
-        <p class="hero-lead">Your systems, manuals, and service documents.</p>
+        <p class="hero-lead">Every official template, named and ready to print.</p>
         <p class="hero-description">
-          Open a purchased resource to read it, print the working sheet,
-          and keep every document in one protected place.
+          Open a chapter. Select the exact sheet. Print it for the operation.
+          Files stay inside The We Method.
         </p>
       </div>
       <div class="hero-image-wrap">
-        <img
-          class="hero-image"
-          src="images/owners-suite-business-system.png"
-          alt="The We Method archives"
-        >
+        <img class="hero-image" src="images/owners-suite-business-system.png" alt="The We Method archives">
       </div>
     </section>
 
-    <div class="archive-content">
-      <section class="archive-section">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">THE COMPLETE METHOD</p>
-            <h2>Signature Systems</h2>
-            <p>Documents organized by system and chapter.</p>
-          </div>
-          <p class="section-count">03 SYSTEMS</p>
-        </div>
-
-        <div class="system-grid">
-          <article class="system-card archive-searchable" data-search="business launcher signature system">
-            <div class="system-image-stage">
-              <img src="images/archives-business-launcher.png" alt="Business Launcher">
-            </div>
-            <div class="system-card-body">
-              <h3>Business Launcher</h3>
-              <p class="status status-available">Available</p>
-              <a class="archive-button" href="founder-library-detail.html?product=business-launcher">ENTER</a>
-            </div>
-          </article>
-
-          <article class="system-card archive-searchable" data-search="international business launcher signature system">
-            <div class="system-image-stage">
-              <img src="images/archives-international-business-launcher.png" alt="International Business Launcher">
-            </div>
-            <div class="system-card-body">
-              <h3>International Business Launcher</h3>
-              <p class="status status-available">Available</p>
-              <a class="archive-button" href="founder-library-detail.html?product=international-business-launcher">ENTER</a>
-            </div>
-          </article>
-
-          <article class="system-card archive-searchable" data-search="operation bundle signature system">
-            <div class="system-image-stage">
-              <img src="images/archives-operation-bundle.png" alt="Operation Bundle">
-            </div>
-            <div class="system-card-body">
-              <h3>Operation Bundle</h3>
-              <p class="status status-available">Available</p>
-              <a class="archive-button" href="founder-library-detail.html?product=operation-bundle">ENTER</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="archive-section">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">THE WORKING COLLECTION</p>
-            <h2>Manuals &amp; Toolkits</h2>
-            <p>Your printable documents, grouped by resource.</p>
-          </div>
-          <p class="section-count">11 RESOURCES</p>
-        </div>
-
-        <div class="resource-grid">
-          <article class="resource-row archive-searchable" data-search="business launch roadmap foundation">
-            <span class="resource-number">01</span>
-            <div class="resource-image-stage">
-              <img src="images/archives-business-launch-roadmap.png" alt="">
-            </div>
-            <div class="resource-copy">
-              <small>FOUNDATION COLLECTION</small>
-              <h3>Business Launch Roadmap</h3>
-            </div>
-            <div class="resource-action">
-              <p class="status status-available">Available</p>
-              <a href="founder-library-detail.html?product=business-launch-roadmap">OPEN</a>
-            </div>
-          </article>
-
-          <article class="resource-row archive-searchable" data-search="business plan template example foundation">
-            <span class="resource-number">02</span>
-            <div class="resource-image-stage">
-              <img src="images/archives-business-plan-template.png" alt="">
-            </div>
-            <div class="resource-copy">
-              <small>FOUNDATION COLLECTION</small>
-              <h3>Business Plan Template &amp; Example</h3>
-            </div>
-            <div class="resource-action">
-              <p class="status status-available">Available</p>
-              <a href="founder-library-detail.html?product=business-plan-template">OPEN</a>
-            </div>
-          </article>
-
-          <article class="resource-row archive-searchable" data-search="employee training guide operation">
-            <span class="resource-number">03</span>
-            <div class="resource-image-stage">
-              <img src="images/archives-employee-training-guide.png" alt="">
-            </div>
-            <div class="resource-copy">
-              <small>OPERATION COLLECTION</small>
-              <h3>Employee Training Guide</h3>
-            </div>
-            <div class="resource-action">
-              <p class="status status-available">Available</p>
-              <a href="founder-library-detail.html?product=employee-training-guide">OPEN</a>
-            </div>
-          </article>
-
-          <article class="resource-row archive-searchable" data-search="office setup equipment checklist operation">
-            <span class="resource-number">04</span>
-            <div class="resource-image-stage">
-              <img src="images/archives-office-setup-checklist.png" alt="">
-            </div>
-            <div class="resource-copy">
-              <small>OPERATION COLLECTION</small>
-              <h3>Essential Office Setup &amp; Equipment Checklist</h3>
-            </div>
-            <div class="resource-action">
-              <p class="status status-available">Available</p>
-              <a href="founder-library-detail.html?product=office-setup-checklist">OPEN</a>
-            </div>
-          </article>
-
-          <article class="resource-row archive-searchable" data-search="standard operating procedures sop operation">
-            <span class="resource-number">05</span>
-            <div class="resource-image-stage">
-              <img src="images/archives-sop.png" alt="">
-            </div>
-            <div class="resource-copy">
-              <small>OPERATION COLLECTION</small>
-              <h3>Standard Operating Procedures</h3>
-            </div>
-            <div class="resource-action">
-              <p class="status status-available">Available</p>
-              <a href="founder-library-detail.html?product=standard-operating-procedures">OPEN</a>
-            </div>
-          </article>
-
-          <article class="resource-row archive-searchable" data-search="pickup return template golf cart inspection checklist operation">
-            <span class="resource-number">06</span>
-            <div class="resource-image-stage">
-              <img src="images/archives-pickup-return-template.png" alt="">
-            </div>
-            <div class="resource-copy">
-              <small>OPERATION COLLECTION</small>
-              <h3>Pickup &amp; Return Template</h3>
-            </div>
-            <div class="resource-action">
-              <p class="status status-available">Available</p>
-              <a href="pickup-return-workspace.html">OPEN</a>
-            </div>
-          </article>
-
-          <article class="resource-row archive-searchable" data-search="three year revenue forecasting finance">
-            <span class="resource-number">07</span>
-            <div class="resource-image-stage">
-              <img src="images/archives-revenue-forecasting.png" alt="">
-            </div>
-            <div class="resource-copy">
-              <small>FINANCE COLLECTION</small>
-              <h3>Three-Year Revenue Forecasting</h3>
-            </div>
-            <div class="resource-action">
-              <p class="status status-available">Available</p>
-              <a href="founder-library-detail.html?product=three-year-revenue-forecasting">OPEN</a>
-            </div>
-          </article>
-
-          <article class="resource-row archive-searchable" data-search="rental agreement liability waiver document">
-            <span class="resource-number">08</span>
-            <div class="resource-image-stage">
-              <img src="images/archives-rental-agreement.png" alt="">
-            </div>
-            <div class="resource-copy">
-              <small>DOCUMENT COLLECTION</small>
-              <h3>Rental Agreement &amp; Liability Waiver</h3>
-            </div>
-            <div class="resource-action">
-              <p class="status status-available">Available</p>
-              <a href="founder-library-detail.html?product=rental-agreement-liability-waiver">OPEN</a>
-            </div>
-          </article>
-
-          <article class="resource-row archive-searchable" data-search="local rules communication rental enforcement toolkit document">
-            <span class="resource-number">09</span>
-            <div class="resource-image-stage">
-              <img src="images/archives-local-rules-toolkit.png" alt="">
-            </div>
-            <div class="resource-copy">
-              <small>DOCUMENT COLLECTION</small>
-              <h3>Local Rules Communication &amp; Rental Enforcement Toolkit</h3>
-            </div>
-            <div class="resource-action">
-              <p class="status status-available">Available</p>
-              <a href="founder-library-detail.html?product=local-rules-rental-enforcement-toolkit">OPEN</a>
-            </div>
-          </article>
-
-          <article class="resource-row archive-searchable" data-search="fleet cleaning preventive maintenance toolkit">
-            <span class="resource-number">10</span>
-            <div class="resource-image-stage">
-              <img src="images/archives-fleet-maintenance-toolkit.png" alt="">
-            </div>
-            <div class="resource-copy">
-              <small>FLEET COLLECTION</small>
-              <h3>Fleet Cleaning &amp; Preventive Maintenance Toolkit</h3>
-            </div>
-            <div class="resource-action">
-              <p class="status status-available">Available</p>
-              <a href="founder-library-detail.html?product=fleet-cleaning-preventive-maintenance-toolkit">OPEN</a>
-            </div>
-          </article>
-
-          <article class="resource-row archive-searchable" data-search="the road beyond launch growth">
-            <span class="resource-number">11</span>
-            <div class="resource-image-stage">
-              <img src="images/archives-road-beyond-launch.png" alt="">
-            </div>
-            <div class="resource-copy">
-              <small>GROWTH COLLECTION</small>
-              <h3>The Road Beyond Launch</h3>
-            </div>
-            <div class="resource-action">
-              <p class="status status-available">Available</p>
-              <a href="founder-library-detail.html?product=the-road-beyond-launch">OPEN</a>
-            </div>
-          </article>
-        </div>
-      </section>
-    </div>
+    <div class="archive-index" id="archive-index"></div>
   </main>
+
+  <div class="print-layer" id="print-layer">
+    <div class="print-card">
+      <header>
+        <strong id="print-title">Template</strong>
+        <button type="button" id="print-close">CLOSE</button>
+      </header>
+      <object id="print-frame" type="application/pdf"></object>
+      <footer>
+        <span>Print only · do not download or share</span>
+        <button type="button" id="print-now">PRINT</button>
+      </footer>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
   <script src="pca-menu.js"></script>
   <script>
+    const templates = [
+      {
+        collection: "FOUNDATION COLLECTION",
+        chapters: [
+          { title: "Business Launch Roadmap", files: [] },
+          { title: "Business Plan Template & Example", files: [] }
+        ]
+      },
+      {
+        collection: "OPERATION COLLECTION",
+        chapters: [
+          { title: "Employee Training Guide", files: [] },
+          { title: "Essential Office Setup & Equipment Checklist", files: [] },
+          { title: "Standard Operating Procedures", files: [] },
+          {
+            title: "Pickup & Return Template",
+            files: [
+              {
+                name: "Pickup & Return Inspection",
+                note: "Double-sided · Page 1 inspection · Page 2 condition map",
+                file: "images/pickup-return-inspection-template.pdf"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        collection: "FINANCE COLLECTION",
+        chapters: [
+          { title: "Three-Year Revenue Forecasting", files: [] }
+        ]
+      },
+      {
+        collection: "DOCUMENT COLLECTION",
+        chapters: [
+          { title: "Rental Agreement & Liability Waiver", files: [] },
+          { title: "Local Rules Communication & Rental Enforcement Toolkit", files: [] }
+        ]
+      },
+      {
+        collection: "FLEET COLLECTION",
+        chapters: [
+          { title: "Fleet Cleaning & Preventive Maintenance Toolkit", files: [] }
+        ]
+      },
+      {
+        collection: "GROWTH COLLECTION",
+        chapters: [
+          { title: "The Road Beyond Launch", files: [] }
+        ]
+      }
+    ];
+
     document.addEventListener("DOMContentLoaded", async function () {
-      var supabase = window.supabaseClient;
-      if (!supabase) return;
-      var session = await supabase.auth.getSession();
-      if (!session.data || !session.data.session) {
-        window.location.href = "signin.html";
-        return;
+      const supabase = window.supabaseClient;
+      if (supabase) {
+        const session = await supabase.auth.getSession();
+        if (!session.data || !session.data.session) {
+          window.location.href = "signin.html";
+          return;
+        }
+        const userRes = await supabase.auth.getUser();
+        const user = (userRes.data && userRes.data.user) || session.data.session.user;
+        const meta = (user && user.user_metadata) || {};
+        const name = document.getElementById("member-profile-name");
+        if (name) name.textContent = [meta.first_name, meta.last_name].filter(Boolean).join(" ") || "Client";
+        if (meta.avatar_url) {
+          const photo = document.getElementById("header-photo");
+          const icon = document.getElementById("header-icon");
+          if (photo) { photo.src = meta.avatar_url; photo.hidden = false; }
+          if (icon) icon.style.display = "none";
+        }
       }
-      var userRes = await supabase.auth.getUser();
-      var user = (userRes.data && userRes.data.user) || session.data.session.user;
-      var meta = (user && user.user_metadata) || {};
-      var name = document.getElementById("member-profile-name");
-      if (name) {
-        name.textContent = [meta.first_name, meta.last_name].filter(Boolean).join(" ") || "Client";
-      }
-      if (meta.avatar_url) {
-        var photo = document.getElementById("header-photo");
-        var icon = document.getElementById("header-icon");
-        if (photo) { photo.src = meta.avatar_url; photo.hidden = false; }
-        if (icon) icon.style.display = "none";
-      }
+
+      const root = document.getElementById("archive-index");
+      templates.forEach((group) => {
+        const section = document.createElement("section");
+        section.className = "archive-group";
+        section.innerHTML = "<p class='eyebrow'>" + group.collection + "</p><h2>" + group.collection.replace(" COLLECTION", "") + "</h2><p>Open a chapter to view its official templates.</p>";
+        group.chapters.forEach((chapter) => {
+          const item = document.createElement("article");
+          item.className = "archive-item";
+          const ready = chapter.files.length;
+          item.innerHTML =
+            "<button class='archive-item-toggle' type='button'>" +
+              "<strong>" + chapter.title + "</strong>" +
+              "<small>" + (ready ? ready + " TEMPLATE" : "IN PREPARATION") + "</small>" +
+            "</button>" +
+            "<div class='archive-files'></div>";
+          const list = item.querySelector(".archive-files");
+          if (!ready) {
+            list.innerHTML = "<div class='archive-file'><b>No printable sheet is attached yet.</b><em>COMING NEXT</em></div>";
+          } else {
+            chapter.files.forEach((pdf) => {
+              const row = document.createElement("div");
+              row.className = "archive-file";
+              row.innerHTML = "<div><b>" + pdf.name + "</b><span> " + (pdf.note || "") + "</span></div>";
+              const button = document.createElement("button");
+              button.type = "button";
+              button.textContent = "PRINT";
+              button.addEventListener("click", function (event) {
+                event.stopPropagation();
+                openPrint(pdf.name, pdf.file);
+              });
+              row.appendChild(button);
+              list.appendChild(row);
+            });
+          }
+          item.querySelector(".archive-item-toggle").addEventListener("click", function () {
+            item.classList.toggle("is-open");
+          });
+          section.appendChild(item);
+        });
+        root.appendChild(section);
+      });
+
+      document.getElementById("print-close").addEventListener("click", closePrint);
+      document.getElementById("print-layer").addEventListener("click", function (event) {
+        if (event.target.id === "print-layer") closePrint();
+      });
+      document.getElementById("print-now").addEventListener("click", function () {
+        const frame = document.getElementById("print-frame");
+        if (frame && frame.contentWindow) {
+          frame.contentWindow.focus();
+          frame.contentWindow.print();
+        } else {
+          window.print();
+        }
+      });
     });
+
+    function openPrint(title, file) {
+      document.getElementById("print-title").textContent = title;
+      document.getElementById("print-frame").data = file;
+      document.body.classList.add("print-open");
+    }
+    function closePrint() {
+      document.body.classList.remove("print-open");
+    }
   </script>
 </body>
 </html>
