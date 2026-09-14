@@ -1,262 +1,868 @@
 /* =========================================================
-   GOLF CART PICKUP & RETURN TEMPLATE
+   THE WE METHOD — PICKUP & RETURN PRIVATE WORKSPACE
 
-   Shared visual foundation:
-   business-launcher.css
+   Visual layer only. The HTML structure, chapter logic,
+   Supabase access, progress storage and PDF controls remain
+   untouched.
    ========================================================= */
 
 
 /* ---------------------------------------------------------
-   HERO
+   WORKSPACE PALETTE
 --------------------------------------------------------- */
 
-.pickup-return-details-page .bl-hero-copy {
-  max-width: 940px;
-}
+.workspace-page {
+  --ws-black: #030403;
+  --ws-panel: #080806;
+  --ws-panel-deep: #050504;
+  --ws-gold: #c99a47;
+  --ws-gold-deep: #8c6428;
+  --ws-gold-light: #e5c47c;
+  --ws-ivory: #f0e9de;
+  --ws-copy: #d2c8b9;
+  --ws-muted: #a89c8b;
+  --ws-line: rgba(201, 154, 71, 0.28);
+  --ws-line-strong: rgba(201, 154, 71, 0.52);
+  --ws-shadow: 0 28px 70px rgba(0, 0, 0, 0.46);
 
-
-.pickup-return-details-page .bl-hero h1 {
-  max-width: 980px;
-
-  font-size: clamp(50px, 5.4vw, 90px);
-
-  line-height: 0.79;
-
-  letter-spacing: -0.046em;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% -15%, rgba(167, 116, 42, 0.13), transparent 34rem),
+    radial-gradient(circle at 8% 38%, rgba(125, 88, 33, 0.055), transparent 30rem),
+    linear-gradient(180deg, #050605 0%, var(--ws-black) 46%, #020302 100%);
 }
 
 
 /* ---------------------------------------------------------
-   RESOURCE FORMAT
+   HEADER REFINEMENT
 --------------------------------------------------------- */
 
-.prt-resource-type {
-  display: block;
+.workspace-page .site-header {
+  min-height: 108px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background:
+    linear-gradient(90deg, rgba(173, 119, 37, 0.035), transparent 24%, transparent 76%, rgba(173, 119, 37, 0.035)),
+    rgba(2, 3, 3, 0.985);
+  border-bottom-color: rgba(201, 154, 71, 0.72);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.36);
+}
 
-  max-width: 270px;
+.workspace-page .brand-monogram,
+.workspace-page .header-title {
+  color: var(--ws-gold-light);
+}
 
-  margin: 14px auto 0;
+.workspace-page .header-title span {
+  text-shadow: 0 0 26px rgba(201, 154, 71, 0.13);
+}
 
-  color: #dec37e;
+.workspace-page .profile-icon {
+  border-color: rgba(229, 196, 124, 0.72);
+  box-shadow: 0 0 0 4px rgba(201, 154, 71, 0.035);
+}
 
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    serif;
+.workspace-page .profile-copy strong {
+  color: var(--ws-ivory);
+}
 
-  font-size: clamp(22px, 2vw, 30px);
+.workspace-page .pca-menu-button {
+  border-color: rgba(201, 154, 71, 0.62);
+  background:
+    linear-gradient(145deg, rgba(201, 154, 71, 0.08), transparent 48%),
+    #070706;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.34);
+  transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
 
-  font-weight: 500;
-
-  line-height: 1.05;
-
-  letter-spacing: 0.04em;
-
-  text-transform: uppercase;
+.workspace-page .pca-menu-button:hover {
+  border-color: var(--ws-gold-light);
+  background-color: #0d0b08;
+  transform: translateY(-1px);
 }
 
 
 /* ---------------------------------------------------------
-   PDF BADGE
+   THREE-COLUMN WORKSPACE
 --------------------------------------------------------- */
 
-.pickup-return-details-page .prt-pdf-badge {
-  font-family:
-    "Montserrat",
-    Arial,
-    sans-serif;
-
-  font-size: 11px;
-
-  font-weight: 600;
-
-  letter-spacing: 0.08em;
-}
-
-
-/* ---------------------------------------------------------
-   RESOURCE GRID
---------------------------------------------------------- */
-
-.pickup-return-details-page
-.prt-resource-grid
-.bl-resource-item {
-  grid-template-columns:
-    28px
-    minmax(0, 1fr);
-}
-
-
-.pickup-return-details-page
-.prt-resource-grid
-.bl-resource-name {
-  max-width: 100%;
-}
-
-
-/* ---------------------------------------------------------
-   FINAL CTA
---------------------------------------------------------- */
-
-.pickup-return-details-page .bl-cta-copy {
-  max-width: 780px;
-}
-
-
-.pickup-return-details-page .bl-cta-copy h2 {
-  max-width: 760px;
-
-  line-height: 0.95;
-}
-
-
-/* ---------------------------------------------------------
-   FOOTER
---------------------------------------------------------- */
-
-.prt-footer {
+.ws-shell {
+  position: relative;
+  z-index: 1;
+  width: min(1580px, calc(100% - clamp(34px, 4vw, 76px)));
+  margin: clamp(34px, 3.2vw, 54px) auto 96px;
   display: grid;
-
-  grid-template-columns:
-    minmax(260px, 1fr)
-    auto
-    minmax(260px, 1fr);
-
-  align-items: center;
-
-  gap: 30px;
-
-  min-height: 54px;
-
-  padding:
-    12px
-    clamp(28px, 4.4vw, 80px);
-
-  border-top:
-    1px solid
-    rgba(182, 146, 71, 0.42);
-
-  color: #82786a;
-
-  background: #020202;
-
-  font-family:
-    "Montserrat",
-    Arial,
-    sans-serif;
-
-  font-size: 8px;
-
-  letter-spacing: 0.12em;
-
-  text-transform: uppercase;
+  grid-template-columns: minmax(250px, 286px) minmax(0, 1fr) minmax(205px, 232px);
+  gap: clamp(18px, 1.55vw, 26px);
+  align-items: start;
 }
 
-
-/* FOOTER — LEFT */
-
-.prt-footer-left {
-  display: flex;
-
-  align-items: center;
-
-  gap: 14px;
+.ws-rail,
+.ws-progress,
+.ws-stage {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba(201, 154, 71, 0.045), transparent 38%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.012), transparent 18%),
+    var(--ws-panel);
+  border: 1px solid var(--ws-line);
+  border-radius: 3px;
+  box-shadow: var(--ws-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.018);
 }
 
-
-.prt-footer-left strong {
-  color: #dec37e;
-
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    serif;
-
-  font-size: 20px;
-
-  font-weight: 500;
-
-  letter-spacing: -0.04em;
+.ws-rail::before,
+.ws-progress::before,
+.ws-stage::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 28px;
+  right: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ws-gold-light), transparent);
+  opacity: 0.68;
+  pointer-events: none;
 }
 
-
-/* FOOTER — CENTER */
-
-.prt-footer-social {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 8px;
-}
-
-
-.prt-footer-dot {
-  color: #b69247;
-}
-
-
-/* FOOTER — RIGHT */
-
-.prt-footer-right {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: flex-end;
-
-  gap: 22px;
+.ws-rail,
+.ws-progress {
+  position: sticky;
+  top: 26px;
 }
 
 
 /* ---------------------------------------------------------
-   TABLET
+   LEFT RESOURCE RAIL
 --------------------------------------------------------- */
+
+.ws-rail {
+  padding: 32px 24px 26px;
+}
+
+.ws-back {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 27px;
+  padding-bottom: 5px;
+  color: var(--ws-gold-light);
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.17em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  transition: color 180ms ease;
+}
+
+.ws-back::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--ws-gold), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms ease;
+}
+
+.ws-back:hover {
+  color: #f0d899;
+}
+
+.ws-back:hover::after {
+  transform: scaleX(1);
+}
+
+.ws-kicker {
+  margin: 0 0 11px;
+  color: var(--ws-gold);
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.23em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.ws-rail h1 {
+  max-width: 225px;
+  margin: 0 0 15px;
+  color: var(--ws-ivory);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(31px, 2.1vw, 37px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 0.99;
+}
+
+.ws-rail-copy {
+  margin: 0;
+  color: var(--ws-muted);
+  font-size: 16px;
+  line-height: 1.58;
+}
+
+.ws-chapters {
+  margin-top: 30px;
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--ws-line);
+}
+
+.ws-chapter {
+  position: relative;
+  width: 100%;
+  min-height: 54px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 10px;
+  color: #ddd5c9;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--ws-line);
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.45;
+  text-align: left;
+  cursor: pointer;
+  transition: color 180ms ease, background-color 180ms ease, padding-left 180ms ease;
+}
+
+.ws-chapter::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  bottom: 9px;
+  left: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--ws-gold-light), var(--ws-gold-deep));
+  opacity: 0;
+  transform: scaleY(0.35);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.ws-chapter > span {
+  min-width: 0;
+}
+
+.ws-chapter small {
+  color: var(--ws-gold);
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  line-height: 1;
+}
+
+.ws-chapter:not(.is-locked):hover {
+  color: #fff7e9;
+  background: rgba(201, 154, 71, 0.055);
+}
+
+.ws-chapter.is-active {
+  padding-left: 16px;
+  color: #fff8ea;
+  background: linear-gradient(90deg, rgba(201, 154, 71, 0.14), rgba(201, 154, 71, 0.035) 72%, transparent);
+}
+
+.ws-chapter.is-active::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.ws-chapter.is-active small {
+  color: var(--ws-gold-light);
+}
+
+.ws-chapter.is-locked {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+
+/* ---------------------------------------------------------
+   MAIN READING STAGE
+--------------------------------------------------------- */
+
+.ws-stage {
+  min-height: 690px;
+  padding: clamp(42px, 4vw, 68px) clamp(34px, 4.3vw, 72px) clamp(38px, 3.5vw, 58px);
+}
+
+.ws-stage > .ws-kicker {
+  margin-bottom: 15px;
+}
+
+.ws-stage h2 {
+  max-width: 880px;
+  margin: 0 0 22px;
+  color: var(--ws-ivory);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(42px, 4vw, 59px);
+  font-weight: 400;
+  letter-spacing: -0.032em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.ws-stage h2::after {
+  content: "";
+  width: min(118px, 24%);
+  height: 1px;
+  display: block;
+  margin-top: 22px;
+  background: linear-gradient(90deg, var(--ws-gold-light), transparent);
+}
+
+.ws-stage h3 {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 35px 0 12px;
+  color: var(--ws-gold-light);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(24px, 2vw, 29px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.ws-stage h3::before {
+  content: "";
+  width: 16px;
+  height: 1px;
+  flex: 0 0 16px;
+  background: var(--ws-gold);
+}
+
+.ws-stage p,
+.ws-stage li {
+  color: var(--ws-copy);
+  font-size: clamp(16px, 1.22vw, 18px);
+  line-height: 1.72;
+}
+
+.ws-stage p {
+  max-width: 880px;
+  margin: 0 0 18px;
+}
+
+.ws-stage h2 + p {
+  color: #e1d8ca;
+  font-size: clamp(17px, 1.35vw, 20px);
+  line-height: 1.65;
+}
+
+.ws-stage ul,
+.ws-stage ol {
+  max-width: 880px;
+  margin: 10px 0 0;
+  padding-left: 23px;
+}
+
+.ws-stage li {
+  margin-bottom: 7px;
+  padding-left: 5px;
+}
+
+.ws-stage li::marker {
+  color: var(--ws-gold);
+  font-size: 0.82em;
+}
+
+.ws-note {
+  position: relative;
+  max-width: 880px !important;
+  margin: 29px 0 0 !important;
+  padding: 20px 23px 20px 27px;
+  color: #decda9 !important;
+  background:
+    linear-gradient(90deg, rgba(201, 154, 71, 0.095), rgba(201, 154, 71, 0.018) 62%, transparent),
+    var(--ws-panel-deep);
+  border: 1px solid var(--ws-line);
+  border-left: 2px solid var(--ws-gold);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.012);
+}
+
+.ws-note::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -5px;
+  width: 7px;
+  height: 7px;
+  background: var(--ws-gold-light);
+  border: 1px solid var(--ws-panel);
+  transform: rotate(45deg);
+}
+
+
+/* ---------------------------------------------------------
+   ACTIONS
+--------------------------------------------------------- */
+
+.ws-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 36px;
+}
+
+.ws-button,
+.ws-ghost {
+  position: relative;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  overflow: hidden;
+  border-radius: 2px;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  line-height: 1.35;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.ws-button {
+  color: #171006;
+  background: linear-gradient(135deg, #efd58d 0%, #ca9a42 48%, #a9772c 100%);
+  border: 1px solid #d8ae5e;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.38);
+}
+
+.ws-button:hover {
+  color: #0d0903;
+  box-shadow: 0 13px 30px rgba(0, 0, 0, 0.38), 0 0 22px rgba(201, 154, 71, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.46);
+  transform: translateY(-2px);
+}
+
+.ws-ghost {
+  color: var(--ws-gold-light);
+  background: linear-gradient(180deg, rgba(201, 154, 71, 0.055), rgba(201, 154, 71, 0.012));
+  border: 1px solid var(--ws-line-strong);
+}
+
+.ws-ghost:hover {
+  color: #f4ddb0;
+  border-color: var(--ws-gold-light);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+  transform: translateY(-2px);
+}
+
+.ws-button:focus-visible,
+.ws-ghost:focus-visible,
+.ws-chapter:focus-visible,
+.ws-back:focus-visible,
+.workspace-page .pca-menu-button:focus-visible {
+  outline: 2px solid var(--ws-gold-light);
+  outline-offset: 4px;
+}
+
+
+/* ---------------------------------------------------------
+   PDF VIEWER
+--------------------------------------------------------- */
+
+.ws-sheet {
+  width: 100%;
+  height: clamp(720px, 76vh, 980px);
+  min-height: 720px;
+  display: block;
+  margin-top: 28px;
+  background: #1d1d1d;
+  border: 1px solid rgba(229, 196, 124, 0.42);
+  border-radius: 2px;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.44), 0 0 0 6px rgba(201, 154, 71, 0.025);
+}
+
+
+/* ---------------------------------------------------------
+   PROGRESS CARD
+--------------------------------------------------------- */
+
+.ws-progress {
+  padding: 32px 23px 29px;
+}
+
+.ws-progress .ws-kicker {
+  margin-bottom: 18px;
+}
+
+.ws-progress strong {
+  display: block;
+  margin: 0 0 9px;
+  color: var(--ws-gold-light);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(44px, 3.3vw, 54px);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+  text-shadow: 0 0 24px rgba(201, 154, 71, 0.11);
+}
+
+.ws-progress #ws-progress-label {
+  min-height: 48px;
+  margin: 0;
+  color: #e1d7c6;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.ws-bar {
+  position: relative;
+  height: 3px;
+  margin: 21px 0 20px;
+  overflow: visible;
+  background: rgba(201, 154, 71, 0.13);
+}
+
+.ws-bar::after {
+  content: "";
+  position: absolute;
+  inset: -7px 0;
+  border-top: 1px solid rgba(201, 154, 71, 0.08);
+  border-bottom: 1px solid rgba(201, 154, 71, 0.08);
+}
+
+.ws-bar span {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: block;
+  width: 33%;
+  background: linear-gradient(90deg, var(--ws-gold-deep), var(--ws-gold-light));
+  box-shadow: 0 0 12px rgba(229, 196, 124, 0.22);
+  transition: width 360ms ease;
+}
+
+.ws-progress-note {
+  margin: 0;
+  color: var(--ws-muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE — COMPACT DESKTOP / TABLET
+--------------------------------------------------------- */
+
+@media (max-width: 1180px) {
+
+  .ws-shell {
+    width: min(1040px, calc(100% - 36px));
+    grid-template-columns: minmax(235px, 270px) minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .ws-rail {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .ws-progress {
+    position: relative;
+    top: auto;
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: auto minmax(150px, 0.7fr) minmax(200px, 1.3fr);
+    align-items: center;
+    gap: 8px 22px;
+    padding: 23px 28px;
+  }
+
+  .ws-progress .ws-kicker {
+    grid-column: 1 / -1;
+    margin: 0;
+  }
+
+  .ws-progress strong,
+  .ws-progress #ws-progress-label,
+  .ws-progress .ws-bar,
+  .ws-progress .ws-progress-note {
+    margin: 0;
+  }
+
+  .ws-progress #ws-progress-label {
+    min-height: 0;
+  }
+
+  .ws-progress .ws-bar {
+    width: 100%;
+  }
+
+  .ws-progress .ws-progress-note {
+    grid-column: 2 / -1;
+  }
+
+  .ws-stage {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+}
+
 
 @media (max-width: 900px) {
 
-  .prt-footer {
-    grid-template-columns: 1fr;
-
-    gap: 10px;
-
-    padding-top: 20px;
-
-    padding-bottom: 20px;
-
-    text-align: center;
+  .workspace-page .site-header {
+    min-height: 96px;
+    grid-template-columns: minmax(125px, 170px) minmax(250px, 1fr) minmax(155px, 190px);
+    gap: 18px;
+    padding: 13px 76px 13px 24px;
   }
 
+  .workspace-page .header-rule {
+    display: none;
+  }
 
-  .prt-footer-left,
-  .prt-footer-social,
-  .prt-footer-right {
-    justify-content: center;
+  .workspace-page .brand-monogram {
+    font-size: 45px;
+  }
+
+  .workspace-page .header-title {
+    font-size: 19px;
+    letter-spacing: 0.24em !important;
+  }
+
+  .workspace-page .header-title small {
+    margin-top: 10px;
+    font-size: 8px;
+  }
+
+  .workspace-page .header-title small b {
+    margin: 0 11px;
+  }
+
+  .workspace-page .member-profile {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .workspace-page .profile-icon,
+  .workspace-page #header-photo {
+    width: 44px;
+    height: 44px;
+  }
+
+}
+
+
+@media (max-width: 760px) {
+
+  .workspace-page .site-header {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .workspace-page .header-title {
+    display: none;
+  }
+
+  .workspace-page .member-profile {
+    justify-self: end;
+    max-width: 210px;
+  }
+
+  .ws-shell {
+    width: min(680px, calc(100% - 28px));
+    margin-top: 24px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .ws-rail,
+  .ws-progress,
+  .ws-stage {
+    position: relative;
+    top: auto;
+    grid-column: 1;
+  }
+
+  .ws-rail {
+    grid-row: 1;
+    padding: 27px 24px 22px;
+  }
+
+  .ws-rail h1 {
+    max-width: none;
+  }
+
+  .ws-chapters {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ws-chapter {
+    min-height: 74px;
+    align-content: center;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 13px 12px;
+    border-right: 1px solid var(--ws-line);
+  }
+
+  .ws-chapter:last-child {
+    border-right: 0;
+  }
+
+  .ws-chapter.is-active {
+    padding-left: 15px;
+  }
+
+  .ws-progress {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .ws-stage {
+    grid-column: 1;
+    grid-row: 3;
+    min-height: 0;
+    padding: 38px clamp(22px, 6vw, 42px) 36px;
+  }
+
+  .ws-sheet {
+    height: 720px;
   }
 
 }
 
 
 /* ---------------------------------------------------------
-   MOBILE
+   RESPONSIVE — MOBILE
 --------------------------------------------------------- */
 
 @media (max-width: 560px) {
 
-  .pickup-return-details-page .bl-hero h1 {
-    font-size: clamp(41px, 12.5vw, 62px);
-
-    line-height: 0.84;
+  .workspace-page .site-header {
+    min-height: 82px;
+    padding: 10px 70px 10px 18px;
   }
 
+  .workspace-page .brand-monogram {
+    font-size: 39px;
+  }
 
-  .prt-footer-left,
-  .prt-footer-right {
-    flex-direction: column;
+  .workspace-page .brand-name {
+    font-size: 7px;
+  }
 
-    gap: 6px;
+  .workspace-page .profile-copy {
+    display: none;
+  }
+
+  .workspace-page .member-profile {
+    width: 42px;
+    grid-template-columns: 42px;
+  }
+
+  .workspace-page .profile-icon,
+  .workspace-page #header-photo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .workspace-page .pca-menu-button {
+    top: 18px;
+    right: 15px;
+    width: 43px;
+    height: 43px;
+  }
+
+  .ws-shell {
+    width: min(520px, calc(100% - 20px));
+    margin-bottom: 55px;
+  }
+
+  .ws-rail,
+  .ws-progress,
+  .ws-stage {
+    border-radius: 2px;
+  }
+
+  .ws-chapters {
+    grid-template-columns: 1fr;
+  }
+
+  .ws-chapter {
+    min-height: 52px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    border-right: 0;
+  }
+
+  .ws-progress {
+    grid-template-columns: auto 1fr;
+    gap: 10px 18px;
+    padding: 24px 22px;
+  }
+
+  .ws-progress .ws-kicker {
+    grid-column: 1 / -1;
+  }
+
+  .ws-progress .ws-bar,
+  .ws-progress .ws-progress-note {
+    grid-column: 1 / -1;
+  }
+
+  .ws-progress strong {
+    font-size: 44px;
+  }
+
+  .ws-stage h2 {
+    font-size: clamp(36px, 11vw, 47px);
+  }
+
+  .ws-stage h3 {
+    font-size: 24px;
+  }
+
+  .ws-stage p,
+  .ws-stage li {
+    font-size: 16px;
+  }
+
+  .ws-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .ws-button,
+  .ws-ghost {
+    width: 100%;
+  }
+
+  .ws-sheet {
+    height: 600px;
+    min-height: 600px;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   REDUCED MOTION
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .workspace-page *,
+  .workspace-page *::before,
+  .workspace-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 
 }
