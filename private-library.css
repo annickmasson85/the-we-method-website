@@ -1,4 +1,11 @@
-.archives-page .site-header {
+.private-access-page.archives-page .site-header {
   position: relative;
   z-index: 40;
+  display: grid;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
