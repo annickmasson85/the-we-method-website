@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", async () => {
   const supabase = window.supabaseClient;
   const storageKey = "twm-workspace-employee-training";
@@ -284,16 +285,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     },
     {
       id: 12,
-      title: "Print the three documents",
+      title: "Close the file",
       html: `
         <p class="ws-kicker">SECTION 12</p>
-        <h2>Print the three documents</h2>
-        <p>Standard for the trainer. Record for the person in post. Register for the employment file. Print each for its drawer. None is downloaded or circulated outside this workspace.</p>
+        <h2>Close the file</h2>
+        <p>The three documents were printed where they belong. Standard in the method sections. Record at acknowledgment and authorization. Register in the employment file. This page only reprints if a plate was missed.</p>
         <p class="ws-note">A person may be hired and still unauthorized to release a key. That is control. That is not a delay.</p>
-        <div class="ws-print-grid">
-          ${standardPlate}
-          ${recordPlate}
-          ${registerPlate}
+        <div class="ws-actions">
+          <button class="ws-ghost" type="button" data-print="${standardPath}">PRINT TRAINING STANDARD</button>
+          <button class="ws-ghost" type="button" data-print="${recordPath}">PRINT TRAINING RECORD</button>
+          <button class="ws-ghost" type="button" data-print="${registerPath}">PRINT EMPLOYMENT REGISTER</button>
         </div>
       `
     }
