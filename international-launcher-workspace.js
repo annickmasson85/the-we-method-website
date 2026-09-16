@@ -1,8 +1,29 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const supabase = window.supabaseClient;
   const storageKey = "twm-workspace-international-launcher";
-  const standardPath = "images/international-launcher-standard.pdf";
-  const recordPath = "images/international-control-record.pdf";
+
+  const e2Standard = "images/international-launcher-standard.pdf";
+  const e2Record = "images/international-control-record.pdf";
+  const planStandard = "images/business-plan-standard.pdf";
+  const planRecord = "images/business-plan-record.pdf";
+  const forecastStandard = "images/forecasting-standard.pdf";
+  const forecastRecord = "images/forecast-control-record.pdf";
+  const officePacket = "images/essential-office-setup-print-packet.pdf";
+  const sopStandard = "images/sop-operating-standard.pdf";
+  const agreementRegister = "images/rental-agreement-control-register.pdf";
+  const agreementPacket = "images/rental-agreement-execution-packet.pdf";
+  const localStandard = "images/local-rules-standard.pdf";
+  const guestCard = "images/guest-rules-card.pdf";
+  const localRecord = "images/local-rules-control-record.pdf";
+  const trainingStandard = "images/employee-training-standard.pdf";
+  const trainingRecord = "images/employee-training-record.pdf";
+  const employmentRegister = "images/employment-control-register.pdf";
+  const fleetStandard = "images/fleet-standard.pdf";
+  const fleetRecord = "images/fleet-unit-record.pdf";
+  const launchStandard = "images/launch-roadmap-standard.pdf";
+  const launchRecord = "images/launch-control-record.pdf";
+  const growthStandard = "images/road-beyond-launch-standard.pdf";
+  const growthRecord = "images/growth-control-record.pdf";
 
   if (supabase) {
     const session = await supabase.auth.getSession();
@@ -50,22 +71,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     ).join("")}</div>`;
   }
 
-  const standardPlate = printPlate(
-    standardPath,
-    "INTERNAL STANDARD",
-    "International Launcher Standard",
-    "Reading document. Print for the planning file. This is not an immigration filing. Do not download or circulate.",
-    "PRINT LAUNCHER STANDARD"
-  );
-
-  const recordPlate = printPlate(
-    recordPath,
-    "LAUNCHER RECORD",
-    "International Control Record",
-    "Profile, professional team, investment index, package map, and counsel handoff. Indexes only. Print only.",
-    "PRINT LAUNCHER RECORD"
-  );
-
   const chapters = [
     {
       id: 1,
@@ -73,244 +78,207 @@ document.addEventListener("DOMContentLoaded", async () => {
       html: `
         <p class="ws-kicker">SECTION 01</p>
         <h2>What this launcher is</h2>
-        <p>A preparation method for an international owner organizing a U.S. rental project before it is shown to qualified professionals.</p>
-        <h3>Two documents unique to this file</h3>
+        <p>The ten phases guide an international owner building a U.S. rental project. They stay on this screen. They are not printed.</p>
+        <p>This is not a course, a visa service, a certification, or a promise of admission, work authorization, financing, or profit. Ownership of a company is not authorization to work in the United States.</p>
+        <h3>How this house works</h3>
         <ul>
-          <li><strong>International Launcher Standard</strong> — boundary, gate order, evidence rule.</li>
-          <li><strong>International Control Record</strong> — this project’s written plates.</li>
+          <li>Read the phase.</li>
+          <li>Make the phase decision: continue, adjust, or stop.</li>
+          <li>Print only the manual that belongs to that subject — after the explanation.</li>
+          <li>Pause when counsel, tax, insurance, licensing, or banking can change the next commitment.</li>
         </ul>
-        <p>Every operating manual already in the collection stays itself. This hub opens those rooms. It does not rewrite them.</p>
-        <p class="ws-note">Prepare the business. Organize the investment. Meet the professionals.</p>
+        <p class="ws-note">We share the method. You decide how to build it.</p>
       `
     },
     {
       id: 2,
-      title: "Boundary",
+      title: "E-2 package organizer",
       html: `
         <p class="ws-kicker">SECTION 02</p>
-        <h2>Boundary</h2>
-        <p>This resource does not determine eligibility, select a classification, decide whether an investment is substantial or committed, judge source of funds, prepare filings, respond to government requests, or represent anyone.</p>
-        <p>Ownership of a company is not authorization to work in the United States.</p>
-        <p class="ws-note">Nothing in this house is visa-approved. Nothing here is a promise of admission, financing, or profit.</p>
-        ${standardPlate}
+        <h2>E-2 package organizer</h2>
+        <p>Organize the commercial file before it is shown to qualified professionals. Index planned, committed, and paid amounts. Name the advisory team. Do not store passports, bank statements, tax returns, or immigration records in this workspace.</p>
+        <p>This organizer does not determine eligibility, choose a classification, judge source of funds, or file anything.</p>
+        <p class="ws-note">Print these two plates only. They are the international layer — not the ten phases.</p>
+        ${printPlate(e2Standard, "PRINT THIS MANUAL", "International Launcher Standard", "Boundary, gates, pause, evidence rule.", "PRINT E-2 STANDARD")}
+        ${printPlate(e2Record, "PRINT THIS MANUAL", "International Control Record", "Team, investment index, package map, counsel handoff.", "PRINT E-2 RECORD")}
       `
     },
     {
       id: 3,
-      title: "Professionals first",
+      title: "Phase 1 — Plan the site",
       html: `
-        <p class="ws-kicker">SECTION 03</p>
-        <h2>Professionals first</h2>
-        <p>Name the advisory team before material capital moves: immigration counsel, business counsel, CPA, insurance, banking, licensing.</p>
-        <p>Record questions for counsel. Do not answer them in this file.</p>
-        <p class="ws-note">Pause any commitment that changes the model until the named professional has spoken.</p>
-        ${standardPlate}
-      `
-    },
-    {
-      id: 4,
-      title: "Site and market",
-      html: `
-        <p class="ws-kicker">SECTION 04</p>
-        <h2>Site and market</h2>
-        <p>The planning picture lives in the Business Plan. Current local operating rules live in Local Rules.</p>
-        <p>This launcher does not invent a second market study.</p>
-        <p class="ws-note">Unverified demand is an assumption. Label it.</p>
+        <p class="ws-kicker">SECTION 03 · PHASE 1</p>
+        <h2>Plan the site</h2>
+        <p>Build the vision before the investment. Name the market, the place, the customer, the competition, the model, and the planning decision before a fleet, a lease, or equipment.</p>
+        <h3>This phase organizes</h3>
+        <ul>
+          <li>Market research and seasonal demand</li>
+          <li>Location and local operating limits</li>
+          <li>Customer and competitor picture</li>
+          <li>Commercial model and first investment picture</li>
+          <li>GO / ADJUST / RECONSIDER</li>
+        </ul>
+        <p class="ws-note">This phase is not printed. The Plan and Local Rules manuals print below.</p>
         ${openRow([
           { href: "business-plan-workspace.html", label: "OPEN BUSINESS PLAN" },
           { href: "local-rules-workspace.html", label: "OPEN LOCAL RULES" }
         ])}
-        ${standardPlate}
+        ${printPlate(planStandard, "PRINT THIS MANUAL", "Business Plan Standard", "Planning picture and planning decision.", "PRINT PLAN STANDARD")}
+        ${printPlate(planRecord, "PRINT THIS MANUAL", "Business Plan Record", "This house’s written planning plates.", "PRINT PLAN RECORD")}
+        ${printPlate(localStandard, "PRINT THIS MANUAL", "Local Rules Standard", "How operating limits are verified and shown.", "PRINT LOCAL RULES STANDARD")}
+      `
+    },
+    {
+      id: 4,
+      title: "Phase 2 — Foundation",
+      html: `
+        <p class="ws-kicker">SECTION 04 · PHASE 2</p>
+        <h2>Foundation</h2>
+        <p>Turn the concept into an organized foundation: proposed structure, banking, insurance questions, license index, and the house file. Forming a U.S. company is not work authorization and is not readiness to take a reservation.</p>
+        <h3>This phase organizes</h3>
+        <ul>
+          <li>Ownership and entity questions for counsel</li>
+          <li>Banking and recordkeeping</li>
+          <li>Insurance questions for the intended activity</li>
+          <li>Where each record lives</li>
+        </ul>
+        <p class="ws-note">This phase is not printed. The Office manual prints below.</p>
+        ${openRow([
+          { href: "essential-office-workspace.html", label: "OPEN OFFICE" },
+          { href: "business-plan-workspace.html", label: "OPEN BUSINESS PLAN" }
+        ])}
+        ${printPlate(officePacket, "PRINT THIS MANUAL", "Office Setup Packet", "The physical and file house.", "PRINT OFFICE PACKET")}
       `
     },
     {
       id: 5,
-      title: "Investment index",
+      title: "Phase 3 — The model",
       html: `
-        <p class="ws-kicker">SECTION 05</p>
-        <h2>Investment index</h2>
-        <p>Planned. Committed. Paid. Evidence referenced — not stored here.</p>
-        <p>Working capital and reserve sit apart from startup purchases. Office and fleet costs are taken from those rooms, not recopied.</p>
-        <p class="ws-note">The Record holds the index. Counsel holds the sensitive evidence.</p>
+        <p class="ws-kicker">SECTION 05 · PHASE 3</p>
+        <h2>The model</h2>
+        <p>Understand the numbers before committing the investment. Label assumptions. Separate working capital from startup purchases. Stress a lower case before treating the base case as supportable.</p>
+        <p class="ws-note">A modeled total is not a promise and is not an immigration finding. This phase is not printed.</p>
         ${openRow([
-          { href: "essential-office-setup-equipment-checklist.html", label: "OPEN OFFICE" },
-          { href: "fleet-workspace.html", label: "OPEN FLEET" }
+          { href: "forecasting-workspace.html", label: "OPEN FORECASTING" }
         ])}
-        ${standardPlate}
+        ${printPlate(forecastStandard, "PRINT THIS MANUAL", "Forecasting Standard", "Assumption control, model, stress, decision.", "PRINT FORECAST STANDARD")}
+        ${printPlate(forecastRecord, "PRINT THIS MANUAL", "Forecast Control Record", "This house’s written model.", "PRINT FORECAST RECORD")}
       `
     },
     {
       id: 6,
-      title: "Formation index",
+      title: "Phase 4 — Systems",
       html: `
-        <p class="ws-kicker">SECTION 06</p>
-        <h2>Formation index</h2>
-        <p>Proposed ownership, entity questions, and a document index for counsel. Forming a U.S. company is separate from immigration status and work authorization.</p>
-        <p class="ws-note">Do not present a structure as immigration-approved.</p>
-        ${standardPlate}
+        <p class="ws-kicker">SECTION 06 · PHASE 4</p>
+        <h2>Systems</h2>
+        <p>Name the tools that carry reservations, payment, books, mail, storage, backup, and access. No vendor is required by this method. Sensitive investor files do not travel on an ordinary shared folder.</p>
+        <p class="ws-note">This phase is not printed. The Office packet prints below.</p>
+        ${openRow([
+          { href: "essential-office-workspace.html", label: "OPEN OFFICE" }
+        ])}
+        ${printPlate(officePacket, "PRINT THIS MANUAL", "Office Setup Packet", "Systems sit in the office file.", "PRINT OFFICE PACKET")}
       `
     },
     {
       id: 7,
-      title: "The model",
+      title: "Phase 5 — Operating house",
       html: `
-        <p class="ws-kicker">SECTION 07</p>
-        <h2>The model</h2>
-        <p>Assumptions, stress, and the three-year working model live in Forecasting. This launcher cites that file. It does not reprint the tables.</p>
-        <p class="ws-note">A modeled total is not a promise and is not an immigration finding.</p>
+        <p class="ws-kicker">SECTION 07 · PHASE 5</p>
+        <h2>Operating house</h2>
+        <p>Reservation through return. Agreement and waiver. Inspection and orientation. Local rules at check-in. Incident control. A procedure that has not been tested is not ready.</p>
+        <p class="ws-note">This phase is not printed. SOP, Agreement, Pickup &amp; Return, and Local Rules print below.</p>
         ${openRow([
-          { href: "forecasting-workspace.html", label: "OPEN FORECASTING" }
+          { href: "sop-workspace.html", label: "OPEN SOP" },
+          { href: "rental-agreement-workspace.html", label: "OPEN AGREEMENT" },
+          { href: "pickup-return-workspace.html", label: "OPEN PICKUP &amp; RETURN" },
+          { href: "local-rules-workspace.html", label: "OPEN LOCAL RULES" }
         ])}
-        ${standardPlate}
+        ${printPlate(sopStandard, "PRINT THIS MANUAL", "SOP Operating Standard", "Safety and incident control.", "PRINT SOP STANDARD")}
+        ${printPlate(agreementPacket, "PRINT THIS MANUAL", "Agreement Execution Packet", "Customer-facing rental packet.", "PRINT AGREEMENT PACKET")}
+        ${printPlate(agreementRegister, "PRINT THIS MANUAL", "Agreement Control Register", "Edition and execution control.", "PRINT AGREEMENT REGISTER")}
+        ${printPlate(guestCard, "PRINT THIS MANUAL", "Guest Rules Card", "What the guest sees.", "PRINT GUEST RULES CARD")}
+        ${printPlate(localRecord, "PRINT THIS MANUAL", "Local Rules Control Record", "Verification and acknowledgment trail.", "PRINT LOCAL RULES RECORD")}
       `
     },
     {
       id: 8,
-      title: "The operating house",
+      title: "Phase 7 — People",
       html: `
-        <p class="ws-kicker">SECTION 08</p>
-        <h2>The operating house</h2>
-        <p>Reservation through return. Agreement. Safety and incident control. Fleet care. Local rules at the cart and at check-in.</p>
-        <p>Open each room. Do not paste those manuals into this file.</p>
-        <p class="ws-note">Operational claims must match what has actually been prepared.</p>
+        <p class="ws-kicker">SECTION 08 · PHASE 7</p>
+        <h2>People</h2>
+        <p>Owner role, providers versus employees, training if people are hired. Hiring is not the first room. Work authorization, wages, and classification belong to qualified professionals.</p>
+        <p class="ws-note">This phase is not printed. The Training manuals print below.</p>
         ${openRow([
-          { href: "sop-workspace.html", label: "OPEN SOP" },
-          { href: "rental-agreement-workspace.html", label: "OPEN AGREEMENT" },
-          { href: "fleet-workspace.html", label: "OPEN FLEET" },
-          { href: "local-rules-workspace.html", label: "OPEN LOCAL RULES" }
+          { href: "employee-training-workspace.html", label: "OPEN TRAINING" }
         ])}
-        ${standardPlate}
+        ${printPlate(trainingStandard, "PRINT THIS MANUAL", "Employee Training Standard", "How this house trains.", "PRINT TRAINING STANDARD")}
+        ${printPlate(trainingRecord, "PRINT THIS MANUAL", "Employee Training Record", "This person’s plates.", "PRINT TRAINING RECORD")}
+        ${printPlate(employmentRegister, "PRINT THIS MANUAL", "Employment Control Register", "Who is authorized and current.", "PRINT EMPLOYMENT REGISTER")}
       `
     },
     {
       id: 9,
-      title: "The house file",
+      title: "Phase 8 — Fleet",
       html: `
-        <p class="ws-kicker">SECTION 09</p>
-        <h2>The house file</h2>
-        <p>Customer, fleet, employee, vendor, insurance, and license records sit in the drawers already built. Version and custody stay with those Records.</p>
-        <p class="ws-note">Highly sensitive investor records do not share a folder with the rental drawer.</p>
+        <p class="ws-kicker">SECTION 09 · PHASE 8</p>
+        <h2>Fleet</h2>
+        <p>Treat every unit as a business asset. A purchased cart is not an in-service cart. Manufacturer instructions remain the mechanical authority.</p>
+        <p class="ws-note">This phase is not printed. The Fleet manuals print below.</p>
         ${openRow([
-          { href: "essential-office-setup-equipment-checklist.html", label: "OPEN OFFICE" }
+          { href: "fleet-workspace.html", label: "OPEN FLEET" }
         ])}
-        ${standardPlate}
+        ${printPlate(fleetStandard, "PRINT THIS MANUAL", "Fleet Standard", "Care, turnaround, service control.", "PRINT FLEET STANDARD")}
+        ${printPlate(fleetRecord, "PRINT THIS MANUAL", "Fleet Unit Record", "One plate per unit.", "PRINT UNIT RECORD")}
       `
     },
     {
       id: 10,
-      title: "Systems",
+      title: "Phase 9 — Demand",
       html: `
-        <p class="ws-kicker">SECTION 10</p>
-        <h2>Systems</h2>
-        <p>Reservations, payment, books, mail, storage, backup, access. Name the tools the house actually uses. No vendor is required by this method.</p>
-        <p class="ws-note">Ask counsel for the transfer channel they will accept before any passport or bank file moves.</p>
-        ${openRow([
-          { href: "essential-office-setup-equipment-checklist.html", label: "OPEN OFFICE" }
-        ])}
-        ${standardPlate}
+        <p class="ws-kicker">SECTION 10 · PHASE 9</p>
+        <h2>Demand</h2>
+        <p>Awareness only after the house can receive the guest. One offer, stated the same way. What is promised must match what the operation can deliver.</p>
+        <p class="ws-note">This phase is not printed. There is no marketing manual in this collection yet.</p>
       `
     },
     {
       id: 11,
-      title: "People",
+      title: "Phase 10 — Protection",
       html: `
-        <p class="ws-kicker">SECTION 11</p>
-        <h2>People</h2>
-        <p>Owner role, providers versus employees, training if people are hired. Training already has its own Standard and Records.</p>
-        <p class="ws-note">Work authorization, wages, and classification are professional questions. This file does not decide them.</p>
+        <p class="ws-kicker">SECTION 11 · PHASE 10</p>
+        <h2>Protection</h2>
+        <p>Risk, insurance facts as the house changes, continuity if operations stop. This is not a valuation or a sale package.</p>
+        <p class="ws-note">This phase is not printed. Road Beyond prints below after the business exists.</p>
         ${openRow([
-          { href: "employee-training-workspace.html", label: "OPEN TRAINING" }
+          { href: "road-beyond-launch-workspace.html", label: "OPEN ROAD BEYOND" }
         ])}
-        ${standardPlate}
+        ${printPlate(growthStandard, "PRINT THIS MANUAL", "Road Beyond Launch Standard", "Review after the business exists.", "PRINT GROWTH STANDARD")}
+        ${printPlate(growthRecord, "PRINT THIS MANUAL", "Growth Control Record", "The written review plates.", "PRINT GROWTH RECORD")}
       `
     },
     {
       id: 12,
-      title: "Assemble the package",
+      title: "Launch sequence",
       html: `
         <p class="ws-kicker">SECTION 12</p>
-        <h2>Assemble the package</h2>
-        <p>Ten commercial folders for professional review. The narrative sits in the Business Plan. The indexes sit in this Record. Sensitive evidence travels on the professional’s channel.</p>
-        <p class="ws-note">Nothing in the package is described as visa-approved.</p>
+        <h2>Launch sequence</h2>
+        <p>The Launch Roadmap owns the order from research to first reservation and first operating review. A filing date is not a launch date. A calendar date is not readiness.</p>
+        <p class="ws-note">The sequence text in this launcher is not printed. The Roadmap manuals print below.</p>
         ${openRow([
-          { href: "business-plan-workspace.html", label: "OPEN BUSINESS PLAN" }
+          { href: "launch-roadmap-workspace.html", label: "OPEN LAUNCH ROADMAP" }
         ])}
-        ${standardPlate}
+        ${printPlate(launchStandard, "PRINT THIS MANUAL", "Launch Roadmap Standard", "Sequence and status language.", "PRINT LAUNCH STANDARD")}
+        ${printPlate(launchRecord, "PRINT THIS MANUAL", "Launch Control Record", "This house’s milestone plates.", "PRINT LAUNCH RECORD")}
       `
     },
     {
       id: 13,
-      title: "Handoff to counsel",
-      html: `
-        <p class="ws-kicker">SECTION 13</p>
-        <h2>Handoff to counsel</h2>
-        <p>Short commercial summary. Planned / committed / paid. What is paused. Questions. Request log. Revisions after advice.</p>
-        <p class="ws-note">Follow the professional’s instructions. This house does not file.</p>
-        ${standardPlate}
-      `
-    },
-    {
-      id: 14,
-      title: "Sequence to first operations",
-      html: `
-        <p class="ws-kicker">SECTION 14</p>
-        <h2>Sequence to first operations</h2>
-        <p>The Launch Roadmap owns the order from research to first reservation and first operating review. This launcher does not invent a second calendar.</p>
-        <p class="ws-note">A filing date is not a launch date.</p>
-        ${openRow([
-          { href: "launch-roadmap-workspace.html", label: "OPEN LAUNCH ROADMAP" }
-        ])}
-        ${standardPlate}
-      `
-    },
-    {
-      id: 15,
-      title: "After launch",
-      html: `
-        <p class="ws-kicker">SECTION 15</p>
-        <h2>After launch</h2>
-        <p>Actuals versus model. Material change. Professional notice when facts that were shown to counsel move.</p>
-        <p class="ws-note">Growth review lives in Road Beyond. Do not expand from a forecast that has not met a year of actuals.</p>
-        ${openRow([
-          { href: "road-beyond-launch-workspace.html", label: "OPEN ROAD BEYOND" }
-        ])}
-        ${standardPlate}
-      `
-    },
-    {
-      id: 16,
-      title: "The Record",
-      html: `
-        <p class="ws-kicker">SECTION 16</p>
-        <h2>The Record</h2>
-        <p>Entrepreneur plate. Advisory team. Counsel questions. Commitment stop. Investment index. Source-and-path index. Formation index. Package map. Handoff. Request log. Acknowledgment.</p>
-        <p class="ws-note">Owner planning file. Not the customer drawer. Not a visa file.</p>
-        ${recordPlate}
-      `
-    },
-    {
-      id: 17,
-      title: "What never lives here",
-      html: `
-        <p class="ws-kicker">SECTION 17</p>
-        <h2>What never lives here</h2>
-        <p>Passports. Bank statements. Tax returns. Wires. Account credentials. Immigration records. Any document counsel asked to receive on a secure channel.</p>
-        <p>Index the item. Name who holds it. Transfer as instructed.</p>
-        <p class="ws-note">An ordinary shared workspace is not a counsel portal.</p>
-        ${standardPlate}
-      `
-    },
-    {
-      id: 18,
       title: "Close the file",
       html: `
-        <p class="ws-kicker">SECTION 18</p>
+        <p class="ws-kicker">SECTION 13</p>
         <h2>Close the file</h2>
-        <p>The Standard was printed through the method. The Record at section 16. This page only reprints if a plate was missed.</p>
-        <div class="ws-actions">
-          <button class="ws-ghost" type="button" data-print="${standardPath}">PRINT LAUNCHER STANDARD</button>
-          <button class="ws-ghost" type="button" data-print="${recordPath}">PRINT LAUNCHER RECORD</button>
-        </div>
+        <p>The ten phases stay on screen. Nothing from those phases is sent to the printer.</p>
+        <p>Each manual was offered in the section where the subject was explained. Open that section if a plate was missed.</p>
       `
     }
   ];
@@ -392,7 +360,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const done = state.completed.length;
     document.getElementById("ws-progress-count").textContent = Math.min(done + 1, total) + " / " + total;
     document.getElementById("ws-progress-label").textContent = done >= total
-      ? "Package ready for the file"
+      ? "Sequence complete"
       : "Section " + pad(state.current) + " open";
     document.getElementById("ws-bar-fill").style.width = Math.round((done / total) * 100) + "%";
   }
