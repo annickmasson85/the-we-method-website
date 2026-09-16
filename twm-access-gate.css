@@ -1,0 +1,136 @@
+.twm-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  overflow: auto;
+  background: rgba(6, 5, 3, 0.94);
+  color: #eee6d8;
+}
+
+.twm-gate-sheet {
+  width: min(820px, calc(100% - 40px));
+  margin: 88px auto 60px;
+  padding: 42px 48px 48px;
+  border: 1px solid rgba(201, 162, 77, 0.35);
+  background: #0a0907;
+}
+
+.twm-gate-sheet .ws-kicker,
+.twm-gate .ws-kicker {
+  margin: 0 0 10px;
+  color: #c9a24d;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+}
+
+.twm-gate h1 {
+  margin: 0 0 18px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(34px, 5vw, 52px);
+  font-weight: 400;
+}
+
+.twm-gate h2 {
+  margin: 28px 0 10px;
+  color: #c9a24d;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.twm-gate p,
+.twm-gate li,
+.twm-gate label {
+  color: #b9ae9e;
+  line-height: 1.7;
+}
+
+.twm-gate-box {
+  margin: 22px 0;
+  padding: 16px 18px;
+  border: 1px solid rgba(201, 162, 77, 0.35);
+  color: #e8d09f;
+}
+
+.twm-gate-check {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 12px;
+  margin: 14px 0;
+  padding: 14px 16px;
+  border: 1px solid rgba(201, 162, 77, 0.28);
+}
+
+.twm-gate-check input {
+  margin-top: 4px;
+}
+
+.twm-gate-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.twm-gate label span {
+  display: block;
+  margin-bottom: 6px;
+  color: #c9a24d;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+}
+
+.twm-gate input[type="text"],
+.twm-gate input[type="email"],
+.twm-gate input[type="date"] {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  color: #eee6d8;
+  background: #111;
+  border: 1px solid rgba(201, 162, 77, 0.35);
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+.twm-gate-sign {
+  margin-top: 8px;
+}
+
+.twm-gate-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.twm-gate-submit {
+  min-height: 46px;
+  padding: 0 22px;
+  color: #1a1206;
+  background: linear-gradient(135deg, #f0d487, #c89a38);
+  border: 0;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+}
+
+.twm-gate-submit:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.twm-gate-error {
+  min-height: 24px;
+  color: #e8d09f;
+}
+
+@media (max-width: 720px) {
+  .twm-gate-sheet {
+    padding: 28px 20px;
+  }
+  .twm-gate-grid {
+    grid-template-columns: 1fr;
+  }
+}
