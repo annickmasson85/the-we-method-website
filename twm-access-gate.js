@@ -38,14 +38,19 @@ document.addEventListener("DOMContentLoaded", () => {
       <label class="twm-gate-check"><input type="checkbox" data-ack="share"> <span>I will not share login credentials, redistribute resources, place them in a shared drive, or provide them to an AI, OCR, or conversion system. I will not use them to build a competing commercial product.</span></label>
       <label class="twm-gate-check"><input type="checkbox" data-ack="advice"> <span>I understand these materials are operational organization tools, not professional advice, and that no result is guaranteed. I remain responsible for professional review where the business requires it.</span></label>
       <h2>Electronic signature</h2>
-      <p>Checking the boxes and typing the legal name is intended as an electronic signature. To the fullest extent permitted by applicable law, the signer agrees it may not be denied effect solely because it is electronic.</p>
+      <p>Checking the boxes, typing the legal name, and drawing the signature are intended as an electronic signature. To the fullest extent permitted by applicable law, the signer agrees it may not be denied effect solely because it is electronic.</p>
       <div class="twm-gate-grid">
         <label><span>FULL LEGAL NAME *</span><input id="twm-gate-name" type="text" autocomplete="name"></label>
         <label><span>BUSINESS / ACCOUNT NAME</span><input id="twm-gate-business" type="text"></label>
         <label><span>EMAIL USED FOR ACCESS *</span><input id="twm-gate-email" type="email" autocomplete="email"></label>
         <label><span>TITLE / AUTHORITY IF SIGNING FOR A BUSINESS</span><input id="twm-gate-title" type="text"></label>
         <label><span>DATE *</span><input id="twm-gate-date" type="date"></label>
-        <label class="twm-gate-sign"><span>TYPE FULL LEGAL NAME AS SIGNATURE *</span><input id="twm-gate-sign" type="text"></label>
+        <label class="twm-gate-sign"><span>TYPE FULL LEGAL NAME *</span><input id="twm-gate-sign" type="text"></label>
+      </div>
+      <div class="twm-gate-pad-wrap">
+        <span>DRAW SIGNATURE WITH MOUSE OR FINGER *</span>
+        <canvas id="twm-gate-pad" width="760" height="180"></canvas>
+        <button class="twm-gate-clear" type="button" id="twm-gate-clear">CLEAR SIGNATURE</button>
       </div>
       <p class="twm-gate-error" id="twm-gate-error"></p>
       <div class="twm-gate-actions">
@@ -60,6 +65,56 @@ document.addEventListener("DOMContentLoaded", () => {
     dateField.value = new Date().toISOString().slice(0, 10);
   }
 
+  const canvas = document.getElementById("twm-gate-pad");
+  const ctx = canvas.getContext("2d");
+  let drawing = false;
+  let inked = false;
+
+  function point(event) {
+    const box = canvas.getBoundingClientRect();
+    const source = event.touches ? event.touches[0] : event;
+    return {
+      x: (source.clientX - box.left) * (canvas.width / box.width),
+      y: (source.clientY - box.top) * (canvas.height / box.height)
+    };
+  }
+
+  function start(event) {
+    event.preventDefault();
+    drawing = true;
+    const p = point(event);
+    ctx.beginPath();
+    ctx.moveTo(p.x, p.y);
+  }
+
+  function move(event) {
+    if (!drawing) return;
+    event.preventDefault();
+    const p = point(event);
+    ctx.lineWidth = 2.2;
+    ctx.lineCap = "round";
+    ctx.strokeStyle = "#eee6d8";
+    ctx.lineTo(p.x, p.y);
+    ctx.stroke();
+    inked = true;
+  }
+
+  function stop() {
+    drawing = false;
+  }
+
+  canvas.addEventListener("mousedown", start);
+  canvas.addEventListener("mousemove", move);
+  window.addEventListener("mouseup", stop);
+  canvas.addEventListener("touchstart", start, { passive: false });
+  canvas.addEventListener("touchmove", move, { passive: false });
+  canvas.addEventListener("touchend", stop);
+
+  document.getElementById("twm-gate-clear").addEventListener("click", () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    inked = false;
+  });
+
   document.getElementById("twm-gate-submit").addEventListener("click", () => {
     const checks = [...gate.querySelectorAll("[data-ack]")];
     const name = document.getElementById("twm-gate-name").value.trim();
@@ -73,11 +128,15 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     if (!name || !email || !sign || !date) {
-      error.textContent = "Name, email, date, and typed signature are required.";
+      error.textContent = "Name, email, date, and typed legal name are required.";
       return;
     }
     if (sign.toLowerCase() !== name.toLowerCase()) {
-      error.textContent = "The typed signature must match the full legal name.";
+      error.textContent = "The typed name must match the full legal name.";
+      return;
+    }
+    if (!inked) {
+      error.textContent = "Draw the signature with the mouse or finger.";
       return;
     }
 
@@ -90,6 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
       title: document.getElementById("twm-gate-title").value.trim(),
       date,
       signature: sign,
+      signatureImage: canvas.toDataURL("image/png"),
       acceptedAt: new Date().toISOString(),
       acknowledgments: checks.map((item) => item.getAttribute("data-ack"))
     };

@@ -97,6 +97,42 @@
   margin-top: 8px;
 }
 
+.twm-gate-pad-wrap {
+  margin-top: 22px;
+}
+
+.twm-gate-pad-wrap span {
+  display: block;
+  margin-bottom: 8px;
+  color: #c9a24d;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+}
+
+#twm-gate-pad {
+  display: block;
+  width: 100%;
+  height: 180px;
+  background: #111;
+  border: 1px solid rgba(201, 162, 77, 0.35);
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.twm-gate-clear {
+  margin-top: 10px;
+  min-height: 36px;
+  padding: 0 14px;
+  color: #e8d09f;
+  background: transparent;
+  border: 1px solid rgba(201, 162, 77, 0.35);
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+}
+
 .twm-gate-actions {
   display: flex;
   flex-wrap: wrap;
