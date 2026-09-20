@@ -2,7 +2,8 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const supabase = window.supabaseClient;
   const storageKey = "twm-workspace-essential-office";
-  const pdfPath = "images/essential-office-setup-print-packet.pdf";
+  const pdfPath = "images/essential-office-setup-print-packet.pdf?v=2";
+  const checklistPath = "images/office-purchase-setup-checklist.pdf";
 
   if (supabase) {
     const session = await supabase.auth.getSession();
@@ -36,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         <p class="ws-kicker">CHAPTER 01</p>
         <h2>Why This Checklist Exists</h2>
         <p>A rental business needs more than vehicles and a reservation system. The office, the customer counter, the document-storage system, the payment equipment, the inventory area, and the security procedures all decide whether the day runs or stalls.</p>
-        <p>This checklist exists so you build a workspace that can actually operate — before you spend money on how it looks.</p>
+        <p>This workspace exists so you build a workspace that can actually operate — before you spend money on how it looks.</p>
         <p>A thoughtfully organized office helps the business:</p>
         <ul>
           <li>Serve customers without searching for a form, a key, or a charger.</li>
@@ -58,7 +59,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       html: `
         <p class="ws-kicker">CHAPTER 02</p>
         <h2>How To Use the Three Priorities</h2>
-        <p>Every item in the print packet sits in one of three levels. Use the levels to decide what to buy now, what can wait, and what is only a later upgrade.</p>
+        <p>Every item in the printed plates sits in one of three levels. Use the levels to decide what to buy now, what can wait, and what is only a later upgrade.</p>
         <div class="ws-principle">
           <strong>I</strong>
           <p><em>Required before opening.</em> Items that may be necessary to operate, protect information, receive customers, process payments, or respond to emergencies. If it is missing, the business is not ready.</p>
@@ -71,14 +72,14 @@ document.addEventListener("DOMContentLoaded", async () => {
           <strong>III</strong>
           <p><em>Optional or future upgrades.</em> Items that improve appearance or capacity. They are not required at launch.</p>
         </div>
-        <h3>How to mark the packet</h3>
+        <h3>How to mark the plates</h3>
         <ol>
           <li>Tick what is already in place.</li>
           <li>Leave a line empty when the item does not apply to this location.</li>
           <li>Write a note when something is ordered, borrowed, or waiting on a landlord.</li>
           <li>Do not treat every line as a shopping list. Size, layout, volume, paper versus digital records, payment methods, and local requirements all change the final setup.</li>
         </ol>
-        <p class="ws-note">Complete one chapter here before you print. The packet is the working document. This workspace is the method behind it.</p>
+        <p class="ws-note">Complete one chapter here before you print. The Register and the Purchase Checklist are the working documents. This workspace is the method behind them.</p>
       `
     },
     {
@@ -149,7 +150,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         <p>Keys are inventory. If they are kept in a drawer, on a hook by the door, or in a personal pocket, they are not controlled.</p>
         <h3>Key-control system</h3>
         <p>Each key corresponds to a clearly identified cart. Assign cart numbers and key numbers. Record duplicates. Write a release procedure, a return procedure, and a missing-key procedure. Count the keys at close. Limit employee access. Keep spare keys in a lockable wall cabinet, not in the same cup as the active set.</p>
-        <p>The print packet includes a daily key-count sheet. Use it at close every operating day. A missing key discovered in the morning is already a problem from the night before.</p>
+        <p>The Register includes a daily key-count sheet. Use it at close every operating day. A missing key discovered in the morning is already a problem from the night before.</p>
         <h3>Physical security</h3>
         <p>An entrance alert, numbered keys, lockable document cabinets, lockable storage for devices, and a written closing procedure belong in the first setup. Cameras, an alarm, and extra exterior lighting follow the layout and the risk of the site.</p>
         <h3>External signage</h3>
@@ -168,7 +169,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         <h3>Cleanliness</h3>
         <p>Minimum of three trash cans — office, cart-preparation area, restroom — plus bags, a broom, a mop, approved cleaning products, towels, gloves, a wet-floor sign, soap, and restroom supplies. Store chemicals away from customers. Keep safety data sheets when they are required. The customer judges the fleet by the floor they walk across to reach it.</p>
         <h3>Safety equipment that is often forgotten</h3>
-        <p>A first-aid kit, a fire extinguisher appropriate for the location, flashlights, emergency numbers, evacuation information, a severe-weather procedure, and incident-report forms. Record inspection dates on the print packet. Verify type, quantity, installation, and inspection rules for this specific facility. Do not guess.</p>
+        <p>A first-aid kit, a fire extinguisher appropriate for the location, flashlights, emergency numbers, evacuation information, a severe-weather procedure, and incident-report forms. Record inspection dates on the Register. Verify type, quantity, installation, and inspection rules for this specific facility. Do not guess.</p>
         <h3>When employees are involved</h3>
         <p>They need a way to record time, a schedule, an assignment board, opening and closing checklists, SOP access, training materials, a secure place for personal items, and a separate document area. A communication log and a maintenance-reporting station prevent information from living only in one person's head.</p>
         <p class="ws-note">Emergency equipment that has never been inspected is decoration. Treat the inspection date as part of opening readiness.</p>
@@ -180,13 +181,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       html: `
         <p class="ws-kicker">CHAPTER 08</p>
         <h2>Budget and Opening Readiness</h2>
-        <p>The packet contains planning ranges only. They exist to stop two mistakes: buying nothing essential, and buying a premium office before the operation can support it.</p>
+        <p>The plates contain planning ranges only. They exist to stop two mistakes: buying nothing essential, and buying a premium office before the operation can support it.</p>
         <ul>
           <li><strong>Essential setup</strong> — often $1,500 to $3,500. Previously owned furniture, a lockable cabinet, a basic printer, a portable payment device, a key cabinet, basic signage, supplies, first-aid, a fire extinguisher, cleaning equipment, a basic backup.</li>
           <li><strong>Professional setup</strong> — often $4,000 to $9,000. A proper counter, a workstation, a real filing system, a secured tablet, better payment hardware, cameras, exterior signs, shelves, backup internet, a scanner.</li>
           <li><strong>Premium setup</strong> — $10,000 to $20,000 or more. Custom millwork, a full POS, a professional security system, LED signage, multiple stations, facility work. It does not guarantee better operations.</li>
         </ul>
-        <p>Fill the budget worksheet with quoted prices for this location. Add a contingency. Compare the total with the money actually available. The remaining line tells you what waits until after opening.</p>
+        <p>Fill the budget lines with quoted prices for this location. Add a contingency. Compare the total with the money actually available. The remaining line tells you what waits until after opening.</p>
         <h3>The opening decision</h3>
         <p>Do not open because the date on the calendar arrived. Open when customer documents can be stored securely, employee records are separated, reservations and payments have been tested, the printer works, internet is reliable, a backup exists, keys are numbered and counted, rates and rules are displayed, required licenses are available, emergency equipment is in place, confidential information is protected, and opening and closing procedures are written.</p>
         <p>If essentials remain, delay. Appearance can wait. Function cannot.</p>
@@ -195,18 +196,24 @@ document.addEventListener("DOMContentLoaded", async () => {
     },
     {
       id: 9,
-      title: "Print the Working Packet",
+      title: "Print the Working Plates",
       html: `
         <p class="ws-kicker">CHAPTER 09</p>
-        <h2>Print the Working Packet</h2>
-        <p>The official packet stays inside this workspace. Print it for the setup. Do not download or share the file.</p>
-        <p>Print in black and white, letter size. Work the pages in order. Tick what is in place. Write real prices on the budget. Complete the readiness check before you name an opening date.</p>
-        <p class="ws-note">This packet is a planning and operating resource. It is not a safety inspection, a cybersecurity assessment, an accessibility review, a fire-code review, or a guarantee that a facility is ready to operate. Confirm current requirements with the property owner, local authorities, the insurer, and the technology and payment providers.</p>
+        <h2>Print the Working Plates</h2>
+        <p>Two plates. The Register is the record of what is ready. The Purchase Checklist is what to buy, set up, or leave for later. Print them for the setup. Do not download or share the files.</p>
+        <p>Print in black and white, letter size. Tick what is in place. Cross out what does not apply. Write real prices. Complete the readiness check before you name an opening date.</p>
+        <p class="ws-note">These plates are planning and operating resources. They are not a safety inspection, a cybersecurity assessment, an accessibility review, a fire-code review, or permission to open. Confirm current requirements with the property owner, local authorities, the insurer, and the technology and payment providers.</p>
         <object class="ws-sheet" data="${pdfPath}" type="application/pdf">
-          <p>The packet could not be displayed in the browser. Use Print Packet below.</p>
+          <p>The Register could not be displayed in the browser. Use Print Register below.</p>
         </object>
         <div class="ws-actions">
-          <button class="ws-ghost" type="button" id="ws-print">PRINT PACKET</button>
+          <button class="ws-ghost" type="button" data-print="${pdfPath}">PRINT REGISTER</button>
+        </div>
+        <object class="ws-sheet" data="${checklistPath}" type="application/pdf">
+          <p>The checklist could not be displayed in the browser. Use Print Checklist below.</p>
+        </object>
+        <div class="ws-actions">
+          <button class="ws-ghost" type="button" data-print="${checklistPath}">PRINT CHECKLIST</button>
         </div>
       `
     }
@@ -229,6 +236,22 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   function isOpen(id) {
     return id === 1 || state.completed.includes(id - 1);
+  }
+
+  function bindPrintButtons() {
+    stage.querySelectorAll("[data-print]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const path = button.getAttribute("data-print");
+        const frame = button.closest(".ws-actions")?.previousElementSibling;
+        if (frame && frame.contentWindow) {
+          frame.contentWindow.focus();
+          frame.contentWindow.print();
+          return;
+        }
+        const printWindow = window.open(path, "_blank");
+        if (printWindow) printWindow.focus();
+      });
+    });
   }
 
   function renderNav() {
@@ -266,23 +289,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       render();
     });
 
-    document.getElementById("ws-print")?.addEventListener("click", () => {
-      const frame = document.querySelector(".ws-sheet");
-      if (frame && frame.contentWindow) {
-        frame.contentWindow.focus();
-        frame.contentWindow.print();
-        return;
-      }
-      const printWindow = window.open(pdfPath, "_blank");
-      if (printWindow) printWindow.focus();
-    });
+    bindPrintButtons();
   }
 
   function renderProgress() {
     const done = state.completed.length;
     document.getElementById("ws-progress-count").textContent = Math.min(done + 1, total) + " / " + total;
     document.getElementById("ws-progress-label").textContent = done >= total
-      ? "Packet ready for use"
+      ? "Plates ready for use"
       : "Chapter " + pad(state.current) + " open";
     document.getElementById("ws-bar-fill").style.width = Math.round((done / total) * 100) + "%";
   }
