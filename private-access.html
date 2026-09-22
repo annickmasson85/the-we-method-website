@@ -130,10 +130,10 @@
         <span></span>
       </div>
       <div class="stats-grid">
-        <article class="stat-item"><strong>0</strong><span>RESOURCES OWNED</span></article>
-        <article class="stat-item"><strong>0</strong><span>ACTIVE SERVICES</span></article>
-        <article class="stat-item"><strong>0</strong><span>UPCOMING APPOINTMENT</span></article>
-        <article class="stat-item"><strong>0</strong><span>DOCUMENTS ARCHIVED</span></article>
+        <article class="stat-item"><strong id="glance-resources">0</strong><span>RESOURCES OWNED</span></article>
+        <article class="stat-item"><strong id="glance-services">0</strong><span>ACTIVE SERVICES</span></article>
+        <article class="stat-item"><strong id="glance-appointments">0</strong><span>UPCOMING APPOINTMENT</span></article>
+        <article class="stat-item"><strong id="glance-documents">0</strong><span>DOCUMENTS ARCHIVED</span></article>
       </div>
     </section>
   </main>
@@ -187,6 +187,20 @@
         }
         if (icon) icon.style.display = "none";
       }
+            var owned = 0;
+      try {
+        owned = Object.keys(localStorage).filter(function (key) {
+          return key.indexOf("twm-workspace-") === 0;
+        }).length;
+      } catch (e) {}
+      var resources = document.getElementById("glance-resources");
+      var services = document.getElementById("glance-services");
+      var appointments = document.getElementById("glance-appointments");
+      var documents = document.getElementById("glance-documents");
+      if (resources) resources.textContent = String(owned);
+      if (services) services.textContent = "0";
+      if (appointments) appointments.textContent = "0";
+      if (documents) documents.textContent = "24";
     });
   </script>
 </body>
