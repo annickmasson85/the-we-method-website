@@ -832,3 +832,64 @@ a {
 .archives-page #header-photo[hidden] {
   display: none;
 }
+.archives-page .brand-mark {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.archives-page .brand-monogram {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(42px, 4.2vw, 61px);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-shadow: none;
+}
+
+.archives-page .brand-name {
+  margin-top: 3px;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+}
+
+.archives-page .header-title {
+  min-width: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: 400;
+  letter-spacing: 0.34em;
+}
+
+.archives-page .header-title::before,
+.archives-page .header-title::after {
+  display: none;
+}
+
+.archives-page .header-title > span {
+  font-size: inherit;
+  letter-spacing: inherit;
+}
+
+.archives-page .header-title small {
+  margin-top: 14px;
+  color: #bbb8b3;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.36em;
+}
+
+.archives-page .hero-copy h1,
+.archives-page .archive-group h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 400;
+}
+
+.archives-page .eyebrow,
+.archives-page .archive-item-toggle small,
+.archives-page .archive-file button {
+  font-family: Montserrat, Arial, sans-serif;
+}
