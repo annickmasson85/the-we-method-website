@@ -3,14 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Private Client Access | The We Method</title>
+  <meta name="description" content="Print the official The We Method templates from your private archives.">
+  <title>Archives | The We Method</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="private-access.css">
   <link rel="stylesheet" href="pca-menu.css">
+  <link rel="stylesheet" href="archives.css">
+  <style>
+    .archive-index { width: min(1180px, calc(100% - 48px)); margin: 36px auto 90px; }
+    .archive-group { margin-bottom: 42px; }
+    .archive-group h2 { margin: 0 0 8px; color: #eee6d8; font-size: 34px; font-weight: 400; }
+    .archive-group p { margin: 0 0 18px; color: #b9ae9e; }
+    .archive-item { border: 1px solid rgba(201,162,77,.35); background: #0a0907; margin-bottom: 10px; }
+    .archive-item-toggle { width: 100%; display: flex; justify-content: space-between; gap: 16px; align-items: center; padding: 18px 20px; color: #eee6d8; background: transparent; border: 0; text-align: left; cursor: pointer; }
+    .archive-item-toggle small { color: #c9a24d; letter-spacing: .16em; font-family: Montserrat, Arial, sans-serif; font-size: 10px; }
+    .archive-files { display: none; padding: 0 20px 18px; }
+    .archive-item.is-open .archive-files { display: grid; gap: 10px; }
+    .archive-file { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 0; border-top: 1px solid rgba(201,162,77,.22); color: #e8d09f; }
+    .archive-file span { color: #b9ae9e; }
+    .archive-file button, .archive-file em { font-family: Montserrat, Arial, sans-serif; font-size: 10px; letter-spacing: .16em; }
+    .archive-file button { padding: 10px 14px; color: #1a1206; background: linear-gradient(135deg,#f0d487,#c89a38); border: 0; cursor: pointer; }
+    .print-layer { position: fixed; inset: 0; z-index: 80; display: none; place-items: center; background: rgba(0,0,0,.78); }
+    body.print-open .print-layer { display: grid; }
+    .print-card { width: min(980px, calc(100% - 32px)); height: min(86vh, 900px); display: grid; grid-template-rows: auto 1fr auto; background: #080806; border: 1px solid #c9a24d; }
+    .print-card header, .print-card footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 20px; }
+    .print-card object { width: 100%; height: 100%; border: 0; background: #111; }
+  </style>
 </head>
-<body class="private-access-page">
+<body class="private-access-page archives-page">
   <header class="site-header">
     <span class="brand-mark">
       <span class="brand-monogram">TWM</span>
@@ -18,7 +40,7 @@
     </span>
     <span class="header-rule"></span>
     <div class="header-title">
-      <span>PRIVATE CLIENT ACCESS</span>
+      <span>ARCHIVES</span>
       <small>BUILD <b>◆</b> LAUNCH <b>◆</b> GROW</small>
     </div>
     <span class="header-rule"></span>
@@ -38,170 +60,276 @@
   </header>
 
   <main>
-    <section class="welcome-hero">
-      <div class="hero-content">
-        <p class="eyebrow">PRIVATE CLIENT ACCESS</p>
-        <span class="short-gold-rule"></span>
-        <h1>
-          WELCOME BACK,<br>
-          <span id="member-first-name">CLIENT</span>
-        </h1>
-        <div class="ornament"><span></span><i></i><span></span></div>
-        <p class="hero-intro">
-          Your private collection, services,<br>
-          journey and documents are ready.
-        </p>
-        <p class="hero-note">
-          CONTINUE WITH CLARITY.<br>
-          BUILD WITH INTENTION.
+    <section class="archives-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">PRIVATE DOCUMENT ROOM</p>
+        <h1>Archives</h1>
+        <p class="hero-lead">Every official template, named and ready to print.</p>
+        <p class="hero-description">
+          Open a chapter. Select the exact sheet. Print it for the operation.
+          Files stay inside The We Method.
         </p>
       </div>
-    </section>
-
-    <section class="private-access-section">
-      <div class="section-heading">
-        <span></span>
-        <h2>YOUR PRIVATE ACCESS</h2>
-        <span></span>
-        <i></i>
-      </div>
-
-      <div class="access-grid">
-        <article class="access-card">
-          <div class="card-image-wrap">
-            <img src="images/private-access-suite.png" alt="">
-          </div>
-          <div class="card-content">
-            <h3>THE OWNER’S SUITE</h3>
-            <p>Access the systems and<br>professional resources you own.</p>
-            <a class="gold-button" href="owners-suite.html">
-              <span>ENTER YOUR SUITE</span><b>⟶</b>
-            </a>
-          </div>
-        </article>
-
-        <article class="access-card">
-          <div class="card-image-wrap">
-            <img src="images/private-access-services.png" alt="">
-          </div>
-          <div class="card-content">
-            <h3>PRIVATE SERVICES</h3>
-            <p>View active services, appointments<br>and implementation milestones.</p>
-            <a class="gold-button" href="private-services.html">
-              <span>VIEW MY SERVICES</span><b>⟶</b>
-            </a>
-          </div>
-        </article>
-
-        <article class="access-card">
-          <div class="card-image-wrap">
-            <img src="images/private-access-archive.png" alt="">
-          </div>
-          <div class="card-content">
-            <h3>DOCUMENT ARCHIVE</h3>
-            <p>Review your approved documents<br>and protected read-only records.</p>
-            <a class="gold-button" href="archives.html">
-              <span>OPEN THE ARCHIVE</span><b>⟶</b>
-            </a>
-          </div>
-        </article>
+      <div class="hero-image-wrap">
+        <img class="hero-image" src="images/owners-suite-business-system.png" alt="The We Method archives">
       </div>
     </section>
 
-    <section class="motivation-section">
-      <div class="motivation-copy">
-        <p class="eyebrow">REMEMBER</p>
-        <h2>WHY YOU STARTED</h2>
-        <span class="short-gold-rule"></span>
-        <p class="motivation-message">
-          You didn’t come this far to stop now.<br>
-          Keep building the life and business<br>
-          you’ve always dreamed of.
-        </p>
-        <span class="short-gold-rule motivation-rule"></span>
-        <p class="focus-message">STAY FOCUSED. STAY CONSISTENT. STAY YOU.</p>
-      </div>
-    </section>
-
-    <section class="glance-section">
-      <div class="section-heading glance-heading">
-        <span></span>
-        <h2>AT A GLANCE</h2>
-        <span></span>
-      </div>
-      <div class="stats-grid">
-        <article class="stat-item"><strong id="glance-resources">0</strong><span>RESOURCES OWNED</span></article>
-        <article class="stat-item"><strong id="glance-services">0</strong><span>ACTIVE SERVICES</span></article>
-        <article class="stat-item"><strong id="glance-appointments">0</strong><span>UPCOMING APPOINTMENT</span></article>
-        <article class="stat-item"><strong id="glance-documents">0</strong><span>DOCUMENTS ARCHIVED</span></article>
-      </div>
-    </section>
+    <div class="archive-index" id="archive-index"></div>
   </main>
 
-  <footer class="site-footer">
-    <span class="brand-mark footer-brand">
-      <span class="brand-monogram">TWM</span>
-      <span class="brand-name">THE WE METHOD</span>
-    </span>
-    <nav class="footer-nav">
-      <a href="private-services.html">SERVICES</a>
-       <a href="archives.html">ARCHIVE</a>
-      <a href="mailto:info@thewemethod.com">SUPPORT</a>
-    </nav>
-    <a class="footer-email" href="mailto:info@thewemethod.com">INFO@THEWEMETHOD.COM</a>
-    <p class="copyright">© 2026 THE WE METHOD. ALL RIGHTS RESERVED.</p>
-  </footer>
+  <div class="print-layer" id="print-layer">
+    <div class="print-card">
+      <header>
+        <strong id="print-title">Template</strong>
+        <button type="button" id="print-close">CLOSE</button>
+      </header>
+      <object id="print-frame" type="application/pdf"></object>
+      <footer>
+        <span>Print only · do not download or share</span>
+        <button type="button" id="print-now">PRINT</button>
+      </footer>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
-  <script src="private-access.js"></script>
   <script src="pca-menu.js"></script>
   <script>
+    const templates = [
+      {
+        collection: "SIGNATURE SYSTEMS",
+        chapters: [
+          {
+            title: "Business Launcher",
+            files: [
+              { name: "Business Plan Standard", note: "Phase 1 plate", file: "images/business-plan-standard.pdf" },
+              { name: "Business Plan Record", note: "This house’s planning plates", file: "images/business-plan-record.pdf" },
+              { name: "Launch Roadmap Standard", note: "Sequence language", file: "images/launch-roadmap-standard.pdf" },
+              { name: "Launch Control Record", note: "Milestone plates", file: "images/launch-control-record.pdf" }
+            ]
+          },
+          {
+            title: "International Business Launcher",
+            files: [
+              { name: "International Launcher Standard", note: "Boundary and evidence rule", file: "images/international-launcher-standard.pdf" },
+              { name: "International Control Record", note: "Team, index, handoff", file: "images/international-control-record.pdf" }
+            ]
+          },
+          {
+            title: "Operation Bundle",
+            files: [
+              { name: "SOP Operating Standard", note: "Floor and incident control", file: "images/sop-operating-standard.pdf" },
+              { name: "Agreement Execution Packet", note: "Customer-facing packet", file: "images/rental-agreement-execution-packet.pdf" },
+              { name: "Agreement Control Register", note: "Edition control", file: "images/rental-agreement-control-register.pdf" },
+              { name: "Pickup & Return Inspection", note: "Departure and return record", file: "images/pickup-return-inspection-template.pdf" },
+              { name: "Local Rules Standard", note: "Verification method", file: "images/local-rules-standard.pdf" },
+              { name: "Guest Rules Card", note: "What the guest sees", file: "images/guest-rules-card.pdf" },
+              { name: "Fleet Standard", note: "Care and turnaround", file: "images/fleet-standard.pdf" },
+              { name: "Employee Training Standard", note: "How the house trains", file: "images/employee-training-standard.pdf" }
+            ]
+          }
+        ]
+      },
+      {
+        collection: "FOUNDATION COLLECTION",
+        chapters: [
+          {
+            title: "Business Launch Roadmap",
+            files: [
+              { name: "Launch Roadmap Standard", note: "Sequence and status language", file: "images/launch-roadmap-standard.pdf" },
+              { name: "Launch Control Record", note: "This house’s milestone plates", file: "images/launch-control-record.pdf" }
+            ]
+          },
+          {
+            title: "Business Plan Template & Example",
+            files: [
+              { name: "Business Plan Standard", note: "Planning picture and decision", file: "images/business-plan-standard.pdf" },
+              { name: "Business Plan Record", note: "Written planning plates", file: "images/business-plan-record.pdf" }
+            ]
+          }
+        ]
+      },
+      {
+        collection: "OPERATION COLLECTION",
+        chapters: [
+          {
+            title: "Employee Training Guide",
+            files: [
+              { name: "Employee Training Standard", note: "How this house trains", file: "images/employee-training-standard.pdf" },
+              { name: "Employee Training Record", note: "This person’s plates", file: "images/employee-training-record.pdf" },
+              { name: "Employment Control Register", note: "Who is authorized and current", file: "images/employment-control-register.pdf" }
+            ]
+          },
+          {
+            title: "Essential Office Setup & Equipment Checklist",
+            files: [
+              { name: "Office Operations Register", note: "Record of what is ready", file: "images/essential-office-setup-print-packet.pdf?v=2" },
+              { name: "Office Purchase & Setup Checklist", note: "What to buy. What can wait.", file: "images/office-purchase-setup-checklist.pdf" }
+            ]
+          },
+          {
+            title: "Standard Operating Procedures",
+            files: [
+              { name: "SOP Operating Standard", note: "Safety and incident control", file: "images/sop-operating-standard.pdf" }
+            ]
+          },
+          {
+            title: "Pickup & Return Template",
+            files: [
+              {
+                name: "Pickup & Return Inspection",
+                note: "Double-sided · Page 1 inspection · Page 2 condition map",
+                file: "images/pickup-return-inspection-template.pdf"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        collection: "FINANCE COLLECTION",
+        chapters: [
+          {
+            title: "Three-Year Revenue Forecasting",
+            files: [
+              { name: "Forecasting Standard", note: "Assumption control and decision", file: "images/forecasting-standard.pdf" },
+              { name: "Forecast Control Record", note: "This house’s written model", file: "images/forecast-control-record.pdf" }
+            ]
+          }
+        ]
+      },
+      {
+        collection: "DOCUMENT COLLECTION",
+        chapters: [
+          {
+            title: "Rental Agreement & Liability Waiver",
+            files: [
+              { name: "Agreement Execution Packet", note: "Customer-facing rental packet", file: "images/rental-agreement-execution-packet.pdf" },
+              { name: "Agreement Control Register", note: "Edition and execution control", file: "images/rental-agreement-control-register.pdf" }
+            ]
+          },
+          {
+            title: "Local Rules Communication & Rental Enforcement Toolkit",
+            files: [
+              { name: "Local Rules Standard", note: "How limits are verified and shown", file: "images/local-rules-standard.pdf" },
+              { name: "Guest Rules Card", note: "What the guest sees", file: "images/guest-rules-card.pdf" },
+              { name: "Local Rules Control Record", note: "Verification and acknowledgment trail", file: "images/local-rules-control-record.pdf" }
+            ]
+          }
+        ]
+      },
+      {
+        collection: "FLEET COLLECTION",
+        chapters: [
+          {
+            title: "Fleet Cleaning & Preventive Maintenance Toolkit",
+            files: [
+              { name: "Fleet Standard", note: "Care, turnaround, service control", file: "images/fleet-standard.pdf" },
+              { name: "Fleet Unit Record", note: "One plate per unit", file: "images/fleet-unit-record.pdf" }
+            ]
+          }
+        ]
+      },
+      {
+        collection: "GROWTH COLLECTION",
+        chapters: [
+          {
+            title: "The Road Beyond Launch",
+            files: [
+              { name: "Road Beyond Launch Standard", note: "Review after the business exists", file: "images/road-beyond-launch-standard.pdf" },
+              { name: "Growth Control Record", note: "Written review plates", file: "images/growth-control-record.pdf" }
+            ]
+          }
+        ]
+      }
+    ];
+
     document.addEventListener("DOMContentLoaded", async function () {
-      var supabase = window.supabaseClient;
-      if (!supabase) return;
-
-      var session = await supabase.auth.getSession();
-      if (!session.data || !session.data.session) {
-        window.location.href = "signin.html";
-        return;
-      }
-
-      var userRes = await supabase.auth.getUser();
-      var user = (userRes.data && userRes.data.user) || session.data.session.user;
-      var meta = (user && user.user_metadata) || {};
-      var firstName = meta.first_name || "Client";
-      var fullName = [meta.first_name, meta.last_name].filter(Boolean).join(" ") || "Client";
-
-      var welcome = document.getElementById("member-first-name");
-      var profile = document.getElementById("member-profile-name");
-      if (welcome) welcome.textContent = firstName.toUpperCase();
-      if (profile) profile.textContent = fullName;
-
-      if (meta.avatar_url) {
-        var header = document.getElementById("header-photo");
-        var icon = document.getElementById("header-icon");
-        if (header) {
-          header.src = meta.avatar_url;
-          header.hidden = false;
+      const supabase = window.supabaseClient;
+      if (supabase) {
+        const session = await supabase.auth.getSession();
+        if (!session.data || !session.data.session) {
+          window.location.href = "signin.html";
+          return;
         }
-        if (icon) icon.style.display = "none";
+        const userRes = await supabase.auth.getUser();
+        const user = (userRes.data && userRes.data.user) || session.data.session.user;
+        const meta = (user && user.user_metadata) || {};
+        const name = document.getElementById("member-profile-name");
+        if (name) name.textContent = [meta.first_name, meta.last_name].filter(Boolean).join(" ") || "Client";
+        if (meta.avatar_url) {
+          const photo = document.getElementById("header-photo");
+          const icon = document.getElementById("header-icon");
+          if (photo) { photo.src = meta.avatar_url; photo.hidden = false; }
+          if (icon) icon.style.display = "none";
+        }
       }
-            var owned = 0;
-      try {
-        owned = Object.keys(localStorage).filter(function (key) {
-          return key.indexOf("twm-workspace-") === 0;
-        }).length;
-      } catch (e) {}
-      var resources = document.getElementById("glance-resources");
-      var services = document.getElementById("glance-services");
-      var appointments = document.getElementById("glance-appointments");
-      var documents = document.getElementById("glance-documents");
-      if (resources) resources.textContent = String(owned);
-      if (services) services.textContent = "0";
-      if (appointments) appointments.textContent = "0";
-      if (documents) documents.textContent = "24";
+
+      const root = document.getElementById("archive-index");
+      templates.forEach((group) => {
+        const section = document.createElement("section");
+        section.className = "archive-group";
+        section.innerHTML = "<p class='eyebrow'>" + group.collection + "</p><h2>" + group.collection.replace(" COLLECTION", "") + "</h2><p>Open a chapter to view its official templates.</p>";
+        group.chapters.forEach((chapter) => {
+          const item = document.createElement("article");
+          item.className = "archive-item";
+          const ready = chapter.files.length;
+          item.innerHTML =
+            "<button class='archive-item-toggle' type='button'>" +
+              "<strong>" + chapter.title + "</strong>" +
+              "<small>" + (ready ? ready + " TEMPLATE" : "IN PREPARATION") + "</small>" +
+            "</button>" +
+            "<div class='archive-files'></div>";
+          const list = item.querySelector(".archive-files");
+          if (!ready) {
+            list.innerHTML = "<div class='archive-file'><b>No printable sheet is attached yet.</b><em>COMING NEXT</em></div>";
+          } else {
+            chapter.files.forEach((pdf) => {
+              const row = document.createElement("div");
+              row.className = "archive-file";
+              row.innerHTML = "<div><b>" + pdf.name + "</b><span> " + (pdf.note || "") + "</span></div>";
+              const button = document.createElement("button");
+              button.type = "button";
+              button.textContent = "PRINT";
+              button.addEventListener("click", function (event) {
+                event.stopPropagation();
+                openPrint(pdf.name, pdf.file);
+              });
+              row.appendChild(button);
+              list.appendChild(row);
+            });
+          }
+          item.querySelector(".archive-item-toggle").addEventListener("click", function () {
+            item.classList.toggle("is-open");
+          });
+          section.appendChild(item);
+        });
+        root.appendChild(section);
+      });
+
+      document.getElementById("print-close").addEventListener("click", closePrint);
+      document.getElementById("print-layer").addEventListener("click", function (event) {
+        if (event.target.id === "print-layer") closePrint();
+      });
+      document.getElementById("print-now").addEventListener("click", function () {
+        const frame = document.getElementById("print-frame");
+        if (frame && frame.contentWindow) {
+          frame.contentWindow.focus();
+          frame.contentWindow.print();
+        } else {
+          window.print();
+        }
+      });
     });
+
+    function openPrint(title, file) {
+      document.getElementById("print-title").textContent = title;
+      document.getElementById("print-frame").data = file;
+      document.body.classList.add("print-open");
+    }
+    function closePrint() {
+      document.body.classList.remove("print-open");
+    }
   </script>
 </body>
 </html>
