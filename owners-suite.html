@@ -1,48 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta
-    name="description"
-    content="Access your private results, resources, progress, and subscription inside The We Method Owner’s Suite."
-  >
-
+  <meta name="description" content="Access your private results, resources, progress, and subscription inside The We Method Owner’s Suite.">
   <title>Owner’s Suite | The We Method</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="private-access.css">
   <link rel="stylesheet" href="pca-menu.css">
   <link rel="stylesheet" href="owners-suite.css">
 </head>
-
 <body class="private-access-page owners-suite-page">
-
   <header class="site-header">
     <span class="brand-mark">
       <span class="brand-monogram">TWM</span>
       <span class="brand-name">THE WE METHOD</span>
     </span>
-
     <span class="header-rule" aria-hidden="true"></span>
-
-    <div class="header-title" aria-label="Owner’s Suite">
+    <div class="header-title">
       <span>OWNER’S SUITE</span>
-      <small>
-        BUILD
-        <b aria-hidden="true">◆</b>
-        LAUNCH
-        <b aria-hidden="true">◆</b>
-        GROW
-      </small>
+      <small>BUILD <b aria-hidden="true">◆</b> LAUNCH <b aria-hidden="true">◆</b> GROW</small>
     </div>
-
     <span class="header-rule" aria-hidden="true"></span>
-
     <a class="member-profile" href="profile.html" aria-label="Open member profile">
       <span class="profile-icon">
         <img id="header-photo" alt="Member profile" hidden>
@@ -51,154 +32,97 @@
           <path d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"></path>
         </svg>
       </span>
-
       <span class="profile-copy">
         <small>MEMBER PROFILE</small>
         <strong id="member-profile-name">Client</strong>
       </span>
-
       <span class="profile-chevron" aria-hidden="true"></span>
     </a>
   </header>
 
   <main class="suite-main">
-
     <section class="suite-hero" aria-labelledby="suite-title">
       <img class="suite-hero-image" src="images/owners-suite-hero.png" alt="">
       <div class="suite-hero-shade" aria-hidden="true"></div>
-
       <div class="suite-hero-content">
         <p class="suite-eyebrow">OWNER’S SUITE</p>
         <h1 id="suite-title">Ready to continue building?</h1>
-        <p class="suite-hero-description">
-          Your results, resources, and progress—all in one place.
-        </p>
+        <p class="suite-hero-description">Your results, resources, and progress—all in one place.</p>
         <span class="suite-hero-accent" aria-hidden="true"></span>
       </div>
     </section>
 
     <section class="suite-dashboard" aria-label="Your private access overview">
       <div class="suite-grid">
-
         <article class="suite-card assessment-card">
           <p class="suite-card-label">YOUR ASSESSMENT</p>
-
           <div class="suite-card-layout assessment-layout">
             <figure class="suite-card-visual assessment-visual">
-              <img
-                src="images/owners-suite-assessment.png"
-                alt="The We Method assessment results folder"
-              >
+              <img src="images/owners-suite-assessment.png" alt="The We Method assessment results folder">
             </figure>
-
             <div class="suite-card-copy">
               <p class="suite-card-kicker">YOUR CURRENT RESULT</p>
               <h2 id="assessment-result-title">Not Started</h2>
               <p class="suite-card-description" id="assessment-result-description">
                 Your complete results and personalized recommendations will be saved here.
               </p>
-              <a class="suite-button" id="assessment-primary-action" href="assessment.html">
-                START ASSESSMENT
-              </a>
+              <a class="suite-button" id="assessment-primary-action" href="assessment.html">START ASSESSMENT</a>
             </div>
           </div>
         </article>
 
         <article class="suite-card system-card">
           <p class="suite-card-label">YOUR COLLECTION</p>
-
           <div class="suite-card-layout system-layout">
             <div class="suite-card-copy">
               <h2>Your Private Library</h2>
               <p class="resource-count">PRIVATE LIBRARY</p>
-              <p class="suite-card-description">
-                All your purchased systems and manuals, in one private space.
-              </p>
-              <a class="suite-button" href="private-library.html">
-                OPEN COLLECTION
-              </a>
+              <p class="suite-card-description">All your purchased systems and manuals, in one private space.</p>
+              <a class="suite-button" href="private-library.html">OPEN COLLECTION</a>
             </div>
-
             <figure class="suite-card-visual system-visual">
-              <img
-                src="images/owners-suite-business-system.png"
-                alt="The We Method private collection"
-              >
+              <img src="images/owners-suite-business-system.png" alt="The We Method private collection">
             </figure>
           </div>
         </article>
 
         <article class="suite-card progress-card">
           <p class="suite-card-label">YOUR PROGRESS</p>
-
           <div class="progress-layout">
-            <div
-              class="progress-ring"
-              id="progress-ring"
-              role="img"
-              aria-label="0 percent complete"
-              style="--progress: 0;"
-            >
+            <div class="progress-ring" id="progress-ring" role="img" aria-label="0 percent complete" style="--progress: 0;">
               <div class="progress-ring-inner">
                 <strong id="progress-percentage">0%</strong>
               </div>
             </div>
-
             <div class="progress-information">
               <div class="suite-stats" aria-label="Progress details">
-                <p>
-                  <b id="completed-resources">0 OF 0</b>
-                  <small>Completed</small>
-                </p>
-                <p>
-                  <b id="active-resources">0</b>
-                  <small>In progress</small>
-                </p>
-                <p>
-                  <b id="remaining-resources">0</b>
-                  <small>Remaining</small>
-                </p>
+                <p><b id="completed-resources">0 OF 0</b><small>Completed</small></p>
+                <p><b id="active-resources">0</b><small>In progress</small></p>
+                <p><b id="remaining-resources">0</b><small>Remaining</small></p>
               </div>
-
               <p class="current-focus">
                 <span>CURRENT FOCUS</span>
                 <strong id="current-focus-title">Not started yet</strong>
               </p>
-
-              <a class="suite-button" href="founder-library.html">
-                BEGIN BUILDING
-              </a>
+              <a class="suite-button" id="progress-action" href="founder-library.html">BEGIN BUILDING</a>
             </div>
           </div>
         </article>
 
         <article class="suite-card subscription-card">
           <p class="suite-card-label">YOUR SUBSCRIPTION</p>
-
           <div class="suite-card-layout subscription-layout">
             <figure class="suite-card-visual subscription-visual">
-              <img
-                src="images/owners-suite-subscription.png"
-                alt="The We Method Journey Journal and private companion"
-              >
+              <img src="images/owners-suite-subscription.png" alt="The We Method Journey Journal and private companion">
             </figure>
-
             <div class="suite-card-copy">
-              <h2>
-                AI Companion +<br>
-                Journey Journal
-              </h2>
+              <h2>AI Companion +<br>Journey Journal</h2>
               <p class="subscription-status" id="subscription-status">INACTIVE</p>
-              <p class="suite-card-description">
-                Your private guidance and reflection space.
-              </p>
-              <a class="suite-button" href="private-services.html">
-                VIEW SUBSCRIPTION
-              </a>
+              <p class="suite-card-description">Your private guidance and reflection space.</p>
+              <a class="suite-button" href="private-services.html">VIEW SUBSCRIPTION</a>
             </div>
           </div>
         </article>
-
       </div>
     </section>
   </main>
@@ -206,7 +130,6 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
   <script src="pca-menu.js"></script>
-
   <script>
     document.addEventListener("DOMContentLoaded", async function () {
       var supabase = window.supabaseClient;
@@ -214,7 +137,6 @@
 
       var sessionResponse = await supabase.auth.getSession();
       var session = sessionResponse.data && sessionResponse.data.session;
-
       if (!session) {
         window.location.href = "signin.html";
         return;
@@ -223,20 +145,13 @@
       var userResponse = await supabase.auth.getUser();
       var user = (userResponse.data && userResponse.data.user) || session.user;
       var metadata = (user && user.user_metadata) || {};
-
       var profileName = document.getElementById("member-profile-name");
-      var fullName = [metadata.first_name, metadata.last_name]
-        .filter(Boolean)
-        .join(" ");
-
-      if (profileName) {
-        profileName.textContent = fullName || "Client";
-      }
+      var fullName = [metadata.first_name, metadata.last_name].filter(Boolean).join(" ");
+      if (profileName) profileName.textContent = fullName || "Client";
 
       if (metadata.avatar_url) {
         var profilePhoto = document.getElementById("header-photo");
         var profileIcon = document.getElementById("header-icon");
-
         if (profilePhoto) {
           profilePhoto.src = metadata.avatar_url;
           profilePhoto.hidden = false;
@@ -245,7 +160,6 @@
             if (profileIcon) profileIcon.style.display = "block";
           });
         }
-
         if (profileIcon) profileIcon.style.display = "none";
       }
 
@@ -259,44 +173,38 @@
       if (result) {
         var title = document.getElementById("assessment-result-title");
         var description = document.getElementById("assessment-result-description");
-        var action = document.getElementById("assessment-primary-action");
-        var focus = document.getElementById("current-focus-title");
-
+        var assessmentAction = document.getElementById("assessment-primary-action");
         if (title) title.textContent = result.stage || "Completed";
         if (description) {
-          description.textContent =
-            "Readiness score " +
-            (result.score || 0) +
-            " / 100. Primary system: " +
-            (result.system || "Saved") +
-            ".";
+          description.textContent = "Readiness score " + (result.score || 0) + " / 100. Primary system: " + (result.system || "Saved") + ".";
         }
-        if (action) {
-          action.textContent = "VIEW RESULT";
-          action.href = "assessment-result.html";
+        if (assessmentAction) {
+          assessmentAction.textContent = "VIEW RESULT";
+          assessmentAction.href = "assessment-result.html";
         }
-        if (focus && result.system) focus.textContent = result.system;
       }
-            var books = [
-        { key: "twm-workspace-business-launcher", title: "Business Launcher", total: 12 },
-        { key: "twm-workspace-international-launcher", title: "International Launcher", total: 13 },
-        { key: "twm-workspace-operation-bundle", title: "Operation Bundle", total: 8 },
-        { key: "twm-workspace-launch-roadmap", title: "Launch Roadmap", total: 12 },
-        { key: "twm-workspace-business-plan", title: "Business Plan", total: 12 },
-        { key: "twm-workspace-employee-training", title: "Employee Training Guide", total: 12 },
-        { key: "twm-workspace-essential-office", title: "Essential Office Setup", total: 9 },
-        { key: "twm-workspace-sop", title: "Standard Operating Procedures", total: 12 },
-        { key: "twm-workspace-pickup-return", title: "Pickup & Return", total: 3 },
-        { key: "twm-workspace-forecasting", title: "Forecasting", total: 12 },
-        { key: "twm-workspace-rental-agreement", title: "Rental Agreement", total: 12 },
-        { key: "twm-workspace-local-rules", title: "Local Rules", total: 12 },
-        { key: "twm-workspace-fleet", title: "Fleet Control", total: 12 },
-        { key: "twm-workspace-road-beyond-launch", title: "Road Beyond Launch", total: 12 }
+
+      var books = [
+        { key: "twm-workspace-business-launcher", title: "Business Launcher", total: 12, href: "business-launcher-workspace.html" },
+        { key: "twm-workspace-international-launcher", title: "International Launcher", total: 13, href: "international-launcher-workspace.html" },
+        { key: "twm-workspace-operation-bundle", title: "Operation Bundle", total: 8, href: "operation-bundle-workspace.html" },
+        { key: "twm-workspace-launch-roadmap", title: "Launch Roadmap", total: 12, href: "launch-roadmap-workspace.html" },
+        { key: "twm-workspace-business-plan", title: "Business Plan", total: 12, href: "business-plan-workspace.html" },
+        { key: "twm-workspace-employee-training", title: "Employee Training Guide", total: 12, href: "employee-training-workspace.html" },
+        { key: "twm-workspace-essential-office", title: "Essential Office Setup", total: 9, href: "essential-office-workspace.html" },
+        { key: "twm-workspace-sop", title: "Standard Operating Procedures", total: 12, href: "sop-workspace.html" },
+        { key: "twm-workspace-pickup-return", title: "Pickup & Return", total: 3, href: "pickup-return-workspace.html" },
+        { key: "twm-workspace-forecasting", title: "Forecasting", total: 12, href: "forecasting-workspace.html" },
+        { key: "twm-workspace-rental-agreement", title: "Rental Agreement", total: 12, href: "rental-agreement-workspace.html" },
+        { key: "twm-workspace-local-rules", title: "Local Rules", total: 12, href: "local-rules-workspace.html" },
+        { key: "twm-workspace-fleet", title: "Fleet Control", total: 12, href: "fleet-workspace.html" },
+        { key: "twm-workspace-road-beyond-launch", title: "Road Beyond Launch", total: 12, href: "road-beyond-launch-workspace.html" }
       ];
 
       var done = 0;
       var active = 0;
       var focusTitle = "";
+      var current = null;
 
       books.forEach(function (book) {
         var raw = localStorage.getItem(book.key);
@@ -308,7 +216,10 @@
           done += 1;
         } else {
           active += 1;
-          if (!focusTitle) focusTitle = book.title;
+          if (!current) {
+            current = book;
+            focusTitle = book.title;
+          }
         }
       });
 
@@ -322,6 +233,7 @@
       var percentEl = document.getElementById("progress-percentage");
       var ring = document.getElementById("progress-ring");
       var focusEl = document.getElementById("current-focus-title");
+      var progressAction = document.getElementById("progress-action");
 
       if (doneEl) doneEl.textContent = done + " OF " + total;
       if (activeEl) activeEl.textContent = String(active);
@@ -331,11 +243,21 @@
         ring.style.setProperty("--progress", String(percent));
         ring.setAttribute("aria-label", percent + " percent complete");
       }
-      if (focusEl) {
-        focusEl.textContent = focusTitle || (result && result.system) || "Not started yet";
+      if (focusEl) focusEl.textContent = focusTitle || (result && result.system) || "Not started yet";
+
+      if (progressAction) {
+        if (current) {
+          progressAction.textContent = "CONTINUE";
+          progressAction.href = current.href;
+        } else if (done > 0) {
+          progressAction.textContent = "OPEN COLLECTION";
+          progressAction.href = "private-library.html";
+        } else {
+          progressAction.textContent = "BEGIN BUILDING";
+          progressAction.href = "founder-library.html";
+        }
       }
     });
   </script>
-
 </body>
 </html>
