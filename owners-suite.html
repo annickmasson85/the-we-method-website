@@ -277,6 +277,63 @@
         }
         if (focus && result.system) focus.textContent = result.system;
       }
+            var books = [
+        { key: "twm-workspace-business-launcher", title: "Business Launcher", total: 12 },
+        { key: "twm-workspace-international-launcher", title: "International Launcher", total: 13 },
+        { key: "twm-workspace-operation-bundle", title: "Operation Bundle", total: 8 },
+        { key: "twm-workspace-launch-roadmap", title: "Launch Roadmap", total: 12 },
+        { key: "twm-workspace-business-plan", title: "Business Plan", total: 12 },
+        { key: "twm-workspace-employee-training", title: "Employee Training Guide", total: 12 },
+        { key: "twm-workspace-essential-office", title: "Essential Office Setup", total: 9 },
+        { key: "twm-workspace-sop", title: "Standard Operating Procedures", total: 12 },
+        { key: "twm-workspace-pickup-return", title: "Pickup & Return", total: 3 },
+        { key: "twm-workspace-forecasting", title: "Forecasting", total: 12 },
+        { key: "twm-workspace-rental-agreement", title: "Rental Agreement", total: 12 },
+        { key: "twm-workspace-local-rules", title: "Local Rules", total: 12 },
+        { key: "twm-workspace-fleet", title: "Fleet Control", total: 12 },
+        { key: "twm-workspace-road-beyond-launch", title: "Road Beyond Launch", total: 12 }
+      ];
+
+      var done = 0;
+      var active = 0;
+      var focusTitle = "";
+
+      books.forEach(function (book) {
+        var raw = localStorage.getItem(book.key);
+        if (!raw) return;
+        var state = null;
+        try { state = JSON.parse(raw); } catch (error) { state = null; }
+        var finished = state && state.completed && state.completed.length >= book.total;
+        if (finished) {
+          done += 1;
+        } else {
+          active += 1;
+          if (!focusTitle) focusTitle = book.title;
+        }
+      });
+
+      var total = books.length;
+      var remaining = Math.max(0, total - done - active);
+      var percent = total ? Math.round((done / total) * 100) : 0;
+
+      var doneEl = document.getElementById("completed-resources");
+      var activeEl = document.getElementById("active-resources");
+      var remainEl = document.getElementById("remaining-resources");
+      var percentEl = document.getElementById("progress-percentage");
+      var ring = document.getElementById("progress-ring");
+      var focusEl = document.getElementById("current-focus-title");
+
+      if (doneEl) doneEl.textContent = done + " OF " + total;
+      if (activeEl) activeEl.textContent = String(active);
+      if (remainEl) remainEl.textContent = String(remaining);
+      if (percentEl) percentEl.textContent = percent + "%";
+      if (ring) {
+        ring.style.setProperty("--progress", String(percent));
+        ring.setAttribute("aria-label", percent + " percent complete");
+      }
+      if (focusEl) {
+        focusEl.textContent = focusTitle || (result && result.system) || "Not started yet";
+      }
     });
   </script>
 
