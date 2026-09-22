@@ -70,47 +70,47 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   let system = {
     title: "Business Launcher",
-    href: "business-launcher.html",
+    href: "founder-library-detail.html?product=business-launcher",
     text: "The right starting system for building a rental business with structure before the doors open."
   };
 
   if (answers.international === "yes") {
     system = {
       title: "International Business Launcher",
-      href: "international-business-launcher.html",
+      href: "founder-library-detail.html?product=international-business-launcher",
       text: "Built for founders organizing a U.S. rental business from an international starting point."
     };
   } else if (answers.goal === "operations" || answers.goal === "documents" || (stage === "Growth" && weakOps)) {
     system = {
       title: "Operation Bundle",
-      href: "operation-bundle.html",
+      href: "founder-library-detail.html?product=operation-bundle",
       text: "The operating system for daily consistency, team clarity, and documented procedures."
     };
   } else if (answers.goal === "grow" || stage === "Expansion") {
     system = {
       title: "The Road Beyond Launch",
-      href: "the-road-beyond-launch.html",
+      href: "founder-library-detail.html?product=road-beyond-launch",
       text: "A post-launch system for reviewing performance and planning the next chapter of growth."
     };
   } else if (answers.goal === "custom-fleet") {
     system = {
       title: "Fleet Cleaning & Maintenance Toolkit",
-      href: "fleet-cleaning-preventive-maintenance-toolkit.html",
+      href: "founder-library-detail.html?product=fleet-maintenance-toolkit",
       text: "The working resource for keeping the fleet consistent while the next vehicles are planned."
     };
   }
 
   const catalog = [
-    ["business-plan", "Foundation", "Business Plan Template & Example", "business-plan-template-example.html"],
-    ["registered", "Foundation", "Business Launch Roadmap", "business-launch-roadmap.html"],
-    ["training", "Operation", "Employee Training Guide", "employee-training-guide.html"],
-    ["sops", "Operation", "Standard Operating Procedures", "standard-operating-procedures-sop.html"],
-    ["office", "Operation", "Essential Office Setup Checklist", "essential-office-setup-equipment-checklist.html"],
-    ["pickup", "Operation", "Pickup & Return Template", "golf-cart-pickup-return-template.html"],
-    ["agreement", "Document", "Rental Agreement & Liability Waiver", "rental-agreement-liability-waiver.html"],
-    ["waiver", "Document", "Rental Agreement & Liability Waiver", "rental-agreement-liability-waiver.html"],
-    ["rules", "Document", "Local Rules Toolkit", "local-rules-rental-enforcement-toolkit.html"],
-    ["maintenance", "Fleet", "Fleet Cleaning & Maintenance Toolkit", "fleet-cleaning-preventive-maintenance-toolkit.html"]
+    ["business-plan", "Foundation", "Business Plan Template & Example", "founder-library-detail.html?product=business-plan-template"],
+    ["registered", "Foundation", "Business Launch Roadmap", "founder-library-detail.html?product=business-launch-roadmap"],
+    ["training", "Operation", "Employee Training Guide", "founder-library-detail.html?product=employee-training-guide"],
+    ["sops", "Operation", "Standard Operating Procedures", "founder-library-detail.html?product=standard-operating-procedures"],
+    ["office", "Operation", "Essential Office Setup Checklist", "founder-library-detail.html?product=office-setup-checklist"],
+    ["pickup", "Operation", "Pickup & Return Template", "founder-library-detail.html?product=pickup-return-template"],
+    ["agreement", "Document", "Rental Agreement & Liability Waiver", "founder-library-detail.html?product=rental-agreement-liability-waiver"],
+    ["waiver", "Document", "Rental Agreement & Liability Waiver", "founder-library-detail.html?product=rental-agreement-liability-waiver"],
+    ["rules", "Document", "Local Rules Toolkit", "founder-library-detail.html?product=local-rules-toolkit"],
+    ["maintenance", "Fleet", "Fleet Cleaning & Maintenance Toolkit", "founder-library-detail.html?product=fleet-maintenance-toolkit"]
   ];
 
   const resources = [];
@@ -125,14 +125,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     resources.push({
       collection: "Growth",
       title: "The Road Beyond Launch",
-      href: "the-road-beyond-launch.html"
+      href: "founder-library-detail.html?product=road-beyond-launch"
     });
   }
   if (answers.goal === "grow" && resources.length < 5) {
     resources.push({
       collection: "Finance",
       title: "Three-Year Revenue Forecasting",
-      href: "three-year-revenue-forecasting.html"
+      href: "founder-library-detail.html?product=three-year-revenue-forecasting"
     });
   }
 
