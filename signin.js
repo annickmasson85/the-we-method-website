@@ -39,10 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (error) throw error;
       if (!data.session) throw new Error("Unable to open your private access.");
 
-      const meta = (data.user && data.user.user_metadata) || {};
-      window.location.href = meta.role === "owner"
-        ? "principal-desk.html"
-        : "private-access.html";
+      const user = data.user || {};
+      const meta = user.user_metadata || {};
+      const signedEmail = String(user.email || email || "").toLowerCase();
+      const isOwner = meta.role === "owner" || signedEmail === "annickmasson85@gmail.com";
+
+      window.location.href = isOwner ? "principal-desk.html" : "private-access.html";
     } catch (error) {
       const text = String(error.message || "");
       if (/confirm/i.test(text)) {

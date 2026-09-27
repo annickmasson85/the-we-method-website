@@ -9,11 +9,12 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   var userRes = await supabase.auth.getUser();
-  var user = (userRes.data && userRes.data.user) || session.data.session.user;
-  var meta = (user && user.user_metadata) || {};
-  var role = meta.role || "client";
+  var user = (userRes.data && userRes.data.user) || session.data.session.user || {};
+  var meta = user.user_metadata || {};
+  var email = String(user.email || "").toLowerCase();
+  var isOwner = meta.role === "owner" || email === "annickmasson85@gmail.com";
 
-  if (role !== "owner") {
+  if (!isOwner) {
     window.location.href = "owners-suite.html";
     return;
   }
