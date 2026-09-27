@@ -39,7 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (error) throw error;
       if (!data.session) throw new Error("Unable to open your private access.");
 
-      window.location.href = "private-access.html";
+      const meta = (data.user && data.user.user_metadata) || {};
+      window.location.href = meta.role === "owner"
+        ? "principal-desk.html"
+        : "private-access.html";
     } catch (error) {
       const text = String(error.message || "");
       if (/confirm/i.test(text)) {
