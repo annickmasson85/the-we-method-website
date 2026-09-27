@@ -3,10 +3,20 @@
   color: #f3ead8;
 }
 
+.principal-desk-page .site-header {
+  grid-template-columns: auto 1px minmax(280px, 1fr) 1px minmax(220px, auto);
+  padding-right: 92px;
+}
+
+.desk-header-left {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
 .desk-lang {
   display: flex;
   gap: 8px;
-  margin-right: 8px;
 }
 
 .desk-lang button {
