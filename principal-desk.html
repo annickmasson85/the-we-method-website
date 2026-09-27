@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Principal command desk for The We Method house operations.">
+  <title>Principal Desk | The We Method</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="private-access.css">
+  <link rel="stylesheet" href="pca-menu.css">
+  <link rel="stylesheet" href="principal-desk.css">
+</head>
+<body class="private-access-page principal-desk-page">
+  <header class="site-header">
+    <a class="brand-mark" href="index.html">
+      <span class="brand-monogram">TWM</span>
+      <span class="brand-name">THE WE METHOD</span>
+    </a>
+    <span class="header-rule"></span>
+    <div class="header-title">
+      <span>PRINCIPAL DESK</span>
+      <small>HOUSE <b>◆</b> CLIENTS <b>◆</b> OPERATIONS</small>
+    </div>
+    <span class="header-rule"></span>
+    <a class="member-profile" href="profile.html">
+      <span class="profile-icon">
+        <img id="header-photo" alt="" hidden>
+        <svg id="header-icon" viewBox="0 0 48 48">
+          <circle cx="24" cy="16.5" r="8"></circle>
+          <path d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"></path>
+        </svg>
+      </span>
+      <span class="profile-copy">
+        <small>PRINCIPAL</small>
+        <strong id="member-profile-name">Owner</strong>
+      </span>
+    </a>
+  </header>
+
+  <main class="desk-main">
+    <section class="desk-intro">
+      <p class="desk-kicker">COMMAND VIEW</p>
+      <h1>The house, in one look.</h1>
+      <p>Applications, appointments, questionnaires, and resources sold. This page is not visible to clients.</p>
+    </section>
+
+    <section class="desk-metrics" aria-label="House metrics">
+      <article>
+        <p>Resources sold</p>
+        <strong id="metric-sold">12</strong>
+        <span>Systems currently open to buyers</span>
+      </article>
+      <article>
+        <p>Open files</p>
+        <strong id="metric-open">4</strong>
+        <span>Implementation dossiers in motion</span>
+      </article>
+      <article>
+        <p>Appointments</p>
+        <strong id="metric-appointments">3</strong>
+        <span>Scheduled this week</span>
+      </article>
+      <article>
+        <p>Questionnaires</p>
+        <strong id="metric-forms">2</strong>
+        <span>Waiting for review</span>
+      </article>
+    </section>
+
+    <section class="desk-panel">
+      <div class="desk-panel-head">
+        <div>
+          <p class="desk-kicker">IMPLEMENTATION BOARD</p>
+          <h2>Client files</h2>
+        </div>
+        <p class="desk-note">Demonstration records until live requests are connected.</p>
+      </div>
+
+      <div class="desk-table" id="desk-files">
+        <div class="desk-row desk-row-head">
+          <span>Client</span>
+          <span>System</span>
+          <span>Stage</span>
+          <span>Next</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="desk-links">
+      <a href="private-implementation.html">Implementation page</a>
+      <a href="operation-insight.html">Operation Insight</a>
+      <a href="private-library.html">Private Library</a>
+      <a href="owners-suite.html">Owner’s Suite preview</a>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="pca-menu.js"></script>
+  <script src="principal-desk.js"></script>
+</body>
+</html>
