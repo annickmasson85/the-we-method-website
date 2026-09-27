@@ -19,6 +19,21 @@ document.addEventListener("DOMContentLoaded", async function () {
     return;
   }
 
+  var t = window.twmPrincipalText || function (key) { return key; };
+  document.querySelectorAll("[data-i18n]").forEach(function (node) {
+    node.textContent = t(node.getAttribute("data-i18n"));
+  });
+  document.documentElement.lang = window.TWM_PRINCIPAL_LANG || "en";
+
+  document.querySelectorAll(".desk-lang button").forEach(function (button) {
+    if (button.getAttribute("data-lang") === window.TWM_PRINCIPAL_LANG) {
+      button.classList.add("is-active");
+    }
+    button.addEventListener("click", function () {
+      window.twmSetPrincipalLang(button.getAttribute("data-lang"));
+    });
+  });
+
   var name = document.getElementById("member-profile-name");
   if (name) {
     name.textContent = [meta.first_name, meta.last_name].filter(Boolean).join(" ") || "Owner";

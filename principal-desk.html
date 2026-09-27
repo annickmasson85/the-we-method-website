@@ -20,10 +20,14 @@
     </a>
     <span class="header-rule"></span>
     <div class="header-title">
-      <span>PRINCIPAL DESK</span>
+      <span data-i18n="desk">PRINCIPAL DESK</span>
       <small>HOUSE <b>◆</b> CLIENTS <b>◆</b> OPERATIONS</small>
     </div>
     <span class="header-rule"></span>
+    <div class="desk-lang" aria-label="Language">
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="fr">FR</button>
+    </div>
     <a class="member-profile" href="profile.html">
       <span class="profile-icon">
         <img id="header-photo" alt="" hidden>
@@ -33,7 +37,7 @@
         </svg>
       </span>
       <span class="profile-copy">
-        <small>PRINCIPAL</small>
+        <small data-i18n="principal">PRINCIPAL</small>
         <strong id="member-profile-name">Owner</strong>
       </span>
     </a>
@@ -41,63 +45,57 @@
 
   <main class="desk-main">
     <section class="desk-intro">
-      <p class="desk-kicker">COMMAND VIEW</p>
-      <h1>The house, in one look.</h1>
-      <p>Applications, appointments, questionnaires, and resources sold. This page is not visible to clients.</p>
+      <p class="desk-kicker" data-i18n="kicker">COMMAND VIEW</p>
+      <h1 data-i18n="title">The house, in one look.</h1>
+      <p data-i18n="intro">Applications, appointments, questionnaires, and resources sold. This page is not visible to clients.</p>
     </section>
 
     <section class="desk-metrics" aria-label="House metrics">
       <article>
-        <p>Resources sold</p>
+        <p data-i18n="metricSold">Resources sold</p>
         <strong id="metric-sold">12</strong>
-        <span>Systems currently open to buyers</span>
+        <span data-i18n="metricSoldNote">Systems currently open to buyers</span>
       </article>
       <article>
-        <p>Open files</p>
+        <p data-i18n="metricOpen">Open files</p>
         <strong id="metric-open">4</strong>
-        <span>Implementation dossiers in motion</span>
+        <span data-i18n="metricOpenNote">Implementation dossiers in motion</span>
       </article>
       <article>
-        <p>Appointments</p>
+        <p data-i18n="metricAppt">Appointments</p>
         <strong id="metric-appointments">3</strong>
-        <span>Scheduled this week</span>
+        <span data-i18n="metricApptNote">Scheduled this week</span>
       </article>
       <article>
-        <p>Questionnaires</p>
+        <p data-i18n="metricForms">Questionnaires</p>
         <strong id="metric-forms">2</strong>
-        <span>Waiting for review</span>
+        <span data-i18n="metricFormsNote">Waiting for review</span>
       </article>
     </section>
 
     <section class="desk-panel">
       <div class="desk-panel-head">
         <div>
-          <p class="desk-kicker">IMPLEMENTATION BOARD</p>
-          <h2>Client files</h2>
+          <p class="desk-kicker" data-i18n="boardKicker">IMPLEMENTATION BOARD</p>
+          <h2 data-i18n="filesTitle">Client files</h2>
         </div>
-        <p class="desk-note">Demonstration records until live requests are connected.</p>
+        <p class="desk-note" data-i18n="demoNote">Demonstration records until live requests are connected.</p>
       </div>
 
       <div class="desk-table" id="desk-files">
         <div class="desk-row desk-row-head">
-          <span>Client</span>
-          <span>System</span>
-          <span>Stage</span>
-          <span>Next</span>
+          <span data-i18n="colClient">Client</span>
+          <span data-i18n="colSystem">System</span>
+          <span data-i18n="colStage">Stage</span>
+          <span data-i18n="colNext">Next</span>
         </div>
       </div>
-    </section>
-
-    <section class="desk-links">
-      <a href="private-implementation.html">Implementation page</a>
-      <a href="operation-insight.html">Operation Insight</a>
-      <a href="private-library.html">Private Library</a>
-      <a href="owners-suite.html">Owner’s Suite preview</a>
     </section>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
+  <script src="principal-i18n.js"></script>
   <script src="principal-menu.js"></script>
   <script src="principal-desk.js"></script>
 </body>

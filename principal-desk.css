@@ -3,6 +3,30 @@
   color: #f3ead8;
 }
 
+.desk-lang {
+  display: flex;
+  gap: 8px;
+  margin-right: 8px;
+}
+
+.desk-lang button {
+  min-width: 36px;
+  padding: 6px 8px;
+  color: rgba(243, 234, 216, 0.55);
+  background: transparent;
+  border: 1px solid rgba(201, 169, 98, 0.28);
+  font-family: Montserrat, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+}
+
+.desk-lang button.is-active {
+  color: #1a1206;
+  background: linear-gradient(135deg, #f0d487, #c89a38);
+  border-color: #c9a962;
+}
+
 .desk-main {
   width: min(1120px, calc(100% - 48px));
   margin: 36px auto 80px;
