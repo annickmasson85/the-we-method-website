@@ -45,7 +45,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 /* Main photograph and welcome copy */
 .desk-hero {
   min-height: 640px; height: auto; overflow: visible; position: relative;
-  background: #080808 url("images/owner-desk/desk-background.webp") center / cover no-repeat;
+  background: #080808 url("images/desk-background.webp") center / cover no-repeat;
 }
 .hero-shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(0,0,0,.08) 0%, rgba(0,0,0,.38) 35%, rgba(0,0,0,.34) 100%); }
 .hero-layout { position: relative; z-index: 1; margin: 0 4.6vw 24px 6vw; display: grid; grid-template-columns: minmax(260px,32%) minmax(0,68%); align-items: start; }
