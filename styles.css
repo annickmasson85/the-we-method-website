@@ -3161,3 +3161,78 @@ body.assessment-details-page .assessment-final__action {
     width: min(245px, 100%) !important;
   }
 }
+/* Homepage adjustments — load after styles.css */
+
+.header-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  text-decoration: none;
+}
+
+.logo-monogram {
+  color: #d4b36a;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 0.82;
+  letter-spacing: 0.04em;
+  text-shadow: none;
+}
+
+.logo-house {
+  display: block;
+  margin-top: 6px;
+  color: #d4b36a;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+}
+
+.logo-tagline {
+  margin-top: 8px;
+  color: #c49a54;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+}
+
+.operation-insight-card {
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(3, 3, 3, 0.28) 0%,
+      rgba(3, 3, 3, 0.22) 35%,
+      rgba(3, 3, 3, 0.84) 72%,
+      #030303 100%
+    ),
+    url("images/operation-insight-card.jpg");
+  background-size: cover;
+  background-position: center;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.operation-insight-card:hover {
+  transform: translateY(-5px);
+  border-color: #d8b35a;
+  box-shadow:
+    0 0 12px rgba(216, 179, 90, 0.55),
+    0 0 30px rgba(199, 154, 56, 0.28),
+    inset 0 0 20px rgba(199, 154, 56, 0.08);
+  z-index: 5;
+}
+
+.fleet-solution-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+@media (max-width: 760px) {
+  .logo-monogram { font-size: 54px; }
+}
