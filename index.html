@@ -16,27 +16,32 @@
     .header-logo {
       display: flex;
       flex-direction: column;
-      align-items: stretch;
+      align-items: flex-start;
       width: max-content;
+      max-width: 280px;
     }
     .logo-monogram {
       display: block;
+      width: 100%;
       color: #d4b36a !important;
-      font-size: 72px !important;
+      font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+      font-size: 78px !important;
       font-weight: 500;
-      line-height: 0.82 !important;
-      letter-spacing: 0.04em !important;
+      line-height: 0.8 !important;
+      letter-spacing: 0.22em !important;
       text-shadow: none !important;
     }
     .logo-tagline {
       display: block;
       width: 100%;
-      margin-top: 8px !important;
+      margin-top: 10px !important;
       color: #c49a54 !important;
-      font-size: 7px !important;
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 8px !important;
+      font-weight: 600;
       letter-spacing: 0.12em !important;
-      text-align: justify;
-      text-align-last: justify;
+      text-align: center !important;
+      text-align-last: center !important;
       white-space: nowrap;
     }
     .operation-insight-card {
@@ -78,7 +83,7 @@
       box-shadow: none;
     }
     @media (max-width: 760px) {
-      .logo-monogram { font-size: 54px !important; }
+      .logo-monogram { font-size: 56px !important; letter-spacing: 0.16em !important; }
     }
   </style>
 </head>
