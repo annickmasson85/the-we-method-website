@@ -134,14 +134,12 @@ function t(key) {
 function applyLang() {
   document.documentElement.lang = lang;
   document.querySelectorAll("[data-i18n]").forEach((node) => {
+    if (node.closest(".owner-profile")) {
+      if (node.getAttribute("data-i18n") === "ownerProfile") node.textContent = t("ownerProfile");
+      return;
+    }
     node.innerHTML = t(node.getAttribute("data-i18n")).replace(/\n/g, "<br>");
   });
-  const welcome = document.querySelector(".welcome h1");
-  if (welcome) {
-    const first = document.querySelector("[data-owner-first]");
-    const name = first ? first.textContent : "OWNER";
-    welcome.innerHTML = t("welcomeLine") + "<br><span data-owner-first>" + name + "</span>";
-  }
   document.querySelectorAll(".desk-lang button").forEach((button) => {
     button.classList.toggle("is-active", button.getAttribute("data-lang") === lang);
   });
@@ -164,10 +162,11 @@ function counts() {
 }
 
 function renderDashboard() {
+  applyLang();
   const { open, completed, pending, percent } = counts();
-  const firstName = (state.ownerName || "Owner").trim().split(/\s+/)[0] || "OWNER";
+  const firstName = (state.ownerName || "Annick Masson").trim().split(/\s+/)[0] || "ANNICK";
   setAll("[data-owner-first]", firstName.toLocaleUpperCase("en-US"));
-  setAll("[data-owner-full]", state.ownerName);
+  setAll("[data-owner-full]", state.ownerName || "Annick Masson");
   setAll("[data-task-open]", open);
   setAll("[data-task-completed]", completed);
   setAll("[data-docs-pending]", pending);
@@ -176,7 +175,6 @@ function renderDashboard() {
   setAll("[data-next-appointment]", state.appointments[0] ? state.appointments[0].when + " · " + state.appointments[0].title : "—");
   const ring = document.querySelector(".progress-ring");
   if (ring) ring.style.setProperty("--progress", percent + "%");
-  applyLang();
 }
 
 function saveState() {
