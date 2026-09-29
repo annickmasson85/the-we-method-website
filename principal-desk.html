@@ -1,249 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080807">
+  <title>Owner Command Desk | The We Method</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="principal-desk.css">
+</head>
+<body>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M7 3v4m10-4v4M3 10h18m-14 4h4m-4 4h8"/></symbol>
+    <symbol id="i-team" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l3.7 2.5M8 4.9 6.5 3M16 4.9 17.5 3"/></symbol>
+    <symbol id="i-docs" viewBox="0 0 24 24"><path d="M4 9V5h6m4 0h6v4m0 6v4h-6m-4 0H4v-4M8 12h8m-4-4v8"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="1"/><path d="M5.5 8h13M6 15h7"/></symbol>
+    <symbol id="i-report" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l-3 2m3-2 3 2"/></symbol>
+    <symbol id="i-page" viewBox="0 0 24 24"><path d="M5 2.5h9l5 5V21H5zM14 2.5V8h5M8 12h8M8 16h8"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><circle cx="15.5" cy="8.5" r="4.5"/><path d="m12.5 12-8.5 8.5V17l3-3h3l2.5-2M16 8.5h.1"/></symbol>
+  </svg>
 
-:root {
-  --black: #070707;
-  --panel: #0c0b09;
-  --gold: #c49a54;
-  --gold-light: #e4bd77;
-  --gold-dark: #71532e;
-  --cream: #f1e8d7;
-  --line: rgba(184, 137, 70, .50);
-  --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  --sans: Montserrat, Arial, sans-serif;
-}
+  <header class="site-header">
+    <a class="brand" href="principal-desk.html">
+      <span class="brand-mark">TWM</span><span class="brand-name">THE WE METHOD</span>
+    </a>
+    <div class="masthead">
+      <span class="masthead-title" data-i18n="masthead">OWNER COMMAND DESK</span>
+      <span class="masthead-tagline">BUILD <b>◆</b> LAUNCH <b>◆</b> GROW</span>
+    </div>
+    <div class="header-actions">
+      <div class="desk-lang">
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="fr">FR</button>
+      </div>
+      <a class="owner-profile" href="profile.html">
+        <img id="header-photo" src="images/owner-avatar.webp" alt="" width="44" height="44">
+        <span><small data-i18n="ownerProfile">OWNER PROFILE</small><strong data-owner-full>Annick Masson</strong></span>
+      </a>
+      <button class="menu-toggle" type="button" id="menu-toggle" aria-controls="main-menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--black); color: var(--cream); font-family: var(--sans); }
-button, input { font: inherit; }
-button { cursor: pointer; }
-button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
-.svg-library { position: absolute; width: 0; height: 0; overflow: hidden; }
-
-/* Header */
-.site-header {
-  min-height: 78px; display: grid; grid-template-columns: auto 1fr auto;
-  align-items: center; gap: 18px;
-  padding: 10px 28px; border-bottom: 1px solid #3c2b19;
-  background: linear-gradient(100deg, #080908, #0b0b0a 55%, #080807);
-  position: relative; z-index: 3;
-}
-.brand { width: max-content; text-align: center; text-decoration: none; color: var(--gold); display: flex; flex-direction: column; }
-.brand-mark { font: 400 47px/.72 var(--serif); letter-spacing: .07em; }
-.brand-name { padding-top: 7px; font: 600 7px/1 var(--sans); letter-spacing: .49em; white-space: nowrap; }
-.masthead { text-align: center; color: var(--gold-light); display: flex; flex-direction: column; gap: 7px; padding-top: 3px; }
-.masthead-title { font: 500 16px/1.1 var(--serif); letter-spacing: .48em; white-space: nowrap; }
-.masthead-tagline { font: 500 10px/1.2 var(--sans); letter-spacing: .34em; white-space: nowrap; }
-.masthead-tagline b { font-size: 9px; font-weight: 400; padding: 0 6px; color: #d9ae63; }
-.header-actions { display: flex; align-items: center; gap: 16px; justify-self: end; min-width: 0; }
-.owner-profile { border: 0; background: none; color: var(--cream); display: flex; align-items: center; gap: 11px; padding: 0; text-align: left; }
-.owner-profile img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 1px solid #c49a54; background: #111; }
-.owner-profile span { display: flex; flex-direction: column; gap: 3px; }
-.owner-profile small { font: 500 8px/1.1 var(--sans); letter-spacing: .16em; color: var(--gold-light); white-space: nowrap; }
-.owner-profile strong { font: 500 15px/1 var(--serif); white-space: nowrap; }
-.menu-toggle { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 24px; height: 26px; padding: 0; border: 0; background: transparent; }
-.menu-toggle span { display: block; height: 2px; width: 23px; background: var(--gold); }
-
-/* Main photograph and welcome copy */
-.desk-hero {
-  min-height: 640px; height: auto; overflow: visible; position: relative;
-  background: #080808 url("images/desk-background.webp") center / cover no-repeat;
-}
-.hero-shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(0,0,0,.08) 0%, rgba(0,0,0,.38) 35%, rgba(0,0,0,.34) 100%); }
-.hero-layout { position: relative; z-index: 1; margin: 0 4.6vw 24px 6vw; display: grid; grid-template-columns: minmax(260px,32%) minmax(0,68%); align-items: start; }
-.welcome { padding-top: 22px; padding-right: 26px; }
-.eyebrow { color: var(--gold-light); font: 500 10px/1.2 var(--sans); letter-spacing: .32em; margin: 0; }
-.welcome h1 { color: #c79c57; font: 400 clamp(36px, 4.02vw, 65px)/.99 var(--serif); margin: 7px 0 0; letter-spacing: .015em; white-space: nowrap; }
-.owner-role { color: #e7c186; font: 500 11px/1.3 var(--sans); letter-spacing: .48em; margin: 7px 0 0; white-space: nowrap; }
-.owner-role span { font-size: 9px; padding: 0 3px; }
-.gold-rule { height: 13px; display: flex; align-items: center; width: 236px; margin-top: 11px; color: var(--gold-light); }
-.gold-rule::before, .gold-rule::after { content: ""; height: 1px; background: var(--gold); flex: 1; }
-.gold-rule span { font-size: 9px; padding: 0 5px; }
-.welcome-note { font: italic 500 16px/1.25 var(--serif); margin: 10px 0 0; color: #f7eee0; }
-.welcome-motto { color: #e2bf89; font: 600 8px/1.4 var(--sans); letter-spacing: .17em; white-space: nowrap; margin-top: 13px; }
-
-/* Gold circle and three image cards */
-.private-access { position: relative; min-width: 0; padding-top: 134px; }
-.progress-ring {
-  position: absolute; top: 20px; right: 7.2%; width: 106px; height: 106px; border: 0; border-radius: 50%; padding: 7px;
-  background: conic-gradient(var(--gold) var(--progress, 68%), #3b3226 0);
-  color: var(--gold-light); box-shadow: 0 0 0 1px #100d09;
-}
-.progress-inner { display: flex; height: 100%; width: 100%; border-radius: 50%; align-items: center; justify-content: center; flex-direction: column; background: #090908; }
-.progress-inner strong { font: 500 31px/.95 var(--serif); }
-.progress-inner small { font: 600 8px/1.2 var(--sans); letter-spacing: .08em; margin-top: 5px; }
-.ornament-title { display: flex; align-items: center; justify-content: center; width: 100%; gap: 12px; color: var(--gold-light); font: 500 17px/1.1 var(--serif); letter-spacing: .18em; white-space: nowrap; margin: 0; text-align: center; }
-.ornament-title::before, .ornament-title::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--line)); }
-.ornament-title::before { background: linear-gradient(90deg, transparent, var(--line)); }
-.ornament-title::after { background: linear-gradient(90deg, var(--line), transparent); }
-.ornament-title span { position: relative; }
-.ornament-title span::before, .ornament-title span::after { content: "◆"; color: #d1a25c; position: absolute; font-size: 8px; top: 50%; transform: translateY(-50%); }
-.ornament-title span::before { left: -22px; }
-.ornament-title span::after { right: -22px; }
-.private-title { height: 19px; }
-.access-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 11px; margin-top: 8px; }
-.access-card { height: 209px; min-width: 0; overflow: hidden; border: 1px solid rgba(167,124,68,.65); outline: 1px solid rgba(52,39,25,.8); outline-offset: -4px; position: relative; background: #0e0c09; box-shadow: 0 7px 14px #0009; }
-.access-card::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, transparent 16%, #0002 46%, #000c 75%, #030302 100%); }
-.access-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.access-card-content { position: absolute; bottom: 11px; left: 5px; right: 5px; z-index: 1; text-align: center; }
-.access-card h3 { color: #efc885; font: 500 16px/1.1 var(--serif); margin: 0; white-space: nowrap; }
-.access-card p { font: 500 11px/1.1 var(--sans); margin: 5px 0 9px; color: #f4efe8; white-space: nowrap; }
-.dot { padding: 0 2px; }
-.gold-button { min-width: 131px; min-height: 25px; border: 1px solid #c89e5d; border-radius: 2px; color: #17120b; background: linear-gradient(#c6a264,#ae854b); font: 600 9px/1 var(--sans); letter-spacing: .16em; padding: 6px 13px; transition: filter .18s, transform .18s; }
-.gold-button:hover { filter: brightness(1.13); transform: translateY(-1px); }
-
-/* Four books at the lower edge of the photograph */
-.books-section { margin-top: 6px; }
-.books-section .ornament-title { height: 18px; }
-.books-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 18px; padding: 2px 22px 0; }
-.book { border: 0; background: transparent; padding: 0; min-width: 0; height: 185px; overflow: hidden; transition: transform .22s, filter .22s; }
-.book:hover { transform: translateY(-7px); filter: brightness(1.18); }
-.book img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-
-/* Action strip */
-.desk-tools { height: 145px; padding: 5px 5.8vw 0; border-top: 1px solid #574026; border-bottom: 1px solid #382a1b; background: #070808; }
-.desk-tools .ornament-title { height: 17px; font-size: 16px; }
-.quick-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 15px; padding: 0 10px; margin-top: 5px; }
-.quick-button { height: 35px; border: 1px solid #604725; color: #f1ede7; background: linear-gradient(#0b0b0a,#070707); display: flex; align-items: center; justify-content: center; gap: 17px; font: 500 10px/1 var(--sans); letter-spacing: .16em; white-space: nowrap; transition: border-color .2s, background .2s; }
-.quick-button:hover { border-color: var(--gold-light); background: #1a140c; }
-.quick-button svg { width: 24px; height: 24px; flex: none; fill: none; stroke: var(--gold); stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round; }
-.glance-title { margin-top: 7px; }
-.glance-grid { border: 1px solid #5b4225; margin-top: 5px; height: 48px; display: grid; grid-template-columns: .86fr 1.08fr 1.08fr 1.14fr; align-items: center; }
-.glance-item { min-width: 0; height: 30px; border-right: 1px solid #6b4d2c; display: flex; align-items: center; justify-content: center; gap: 11px; }
-.glance-item:last-child { border: 0; }
-.glance-item strong { color: var(--gold-light); font: 500 23px/1 var(--serif); }
-.glance-item span { color: #f2eadd; font: 500 9px/1.6 var(--sans); letter-spacing: .13em; }
-.glance-item svg { width: 31px; height: 31px; flex: none; fill: none; stroke: var(--gold); stroke-width: 1.15; stroke-linecap: round; stroke-linejoin: round; }
-.site-footer { min-height: 45px; display: flex; flex-direction: column; align-items: center; padding-top: 3px; border-top: 1px solid #100e0b; color: var(--gold); background: #080808; }
-.site-footer span { font: 400 35px/.8 var(--serif); letter-spacing: .06em; }
-.site-footer small { font: 500 6px/1 var(--sans); letter-spacing: .44em; padding-top: 5px; }
-
-/* Navigation and working panels */
-.menu-backdrop { position: fixed; inset: 0; background: #000b; z-index: 8; }
-.menu-backdrop[hidden] { display: none; }
-.side-menu { position: fixed; z-index: 9; right: 0; top: 0; bottom: 0; width: min(340px,88vw); background: #0d0c0a; border-left: 1px solid var(--gold-dark); box-shadow: -20px 0 70px #000b; padding: 26px; transform: translateX(105%); transition: transform .25s ease; overflow-y: auto; }
-.side-menu.is-open { transform: translateX(0); }
-.menu-top { display: flex; justify-content: space-between; align-items: center; color: var(--gold-light); font: 500 15px var(--serif); letter-spacing: .24em; padding-bottom: 22px; border-bottom: 1px solid #5b4225; margin-bottom: 15px; }
-.menu-close, .dialog-close { color: var(--gold-light); border: 0; background: transparent; font: 36px/1 var(--serif); padding: 0 4px; }
-.side-menu > button:not(.menu-close), .side-menu > a { display: block; width: 100%; padding: 13px 5px; border: 0; border-bottom: 1px solid #3b2f21; text-align: left; color: var(--cream); background: transparent; font: 500 15px var(--serif); letter-spacing: .08em; text-decoration: none; }
-.side-menu > button:hover, .side-menu > a:hover { color: var(--gold-light); }
-.desk-dialog { width: min(600px,calc(100vw - 30px)); max-height: min(700px,calc(100dvh - 30px)); padding: 0; border: 1px solid #9f7541; background: #0b0a08; color: var(--cream); box-shadow: 0 26px 110px #000; }
-.desk-dialog::backdrop { background: rgba(0,0,0,.78); backdrop-filter: blur(3px); }
-.dialog-head { position: sticky; top: 0; z-index: 1; display: flex; align-items: flex-start; justify-content: space-between; padding: 24px 28px 18px; border-bottom: 1px solid #6e512e; background: #0c0b09; }
-.dialog-head h2 { font: 500 36px/1 var(--serif); color: var(--gold-light); margin: 9px 0 0; }
-.dialog-body { padding: 22px 28px 29px; overflow-y: auto; max-height: calc(min(700px,100dvh - 30px) - 105px); }
-.panel-intro { font: 400 15px/1.6 var(--serif); color: #d6c6ad; margin: 0 0 17px; }
-.panel-list { list-style: none; padding: 0; margin: 0 0 20px; }
-.panel-row { min-height: 52px; padding: 11px 0; border-bottom: 1px solid #3b2d1e; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.panel-row strong { display: block; font: 500 17px/1.2 var(--serif); }
-.panel-row small { display: block; color: #bcae97; font: 500 10px/1.5 var(--sans); letter-spacing: .06em; margin-top: 4px; }
-.panel-row.is-done strong { text-decoration: line-through; color: #a99b84; }
-.row-action { border: 1px solid #84643b; background: transparent; color: var(--gold-light); padding: 7px 9px; white-space: nowrap; font: 500 10px var(--sans); letter-spacing: .09em; }
-.row-action:hover { background: #241b12; }
-.panel-form { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 12px; }
-.panel-form label { width: 100%; color: var(--gold-light); font: 500 10px var(--sans); letter-spacing: .16em; }
-.panel-form input { background: #15120e; border: 1px solid #705331; color: var(--cream); padding: 10px 12px; min-width: 0; flex: 1; font-size: 13px; color-scheme: dark; }
-.panel-form input[type="date"] { flex: 0 1 155px; }
-.panel-form input[type="time"] { flex: 0 1 120px; }
-.panel-form .gold-button { min-height: 37px; }
-.panel-footer { color: #a89579; font: 500 10px/1.6 var(--sans); letter-spacing: .04em; margin: 16px 0 0; }
-.book-panel-cover { width: 128px; height: 155px; object-fit: cover; float: left; margin: 0 21px 14px 0; border: 1px solid #644827; }
-.book-panel-list { font: 500 15px/1.5 var(--serif); padding-left: 20px; }
-.book-panel-list li { margin: 7px 0; }
-.metric-stack { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin: 18px 0; }
-.metric-box { border: 1px solid #6a4e2c; padding: 18px; }
-.metric-box strong { display: block; color: var(--gold-light); font: 500 34px/1 var(--serif); }
-.metric-box span { display: block; margin-top: 7px; font: 500 10px/1.4 var(--sans); letter-spacing: .13em; }
-.panel-progress { height: 9px; background: #3d3022; margin: 15px 0 8px; overflow: hidden; }
-.panel-progress span { display: block; height: 100%; background: var(--gold); }
-
-@media (max-width: 1050px) {
-  .site-header { padding-inline: 22px; }
-  .header-actions { gap: 22px; }
-  .hero-layout { margin-left: 5vw; margin-right: 4vw; grid-template-columns: 35% 65%; }
-  .welcome h1 { font-size: clamp(33px, 4vw, 48px); }
-  .owner-role { letter-spacing: .32em; }
-  .access-grid { gap: 8px; }
-  .access-card h3 { font-size: 14px; }
-  .books-grid { gap: 10px; padding-inline: 14px; }
-  .desk-tools { padding-inline: 4vw; }
-  .quick-grid { gap: 8px; padding-inline: 0; }
-  .quick-button { gap: 9px; font-size: 9px; }
-}
-@media (max-width: 760px) {
-  .site-header { height: 68px; grid-template-columns: auto 1fr; padding: 0 18px; }
-  .brand-mark { font-size: 40px; }
-  .brand-name { font-size: 6px; }
-  .masthead { display: none; }
-  .owner-profile span { display: none; }
-  .header-actions { gap: 17px; }
-  .desk-hero { height: auto; overflow: visible; background-position: left top; background-size: auto 610px; }
-  .hero-shade { background: linear-gradient(to bottom, #0006, #0008 43%, #070707 75%); }
-  .hero-layout { display: block; margin: 0; padding: 0 18px 30px; }
-  .welcome { padding: 30px 0 0; min-height: 320px; }
-  .welcome h1 { font-size: clamp(38px, 11vw, 62px); }
-  .welcome-motto { white-space: normal; }
-  .private-access { padding-top: 4px; }
-  .progress-ring { top: -245px; right: 3px; width: 86px; height: 86px; padding: 6px; }
-  .progress-inner strong { font-size: 27px; }
-  .access-grid { gap: 10px; }
-  .access-card { height: 205px; }
-  .books-section { margin-top: 25px; }
-  .books-grid { padding: 7px 0 0; }
-  .book { height: auto; aspect-ratio: .82; }
-  .desk-tools { height: auto; padding: 15px 18px 22px; }
-  .quick-grid { grid-template-columns: repeat(3,1fr); gap: 8px; margin-top: 11px; }
-  .quick-button { height: 42px; }
-  .glance-title { margin-top: 18px; }
-  .glance-grid { height: auto; grid-template-columns: repeat(2,1fr); padding: 8px 0; margin-top: 10px; }
-  .glance-item { height: 52px; border-bottom: 1px solid #47331e; }
-  .glance-item:nth-child(2) { border-right: 0; }
-  .glance-item:nth-child(n+3) { border-bottom: 0; }
-}
-@media (max-width: 570px) {
-  .welcome { min-height: 315px; }
-  .welcome h1 { font-size: clamp(36px, 10vw, 52px); }
-  .welcome-note { font-size: 16px; }
-  .progress-ring { top: -210px; width: 74px; height: 74px; }
-  .progress-inner strong { font-size: 23px; }
-  .progress-inner small { font-size: 6px; }
-  .access-grid { grid-template-columns: 1fr; }
-  .access-card { height: 235px; }
-  .access-card img { object-position: center 42%; }
-  .access-card h3 { font-size: 19px; }
-  .access-card p { font-size: 12px; }
-  .gold-button { min-height: 29px; }
-  .books-grid { gap: 6px; }
-  .quick-grid { grid-template-columns: repeat(2,1fr); }
-  .quick-button:last-child { grid-column: 1/-1; }
-  .quick-button { font-size: 9px; }
-  .ornament-title { font-size: 15px; gap: 7px; }
-  .ornament-title span::before { left: -16px; }
-  .ornament-title span::after { right: -16px; }
-  .dialog-head { padding: 20px; }
-  .dialog-body { padding: 20px; }
-  .dialog-head h2 { font-size: 30px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
-}
-
-.desk-lang {
-  display: flex;
-  gap: 6px;
-  margin-right: 4px;
-}
-.desk-lang button {
-  min-width: 34px;
-  padding: 5px 7px;
-  color: rgba(241, 232, 215, .55);
-  background: transparent;
-  border: 1px solid rgba(196, 154, 84, .35);
-  font-family: var(--sans);
-  font-size: 9px;
-  letter-spacing: .16em;
-}
-.desk-lang button.is-active {
-  color: #1a1206;
-  background: linear-gradient(135deg, #e4bd77, #c49a54);
-  border-color: #c49a54;
-}
+  <main>
+    <section class="desk-hero">
+      <div class="hero-shade"></div>
+      <div class="hero-layout">
+        <div class="welcome">
+          <p class="eyebrow" data-i18n="masthead">OWNER COMMAND DESK</p>
+          <h1><span data-i18n="welcomeLine">WELCOME BACK</span><br><span data-owner-first>ANNICK</span></h1>
+          <p class="owner-role">FOUNDER <span>◆</span> OWNER</p>
+          <div class="gold-rule"><span>◆</span></div>
+          <p class="welcome-note" data-i18n="welcomeNote">Your week, your books, your team<br>and your documents are ready.</p>
+          <p class="welcome-motto" data-i18n="motto">LEAD WITH CLARITY. OPERATE WITH INTENTION.</p>
+        </div>
+        <div class="private-access">
+          <button class="progress-ring" type="button" data-panel="reports">
+            <span class="progress-inner"><strong data-week-percent>68%</strong><small data-i18n="thisWeek">THIS WEEK</small></span>
+          </button>
+          <h2 class="ornament-title private-title"><span data-i18n="privateAccess">YOUR PRIVATE ACCESS</span></h2>
+          <div class="access-grid">
+            <article class="access-card">
+              <img src="images/card-tasks.webp" alt="">
+              <div class="access-card-content">
+                <h3 data-i18n="tasksTitle">THIS WEEK’S TASKS</h3>
+                <p><span data-task-open>7</span> <span data-i18n="open">open</span> <span class="dot">·</span> <span data-task-completed>3</span> <span data-i18n="completed">completed</span></p>
+                <button class="gold-button" type="button" data-panel="tasks" data-i18n="openTasks">OPEN TASKS</button>
+              </div>
+            </article>
+            <article class="access-card">
+              <img src="images/card-appointments.webp" alt="">
+              <div class="access-card-content">
+                <h3 data-i18n="appointmentsTitle">APPOINTMENTS</h3>
+                <p data-next-appointment>Tue 10:00 · Fleet review</p>
+                <button class="gold-button" type="button" data-panel="appointments" data-i18n="viewCalendar">VIEW CALENDAR</button>
+              </div>
+            </article>
+            <article class="access-card">
+              <img src="images/card-documents.webp" alt="">
+              <div class="access-card-content">
+                <h3 data-i18n="docsTitle">DOCUMENTS PENDING</h3>
+                <p><span data-docs-pending>4</span> <span data-i18n="awaiting">awaiting review</span></p>
+                <button class="gold-button" type="button" data-panel="documents" data-i18n="reviewFiles">REVIEW FILES</button>
+              </div>
+            </article>
+          </div>
+          <section class="books-section">
+            <h2 class="ornament-title"><span data-i18n="workingBooks">THE WORKING BOOKS</span></h2>
+            <div class="books-grid">
+              <a class="book" href="operation-insight.html"><img src="images/book-updates.webp" alt="Updates"></a>
+              <a class="book" href="operation-bundle-workspace.html"><img src="images/book-sop.webp" alt="S.O.P."></a>
+              <a class="book" href="employee-training-workspace.html"><img src="images/book-training.webp" alt="Training"></a>
+              <a class="book" href="fleet-care-workspace.html"><img src="images/book-fleet.webp" alt="Fleet"></a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+    <section class="desk-tools">
+      <h2 class="ornament-title"><span data-i18n="quickTools">QUICK TOOLS</span></h2>
+      <div class="quick-grid">
+        <button class="quick-button" type="button" data-panel="appointments"><svg><use href="#i-calendar"></use></svg><span data-i18n="calendar">CALENDAR</span></button>
+        <button class="quick-button" type="button" data-panel="team"><svg><use href="#i-team"></use></svg><span data-i18n="teamDesk">TEAM DESK</span></button>
+        <button class="quick-button" type="button" data-panel="documents"><svg><use href="#i-docs"></use></svg><span data-i18n="documents">DOCUMENTS</span></button>
+        <button class="quick-button" type="button" data-panel="messages"><svg><use href="#i-message"></use></svg><span data-i18n="messages">MESSAGES</span></button>
+        <button class="quick-button" type="button" data-panel="reports"><svg><use href="#i-report"></use></svg><span data-i18n="reports">REPORTS</span></button>
+      </div>
+      <h2 class="ornament-title glance-title"><span data-i18n="atAGlance">AT A GLANCE</span></h2>
+      <div class="glance-grid">
+        <div class="glance-item"><strong data-task-open>7</strong><span data-i18n="tasksOpen">TASKS<br>OPEN</span></div>
+        <div class="glance-item"><svg><use href="#i-page"></use></svg><strong data-appointment-count>3</strong><span data-i18n="appointmentsWord">APPOINTMENTS</span></div>
+        <div class="glance-item"><svg><use href="#i-docs"></use></svg><strong data-docs-pending>4</strong><span data-i18n="docsPending">DOCS PENDING</span></div>
+        <div class="glance-item"><svg><use href="#i-key"></use></svg><strong data-week-percent>68%</strong><span data-i18n="weekComplete">WEEK COMPLETE</span></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>TWM</span><small>THE WE METHOD</small></footer>
+  <div class="menu-backdrop" id="menu-backdrop" hidden></div>
+  <nav class="side-menu" id="main-menu" inert>
+    <div class="menu-top"><span data-i18n="menuTitle">OWNER DESK</span><button type="button" class="menu-close" id="menu-close">×</button></div>
+    <button type="button" data-panel="tasks" data-i18n="menuTasks">This week’s tasks</button>
+    <button type="button" data-panel="appointments" data-i18n="menuAppt">Appointments</button>
+    <button type="button" data-panel="documents" data-i18n="menuDocs">Documents pending</button>
+    <a href="operation-insight.html" data-i18n="menuUpdates">Updates</a>
+    <button type="button" data-panel="team" data-i18n="menuTeam">Team desk</button>
+    <button type="button" data-panel="messages" data-i18n="menuMessages">Messages</button>
+    <button type="button" data-panel="reports" data-i18n="menuReports">Reports</button>
+    <a href="owners-suite.html" data-i18n="menuPreview">Client preview</a>
+    <a href="profile.html" data-i18n="menuProfile">Owner profile</a>
+    <button type="button" id="desk-signout" data-i18n="logout">Log out</button>
+  </nav>
+  <dialog class="desk-dialog" id="desk-dialog">
+    <div class="dialog-head"><div><p class="eyebrow" data-i18n="masthead">OWNER COMMAND DESK</p><h2 id="dialog-title"></h2></div><button class="dialog-close" type="button">×</button></div>
+    <div class="dialog-body" id="dialog-body"></div>
+  </dialog>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="principal-desk-app.js"></script>
+</body>
+</html>
