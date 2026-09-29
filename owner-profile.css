@@ -1,0 +1,73 @@
+.owner-profile-page { background: #070707; min-height: 100vh; }
+.owner-wrap { width: min(980px, calc(100% - 48px)); margin: 42px auto 80px; }
+.owner-wrap h1 {
+  margin: 8px 0 10px;
+  color: #e4bd77;
+  font: 400 clamp(40px, 6vw, 68px)/1 "Cormorant Garamond", serif;
+}
+.lead {
+  max-width: 520px;
+  margin: 0 0 28px;
+  color: rgba(241,232,215,.62);
+  font: 500 14px/1.7 Montserrat, sans-serif;
+}
+.owner-plate {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 32px;
+  padding: 28px;
+  border: 1px solid #c49a54;
+  background: #0b0a08;
+}
+.owner-photo-frame {
+  width: 220px;
+  height: 260px;
+  border: 1px solid #c49a54;
+  background: #080807;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.owner-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.owner-identity h2 {
+  margin: 8px 0 10px;
+  color: #f1e8d7;
+  font: 500 42px/1 "Cormorant Garamond", serif;
+}
+.owner-identity p { margin: 0; color: rgba(241,232,215,.7); font: 500 13px Montserrat, sans-serif; }
+.owner-actions { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
+.gold-button.ghost {
+  background: transparent;
+  color: #e4bd77;
+}
+.owner-grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid #c49a54;
+}
+.owner-grid article {
+  padding: 18px 20px;
+  border-right: 1px solid rgba(196,154,84,.35);
+  border-bottom: 1px solid rgba(196,154,84,.35);
+}
+.owner-grid article:nth-child(3n) { border-right: 0; }
+.owner-grid small {
+  display: block;
+  margin-bottom: 8px;
+  color: #c49a54;
+  font: 600 10px/1 Montserrat, sans-serif;
+  letter-spacing: .18em;
+}
+.owner-grid strong {
+  color: #f1e8d7;
+  font: 500 20px/1.2 "Cormorant Garamond", serif;
+}
+@media (max-width: 760px) {
+  .owner-plate, .owner-grid { grid-template-columns: 1fr; }
+  .owner-photo-frame { width: 100%; height: 280px; }
+}

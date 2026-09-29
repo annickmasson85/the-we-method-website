@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Owner Profile | The We Method</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="principal-desk.css">
+  <link rel="stylesheet" href="owner-profile.css">
+</head>
+<body class="owner-profile-page">
+  <header class="site-header">
+    <a class="brand" href="principal-desk.html">
+      <span class="brand-mark">TWM</span><span class="brand-name">THE WE METHOD</span>
+    </a>
+    <div class="masthead">
+      <span class="masthead-title" data-i18n="pageTitle">OWNER PROFILE</span>
+      <span class="masthead-tagline">BUILD <b>◆</b> LAUNCH <b>◆</b> GROW</span>
+    </div>
+    <div class="header-actions">
+      <div class="desk-lang">
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="fr">FR</button>
+      </div>
+      <a class="owner-profile" href="owner-profile.html">
+        <img id="header-photo" src="images/owner-avatar.webp" alt="" width="44" height="44">
+        <span><small data-i18n="ownerProfile">OWNER PROFILE</small><strong data-owner-full>Annick Masson</strong></span>
+      </a>
+      <a class="menu-toggle" href="principal-desk.html" aria-label="Return to desk"></a>
+    </div>
+  </header>
+
+  <main class="owner-wrap">
+    <p class="eyebrow" data-i18n="kicker">HOUSE ACCESS</p>
+    <h1 data-i18n="heading">Owner record</h1>
+    <p class="lead" data-i18n="lead">This file stays inside the owner desk. It does not open the client suite.</p>
+
+    <section class="owner-plate">
+      <div class="owner-photo-frame">
+        <img id="profile-photo" src="images/owner-avatar.webp" alt="Owner portrait">
+      </div>
+      <div class="owner-identity">
+        <p class="eyebrow" data-i18n="roleLabel">FOUNDER ◆ OWNER</p>
+        <h2 data-owner-full>Annick Masson</h2>
+        <p id="profile-email">annickmasson85@gmail.com</p>
+        <div class="owner-actions">
+          <a class="gold-button" href="principal-desk.html" data-i18n="backDesk">RETURN TO DESK</a>
+          <button class="gold-button ghost" type="button" id="owner-signout" data-i18n="logout">LOG OUT</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="owner-grid">
+      <article><small data-i18n="fName">NAME</small><strong id="full-name">Annick Masson</strong></article>
+      <article><small data-i18n="fRole">ACCESS</small><strong data-i18n="accessValue">Owner only</strong></article>
+      <article><small data-i18n="fEmail">EMAIL</small><strong id="email">—</strong></article>
+      <article><small data-i18n="fPhone">PHONE</small><strong id="phone">—</strong></article>
+      <article><small data-i18n="fCompany">HOUSE</small><strong id="company">The We Method</strong></article>
+      <article><small data-i18n="fSince">SINCE</small><strong id="member-since">—</strong></article>
+    </section>
+  </main>
+  <footer class="site-footer"><span>TWM</span><small>THE WE METHOD</small></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="owner-profile.js"></script>
+</body>
+</html>
