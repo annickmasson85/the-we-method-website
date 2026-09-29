@@ -3236,3 +3236,93 @@ body.assessment-details-page .assessment-final__action {
 @media (max-width: 760px) {
   .logo-monogram { font-size: 54px; }
 }
+/* Homepage adjustments — load after styles.css */
+
+.header-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: max-content;
+  gap: 0;
+  text-decoration: none;
+}
+
+.logo-monogram {
+  display: block;
+  color: #d4b36a;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 0.82;
+  letter-spacing: 0.04em;
+  text-shadow: none;
+}
+
+.logo-house {
+  display: none;
+}
+
+.logo-tagline {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  color: #c49a54;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-align: justify;
+  text-align-last: justify;
+  white-space: nowrap;
+}
+
+.operation-insight-card {
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.58) 0%,
+      rgba(0, 0, 0, 0.52) 32%,
+      rgba(0, 0, 0, 0.82) 70%,
+      rgba(0, 0, 0, 0.94) 100%
+    ),
+    url("images/operation-insight-card.jpg");
+  background-size: cover;
+  background-position: center;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.operation-insight-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.operation-insight-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.operation-insight-card:hover {
+  transform: translateY(-5px);
+  border-color: #d8b35a;
+  box-shadow:
+    0 0 12px rgba(216, 179, 90, 0.55),
+    0 0 30px rgba(199, 154, 56, 0.28),
+    inset 0 0 20px rgba(199, 154, 56, 0.08);
+  z-index: 5;
+}
+
+.fleet-solution-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+@media (max-width: 760px) {
+  .logo-monogram { font-size: 54px; }
+}
