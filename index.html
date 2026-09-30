@@ -16,30 +16,58 @@
     .header-logo {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
       width: max-content;
-      max-width: 280px;
+      min-width: 168px;
+      text-decoration: none;
     }
     .logo-monogram {
       display: block;
-      width: 100%;
       color: #d4b36a !important;
       font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-      font-size: 78px !important;
+      font-size: 54px !important;
       font-weight: 500;
-      line-height: 0.8 !important;
-      letter-spacing: 0.22em !important;
+      line-height: 0.82 !important;
+      letter-spacing: 0.06em !important;
       text-shadow: none !important;
+    }
+    .logo-rule {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 12px;
+      margin: 4px 0 2px;
+    }
+    .logo-rule::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      background: #c49a54;
+    }
+    .logo-rule::after {
+      content: "◆";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 0 7px;
+      background: #050505;
+      color: #c49a54;
+      font-size: 7px;
+      line-height: 1;
     }
     .logo-tagline {
       display: block;
       width: 100%;
-      margin-top: 10px !important;
+      margin-top: 2px !important;
       color: #c49a54 !important;
       font-family: "Montserrat", Arial, sans-serif;
-      font-size: 8px !important;
-      font-weight: 600;
-      letter-spacing: 0.12em !important;
+      font-size: 7.5px !important;
+      font-weight: 500;
+      letter-spacing: 0.22em !important;
       text-align: center !important;
       text-align-last: center !important;
       white-space: nowrap;
@@ -83,7 +111,7 @@
       box-shadow: none;
     }
     @media (max-width: 760px) {
-      .logo-monogram { font-size: 56px !important; letter-spacing: 0.16em !important; }
+      .logo-monogram { font-size: 42px !important; }
     }
   </style>
 </head>
@@ -92,6 +120,7 @@
   <div class="header-top">
     <a class="header-logo" href="index.html">
       <span class="logo-monogram">TWM</span>
+      <span class="logo-rule" aria-hidden="true"></span>
       <span class="logo-tagline">BUILD. LAUNCH. GROW.</span>
     </a>
     <div class="header-brand">
