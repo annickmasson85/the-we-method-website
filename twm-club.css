@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Montserrat:wght@400;500;600&family=Mrs+Saint+Delafield&display=swap");
 
+
+/* =========================================================
+   TWM CLUB
+   ========================================================= */
+
 .twm-club {
   --twm-black: #080705;
   --twm-cream: #f0e5ca;
@@ -8,10 +13,16 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
+
   background: var(--twm-black);
   color: var(--twm-cream);
-  font-family: "Cormorant Garamond", Georgia, serif;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
 }
+
 
 .twm-club *,
 .twm-club *::before,
@@ -19,305 +30,623 @@
   box-sizing: border-box;
 }
 
-/* Image du coffret */
+
+/* =========================================================
+   IMAGE
+   ========================================================= */
+
 .twm-club__visual {
   position: absolute;
+
   inset: 0 0 0 36%;
- background: url("images/twm-club-gift.png") center / cover no-repeat;
+
+  background:
+    url("images/twm-club-gift.png")
+    center / cover
+    no-repeat;
 }
 
-/* Transition entre le texte et la photographie */
+
+/* =========================================================
+   TRANSITION TEXTE / IMAGE
+   ========================================================= */
+
 .twm-club::after {
   content: "";
+
   position: absolute;
   inset: 0;
+
   z-index: 1;
+
   pointer-events: none;
+
   background: linear-gradient(
     90deg,
     #080705 0%,
-    #080705 29%,
-    rgba(8, 7, 5, .96) 35%,
-    rgba(8, 7, 5, .60) 43%,
-    rgba(8, 7, 5, .12) 57%,
-    transparent 72%
+    #080705 27%,
+    rgba(8, 7, 5, 0.98) 33%,
+    rgba(8, 7, 5, 0.86) 38%,
+    rgba(8, 7, 5, 0.52) 45%,
+    rgba(8, 7, 5, 0.16) 56%,
+    transparent 70%
   );
 }
+
+
+/* =========================================================
+   MAIN LAYOUT
+   ========================================================= */
 
 .twm-club__inner {
   position: relative;
+
   z-index: 2;
+
   display: flex;
   align-items: center;
+
   min-height: 790px;
+
   width: 100%;
   max-width: 1720px;
+
   margin: 0 auto;
-  padding: 66px clamp(24px, 7.3vw, 130px) 70px;
+
+  padding:
+    66px
+    clamp(24px, 7.3vw, 130px)
+    70px;
 }
+
 
 .twm-club__content {
-  width: min(470px, 44vw);
+  width: min(455px, 44vw);
 }
 
-/* TWM Club */
+
+/* =========================================================
+   TWM CLUB BRAND
+   ========================================================= */
+
 .twm-club__brand {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 0 0 48px;
+  align-items: flex-start;
+
+  width: max-content;
+  max-width: 100%;
+
+  margin: 0 0 58px;
+
+  overflow: visible;
+
   font-weight: 400;
 }
 
-.twm-club__name,
-.twm-club__signature,
-.twm-club__number {
+
+/* TWM */
+
+.twm-club__name {
+  display: block;
+
   color: var(--twm-gold);
+
   background: linear-gradient(
-    160deg,
-    #f3dfab 5%,
-    #d2ae65 48%,
-    #a67d3b 95%
+    155deg,
+    #f2dda8 5%,
+    #d7b76e 45%,
+    #b68a42 100%
   );
+
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: clamp(84px, 6vw, 108px);
+  font-weight: 400;
+
+  line-height: 0.79;
+
+  letter-spacing: 0.045em;
 }
 
-.twm-club__name {
-  font-size: clamp(82px, 6.5vw, 112px);
-  line-height: 1;
-  letter-spacing: .025em;
-}
+
+/* CLUB */
 
 .twm-club__signature {
-  padding: 4px 14px 14px;
-  margin-top: -2px;
+  display: block;
+
+  margin-top: 5px;
+  margin-left: 43px;
+
+  padding: 7px 18px 17px;
+
+  color: var(--twm-gold);
+
+  background: linear-gradient(
+    155deg,
+    #f2dda8 5%,
+    #d7b76e 45%,
+    #b68a42 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
   font-family:
     "Mrs Saint Delafield",
     "Brush Script MT",
     "Segoe Script",
     cursive;
-  font-size: clamp(92px, 7.5vw, 128px);
-  line-height: .8;
+
+  font-size: clamp(92px, 6.5vw, 116px);
+  font-weight: 400;
+
+  line-height: 0.73;
+
+  letter-spacing: -0.025em;
+
+  transform: rotate(-2deg);
+  transform-origin: center;
 }
 
-/* Texte */
+
+/* =========================================================
+   SMALL GOLD RULE
+   ========================================================= */
+
 .twm-club__rule {
-  width: 72px;
+  width: 60px;
   height: 1px;
-  margin-bottom: 29px;
+
+  margin: 0 0 31px;
+
   background: linear-gradient(
     90deg,
-    #d8b873,
-    #b98d44 75%,
-    transparent
+    #d8b873 0%,
+    #ae8239 72%,
+    transparent 100%
   );
 }
 
+
+/* =========================================================
+   MYSTERY HEADLINE
+   ========================================================= */
+
 .twm-club__headline {
-  margin: 0 0 18px;
-  font-size: clamp(19px, 1.42vw, 24px);
+  max-width: 405px;
+
+  margin: 0 0 19px;
+
+  color: #eee5d1;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: clamp(20px, 1.42vw, 24px);
   font-weight: 500;
-  line-height: 1.65;
-  letter-spacing: .23em;
+
+  line-height: 1.55;
+
+  letter-spacing: 0.25em;
+
   text-transform: uppercase;
 }
 
+
+/* =========================================================
+   SMALL PARAGRAPH
+   TEXT ITSELF STAYS UNCHANGED
+   ========================================================= */
+
 .twm-club__description {
-  margin: 0 0 39px;
-  font-size: 23px;
-  line-height: 1.45;
-  letter-spacing: .055em;
+  max-width: 355px;
+
+  margin: 0 0 42px;
+
+  color: rgba(240, 229, 202, 0.84);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 21px;
+  font-weight: 400;
+
+  line-height: 1.46;
+
+  letter-spacing: 0.035em;
 }
+
+
+/* =========================================================
+   SMALL UPPERCASE LABELS
+   ========================================================= */
 
 .twm-club__eyebrow,
 .twm-club__label {
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
   font-weight: 500;
+
   text-transform: uppercase;
 }
 
+
 .twm-club__eyebrow {
-  margin: 0 0 21px;
-  color: #c5ae7d;
-  font-size: 10px;
-  line-height: 1.6;
-  letter-spacing: .22em;
+  margin: 0 0 20px;
+
+  color: #bfa463;
+
+  font-size: 9px;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.29em;
 }
 
-/* Compte à rebours */
+
+/* =========================================================
+   COUNTDOWN
+   ========================================================= */
+
 .twm-club__countdown {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
   width: 100%;
+  max-width: 430px;
 }
+
 
 .twm-club__unit {
   min-width: 0;
+
+  padding: 0 16px;
+
   text-align: center;
-  padding: 0 10px;
 }
 
-.twm-club__unit + .twm-club__unit {
-  border-left: 1px solid rgba(200, 164, 94, .45);
+
+.twm-club__unit:first-child {
+  padding-left: 0;
 }
+
+
+.twm-club__unit:last-child {
+  padding-right: 0;
+}
+
+
+.twm-club__unit + .twm-club__unit {
+  border-left:
+    1px solid
+    rgba(200, 164, 94, 0.38);
+}
+
+
+/* Numbers */
 
 .twm-club__number {
   display: block;
-  font-size: clamp(42px, 3.65vw, 61px);
+
+  color: var(--twm-gold);
+
+  background: linear-gradient(
+    155deg,
+    #f2dda8 5%,
+    #d7b76e 45%,
+    #b68a42 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: clamp(45px, 3.45vw, 58px);
   font-weight: 400;
-  font-variant-numeric: lining-nums tabular-nums;
-  line-height: 1;
+
+  font-variant-numeric:
+    lining-nums
+    tabular-nums;
+
+  line-height: 0.92;
+
+  letter-spacing: -0.015em;
 }
+
+
+/* DAYS / HOURS / MINUTES / SECONDS */
 
 .twm-club__label {
   display: block;
-  margin-top: 11px;
-  font-size: 10px;
-  line-height: 1.5;
-  letter-spacing: .17em;
+
+  margin-top: 13px;
+
+  color: rgba(240, 229, 202, 0.88);
+
+  font-size: 8px;
+
+  line-height: 1;
+
+  letter-spacing: 0.21em;
 }
 
+
+/* =========================================================
+   BOTTOM GOLD RULE
+   ========================================================= */
+
 .twm-club__bottom-rule {
-  width: 62%;
+  width: 245px;
   height: 1px;
-  margin-top: 37px;
+
+  margin-top: 38px;
+
   background: linear-gradient(
     90deg,
-    #b99751,
-    #b99751 72%,
-    transparent
+    #bc954b 0%,
+    #9e752f 70%,
+    transparent 100%
   );
 }
 
-/* Tablette */
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
 @media (min-width: 761px) and (max-width: 1100px) {
+
   .twm-club__inner {
     min-height: 720px;
+
     padding-inline: 5vw;
   }
 
+
+  .twm-club__content {
+    width: min(430px, 47vw);
+  }
+
+
+  .twm-club__brand {
+    margin-bottom: 48px;
+  }
+
+
+  .twm-club__name {
+    font-size: clamp(72px, 8vw, 92px);
+  }
+
+
+  .twm-club__signature {
+    margin-left: 34px;
+
+    font-size: clamp(80px, 9vw, 100px);
+  }
+
+
   .twm-club__headline {
     font-size: 19px;
-    letter-spacing: .18em;
+
+    letter-spacing: 0.19em;
   }
+
 
   .twm-club__description {
     font-size: 21px;
   }
+
+
+  .twm-club__unit {
+    padding-inline: 10px;
+  }
+
+
+  .twm-club__label {
+    font-size: 8px;
+
+    letter-spacing: 0.12em;
+  }
 }
 
-/* Mobile */
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
 @media (max-width: 760px) {
+
   .twm-club {
     display: flex;
     flex-direction: column;
   }
 
+
   .twm-club::after {
     display: none;
   }
 
+
   .twm-club__inner {
     order: 1;
+
     min-height: 0;
-    padding: 46px 24px 8px;
+
+    padding:
+      46px
+      24px
+      8px;
   }
+
 
   .twm-club__content {
     width: 100%;
     max-width: 470px;
+
     margin: 0 auto;
+
     text-align: center;
   }
 
+
+  /* -------------------------
+     BRAND
+  ------------------------- */
+
   .twm-club__brand {
-    margin-bottom: 32px;
+    align-items: center;
+
+    margin:
+      0 auto
+      40px;
   }
+
 
   .twm-club__name {
-    font-size: 88px;
+    font-size: 82px;
   }
+
 
   .twm-club__signature {
-    font-size: 112px;
+    margin-top: 4px;
+    margin-left: 0;
+
+    font-size: 98px;
   }
+
+
+  /* -------------------------
+     RULE
+  ------------------------- */
 
   .twm-club__rule {
-    margin: 0 auto 25px;
+    margin:
+      0 auto
+      27px;
   }
+
+
+  /* -------------------------
+     TEXT
+  ------------------------- */
 
   .twm-club__headline {
+    margin-inline: auto;
+
     font-size: 18px;
-    letter-spacing: .20em;
+
+    line-height: 1.55;
+
+    letter-spacing: 0.20em;
   }
+
 
   .twm-club__description {
-    font-size: 21px;
-    margin-bottom: 31px;
+    margin:
+      0 auto
+      34px;
+
+    font-size: 20px;
   }
 
-  .twm-club__number {
-    font-size: clamp(34px, 10vw, 48px);
+
+  .twm-club__eyebrow {
+    letter-spacing: 0.22em;
   }
+
+
+  /* -------------------------
+     COUNTDOWN
+  ------------------------- */
+
+  .twm-club__countdown {
+    max-width: 100%;
+
+    margin: 0 auto;
+  }
+
 
   .twm-club__unit {
-    padding-inline: 5px;
+    padding-inline: 6px;
   }
+
+
+  .twm-club__number {
+    font-size:
+      clamp(35px, 10vw, 46px);
+  }
+
 
   .twm-club__label {
-    font-size: 9px;
-    letter-spacing: .09em;
+    font-size: 8px;
+
+    letter-spacing: 0.08em;
   }
 
+
   .twm-club__bottom-rule {
-    margin: 31px auto 0;
+    width: 210px;
+
+    margin:
+      31px auto
+      0;
   }
+
+
+  /* -------------------------
+     IMAGE MOBILE
+  ------------------------- */
 
   .twm-club__visual {
     position: relative;
+
     inset: auto;
+
     order: 2;
+
     width: 100%;
-    height: clamp(330px, 83vw, 580px);
-    background-position: center 48%;
+    height:
+      clamp(330px, 83vw, 580px);
+
+    background-position:
+      center 48%;
   }
+
 
   .twm-club__visual::after {
     content: "";
+
     position: absolute;
     inset: 0;
+
     background: linear-gradient(
       180deg,
-      #080705,
-      transparent 24%
+      #080705 0%,
+      rgba(8, 7, 5, 0.76) 8%,
+      transparent 25%
     );
   }
-}
-.twm-club__brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: max-content;
-  max-width: 100%;
-  margin: 0 0 42px;
-  overflow: visible;
-  font-weight: 400;
-}
-.twm-club__name {
-  font-size: clamp(78px, 5.6vw, 104px);
-  line-height: .92;
-  letter-spacing: .04em;
-}
-.twm-club__signature {
-  padding: 6px 22px 16px;
-  margin-top: -14px;
-  font-family:
-    "Mrs Saint Delafield",
-    "Brush Script MT",
-    "Segoe Script",
-    cursive;
-  font-size: clamp(84px, 6.2vw, 112px);
-  line-height: 1.05;
 }
