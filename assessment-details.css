@@ -470,3 +470,24 @@ body.assessment-details-page .assessment-final__action .assessment-meta { justif
   body.assessment-details-page #main-content > .assessment-final { padding-inline: 9px !important; }
   body.assessment-details-page a.assessment-button { width: min(100%, 300px) !important; min-width: 0 !important; }
 }
+body.assessment-details-page section.assessment-hero[aria-labelledby] .assessment-hero__visual {
+  display: block !important;
+  position: relative !important;
+  inset: auto !important;
+  min-height: 560px !important;
+  overflow: hidden !important;
+  background: #050505 !important;
+}
+
+body.assessment-details-page section.assessment-hero[aria-labelledby] .assessment-hero__visual > img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: 22% center !important;
+  transform: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
