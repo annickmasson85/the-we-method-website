@@ -23,7 +23,7 @@
 .twm-club__visual {
   position: absolute;
   inset: 0 0 0 36%;
-  background: url("twm-club-gift.png") center / cover no-repeat;
+ background: url("images/twm-club-gift.png") center / cover no-repeat;
 }
 
 /* Transition entre le texte et la photographie */
@@ -294,4 +294,30 @@
       transparent 24%
     );
   }
+}
+.twm-club__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max-content;
+  max-width: 100%;
+  margin: 0 0 42px;
+  overflow: visible;
+  font-weight: 400;
+}
+.twm-club__name {
+  font-size: clamp(78px, 5.6vw, 104px);
+  line-height: .92;
+  letter-spacing: .04em;
+}
+.twm-club__signature {
+  padding: 6px 22px 16px;
+  margin-top: -14px;
+  font-family:
+    "Mrs Saint Delafield",
+    "Brush Script MT",
+    "Segoe Script",
+    cursive;
+  font-size: clamp(84px, 6.2vw, 112px);
+  line-height: 1.05;
 }
