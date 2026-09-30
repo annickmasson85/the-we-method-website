@@ -23,7 +23,7 @@ body.assessment-details-page #main-content {
   max-width: 1280px !important;
   margin: 20px auto 0 !important;
   overflow: hidden !important;
-  border: 1px solid var(--ad-line) !important;
+  border: 0 !important;
   background: var(--ad-black) !important;
   box-shadow: 0 30px 80px rgba(0, 0, 0, .68) !important;
 }
