@@ -491,3 +491,9 @@ body.assessment-details-page section.assessment-hero[aria-labelledby] .assessmen
   -webkit-mask-image: none !important;
   mask-image: none !important;
 }
+body.assessment-details-page .assessment-hero__visual::before,
+body.assessment-details-page .assessment-hero__visual::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
