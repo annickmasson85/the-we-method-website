@@ -56,17 +56,18 @@ a {
 /* Carte noire avec le cadre et le logo */
 
 .signin-card {
-  width: min(600px, 100%);
-  min-height: 700px;
-  padding: 215px 70px 42px;
+  width: min(560px, calc(100% - 24px));
+  aspect-ratio: 2 / 3;
+  min-height: 0;
+  padding: 44% 56px 32px;
 
   background:
-   url("images/signin-frame.png") center / 100% 100% no-repeat,
+    url("images/signin-frame.png") top center / 100% 100% no-repeat,
     #070707;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.8));
 }
@@ -378,8 +379,9 @@ a {
   }
 
   .signin-card {
-    min-height: 680px;
-    padding: 190px 35px 35px;
+    min-height: 0;
+    aspect-ratio: 2 / 3;
+    padding: 44% 28px 28px;
   }
 
   .signin-heading h1 {
@@ -400,7 +402,7 @@ a {
 
 @media (max-width: 420px) {
   .signin-card {
-    padding: 175px 24px 30px;
+    padding: 46% 18px 24px;
   }
 
   .signin-heading h1 {
