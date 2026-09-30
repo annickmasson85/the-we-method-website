@@ -1147,3 +1147,24 @@ body.operation-insight-page {
 .oi-bundle-side {
   background: rgba(10, 7, 3, 0.68);
 }
+html,
+body.operation-insight-page {
+  background-color: #050505 !important;
+  background-image: none !important;
+}
+
+.oi-hero,
+.oi-bundle-reveal,
+.oi-observe,
+.oi-timeline,
+.oi-closing,
+.oi-footer {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+.oi-bundle-reveal > summary {
+  background-image: none !important;
+  background-color: #070604 !important;
+}
