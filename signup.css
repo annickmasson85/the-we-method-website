@@ -719,3 +719,34 @@ body.signup-page::after {
   transform: translateY(-50%);
   pointer-events: auto;
 }
+.signup-card {
+  width: min(700px, calc(100% - 28px));
+  aspect-ratio: 2 / 3;
+  min-height: 0 !important;
+  padding: 45% 52px 22px !important;
+  background: url("images/signup-frame.png") top center / 100% 100% no-repeat !important;
+  border: 0;
+  justify-content: flex-start;
+}
+
+.signup-heading {
+  margin-bottom: 10px;
+}
+
+.signup-heading h1 {
+  font-size: clamp(22px, 2.2vw, 30px);
+}
+
+.signup-form {
+  gap: 9px 16px;
+}
+
+@media (max-width: 720px) {
+  .signup-card {
+    width: min(700px, calc(100% - 16px));
+    aspect-ratio: 2 / 3;
+    min-height: 0 !important;
+    padding: 46% 22px 18px !important;
+    background-size: 100% 100% !important;
+  }
+}
