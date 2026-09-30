@@ -573,3 +573,27 @@ img {
   color: #e8d09f;
   background: rgba(200, 148, 59, 0.08);
 }
+.brand-mark {
+  align-items: center;
+}
+.brand-monogram {
+  font-size: 42px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.22em !important;
+  margin-right: -0.22em !important;
+  text-shadow: none !important;
+}
+.brand-name {
+  display: none !important;
+}
+.brand-mark::after {
+  content: "BUILD. LAUNCH. GROW.";
+  display: block;
+  margin-top: 8px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  color: inherit;
+}

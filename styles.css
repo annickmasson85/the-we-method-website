@@ -3326,3 +3326,39 @@ body.assessment-details-page .assessment-final__action {
 @media (max-width: 760px) {
   .logo-monogram { font-size: 54px; }
 }
+.header-logo {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: max-content !important;
+  min-width: 156px;
+  text-decoration: none;
+}
+.logo-monogram {
+  display: block !important;
+  color: #d4b36a !important;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-size: 42px !important;
+  font-weight: 500 !important;
+  line-height: 0.9 !important;
+  letter-spacing: 0.28em !important;
+  text-shadow: none !important;
+  margin-right: -0.28em !important;
+}
+.logo-house { display: none !important; }
+.logo-tagline {
+  display: block !important;
+  width: 100%;
+  margin-top: 7px !important;
+  color: #c49a54 !important;
+  font-family: "Montserrat", Arial, sans-serif !important;
+  font-size: 7px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-align: center !important;
+  text-align-last: center !important;
+  white-space: nowrap !important;
+}
+@media (max-width: 760px) {
+  .logo-monogram { font-size: 36px !important; }
+}
