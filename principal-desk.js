@@ -90,18 +90,7 @@ const I18N = {
 const initialState = {
   ownerName: "Owner",
   weekly: { completed: 17, total: 25 },
-  tasks: [
-    { id: 1, title: "Review this week's priorities", done: false },
-    { id: 2, title: "Approve the updated rental procedure", done: false },
-    { id: 3, title: "Prepare the fleet review", done: false },
-    { id: 4, title: "Follow up with the operations team", done: false },
-    { id: 5, title: "Review pending documents", done: false },
-    { id: 6, title: "Update the maintenance checklist", done: false },
-    { id: 7, title: "Plan next week's appointments", done: false },
-    { id: 8, title: "Confirm this week's schedule", done: true },
-    { id: 9, title: "Publish the owner update", done: true },
-    { id: 10, title: "Complete the desk review", done: true }
-  ],
+  tasks: [],
   appointments: [
     { id: 1, when: "Tue 10:00", title: "Fleet review" },
     { id: 2, when: "Thu 13:30", title: "Operations check-in" },
@@ -153,11 +142,47 @@ function setAll(selector, value) {
   document.querySelectorAll(selector).forEach((element) => { element.textContent = value; });
 }
 
+function chicagoToday() {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Chicago",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).formatToParts(new Date());
+  const get = (type) => parts.find((part) => part.type === type).value;
+  return `${get("year")}-${get("month")}-${get("day")}`;
+}
+
+function weekRange() {
+  const [year, month, day] = chicagoToday().split("-").map(Number);
+  const date = new Date(0);
+  date.setFullYear(year, month - 1, day);
+  date.setHours(12, 0, 0, 0);
+  date.setDate(date.getDate() - ((date.getDay() + 6) % 7));
+  const end = new Date(date);
+  end.setDate(end.getDate() + 6);
+  const iso = (value) => [
+    String(value.getFullYear()).padStart(4, "0"),
+    String(value.getMonth() + 1).padStart(2, "0"),
+    String(value.getDate()).padStart(2, "0")
+  ].join("-");
+  return { start: iso(date), end: iso(end) };
+}
+
 function counts() {
-  const open = state.tasks.filter((task) => !task.done).length;
-  const completed = state.tasks.length - open;
   const pending = state.documents.filter((doc) => !doc.reviewed).length;
-  const percent = Math.round(Math.min(100, Math.max(0, state.weekly.completed / Math.max(1, state.weekly.total) * 100)));
+  let open = 0;
+  let completed = 0;
+  try {
+    const data = JSON.parse(localStorage.getItem("twm.weeklyTasks.v1"));
+    if (data && data.version === 1 && data.isDemo !== true && Array.isArray(data.tasks)) {
+      const range = weekRange();
+      const week = data.tasks.filter((task) => task && task.due >= range.start && task.due <= range.end);
+      completed = week.filter((task) => task.status === "completed").length;
+      open = week.length - completed;
+    }
+  } catch (_) {}
+  const percent = open + completed ? Math.round((completed / (open + completed)) * 100) : 0;
   return { open, completed, pending, percent };
 }
 
@@ -203,6 +228,10 @@ function closeMenu() {
   menuToggle.setAttribute("aria-expanded", "false");
 }
 function openPanel(name) {
+  if (name === "tasks" || name === "team") {
+    window.location.href = "weekly-tasks.html";
+    return;
+  }
   closeMenu();
   activePanel = name;
   renderPanel(name);
