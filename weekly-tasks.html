@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070604">
+  <title>My Weekly Tasks | The We Method</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #070604;
+      --panel: #100e0b;
+      --raise: #18150f;
+      --ivory: #f3eadc;
+      --muted: #b3a690;
+      --gold: #c6a15a;
+      --gold-2: #e8d7a8;
+      --line: rgba(198, 161, 90, 0.35);
+      --danger: #d45b4a;
+      --ok: #7dba6a;
+      --warn: #e0b15a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--ink);
+      color: var(--ivory);
+      font-family: Montserrat, sans-serif;
+    }
+    button, input, select, textarea { font: inherit; color: inherit; }
+    button { cursor: pointer; }
+    button:disabled { cursor: not-allowed; }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+    }
+    .icon { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .shell { min-height: 100vh; }
+    .sidebar {
+      display: none;
+      background:
+        radial-gradient(80% 40% at 0% 20%, rgba(198, 161, 90, 0.16), transparent 50%),
+        linear-gradient(180deg, #1a160f, #0c0b09);
+      border-right: 1px solid var(--line);
+      padding: 1.6rem 0.7rem 1.4rem;
+    }
+    .brand { display: block; padding: 0 0.8rem 1rem; color: inherit; text-decoration: none; }
+    .brand span { display: block; font-family: "Cormorant Garamond", serif; font-size: 3rem; line-height: 1; color: var(--gold-2); }
+    .brand small { letter-spacing: 0.34em; color: var(--gold); font-size: 0.62rem; }
+    .nav-link, .nav-logout {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      width: 100%;
+      margin: 0.1rem 0;
+      padding: 0.55rem 0.7rem;
+      border: 1px solid transparent;
+      background: transparent;
+      color: rgba(243, 234, 220, 0.82);
+      text-align: left;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+    }
+    .nav-link.active { border-color: var(--gold); background: var(--raise); color: var(--gold-2); }
+    .nav-heading { margin: 1rem 0.8rem 0.3rem; color: var(--muted); letter-spacing: 0.28em; font-size: 0.62rem; }
+    .nav-rule { height: 1px; margin: 0.8rem 0.8rem; background: rgba(198, 161, 90, 0.3); }
+    .nav-logout { color: rgba(243, 234, 220, 0.4); }
+    .desk { min-width: 0; }
+    .topbar {
+      display: grid;
+      gap: 0.7rem;
+      align-items: center;
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .desk-title { text-align: center; letter-spacing: 0.32em; font-size: 0.72rem; color: var(--gold-2); }
+    .desk-title small { display: block; margin-top: 0.25rem; color: var(--muted); letter-spacing: 0.22em; font-size: 0.62rem; }
+    .topbar-tools { display: flex; align-items: center; justify-content: flex-end; gap: 0.6rem; }
+    .search-box, .field, .select-wrap, .quick-date {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      height: 2.6rem;
+      border: 1px solid var(--line);
+      background: var(--ink);
+      padding: 0 0.7rem;
+    }
+    .search-box { width: min(13rem, 46vw); }
+    .search-box input, .field input, .select-wrap select, .quick-date input, .dialog input, .dialog select, .dialog textarea {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      outline: none;
+    }
+    .icon-button {
+      display: grid;
+      width: 2.5rem;
+      height: 2.5rem;
+      place-items: center;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--gold);
+    }
+    .notifications { position: relative; border-color: transparent; }
+    .reminder-dot {
+      position: absolute;
+      top: 0.35rem;
+      right: 0.35rem;
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 50%;
+      background: var(--danger);
+    }
+    .owner-profile { display: flex; align-items: center; gap: 0.45rem; color: inherit; text-decoration: none; }
+    .avatar {
+      display: grid;
+      width: 2.5rem;
+      height: 2.5rem;
+      place-items: center;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.15rem;
+      color: var(--gold-2);
+    }
+    .owner-profile small { display: block; color: var(--gold); letter-spacing: 0.16em; font-size: 0.58rem; }
+    .owner-name { font-size: 0.85rem; }
+    .hero {
+      position: relative;
+      min-height: 15rem;
+      padding: 2rem 1.2rem;
+      background:
+        linear-gradient(90deg, rgba(7, 6, 4, 0.92), rgba(7, 6, 4, 0.45)),
+        radial-gradient(circle at 70% 40%, rgba(198, 161, 90, 0.28), transparent 28%),
+        #14110c;
+      border-bottom: 1px solid #3c3326;
+    }
+    .eyebrow { margin: 0; color: var(--gold); letter-spacing: 0.28em; font-size: 0.72rem; }
+    h1, h2, h3 { font-family: "Cormorant Garamond", serif; font-weight: 500; }
+    h1 { margin: 0.3rem 0; font-size: clamp(2.6rem, 6vw, 3.6rem); line-height: 0.95; }
+    .hero-subtitle { margin: 0; font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 1.5rem; color: var(--gold-2); }
+    .week-control {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      width: fit-content;
+      margin-top: 1.2rem;
+      padding: 0.4rem;
+      border: 1px solid var(--gold);
+      background: rgba(7, 6, 4, 0.8);
+    }
+    .week-label {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: 0;
+      background: transparent;
+      color: var(--gold-2);
+    }
+    .workspace { display: grid; gap: 1rem; padding: 1.1rem; }
+    .task-panel { border: 1px solid var(--line); background: var(--panel); }
+    .panel-heading, .quick-add, .team-actions, .progress-summary { padding: 0.9rem 1rem; }
+    .panel-heading { display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem; border-bottom: 1px solid var(--line); }
+    .panel-heading h2 { margin: 0; font-size: 2rem; color: var(--gold-2); }
+    .panel-heading p, .progress-summary, .desk-footnote, .dialog-description { color: var(--muted); }
+    .panel-heading p { margin: 0.15rem 0 0; font-size: 0.85rem; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      min-height: 2.5rem;
+      padding: 0 0.8rem;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--gold-2);
+      letter-spacing: 0.12em;
+      font-size: 0.68rem;
+    }
+    .button-gold { border-color: var(--gold); background: var(--gold); color: var(--ink); }
+    .panel-heading .button { margin-left: auto; }
+    .task-filters { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--line); }
+    .task-filters button { min-height: 2.8rem; border: 0; background: transparent; color: var(--muted); font-size: 0.75rem; }
+    .task-filters button[aria-pressed="true"] { background: var(--raise); color: var(--gold-2); }
+    .progress-summary { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; border-bottom: 1px solid var(--line); font-size: 0.72rem; letter-spacing: 0.12em; }
+    .progress-track { height: 0.35rem; min-width: 8rem; flex: 1; background: var(--raise); }
+    .progress-track span { display: block; height: 100%; background: var(--gold); }
+    .task-row, .team-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem; padding: 0.7rem 1rem; border-top: 1px solid rgba(198, 161, 90, 0.15); font-size: 0.9rem; }
+    .check { width: 1.15rem; height: 1.15rem; border: 1px solid var(--gold); background: transparent; color: transparent; }
+    .check.on { background: var(--gold); color: var(--ink); }
+    .dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; }
+    .dot.high { background: var(--danger); }
+    .dot.medium { background: var(--warn); }
+    .dot.low { background: var(--ok); }
+    .pill { border: 1px solid var(--line); padding: 0.1rem 0.4rem; letter-spacing: 0.12em; font-size: 0.65rem; text-transform: uppercase; }
+    .title { min-width: 8rem; flex: 1; }
+    .done .title { color: var(--muted); text-decoration: line-through; }
+    .mini { border: 0; background: transparent; color: var(--gold); }
+    .mini.danger { color: var(--danger); }
+    .quick-add h3, .team-actions h3 { margin: 0 0 0.7rem; color: var(--muted); letter-spacing: 0.16em; font-family: Montserrat, sans-serif; font-size: 0.72rem; font-weight: 500; }
+    .quick-add form, .team-actions div { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .quick-title { min-width: 12rem; flex: 1; }
+    .team-actions { border-top: 1px solid var(--line); }
+    .team-actions .button { flex: 1; }
+    .initials { display: grid; width: 2rem; height: 2rem; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--gold-2); font-size: 0.72rem; }
+    .desk-footnote { margin: 0; padding: 0 1rem 2rem; text-align: center; letter-spacing: 0.14em; font-size: 0.72rem; }
+    .desk-footnote small { display: block; margin-top: 0.3rem; letter-spacing: 0; font-size: 0.8rem; }
+    .shade, dialog::backdrop { background: rgba(7, 6, 4, 0.78); }
+    .shade { position: fixed; inset: 0; z-index: 20; border: 0; }
+    dialog { width: min(36rem, calc(100% - 1.5rem)); max-height: 90vh; overflow: auto; border: 1px solid var(--line); background: var(--panel); color: var(--ivory); padding: 1rem 1.1rem 1.2rem; }
+    .dialog-heading { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; }
+    .dialog-heading h2 { margin: 0.2rem 0 0; font-size: 2.2rem; color: var(--gold-2); }
+    .form-grid { display: grid; gap: 0.7rem; }
+    label { display: grid; gap: 0.3rem; color: var(--muted); font-size: 0.85rem; }
+    .dialog input, .dialog select, .dialog textarea { min-height: 2.6rem; border: 1px solid var(--line); background: var(--ink); padding: 0.45rem 0.7rem; }
+    .dialog-actions { display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 1rem; }
+    .form-error { color: var(--danger); }
+    .day { margin-top: 0.8rem; }
+    .day strong { display: block; color: var(--gold); letter-spacing: 0.12em; font-size: 0.72rem; }
+    .toast { position: fixed; left: 50%; bottom: 1rem; z-index: 60; transform: translateX(-50%); border: 1px solid var(--gold); background: var(--panel); color: var(--gold-2); padding: 0.6rem 0.9rem; }
+    @media (min-width: 900px) {
+      .shell { display: grid; grid-template-columns: 15.5rem 1fr; }
+      .sidebar { display: flex; flex-direction: column; min-height: 100vh; }
+      .mobile-menu { display: none; }
+      .topbar { grid-template-columns: 1fr auto; }
+      .owner-copy { display: block; }
+      .workspace { grid-template-columns: 1.35fr 0.95fr; }
+      .week-control { position: absolute; top: 50%; right: 1.4rem; margin: 0; transform: translateY(-50%); }
+    }
+    @media (max-width: 899px) {
+      .owner-copy { display: none; }
+      .sidebar.open { display: flex; position: fixed; inset: 0 auto 0 0; z-index: 30; width: min(18rem, 86vw); overflow: auto; }
+    }
+  </style>
+</head>
+<body>
+  <svg class="sr-only" aria-hidden="true">
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16V10a6 6 0 1 1 12 0v6l2 2H4z"/><path d="M10 20a2 2 0 0 0 4 0"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15"/><path d="M8 3v4M16 3v4M4 10h16"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
+  </svg>
+  <button class="shade" id="sidebar-shade" hidden aria-label="Close navigation"></button>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="owners-suite.html"><span>TWM</span><small>THE WE METHOD</small></a>
+      <a class="nav-link" href="owners-suite.html">Owner’s Suite</a>
+      <a class="nav-link" href="owner-dashboard.html">Dashboard</a>
+      <a class="nav-link" href="founder-library.html">My Resources</a>
+      <a class="nav-link active" href="weekly-tasks.html" aria-current="page">Weekly Tasks</a>
+      <a class="nav-link" href="team-desk.html">Team Desk</a>
+      <a class="nav-link" href="calendar.html">Calendar</a>
+      <a class="nav-link" href="archives.html">Documents</a>
+      <a class="nav-link" href="messages.html">Messages</a>
+      <a class="nav-link" href="reports.html">Reports</a>
+      <div class="nav-rule"></div>
+      <p class="nav-heading">BUSINESS</p>
+      <a class="nav-link" href="private-implementation.html">Implementation</a>
+      <a class="nav-link" href="fleet-solution.html">Fleet Solution</a>
+      <a class="nav-link" href="fleet-builder.html">Fleet Builder</a>
+      <a class="nav-link" href="operation-insight.html">Operation Insight</a>
+      <div class="nav-rule"></div>
+      <a class="nav-link" href="settings.html">Settings</a>
+      <button class="nav-logout" id="log-out" type="button" disabled title="Sign-out is available when connected to your account">Log out</button>
+    </aside>
+    <div class="desk">
+      <header class="topbar">
+        <button class="icon-button mobile-menu" id="menu-toggle" type="button" aria-label="Open navigation">
+          <svg class="icon"><use href="#i-menu"/></svg>
+        </button>
+        <div class="desk-title">OWNER COMMAND DESK<small>BUILD <b>◆</b> LAUNCH <b>◆</b> GROW</small></div>
+        <div class="topbar-tools">
+          <label class="search-box">
+            <svg class="icon"><use href="#i-search"/></svg>
+            <input id="task-search" type="search" placeholder="Search tasks…" autocomplete="off">
+          </label>
+          <button class="icon-button notifications" id="notifications-button" type="button" aria-label="View task reminders">
+            <svg class="icon"><use href="#i-bell"/></svg>
+            <span id="reminder-dot" class="reminder-dot" hidden></span>
+          </button>
+          <a class="owner-profile" href="profile.html">
+            <span class="avatar">AM</span>
+            <span class="owner-copy"><small>OWNER PROFILE</small><span class="owner-name">Annick Masson</span></span>
+          </a>
+        </div>
+      </header>
+      <main>
+        <section class="hero">
+          <p class="eyebrow">PLANNING &amp; EXECUTION</p>
+          <h1>MY WEEKLY TASKS</h1>
+          <p class="hero-subtitle">Stay focused. Take action. Move forward.</p>
+          <div class="week-control">
+            <button class="week-label" id="choose-week" type="button">
+              <svg class="icon"><use href="#i-calendar"/></svg>
+              <span id="week-label">THIS WEEK</span>
+            </button>
+            <button class="icon-button" id="previous-week" type="button" aria-label="Previous week"><svg class="icon"><use href="#i-left"/></svg></button>
+            <button class="icon-button" id="next-week" type="button" aria-label="Next week"><svg class="icon"><use href="#i-right"/></svg></button>
+            <button class="button" id="today-button" type="button">TODAY</button>
+          </div>
+        </section>
+        <div class="workspace">
+          <section class="task-panel">
+            <header class="panel-heading">
+              <div>
+                <h2 id="personal-heading">THIS WEEK</h2>
+                <p>Your personal tasks and priorities.</p>
+              </div>
+              <button class="button button-gold" id="add-personal" type="button">+ ADD TASK</button>
+            </header>
+            <div class="task-filters" id="personal-filters"></div>
+            <div class="progress-summary">
+              <span>WEEKLY PROGRESS</span>
+              <div id="personal-progress" class="progress-track"><span></span></div>
+              <strong id="personal-percent">0%</strong>
+              <small id="personal-progress-text">0 of 0 complete</small>
+            </div>
+            <div id="personal-list"></div>
+            <footer class="quick-add">
+              <h3>ADD A NEW TASK</h3>
+              <form id="quick-add-form">
+                <label class="field quick-title"><input name="title" placeholder="What do you need to do?" maxlength="180" required></label>
+                <label class="select-wrap">
+                  <select name="priority">
+                    <option value="high">High</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="low">Low</option>
+                  </select>
+                </label>
+                <label class="select-wrap"><select name="category" id="quick-category"></select></label>
+                <label class="quick-date"><input id="quick-due" name="due" type="date" required></label>
+                <button class="button button-gold" type="submit">ADD TASK</button>
+              </form>
+            </footer>
+          </section>
+          <section class="task-panel">
+            <header class="panel-heading">
+              <div>
+                <h2>TEAM TASKS</h2>
+                <p>View and manage your team’s tasks.</p>
+              </div>
+              <button class="button button-gold" id="add-team" type="button">+ ADD TEAM TASK</button>
+            </header>
+            <div class="task-filters" id="team-filters"></div>
+            <div id="team-list"></div>
+            <footer class="team-actions">
+              <h3>QUICK TEAM ACTIONS</h3>
+              <div>
+                <button class="button" id="view-calendar" type="button">VIEW CALENDAR</button>
+                <button class="button" id="assign-task" type="button">ASSIGN TASKS</button>
+                <button class="button" id="team-report" type="button">TEAM REPORT</button>
+              </div>
+            </footer>
+          </section>
+        </div>
+        <p class="desk-footnote">THE WE METHOD ◆ BUILD. LAUNCH. GROW.<small>Saved in this browser. Nothing is added until you write it.</small></p>
+      </main>
+    </div>
+  </div>
+
+  <dialog id="task-dialog">
+    <div class="dialog-heading">
+      <div><p class="eyebrow">PLANNING &amp; EXECUTION</p><h2 id="task-dialog-title">Add a task</h2></div>
+      <button class="icon-button" type="button" data-close aria-label="Close">×</button>
+    </div>
+    <form id="task-form">
+      <input type="hidden" name="id">
+      <label>Task title<input name="title" maxlength="180" required></label>
+      <div class="form-grid">
+        <label>Task list
+          <select name="scope">
+            <option value="personal">Personal tasks</option>
+            <option value="team">Team tasks</option>
+          </select>
+        </label>
+        <label>Assigned to<input name="assignee" placeholder="Type a name"></label>
+        <label>Priority
+          <select name="priority">
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </label>
+        <label>Category<select name="category" id="edit-category"></select></label>
+        <label>Due date<input name="due" type="date" required></label>
+        <label>Status
+          <select name="status">
+            <option value="todo">To do</option>
+            <option value="progress">In progress</option>
+            <option value="done">Completed</option>
+          </select>
+        </label>
+      </div>
+      <label>Notes (optional)<textarea name="notes" rows="3" maxlength="1500"></textarea></label>
+      <p class="form-error" id="task-form-error" hidden></p>
+      <div class="dialog-actions">
+        <button class="button" type="button" data-close>CANCEL</button>
+        <button class="button button-gold" type="submit">SAVE TASK</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="delete-dialog">
+    <div class="dialog-heading"><h2>Delete this task?</h2><button class="icon-button" type="button" data-close>×</button></div>
+    <p id="delete-task-name"></p>
+    <p class="dialog-description">This task will be removed from your list.</p>
+    <div class="dialog-actions">
+      <button class="button" type="button" data-close>KEEP TASK</button>
+      <button class="button button-gold" id="confirm-delete" type="button">DELETE TASK</button>
+    </div>
+  </dialog>
+
+  <dialog id="week-dialog">
+    <div class="dialog-heading"><h2>Choose a week</h2><button class="icon-button" type="button" data-close>×</button></div>
+    <form id="week-form">
+      <label>Select any date in the week<input id="week-date" type="date" required></label>
+      <div class="dialog-actions">
+        <button class="button" type="button" data-close>CANCEL</button>
+        <button class="button button-gold" type="submit">VIEW WEEK</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="view-dialog">
+    <div class="dialog-heading">
+      <div><p class="eyebrow">PLANNING &amp; EXECUTION</p><h2 id="view-title"></h2></div>
+      <button class="icon-button" type="button" data-close>×</button>
+    </div>
+    <div id="view-content"></div>
+  </dialog>
+  <p class="toast" id="toast" hidden></p>
+
+  <script>
+    const KEY = "twm-weekly-desk-v2";
+    const CATEGORIES = ["fleet","clients","marketing","operations","purchase","finance","planning","maintenance"];
+    const FILTERS = [["all","All"],["todo","To do"],["progress","In progress"],["done","Completed"]];
+    const $ = (id) => document.getElementById(id);
+    let tasks = [];
+    let anchor = new Date();
+    let personalFilter = "all";
+    let teamFilter = "all";
+    let query = "";
+    let deleteId = "";
+    const stamp = (date) => {
+      const y = date.getFullYear();
+      const m = String(date.getMonth() + 1).padStart(2, "0");
+      const d = String(date.getDate()).padStart(2, "0");
+      return y + "-" + m + "-" + d;
+    };
+    const parse = (value) => {
+      const parts = value.split("-").map(Number);
+      return new Date(parts[0], parts[1] - 1, parts[2]);
+    };
+    const startOfWeek = (date) => {
+      const copy = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+      copy.setDate(copy.getDate() - ((copy.getDay() + 6) % 7));
+      return copy;
+    };
+    const addDays = (date, days) => new Date(date.getFullYear(), date.getMonth(), date.getDate() + days);
+    const labelDate = (value) => parse(value).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    const initials = (name) => (name || "").split(" ").filter(Boolean).slice(0, 2).map((part) => part[0].toUpperCase()).join("") || "•";
+    const statusName = (status) => ({ todo: "To do", progress: "In progress", done: "Completed" })[status];
+    const nextStatus = (status) => ({ todo: "progress", progress: "done", done: "todo" })[status];
+    function load() {
+      try {
+        const parsed = JSON.parse(localStorage.getItem(KEY) || "[]");
+        tasks = Array.isArray(parsed) ? parsed.filter((task) => task && task.id && task.title) : [];
+      } catch (error) { tasks = []; }
+    }
+    function save() { localStorage.setItem(KEY, JSON.stringify(tasks)); }
+    function toast(message) {
+      const node = $("toast");
+      node.textContent = message;
+      node.hidden = false;
+      clearTimeout(toast.timer);
+      toast.timer = setTimeout(() => { node.hidden = true; }, 2200);
+    }
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      })[char]);
+    }
+    function fillCategories(select, selected) {
+      select.innerHTML = CATEGORIES.map((id) => '<option value="' + id + '"' + (id === selected ? " selected" : "") + ">" + id[0].toUpperCase() + id.slice(1) + "</option>").join("");
+    }
+    function weekTasks() {
+      const start = stamp(startOfWeek(anchor));
+      return tasks.filter((task) => task.due && stamp(startOfWeek(parse(task.due))) === start)
+        .filter((task) => (task.title + " " + (task.assignee || "") + " " + (task.notes || "") + " " + task.category).toLowerCase().includes(query));
+    }
+    function counts(list) {
+      return {
+        all: list.length,
+        todo: list.filter((task) => task.status === "todo").length,
+        progress: list.filter((task) => task.status === "progress").length,
+        done: list.filter((task) => task.status === "done").length
+      };
+    }
+    function openTask(task, scope) {
+      const form = $("task-form");
+      const editing = Boolean(task && task.id);
+      form.reset();
+      form.elements.id.value = editing ? task.id : "";
+      form.elements.scope.value = editing ? (task.scope === "team" ? "team" : "personal") : scope;
+      form.elements.title.value = editing ? task.title : "";
+      form.elements.assignee.value = editing ? (task.assignee || "") : "";
+      form.elements.priority.value = editing ? task.priority : "medium";
+      fillCategories(form.elements.category, editing ? task.category : (scope === "team" ? "fleet" : "planning"));
+      form.elements.due.value = editing ? task.due : stamp(anchor);
+      form.elements.status.value = editing ? task.status : "todo";
+      form.elements.notes.value = editing ? (task.notes || "") : "";
+      $("task-dialog-title").textContent = editing ? "Edit task" : (form.elements.scope.value === "team" ? "Add a team task" : "Add a task");
+      $("task-form-error").hidden = true;
+      $("task-dialog").showModal();
+    }
+    function render() {
+      const all = weekTasks().sort((a, b) => a.due.localeCompare(b.due));
+      const personal = all.filter((task) => task.scope !== "team");
+      const team = all.filter((task) => task.scope === "team");
+      const personalCounts = counts(personal);
+      const teamCounts = counts(team);
+      const percent = personalCounts.all ? Math.round((personalCounts.done / personalCounts.all) * 100) : 0;
+      $("personal-percent").textContent = percent + "%";
+      $("personal-progress-text").textContent = personalCounts.done + " of " + personalCounts.all + " complete";
+      $("personal-progress").firstElementChild.style.width = percent + "%";
+      $("personal-filters").innerHTML = FILTERS.map(([id, label]) => '<button type="button" data-filter="' + id + '" aria-pressed="' + (personalFilter === id) + '">' + label + " (" + personalCounts[id] + ")</button>").join("");
+      $("team-filters").innerHTML = FILTERS.map(([id, label]) => '<button type="button" data-filter="' + id + '" aria-pressed="' + (teamFilter === id) + '">' + label + " (" + teamCounts[id] + ")</button>").join("");
+      $("personal-filters").querySelectorAll("button").forEach((button) => button.addEventListener("click", () => { personalFilter = button.dataset.filter; render(); }));
+      $("team-filters").querySelectorAll("button").forEach((button) => button.addEventListener("click", () => { teamFilter = button.dataset.filter; render(); }));
+      const actions = (task) => '<button class="mini" data-edit="' + task.id + '">Edit</button><button class="mini" data-copy="' + task.id + '">Copy</button><button class="mini danger" data-delete="' + task.id + '">Delete</button>';
+      $("personal-list").innerHTML = personal.filter((task) => personalFilter === "all" || task.status === personalFilter).map((task) =>
+        '<article class="task-row ' + (task.status === "done" ? "done" : "") + '"><button class="check ' + (task.status === "done" ? "on" : "") + '" data-done="' + task.id + '">✓</button><span class="dot ' + task.priority + '"></span><p class="title">' + escapeHtml(task.title) + '</p><span class="pill">' + task.category + "</span><span>" + labelDate(task.due) + '</span><button class="mini" data-status="' + task.id + '">' + statusName(task.status) + "</button>" + actions(task) + "</article>"
+      ).join("");
+      $("team-list").innerHTML = team.filter((task) => teamFilter === "all" || task.status === teamFilter).map((task) =>
+        '<article class="team-row ' + (task.status === "done" ? "done" : "") + '"><span class="initials">' + initials(task.assignee) + "</span><span>" + escapeHtml(task.assignee || "") + '</span><span class="pill">' + task.category + '</span><p class="title">' + escapeHtml(task.title) + "</p><span>" + labelDate(task.due) + '</span><button class="mini" data-status="' + task.id + '">' + statusName(task.status) + "</button>" + actions(task) + "</article>"
+      ).join("");
+      document.querySelectorAll("[data-edit]").forEach((button) => button.addEventListener("click", () => openTask(tasks.find((task) => task.id === button.dataset.edit))));
+      document.querySelectorAll("[data-copy]").forEach((button) => button.addEventListener("click", () => {
+        const task = tasks.find((item) => item.id === button.dataset.copy);
+        tasks.unshift(Object.assign({}, task, { id: crypto.randomUUID(), status: "todo" }));
+        save(); render(); toast("Task copied.");
+      }));
+      document.querySelectorAll("[data-delete]").forEach((button) => button.addEventListener("click", () => {
+        deleteId = button.dataset.delete;
+        $("delete-task-name").textContent = tasks.find((task) => task.id === deleteId).title;
+        $("delete-dialog").showModal();
+      }));
+      document.querySelectorAll("[data-status]").forEach((button) => button.addEventListener("click", () => {
+        const task = tasks.find((item) => item.id === button.dataset.status);
+        task.status = nextStatus(task.status); save(); render();
+      }));
+      document.querySelectorAll("[data-done]").forEach((button) => button.addEventListener("click", () => {
+        const task = tasks.find((item) => item.id === button.dataset.done);
+        task.status = task.status === "done" ? "todo" : "done"; save(); render();
+      }));
+      const start = startOfWeek(anchor);
+      const end = addDays(start, 6);
+      const fmt = (date) => date.toLocaleDateString("en-US", { month: "short", day: "numeric" }).toUpperCase();
+      $("week-label").textContent = fmt(start) + " – " + fmt(end) + ", " + end.getFullYear();
+      const today = stamp(new Date());
+      $("reminder-dot").hidden = !tasks.some((task) => task.status !== "done" && task.due && task.due <= today);
+    }
+    $("quick-due").value = stamp(new Date());
+    fillCategories($("quick-category"), "planning");
+    fillCategories($("edit-category"), "planning");
+    load();
+    render();
+    $("task-search").addEventListener("input", (event) => { query = event.target.value.trim().toLowerCase(); render(); });
+    $("previous-week").addEventListener("click", () => { anchor = addDays(anchor, -7); render(); });
+    $("next-week").addEventListener("click", () => { anchor = addDays(anchor, 7); render(); });
+    $("today-button").addEventListener("click", () => { anchor = new Date(); render(); });
+    $("choose-week").addEventListener("click", () => { $("week-date").value = stamp(anchor); $("week-dialog").showModal(); });
+    $("week-form").addEventListener("submit", (event) => { event.preventDefault(); anchor = parse($("week-date").value); $("week-dialog").close(); render(); });
+    $("add-personal").addEventListener("click", () => openTask(null, "personal"));
+    $("add-team").addEventListener("click", () => openTask(null, "team"));
+    $("assign-task").addEventListener("click", () => openTask(null, "team"));
+    $("quick-add-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      tasks.unshift({ id: crypto.randomUUID(), scope: "personal", title: String(data.get("title")).trim(), assignee: "", priority: data.get("priority"), category: data.get("category"), due: data.get("due"), status: "todo", notes: "" });
+      anchor = parse(String(data.get("due")));
+      save(); event.currentTarget.reset(); $("quick-due").value = stamp(new Date()); fillCategories($("quick-category"), "planning"); render(); toast("Task added.");
+    });
+    $("task-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      const title = String(data.get("title") || "").trim();
+      const assignee = String(data.get("assignee") || "").trim();
+      const error = $("task-form-error");
+      if (!title) { error.textContent = "Add a task title."; error.hidden = false; return; }
+      if (data.get("scope") === "team" && !assignee) { error.textContent = "Type the name of the person you are assigning."; error.hidden = false; return; }
+      const next = { id: data.get("id") || crypto.randomUUID(), scope: data.get("scope"), title, assignee, priority: data.get("priority"), category: data.get("category"), due: data.get("due"), status: data.get("status"), notes: String(data.get("notes") || "").trim() };
+      tasks = data.get("id") ? tasks.map((task) => task.id === next.id ? next : task) : [next].concat(tasks);
+      anchor = parse(next.due); save(); $("task-dialog").close(); render(); toast(data.get("id") ? "Task updated." : "Task added.");
+    });
+    $("confirm-delete").addEventListener("click", () => { tasks = tasks.filter((task) => task.id !== deleteId); save(); $("delete-dialog").close(); render(); toast("Task deleted."); });
+    $("view-calendar").addEventListener("click", () => {
+      const start = startOfWeek(anchor);
+      const all = weekTasks();
+      const html = Array.from({ length: 7 }, (_, index) => {
+        const day = addDays(start, index);
+        const items = all.filter((task) => task.due === stamp(day));
+        const lines = items.length ? items.map((task) => "<p>" + (task.scope === "team" ? escapeHtml(task.assignee) + " · " : "") + escapeHtml(task.title) + "</p>").join("") : "<p>No tasks.</p>";
+        return '<div class="day"><strong>' + day.toLocaleDateString("en-US", { weekday: "long", month: "short", day: "numeric" }).toUpperCase() + "</strong>" + lines + "</div>";
+      }).join("");
+      $("view-title").textContent = "This week";
+      $("view-content").innerHTML = html;
+      $("view-dialog").showModal();
+    });
+    $("team-report").addEventListener("click", () => {
+      const all = weekTasks();
+      const personal = counts(all.filter((task) => task.scope !== "team"));
+      const team = all.filter((task) => task.scope === "team");
+      const teamCounts = counts(team);
+      const names = [...new Set(team.map((task) => task.assignee))];
+      const people = names.length ? names.map((name) => "<p>" + escapeHtml(name) + " · " + team.filter((task) => task.assignee === name).length + " task(s)</p>").join("") : "<p>No team tasks this week.</p>";
+      $("view-title").textContent = "Team report";
+      $("view-content").innerHTML = "<p>Personal · " + personal.todo + " to do · " + personal.progress + " in progress · " + personal.done + " completed</p><p>Team · " + teamCounts.todo + " to do · " + teamCounts.progress + " in progress · " + teamCounts.done + " completed</p>" + people;
+      $("view-dialog").showModal();
+    });
+    $("notifications-button").addEventListener("click", () => {
+      const today = stamp(new Date());
+      const reminders = tasks.filter((task) => task.status !== "done" && task.due && task.due <= today);
+      $("view-title").textContent = "Reminders";
+      $("view-content").innerHTML = reminders.length ? reminders.map((task) => "<p>" + labelDate(task.due) + " · " + (task.scope === "team" ? escapeHtml(task.assignee) + " · " : "") + escapeHtml(task.title) + "</p>").join("") : "<p>Nothing due today or overdue.</p>";
+      $("view-dialog").showModal();
+    });
+    document.querySelectorAll("[data-close]").forEach((button) => button.addEventListener("click", () => button.closest("dialog").close()));
+    $("menu-toggle").addEventListener("click", () => { $("sidebar").classList.add("open"); $("sidebar-shade").hidden = false; });
+    $("sidebar-shade").addEventListener("click", () => { $("sidebar").classList.remove("open"); $("sidebar-shade").hidden = true; });
+    if (window.twmSignOut) {
+      $("log-out").disabled = false;
+      $("log-out").addEventListener("click", () => window.twmSignOut());
+    }
+  </script>
+</body>
+</html>
