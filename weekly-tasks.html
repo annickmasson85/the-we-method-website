@@ -165,8 +165,8 @@
     </div>
     <div class="header-actions">
       <div class="desk-lang">
-        <button type="button" class="is-active">EN</button>
-        <button type="button">FR</button>
+       <button type="button" data-lang="en" class="is-active">EN</button>
+<button type="button" data-lang="fr">FR</button>
       </div>
       <a class="owner-profile" href="owner-profile.html">
         <img id="header-photo" src="images/owner-avatar.webp" alt="" width="48" height="48">
@@ -577,6 +577,105 @@
         if (meta.avatar_url) $("header-photo").src = meta.avatar_url;
       });
     }
+    const LANG_KEY = "twm-principal-lang";
+    const COPY = {
+      en: { masthead: "OWNER COMMAND DESK", ownerProfile: "OWNER PROFILE", menuTitle: "OWNER DESK", menu: ["This week’s tasks", "Appointments", "Documents pending", "Updates", "Team desk", "Messages", "Reports", "Client preview", "Owner profile"], logout: "Log out", title: "MY WEEKLY TASKS", subtitle: "Stay focused. Take action. Move forward.", search: "Search tasks…", today: "TODAY", thisWeek: "THIS WEEK", personalNote: "Your personal tasks and priorities.", addTask: "+ ADD TASK", progress: "WEEKLY PROGRESS", of: "of", complete: "complete", addNew: "ADD A NEW TASK", need: "What do you need to do?", high: "High", medium: "Medium", low: "Low", teamTitle: "TEAM TASKS", teamNote: "View and manage your team’s tasks.", addTeam: "+ ADD TEAM TASK", quick: "QUICK TEAM ACTIONS", viewCal: "VIEW CALENDAR", assign: "ASSIGN TASKS", report: "TEAM REPORT", saved: "Saved in this browser. Nothing is added until you write it.", all: "All", todo: "To do", progressState: "In progress", done: "Completed", edit: "Edit", copy: "Copy", delete: "Delete", cats: { fleet: "Fleet", clients: "Clients", marketing: "Marketing", operations: "Operations", purchase: "Purchase", finance: "Finance", planning: "Planning", maintenance: "Maintenance" } },
+      fr: { masthead: "BUREAU DE COMMANDE", ownerProfile: "PROFIL PRINCIPALE", menuTitle: "BUREAU OWNER", menu: ["Tâches de la semaine", "Rendez-vous", "Documents en attente", "Mises à jour", "Bureau équipe", "Messages", "Rapports", "Aperçu client", "Profil"], logout: "Déconnexion", title: "MES TÂCHES DE LA SEMAINE", subtitle: "Restez concentrée. Agissez. Avancez.", search: "Chercher une tâche…", today: "AUJOURD'HUI", thisWeek: "CETTE SEMAINE", personalNote: "Vos tâches et vos priorités.", addTask: "+ AJOUTER", progress: "PROGRESSION", of: "sur", complete: "terminées", addNew: "AJOUTER UNE TÂCHE", need: "Que devez-vous faire ?", high: "Haute", medium: "Moyenne", low: "Basse", teamTitle: "TÂCHES D'ÉQUIPE", teamNote: "Voir et gérer les tâches de l'équipe.", addTeam: "+ AJOUTER POUR L'ÉQUIPE", quick: "ACTIONS RAPIDES", viewCal: "VOIR LE CALENDRIER", assign: "ASSIGNER", report: "RAPPORT D'ÉQUIPE", saved: "Enregistré dans ce navigateur. Rien n'est ajouté tant que vous ne l'écrivez pas.", all: "Tout", todo: "À faire", progressState: "En cours", done: "Terminées", edit: "Modifier", copy: "Copier", delete: "Supprimer", cats: { fleet: "Flotte", clients: "Clients", marketing: "Marketing", operations: "Opérations", purchase: "Achat", finance: "Finance", planning: "Planification", maintenance: "Entretien" } }
+    };
+    let lang = localStorage.getItem(LANG_KEY) === "fr" ? "fr" : "en";
+    function applyPageLanguage() {
+      const copy = COPY[lang];
+      document.documentElement.lang = lang;
+      document.querySelectorAll(".desk-lang button").forEach((button) => {
+        button.classList.toggle("is-active", button.getAttribute("data-lang") === lang);
+      });
+      const mast = document.querySelector(".masthead-title");
+      if (mast) mast.textContent = copy.masthead;
+      const profile = document.querySelector(".owner-profile small");
+      if (profile) profile.textContent = copy.ownerProfile;
+      const menuTitle = document.querySelector(".menu-top span");
+      if (menuTitle) menuTitle.textContent = copy.menuTitle;
+      document.querySelectorAll(".side-menu > a").forEach((link, index) => {
+        if (copy.menu[index]) link.textContent = copy.menu[index];
+      });
+      const logout = document.getElementById("desk-signout");
+      if (logout) logout.textContent = copy.logout;
+      const title = document.querySelector(".hero h1");
+      if (title) title.textContent = copy.title;
+      const subtitle = document.querySelector(".hero-subtitle");
+      if (subtitle) subtitle.textContent = copy.subtitle;
+      const search = document.getElementById("task-search");
+      if (search) search.placeholder = copy.search;
+      const today = document.getElementById("today-button");
+      if (today) today.textContent = copy.today;
+      const week = document.getElementById("personal-heading");
+      if (week) week.textContent = copy.thisWeek;
+      const personalNote = document.querySelector("#personal-heading + p");
+      if (personalNote) personalNote.textContent = copy.personalNote;
+      const addPersonal = document.getElementById("add-personal");
+      if (addPersonal) addPersonal.textContent = copy.addTask;
+      const progress = document.querySelector(".progress-summary > span");
+      if (progress) progress.textContent = copy.progress;
+      const progressText = document.getElementById("personal-progress-text");
+      if (progressText) {
+        const numbers = progressText.textContent.match(/\d+/g) || ["0", "0"];
+        progressText.textContent = numbers[0] + " " + copy.of + " " + numbers[1] + " " + copy.complete;
+      }
+      const addNew = document.querySelector(".quick-add h3");
+      if (addNew) addNew.textContent = copy.addNew;
+      const need = document.querySelector('#quick-add-form input[name="title"]');
+      if (need) need.placeholder = copy.need;
+      const teamTitle = document.querySelector("#team-panel h2");
+      if (teamTitle) teamTitle.textContent = copy.teamTitle;
+      const teamNote = document.querySelector("#team-panel .panel-heading p");
+      if (teamNote) teamNote.textContent = copy.teamNote;
+      const addTeam = document.getElementById("add-team");
+      if (addTeam) addTeam.textContent = copy.addTeam;
+      const quick = document.querySelector(".team-actions h3");
+      if (quick) quick.textContent = copy.quick;
+      const viewCal = document.getElementById("view-calendar");
+      if (viewCal) viewCal.textContent = copy.viewCal;
+      const assign = document.getElementById("assign-task");
+      if (assign) assign.textContent = copy.assign;
+      const report = document.getElementById("team-report");
+      if (report) report.textContent = copy.report;
+      const saved = document.querySelector(".desk-footnote small");
+      if (saved) saved.textContent = copy.saved;
+      const filterName = { all: copy.all, todo: copy.todo, progress: copy.progressState, done: copy.done };
+      document.querySelectorAll("#personal-filters button, #team-filters button").forEach((button) => {
+        const count = (button.textContent.match(/\(\d+\)/) || ["(0)"])[0];
+        button.textContent = filterName[button.dataset.filter] + " " + count;
+      });
+      document.querySelectorAll('option[value="high"]').forEach((option) => { option.textContent = copy.high; });
+      document.querySelectorAll('option[value="medium"]').forEach((option) => { option.textContent = copy.medium; });
+      document.querySelectorAll('option[value="low"]').forEach((option) => { option.textContent = copy.low; });
+      document.querySelectorAll("#quick-category option, #edit-category option").forEach((option) => {
+        if (copy.cats[option.value]) option.textContent = copy.cats[option.value];
+      });
+      document.querySelectorAll("[data-status]").forEach((button) => {
+        const names = { todo: copy.todo, progress: copy.progressState, done: copy.done };
+        if (names[button.dataset.status] === undefined) {
+          const task = tasks.find((item) => item.id === button.dataset.status);
+          if (task) button.textContent = names[task.status];
+        }
+      });
+      document.querySelectorAll("[data-edit]").forEach((button) => { button.textContent = copy.edit; });
+      document.querySelectorAll("[data-copy]").forEach((button) => { button.textContent = copy.copy; });
+      document.querySelectorAll("[data-delete]").forEach((button) => { button.textContent = copy.delete; });
+    }
+    const renderTasks = render;
+    render = function () {
+      renderTasks();
+      applyPageLanguage();
+    };
+    document.querySelectorAll(".desk-lang button").forEach((button) => {
+      button.addEventListener("click", () => {
+        lang = button.getAttribute("data-lang") === "fr" ? "fr" : "en";
+        localStorage.setItem(LANG_KEY, lang);
+        render();
+      });
+    });
+    applyPageLanguage();
   </script>
 </body>
 </html>
