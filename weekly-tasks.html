@@ -23,147 +23,68 @@
       --warn: #e0b15a;
     }
     * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--ink);
-      color: var(--ivory);
-      font-family: Montserrat, sans-serif;
-    }
+    body { margin: 0; background: var(--ink); color: var(--ivory); font-family: Montserrat, sans-serif; }
     button, input, select, textarea { font: inherit; color: inherit; }
     button { cursor: pointer; }
     button:disabled { cursor: not-allowed; }
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      clip: rect(0 0 0 0);
-    }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
     .icon { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 1.6; }
     .shell { min-height: 100vh; }
-    .sidebar {
-      display: none;
-      background:
-        radial-gradient(80% 40% at 0% 20%, rgba(198, 161, 90, 0.16), transparent 50%),
-        linear-gradient(180deg, #1a160f, #0c0b09);
-      border-right: 1px solid var(--line);
-      padding: 1.6rem 0.7rem 1.4rem;
-    }
-    .brand { display: block; padding: 0 0.8rem 1rem; color: inherit; text-decoration: none; }
-    .brand span { display: block; font-family: "Cormorant Garamond", serif; font-size: 3rem; line-height: 1; color: var(--gold-2); }
-    .brand small { letter-spacing: 0.34em; color: var(--gold); font-size: 0.62rem; }
-    .nav-link, .nav-logout {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      width: 100%;
-      margin: 0.1rem 0;
-      padding: 0.55rem 0.7rem;
-      border: 1px solid transparent;
-      background: transparent;
-      color: rgba(243, 234, 220, 0.82);
-      text-align: left;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.72rem;
-    }
-    .nav-link.active { border-color: var(--gold); background: var(--raise); color: var(--gold-2); }
-    .nav-heading { margin: 1rem 0.8rem 0.3rem; color: var(--muted); letter-spacing: 0.28em; font-size: 0.62rem; }
-    .nav-rule { height: 1px; margin: 0.8rem 0.8rem; background: rgba(198, 161, 90, 0.3); }
-    .nav-logout { color: rgba(243, 234, 220, 0.4); }
     .desk { min-width: 0; }
-    .topbar {
+    .site-header {
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: Montserrat, Arial, sans-serif;
+      --gold-light: #e4bd77;
+      --cream: #f1e8d7;
+      min-height: 78px;
       display: grid;
-      gap: 0.7rem;
+      grid-template-columns: auto 1fr auto;
       align-items: center;
-      padding: 0.8rem 1rem;
-      border-bottom: 1px solid var(--line);
+      gap: 18px;
+      padding: 10px 28px;
+      border-bottom: 1px solid #3c2b19;
+      background: linear-gradient(100deg, #080908, #0b0b0a 55%, #080807);
     }
-    .desk-title { text-align: center; letter-spacing: 0.32em; font-size: 0.72rem; color: var(--gold-2); }
-    .desk-title small { display: block; margin-top: 0.25rem; color: var(--muted); letter-spacing: 0.22em; font-size: 0.62rem; }
-    .topbar-tools { display: flex; align-items: center; justify-content: flex-end; gap: 0.6rem; }
-    .search-box, .field, .select-wrap, .quick-date {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      height: 2.6rem;
-      border: 1px solid var(--line);
-      background: var(--ink);
-      padding: 0 0.7rem;
-    }
-    .search-box { width: min(13rem, 46vw); }
-    .search-box input, .field input, .select-wrap select, .quick-date input, .dialog input, .dialog select, .dialog textarea {
-      width: 100%;
-      border: 0;
-      background: transparent;
-      outline: none;
-    }
-    .icon-button {
-      display: grid;
-      width: 2.5rem;
-      height: 2.5rem;
-      place-items: center;
-      border: 1px solid var(--line);
-      background: transparent;
-      color: var(--gold);
-    }
+    .site-header .brand { width: max-content; padding: 0; display: flex; flex-direction: column; text-align: center; text-decoration: none; color: #c49a54; }
+    .brand-mark { font: 400 47px/.72 var(--serif); letter-spacing: .07em; }
+    .brand-name { padding-top: 7px; font: 600 7px/1 var(--sans); letter-spacing: .49em; white-space: nowrap; }
+    .masthead { text-align: center; color: var(--gold-light); display: flex; flex-direction: column; gap: 7px; }
+    .masthead-title { font: 500 16px/1.1 var(--serif); letter-spacing: .48em; white-space: nowrap; }
+    .masthead-tagline { font: 500 10px/1.2 var(--sans); letter-spacing: .34em; white-space: nowrap; }
+    .masthead-tagline b { font-size: 9px; font-weight: 400; padding: 0 6px; color: #d9ae63; }
+    .header-actions { display: flex; align-items: center; gap: 16px; }
+    .desk-lang { display: flex; gap: 6px; }
+    .desk-lang button { min-width: 34px; padding: 5px 7px; color: rgba(241,232,215,.55); background: transparent; border: 1px solid rgba(196,154,84,.35); font-size: 9px; letter-spacing: .16em; }
+    .desk-lang button.is-active { color: #1a1206; background: linear-gradient(135deg, #e4bd77, #c49a54); border-color: #c49a54; }
+    .site-header .owner-profile { display: flex; align-items: center; gap: 11px; color: var(--cream); text-decoration: none; }
+    .site-header .owner-profile img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 1px solid #c49a54; background: #111; }
+    .site-header .owner-profile span { display: flex; flex-direction: column; gap: 3px; }
+    .site-header .owner-profile small { font: 500 8px/1.1 var(--sans); letter-spacing: .16em; color: var(--gold-light); }
+    .site-header .owner-profile strong { font: 500 15px/1 var(--serif); font-weight: 500; }
+    .menu-toggle { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 24px; height: 26px; padding: 0; border: 0; background: transparent; }
+    .menu-toggle span { display: block; height: 2px; width: 23px; background: #c49a54; }
+    .menu-backdrop { position: fixed; inset: 0; z-index: 40; border: 0; background: rgba(0,0,0,.72); }
+    .menu-backdrop[hidden] { display: none; }
+    .side-menu { position: fixed; z-index: 50; top: 0; right: 0; bottom: 0; width: min(340px, 88vw); padding: 26px; overflow: auto; background: #0d0c0a; border-left: 1px solid #71532e; box-shadow: -20px 0 70px #000b; transform: translateX(105%); transition: transform .25s ease; }
+    .side-menu.is-open { transform: none; }
+    .menu-top { display: flex; justify-content: space-between; align-items: center; color: #e4bd77; font: 500 15px "Cormorant Garamond", serif; letter-spacing: .24em; padding-bottom: 22px; border-bottom: 1px solid #5b4225; margin-bottom: 15px; }
+    .menu-close { color: #e4bd77; border: 0; background: transparent; font: 36px/1 "Cormorant Garamond", serif; padding: 0 4px; }
+    .side-menu > a, #desk-signout { display: block; width: 100%; padding: 13px 5px; border: 0; border-bottom: 1px solid #3b2f21; background: transparent; color: #f1e8d7; text-align: left; text-decoration: none; font: 500 18px "Cormorant Garamond", serif; }
+    .side-menu > a:hover, #desk-signout:hover, .side-menu > a[aria-current="page"] { color: #e4bd77; }
+    .search-box, .field, .select-wrap, .quick-date { display: flex; align-items: center; gap: 0.4rem; height: 2.6rem; border: 1px solid var(--line); background: var(--ink); padding: 0 0.7rem; }
+    .search-box { width: min(16rem, 70vw); }
+    .search-box input, .field input, .select-wrap select, .quick-date input, .dialog input, .dialog select, .dialog textarea { width: 100%; border: 0; background: transparent; outline: none; }
+    .icon-button { display: grid; width: 2.5rem; height: 2.5rem; place-items: center; border: 1px solid var(--line); background: transparent; color: var(--gold); }
     .notifications { position: relative; border-color: transparent; }
-    .reminder-dot {
-      position: absolute;
-      top: 0.35rem;
-      right: 0.35rem;
-      width: 0.45rem;
-      height: 0.45rem;
-      border-radius: 50%;
-      background: var(--danger);
-    }
-    .owner-profile { display: flex; align-items: center; gap: 0.45rem; color: inherit; text-decoration: none; }
-    .avatar {
-      display: grid;
-      width: 2.5rem;
-      height: 2.5rem;
-      place-items: center;
-      border: 1px solid var(--gold);
-      border-radius: 50%;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 1.15rem;
-      color: var(--gold-2);
-    }
-    .owner-profile small { display: block; color: var(--gold); letter-spacing: 0.16em; font-size: 0.58rem; }
-    .owner-name { font-size: 0.85rem; }
-    .hero {
-      position: relative;
-      min-height: 15rem;
-      padding: 2rem 1.2rem;
-      background:
-        linear-gradient(90deg, rgba(7, 6, 4, 0.92), rgba(7, 6, 4, 0.45)),
-        radial-gradient(circle at 70% 40%, rgba(198, 161, 90, 0.28), transparent 28%),
-        #14110c;
-      border-bottom: 1px solid #3c3326;
-    }
+    .reminder-dot { position: absolute; top: 0.35rem; right: 0.35rem; width: 0.45rem; height: 0.45rem; border-radius: 50%; background: var(--danger); }
+    .hero { position: relative; min-height: 15rem; padding: 2rem 1.2rem; background: linear-gradient(90deg, rgba(7, 6, 4, 0.92), rgba(7, 6, 4, 0.45)), radial-gradient(circle at 70% 40%, rgba(198, 161, 90, 0.28), transparent 28%), #14110c; border-bottom: 1px solid #3c3326; }
     .eyebrow { margin: 0; color: var(--gold); letter-spacing: 0.28em; font-size: 0.72rem; }
     h1, h2, h3 { font-family: "Cormorant Garamond", serif; font-weight: 500; }
     h1 { margin: 0.3rem 0; font-size: clamp(2.6rem, 6vw, 3.6rem); line-height: 0.95; }
     .hero-subtitle { margin: 0; font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 1.5rem; color: var(--gold-2); }
-    .week-control {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      width: fit-content;
-      margin-top: 1.2rem;
-      padding: 0.4rem;
-      border: 1px solid var(--gold);
-      background: rgba(7, 6, 4, 0.8);
-    }
-    .week-label {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      border: 0;
-      background: transparent;
-      color: var(--gold-2);
-    }
+    .hero-tools { display: flex; align-items: center; gap: .55rem; margin-top: 1rem; }
+    .week-control { display: flex; flex-wrap: wrap; gap: 0.4rem; width: fit-content; margin-top: 1.2rem; padding: 0.4rem; border: 1px solid var(--gold); background: rgba(7, 6, 4, 0.8); }
+    .week-label { display: flex; align-items: center; gap: 0.4rem; border: 0; background: transparent; color: var(--gold-2); }
     .workspace { display: grid; gap: 1rem; padding: 1.1rem; }
     .task-panel { border: 1px solid var(--line); background: var(--panel); }
     .panel-heading, .quick-add, .team-actions, .progress-summary { padding: 0.9rem 1rem; }
@@ -171,19 +92,7 @@
     .panel-heading h2 { margin: 0; font-size: 2rem; color: var(--gold-2); }
     .panel-heading p, .progress-summary, .desk-footnote, .dialog-description { color: var(--muted); }
     .panel-heading p { margin: 0.15rem 0 0; font-size: 0.85rem; }
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.35rem;
-      min-height: 2.5rem;
-      padding: 0 0.8rem;
-      border: 1px solid var(--line);
-      background: transparent;
-      color: var(--gold-2);
-      letter-spacing: 0.12em;
-      font-size: 0.68rem;
-    }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem; min-height: 2.5rem; padding: 0 0.8rem; border: 1px solid var(--line); background: transparent; color: var(--gold-2); letter-spacing: 0.12em; font-size: 0.68rem; }
     .button-gold { border-color: var(--gold); background: var(--gold); color: var(--ink); }
     .panel-heading .button { margin-left: auto; }
     .task-filters { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--line); }
@@ -212,8 +121,7 @@
     .initials { display: grid; width: 2rem; height: 2rem; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--gold-2); font-size: 0.72rem; }
     .desk-footnote { margin: 0; padding: 0 1rem 2rem; text-align: center; letter-spacing: 0.14em; font-size: 0.72rem; }
     .desk-footnote small { display: block; margin-top: 0.3rem; letter-spacing: 0; font-size: 0.8rem; }
-    .shade, dialog::backdrop { background: rgba(7, 6, 4, 0.78); }
-    .shade { position: fixed; inset: 0; z-index: 20; border: 0; }
+    dialog::backdrop { background: rgba(7, 6, 4, 0.78); }
     dialog { width: min(36rem, calc(100% - 1.5rem)); max-height: 90vh; overflow: auto; border: 1px solid var(--line); background: var(--panel); color: var(--ivory); padding: 1rem 1.1rem 1.2rem; }
     .dialog-heading { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; }
     .dialog-heading h2 { margin: 0.2rem 0 0; font-size: 2.2rem; color: var(--gold-2); }
@@ -226,17 +134,13 @@
     .day strong { display: block; color: var(--gold); letter-spacing: 0.12em; font-size: 0.72rem; }
     .toast { position: fixed; left: 50%; bottom: 1rem; z-index: 60; transform: translateX(-50%); border: 1px solid var(--gold); background: var(--panel); color: var(--gold-2); padding: 0.6rem 0.9rem; }
     @media (min-width: 900px) {
-      .shell { display: grid; grid-template-columns: 15.5rem 1fr; }
-      .sidebar { display: flex; flex-direction: column; min-height: 100vh; }
-      .mobile-menu { display: none; }
-      .topbar { grid-template-columns: 1fr auto; }
-      .owner-copy { display: block; }
       .workspace { grid-template-columns: 1.35fr 0.95fr; }
       .week-control { position: absolute; top: 50%; right: 1.4rem; margin: 0; transform: translateY(-50%); }
     }
-    @media (max-width: 899px) {
-      .owner-copy { display: none; }
-      .sidebar.open { display: flex; position: fixed; inset: 0 auto 0 0; z-index: 30; width: min(18rem, 86vw); overflow: auto; }
+    @media (max-width: 760px) {
+      .site-header { height: 68px; grid-template-columns: auto 1fr; padding: 0 18px; }
+      .brand-mark { font-size: 40px; }
+      .masthead, .desk-lang, .site-header .owner-profile span { display: none; }
     }
   </style>
 </head>
@@ -248,59 +152,63 @@
     <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15"/><path d="M8 3v4M16 3v4M4 10h16"/></symbol>
     <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></symbol>
     <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
-    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
-    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
   </svg>
-  <button class="shade" id="sidebar-shade" hidden aria-label="Close navigation"></button>
+
+  <header class="site-header">
+    <a class="brand" href="principal-desk.html">
+      <span class="brand-mark">TWM</span><span class="brand-name">THE WE METHOD</span>
+    </a>
+    <div class="masthead">
+      <span class="masthead-title">OWNER COMMAND DESK</span>
+      <span class="masthead-tagline">BUILD <b>◆</b> LAUNCH <b>◆</b> GROW</span>
+    </div>
+    <div class="header-actions">
+      <div class="desk-lang">
+        <button type="button" class="is-active">EN</button>
+        <button type="button">FR</button>
+      </div>
+      <a class="owner-profile" href="owner-profile.html">
+        <img id="header-photo" src="images/owner-avatar.webp" alt="" width="48" height="48">
+        <span><small>OWNER PROFILE</small><strong data-owner-full>Annick Masson</strong></span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <button class="menu-backdrop" id="menu-backdrop" hidden aria-label="Close menu"></button>
+  <nav class="side-menu" id="main-menu" inert>
+    <div class="menu-top"><span>OWNER DESK</span><button class="menu-close" id="menu-close" type="button" aria-label="Close menu">×</button></div>
+    <a href="weekly-tasks.html" aria-current="page">This week’s tasks</a>
+    <a href="principal-desk.html">Appointments</a>
+    <a href="principal-desk.html">Documents pending</a>
+    <a href="operation-insight.html">Updates</a>
+    <a href="#team-panel">Team desk</a>
+    <a href="principal-desk.html">Messages</a>
+    <a href="principal-desk.html">Reports</a>
+    <a href="owners-suite.html">Client preview</a>
+    <a href="owner-profile.html">Owner profile</a>
+    <button type="button" id="desk-signout">Log out</button>
+  </nav>
+
   <div class="shell">
-    <aside class="sidebar" id="sidebar">
-      <a class="brand" href="owners-suite.html"><span>TWM</span><small>THE WE METHOD</small></a>
-      <a class="nav-link" href="owners-suite.html">Owner’s Suite</a>
-      <a class="nav-link" href="owner-dashboard.html">Dashboard</a>
-      <a class="nav-link" href="founder-library.html">My Resources</a>
-      <a class="nav-link active" href="weekly-tasks.html" aria-current="page">Weekly Tasks</a>
-      <a class="nav-link" href="team-desk.html">Team Desk</a>
-      <a class="nav-link" href="calendar.html">Calendar</a>
-      <a class="nav-link" href="archives.html">Documents</a>
-      <a class="nav-link" href="messages.html">Messages</a>
-      <a class="nav-link" href="reports.html">Reports</a>
-      <div class="nav-rule"></div>
-      <p class="nav-heading">BUSINESS</p>
-      <a class="nav-link" href="private-implementation.html">Implementation</a>
-      <a class="nav-link" href="fleet-solution.html">Fleet Solution</a>
-      <a class="nav-link" href="fleet-builder.html">Fleet Builder</a>
-      <a class="nav-link" href="operation-insight.html">Operation Insight</a>
-      <div class="nav-rule"></div>
-      <a class="nav-link" href="settings.html">Settings</a>
-      <button class="nav-logout" id="log-out" type="button" disabled title="Sign-out is available when connected to your account">Log out</button>
-    </aside>
     <div class="desk">
-      <header class="topbar">
-        <button class="icon-button mobile-menu" id="menu-toggle" type="button" aria-label="Open navigation">
-          <svg class="icon"><use href="#i-menu"/></svg>
-        </button>
-        <div class="desk-title">OWNER COMMAND DESK<small>BUILD <b>◆</b> LAUNCH <b>◆</b> GROW</small></div>
-        <div class="topbar-tools">
-          <label class="search-box">
-            <svg class="icon"><use href="#i-search"/></svg>
-            <input id="task-search" type="search" placeholder="Search tasks…" autocomplete="off">
-          </label>
-          <button class="icon-button notifications" id="notifications-button" type="button" aria-label="View task reminders">
-            <svg class="icon"><use href="#i-bell"/></svg>
-            <span id="reminder-dot" class="reminder-dot" hidden></span>
-          </button>
-          <a class="owner-profile" href="profile.html">
-            <span class="avatar">AM</span>
-            <span class="owner-copy"><small>OWNER PROFILE</small><span class="owner-name">Annick Masson</span></span>
-          </a>
-        </div>
-      </header>
       <main>
         <section class="hero">
           <p class="eyebrow">PLANNING &amp; EXECUTION</p>
           <h1>MY WEEKLY TASKS</h1>
           <p class="hero-subtitle">Stay focused. Take action. Move forward.</p>
+          <div class="hero-tools">
+            <label class="search-box">
+              <svg class="icon"><use href="#i-search"/></svg>
+              <input id="task-search" type="search" placeholder="Search tasks…" autocomplete="off">
+            </label>
+            <button class="icon-button notifications" id="notifications-button" type="button" aria-label="View task reminders">
+              <svg class="icon"><use href="#i-bell"/></svg>
+              <span id="reminder-dot" class="reminder-dot" hidden></span>
+            </button>
+          </div>
           <div class="week-control">
             <button class="week-label" id="choose-week" type="button">
               <svg class="icon"><use href="#i-calendar"/></svg>
@@ -345,7 +253,7 @@
               </form>
             </footer>
           </section>
-          <section class="task-panel">
+          <section class="task-panel" id="team-panel">
             <header class="panel-heading">
               <div>
                 <h2>TEAM TASKS</h2>
@@ -442,6 +350,8 @@
   </dialog>
   <p class="toast" id="toast" hidden></p>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
   <script>
     const KEY = "twm-weekly-desk-v2";
     const CATEGORIES = ["fleet","clients","marketing","operations","purchase","finance","planning","maintenance"];
@@ -638,11 +548,34 @@
       $("view-dialog").showModal();
     });
     document.querySelectorAll("[data-close]").forEach((button) => button.addEventListener("click", () => button.closest("dialog").close()));
-    $("menu-toggle").addEventListener("click", () => { $("sidebar").classList.add("open"); $("sidebar-shade").hidden = false; });
-    $("sidebar-shade").addEventListener("click", () => { $("sidebar").classList.remove("open"); $("sidebar-shade").hidden = true; });
-    if (window.twmSignOut) {
-      $("log-out").disabled = false;
-      $("log-out").addEventListener("click", () => window.twmSignOut());
+    const deskMenu = $("main-menu");
+    const closeDesk = () => {
+      deskMenu.classList.remove("is-open");
+      deskMenu.inert = true;
+      $("menu-backdrop").hidden = true;
+    };
+    $("menu-toggle").addEventListener("click", () => {
+      const open = !deskMenu.classList.contains("is-open");
+      deskMenu.classList.toggle("is-open", open);
+      deskMenu.inert = !open;
+      $("menu-backdrop").hidden = !open;
+    });
+    $("menu-close").addEventListener("click", closeDesk);
+    $("menu-backdrop").addEventListener("click", closeDesk);
+    $("desk-signout").addEventListener("click", async () => {
+      if (window.supabaseClient) await window.supabaseClient.auth.signOut();
+      window.location.href = "index.html";
+    });
+    if (window.supabaseClient) {
+      window.supabaseClient.auth.getSession().then(async (session) => {
+        if (!session.data || !session.data.session) return;
+        const userRes = await window.supabaseClient.auth.getUser();
+        const user = (userRes.data && userRes.data.user) || session.data.session.user;
+        const meta = (user && user.user_metadata) || {};
+        const full = [meta.first_name, meta.last_name].filter(Boolean).join(" ");
+        if (full) document.querySelector("[data-owner-full]").textContent = full;
+        if (meta.avatar_url) $("header-photo").src = meta.avatar_url;
+      });
     }
   </script>
 </body>
