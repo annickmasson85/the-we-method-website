@@ -1352,3 +1352,6 @@
     grid-template-columns: 1fr !important;
   }
 }
+.about-us-page a.button-gold {
+  color: #1a1206;
+}
