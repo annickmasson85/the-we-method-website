@@ -1168,3 +1168,6 @@ body.operation-insight-page {
   background-image: none !important;
   background-color: #070604 !important;
 }
+.operation-insight-page a.button-gold {
+  color: #1a1206;
+}
