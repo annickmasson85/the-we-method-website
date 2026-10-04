@@ -448,3 +448,10 @@
     transition: none;
   }
 }
+@media (min-width: 1121px) {
+  .private-services-page .fleet-solution-service {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc((100% - clamp(16px, 1.2vw, 20px)) / 2);
+  }
+}
