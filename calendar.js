@@ -4,12 +4,12 @@ const DESK_KEY = "twm-owner-command-desk-v1";
 const LANG_KEY = "twm-principal-lang";
 const OWNER_EMAIL = "annickmasson85@gmail.com";
 const TYPES = [
-  ["call", "Call", "Appel"],
-  ["meeting", "Meeting", "Réunion"],
-  ["visit", "On-site visit", "Visite"],
-  ["delivery", "Delivery", "Livraison"],
-  ["follow", "Follow-up", "Suivi"],
-  ["other", "Other", "Autre"]
+  ["call", "Partnership Call", "Appel partenaire", "#e4bd77"],
+  ["meeting", "Team Meeting", "Réunion d'équipe", "#7b5ea7"],
+  ["visit", "Implementation Call", "Appel de mise en place", "#3d7ec9"],
+  ["delivery", "Interview", "Entrevue", "#d07a3a"],
+  ["follow", "Follow Up", "Suivi", "#c45b8a"],
+  ["other", "Travel", "Déplacement", "#c44747"]
 ];
 const $ = (id) => document.getElementById(id);
 const ui = {
@@ -19,6 +19,7 @@ const ui = {
   team: "all",
   type: "all",
   selected: null,
+  detailTab: "details",
   query: ""
 };
 let db = loadCalendar();
@@ -65,7 +66,7 @@ function syncDesk() {
 }
 function t(en, fr) { return lang === "fr" ? fr : en; }
 function escapeHtml(value) {
-  const map = { "&": "&" + "amp;", "<": "&" + "lt;", ">": "&" + "gt;", '"': "&" + "quot;", "'": "&" + "#39;" };
+  const map = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
   return String(value == null ? "" : value).replace(/[&<>"']/g, (char) => map[char]);
 }
 function stamp(date) {
@@ -88,6 +89,13 @@ function minutes(value) {
 function typeName(id) {
   const found = TYPES.find((item) => item[0] === id);
   return found ? (lang === "fr" ? found[2] : found[1]) : id;
+}
+function typeColor(id) {
+  const found = TYPES.find((item) => item[0] === id);
+  return found ? found[3] : "#c6a15a";
+}
+function initials(value) {
+  return String(value || "").split(" ").filter(Boolean).slice(0, 2).map((part) => part[0]).join("").toUpperCase() || "•";
 }
 function member(id) { return db.team.find((item) => item.id === id) || db.team[0]; }
 function client(id) { return db.clients.find((item) => item.id === id); }
@@ -149,12 +157,10 @@ function applyChrome() {
     questionnaires: t("Questionnaires", "Questionnaires"),
     archive: t("Archive", "Archives")
   }[ui.page];
-  $("page-subtitle").textContent = t("Calls, meetings and tasks, in one place.", "Appels, réunions et tâches, au même endroit.");
+  $("page-subtitle").textContent = t("Manage calls, meetings and tasks for your operation.", "Appels, réunions et tâches, au même endroit.");
   $("today-button").textContent = t("Today", "Aujourd'hui");
   document.querySelector(".calendar-hint").textContent = t("Select a time to add an appointment.", "Choisissez une heure pour ajouter un rendez-vous.");
-  document.querySelector(".language-badge").textContent = lang === "fr" ? "FR" : "EN";
-  document.querySelector(".language-badge").classList.toggle("is-fr", lang === "fr");
-  document.querySelector(".profile-menu p").textContent = t("Saved in this browser. Nothing is added until you write it.", "Enregistré dans ce navigateur. Rien n'est ajouté tant que vous ne l'écrivez pas.");
+  document.querySelectorAll("[data-lang]").forEach((button) => button.classList.toggle("is-active", button.dataset.lang === lang));
   const labels = lang === "fr"
     ? ["Calendrier", "Mes tâches", "Tâches d'équipe", "Clients et prospects", "Dossiers clients", "Questionnaires", "Archives"]
     : ["Calendar", "My Tasks", "Team Tasks", "Clients & Leads", "Client Files", "Questionnaires", "Archive"];
@@ -179,21 +185,25 @@ function applyChrome() {
 }
 
 function renderFilters() {
-  const teamButtons = ['<button class="filter-chip' + (ui.team === "all" ? " active" : "") + '" type="button" data-team="all">' + t("Everyone", "Tout le monde") + "</button>"]
-    .concat(db.team.map((item) => '<button class="filter-chip' + (ui.team === item.id ? " active" : "") + '" type="button" data-team="' + item.id + '"><i class="dot" style="background:' + item.color + '"></i>' + escapeHtml(item.name) + "</button>"));
-  $("team-filters").innerHTML = teamButtons.join("");
-  $("type-filters").innerHTML = ['<button class="filter-chip' + (ui.type === "all" ? " active" : "") + '" type="button" data-type="all">' + t("All types", "Tous les types") + "</button>"]
-    .concat(TYPES.map((item) => '<button class="filter-chip' + (ui.type === item[0] ? " active" : "") + '" type="button" data-type="' + item[0] + '">' + escapeHtml(lang === "fr" ? item[2] : item[1]) + "</button>")).join("");
-  $("team-filters").querySelectorAll("[data-team]").forEach((button) => button.addEventListener("click", () => { ui.team = button.dataset.team; render(); }));
-  $("type-filters").querySelectorAll("[data-type]").forEach((button) => button.addEventListener("click", () => { ui.type = button.dataset.type; render(); }));
-  $("quick-add-types").innerHTML = TYPES.map((item) => '<button class="button" type="button" data-quick-type="' + item[0] + '">' + escapeHtml(lang === "fr" ? item[2] : item[1]) + "</button>").join("");
+  $("team-filters").innerHTML = db.team.map((item) => {
+    const on = ui.team === "all" || ui.team === item.id;
+    const photo = item.id === "owner" ? '<img src="images/owner-avatar.webp" alt="">' : '<b>' + escapeHtml(initials(item.name)) + "</b>";
+    return '<button class="member-row' + (on && ui.team === item.id ? " is-on" : "") + '" type="button" data-team="' + item.id + '">' + photo + '<i class="dot" style="background:' + item.color + '"></i><span>' + escapeHtml(item.name) + '</span><i class="tick"' + (on ? "" : " hidden") + "></i></button>";
+  }).join("");
+  $("type-filters").innerHTML = TYPES.map((item) => {
+    const on = ui.type === "all" || ui.type === item[0];
+    return '<button class="type-row' + (ui.type === item[0] ? " is-on" : "") + '" type="button" data-type="' + item[0] + '"><i class="dot" style="background:' + item[3] + '"></i><span>' + escapeHtml(lang === "fr" ? item[2] : item[1]) + '</span><i class="tick"' + (on ? "" : " hidden") + "></i></button>";
+  }).join("");
+  $("team-filters").querySelectorAll("[data-team]").forEach((button) => button.addEventListener("click", () => { ui.team = ui.team === button.dataset.team ? "all" : button.dataset.team; render(); }));
+  $("type-filters").querySelectorAll("[data-type]").forEach((button) => button.addEventListener("click", () => { ui.type = ui.type === button.dataset.type ? "all" : button.dataset.type; render(); }));
+  $("quick-add-types").innerHTML = TYPES.map((item) => '<button class="type-tile" type="button" data-quick-type="' + item[0] + '" style="--tile:' + item[3] + '"><span></span>' + escapeHtml(lang === "fr" ? item[2] : item[1]) + "</button>").join("");
   $("quick-add-types").querySelectorAll("[data-quick-type]").forEach((button) => button.addEventListener("click", () => openAppointment(null, { type: button.dataset.quickType })));
 }
 
 function eventButton(item) {
-  const person = member(item.assignedId);
   const who = client(item.clientId);
-  return '<button class="cal-event' + (ui.selected && ui.selected.kind === "appointment" && ui.selected.id === item.id ? " is-selected" : "") + (item.status === "completed" ? " is-done" : "") + '" type="button" data-open-appointment="' + item.id + '" style="border-left-color:' + person.color + '"><strong>' + escapeHtml(item.title) + "</strong><small>" + item.start + " · " + escapeHtml(who ? who.name : typeName(item.type)) + "</small></button>";
+  const color = typeColor(item.type);
+  return '<button class="cal-event' + (ui.selected && ui.selected.kind === "appointment" && ui.selected.id === item.id ? " is-selected" : "") + (item.status === "completed" ? " is-done" : "") + '" type="button" data-open-appointment="' + item.id + '" style="--event:' + color + '"><strong>' + escapeHtml(item.title) + "</strong><small>" + escapeHtml(who ? who.name : typeName(item.type)) + "</small></button>";
 }
 
 function renderCalendar() {
@@ -210,7 +220,7 @@ function renderCalendar() {
       const items = appointments.filter((item) => item.date === key).slice(0, 3).map((item) => '<button class="mini-event" type="button" data-open-appointment="' + item.id + '">' + item.start + " " + escapeHtml(item.title) + "</button>").join("");
       const tasks = tasksOn(day).slice(0, 2).map((task) => '<button class="mini-event" type="button" data-open-task="' + task.id + '">✓ ' + escapeHtml(task.title) + "</button>").join("");
       const today = stamp(day) === stamp(new Date()) ? " is-today" : "";
-      const faded = day.getMonth() === first.getMonth() ? "" : " style=\"opacity:.45\"";
+      const faded = day.getMonth() === first.getMonth() ? "" : ' style="opacity:.45"';
       return '<div class="month-cell' + today + '"' + faded + ' data-day="' + key + '"><strong>' + day.getDate() + "</strong>" + items + tasks + "</div>";
     }).join("");
     $("calendar-grid").innerHTML = '<div class="month-grid">' + cells + "</div>";
@@ -229,17 +239,17 @@ function renderCalendar() {
     const hours = Array.from({ length: 14 }, (_, index) => 7 + index);
     const columns = days.map((day) => {
       const key = stamp(day);
-      const head = '<div class="day-head' + (key === stamp(new Date()) ? " is-today" : "") + '">' + day.toLocaleDateString(locale, { weekday: "short", day: "numeric" }).toUpperCase() + "</div>";
+      const head = '<div class="day-head' + (key === stamp(new Date()) ? " is-today" : "") + '"><small>' + day.toLocaleDateString(locale, { weekday: "short" }) + "</small><b>" + day.toLocaleDateString(locale, { month: "short", day: "numeric" }) + "</b></div>";
       const chips = tasksOn(day).map((task) => '<button class="task-chip" type="button" data-open-task="' + task.id + '">' + escapeHtml(task.title) + "</button>").join("");
       const slots = hours.map((hour) => '<button class="hour-slot" type="button" data-slot="' + key + "T" + String(hour).padStart(2, "0") + ':00" aria-label="' + key + " " + hour + '"></button>').join("");
       const events = appointments.filter((item) => item.date === key).map((item) => {
         const top = Math.max(0, (minutes(item.start) - 7 * 60) / 60 * 48);
         const height = Math.max(28, (minutes(item.end) - minutes(item.start)) / 60 * 48);
-        return eventButton(item).replace('class="cal-event', 'style="top:' + top + 'px;height:' + height + 'px;border-left-color:' + member(item.assignedId).color + '" class="cal-event');
+        return eventButton(item).replace('class="cal-event', 'style="top:' + top + 'px;height:' + height + 'px;--event:' + typeColor(item.type) + '" class="cal-event');
       }).join("");
       return '<div class="day-column" data-day="' + key + '">' + head + chips + '<div style="position:relative">' + slots + events + "</div></div>";
     }).join("");
-    const labels = '<div><div class="day-head"></div>' + hours.map((hour) => '<div class="hour-label">' + String(hour).padStart(2, "0") + ":00</div>").join("") + "</div>";
+    const labels = '<div class="hour-rail"><div class="day-head"></div>' + hours.map((hour) => '<div class="hour-label">' + ((hour % 12) || 12) + (hour < 12 ? " AM" : " PM") + "</div>").join("") + "</div>";
     $("calendar-grid").innerHTML = '<div class="' + (days.length === 1 ? "day-board" : "week-board") + '">' + labels + columns + "</div>";
   }
   $("calendar-grid").querySelectorAll("[data-slot]").forEach((button) => button.addEventListener("click", () => {
@@ -258,29 +268,45 @@ function renderUpcoming() {
   const limit = stamp(addDays(new Date(), 7));
   const rows = db.appointments.filter((item) => item.status === "scheduled" && item.date >= today && item.date <= limit)
     .sort((a, b) => (a.date + a.start).localeCompare(b.date + b.start));
-  $("upcoming-list").innerHTML = rows.length ? rows.map((item) => '<button class="upcoming-row" type="button" data-open-appointment="' + item.id + '"><span>' + item.date.slice(5) + " · " + item.start + "</span><strong>" + escapeHtml(item.title) + "</strong></button>").join("") : '<p class="empty">' + t("No appointment in the next 7 days.", "Aucun rendez-vous dans les 7 prochains jours.") + "</p>";
+  $("upcoming-list").innerHTML = rows.length ? rows.map((item) => {
+    const who = client(item.clientId);
+    return '<button class="upcoming-row" type="button" data-open-appointment="' + item.id + '"><i style="background:' + typeColor(item.type) + '"></i><span><small>' + item.date.slice(5) + "<br>" + item.start + "</small></span><strong>" + escapeHtml(item.title) + "<small>" + escapeHtml(who ? who.name : typeName(item.type)) + '</small></strong><b class="who">' + escapeHtml(initials(who ? who.name : member(item.assignedId).name)) + "</b>" + (who && who.phone ? "<em>" + escapeHtml(who.phone) + "</em>" : "") + '<svg><use href="#i-right"/></svg></button>';
+  }).join("") : '<p class="empty">' + t("No appointment in the next 7 days.", "Aucun rendez-vous dans les 7 prochains jours.") + "</p>";
   bindOpeners($("upcoming-list"));
 }
 
+function clockLabel(value) {
+  const total = minutes(value);
+  const hour = Math.floor(total / 60);
+  const min = String(total % 60).padStart(2, "0");
+  return ((hour % 12) || 12) + ":" + min + (hour < 12 ? " AM" : " PM");
+}
 function renderDetail() {
   const box = $("appointment-detail");
+  const tabs = ["details", "notes", "files", "questionnaire"];
+  const tabLabels = lang === "fr" ? ["Détails", "Notes", "Fichiers", "Questionnaire"] : ["Details", "Notes", "Files", "Questionnaire"];
+  const tabBar = '<div class="detail-tabs">' + tabs.map((id, index) => '<button type="button" data-tab="' + id + '"' + (ui.detailTab === id ? ' class="is-on"' : "") + ">" + tabLabels[index] + "</button>").join("") + "</div>";
   if (!ui.selected) {
-    box.innerHTML = '<p class="eyebrow">COMMAND CENTER</p><h2>' + t("Nothing selected", "Rien de sélectionné") + "</h2><p class=\"muted\">" + t("Choose an appointment or a task.", "Choisissez un rendez-vous ou une tâche.") + "</p>";
+    box.innerHTML = '<div class="detail-top"><div><p>' + t("No appointment selected", "Aucun rendez-vous") + "</p><small>" + t("Choose a time on the calendar.", "Choisissez une heure dans le calendrier.") + "</small></div></div>" + tabBar + '<div class="detail-empty"><h2>' + t("Your file opens here", "Le dossier s’ouvre ici") + "</h2><p>" + t("Nothing is invented. Add a real appointment and its client, notes and files stay in this panel.", "Rien n’est inventé. Ajoutez un vrai rendez-vous : le client, les notes et les fichiers restent dans ce panneau.") + "</p></div>";
+    box.querySelectorAll("[data-tab]").forEach((button) => button.addEventListener("click", () => { ui.detailTab = button.dataset.tab; renderDetail(); }));
     return;
   }
   if (ui.selected.kind === "task") {
     const task = taskList().find((item) => item.id === ui.selected.id);
     if (!task) { ui.selected = null; renderDetail(); return; }
-    box.innerHTML = '<p class="eyebrow">' + t("TASK", "TÂCHE") + "</p><h2>" + escapeHtml(task.title) + "</h2><p>" + task.due + "</p><p class=\"muted\">" + escapeHtml(task.assignee || t("Personal", "Personnelle")) + "</p><p>" + escapeHtml(task.notes || "") + '</p><div class="detail-actions"><button class="button" type="button" id="detail-edit">' + t("EDIT", "MODIFIER") + '</button><button class="button button-gold" type="button" id="detail-done">' + t("COMPLETE", "TERMINER") + '</button><button class="button button-danger" type="button" id="detail-delete">' + t("DELETE", "SUPPRIMER") + "</button></div>";
+    box.innerHTML = '<div class="detail-top"><div><p>' + t("TASK", "TÂCHE") + "</p><small>" + task.due + '</small></div><button class="detail-x" type="button" id="detail-clear" aria-label="Close">×</button></div><h2 class="detail-name">' + escapeHtml(task.title) + '</h2><p class="muted">' + escapeHtml(task.notes || t("No notes.", "Aucune note.")) + '</p><div class="detail-actions"><button class="button" type="button" id="detail-edit">' + t("EDIT", "MODIFIER") + '</button><button class="button button-gold" type="button" id="detail-done">' + t("COMPLETE", "TERMINER") + '</button><button class="button button-danger" type="button" id="detail-delete">' + t("DELETE", "SUPPRIMER") + "</button></div>";
+    $("detail-clear").addEventListener("click", () => { ui.selected = null; render(); });
     $("detail-edit").addEventListener("click", () => openTask(task));
     $("detail-done").addEventListener("click", () => {
-      const tasks = taskList().map((item) => item.id === task.id ? Object.assign({}, item, { status: "done" }) : item);
-      saveTasks(tasks); toast(t("Task completed.", "Tâche terminée.")); render();
+      saveTasks(taskList().map((item) => item.id === task.id ? Object.assign({}, item, { status: "done" }) : item));
+      toast(t("Task completed.", "Tâche terminée."));
+      render();
     });
     $("detail-delete").addEventListener("click", async () => {
       if (!await askConfirm(t("Delete this task?", "Supprimer cette tâche ?"), task.title, t("Delete", "Supprimer"))) return;
       saveTasks(taskList().filter((item) => item.id !== task.id));
-      ui.selected = null; render();
+      ui.selected = null;
+      render();
     });
     return;
   }
@@ -288,15 +314,46 @@ function renderDetail() {
   if (!item) { ui.selected = null; renderDetail(); return; }
   const who = client(item.clientId);
   const person = member(item.assignedId);
-  box.innerHTML = '<p class="eyebrow">' + escapeHtml(typeName(item.type)).toUpperCase() + "</p><h2>" + escapeHtml(item.title) + "</h2><p>" + item.date + " · " + item.start + "–" + item.end + "</p><p>" + escapeHtml(person.name) + "</p>" + (who ? "<p><strong>" + escapeHtml(who.name) + "</strong><br>" + escapeHtml(who.phone || "") + "<br>" + escapeHtml(who.email || "") + "</p>" : "") + "<p>" + escapeHtml(item.location || "") + "</p><p class=\"muted\">" + escapeHtml(item.notes || "") + '</p><div class="detail-actions"><button class="button" type="button" id="detail-edit">' + t("EDIT", "MODIFIER") + '</button><button class="button button-gold" type="button" id="detail-done">' + t("COMPLETE", "TERMINER") + '</button><button class="button" type="button" id="detail-cancel">' + t("CANCEL", "ANNULER") + '</button><button class="button button-danger" type="button" id="detail-delete">' + t("DELETE", "SUPPRIMER") + "</button></div>";
+  const when = parse(item.date);
+  const locale = lang === "fr" ? "fr-FR" : "en-US";
+  const dateLine = when.toLocaleDateString(locale, { weekday: "short", month: "short", day: "numeric", year: "numeric" });
+  let body = "";
+  if (ui.detailTab === "notes") {
+    body = "<p>" + escapeHtml(item.notes || t("No notes yet.", "Aucune note pour le moment.")) + "</p>";
+  } else if (ui.detailTab === "files") {
+    const files = (who && who.files) || [];
+    body = files.length ? files.map((file) => "<p>" + escapeHtml(file.name) + "</p>").join("") : '<p class="muted">' + t("No file on this client yet.", "Aucun fichier sur ce client.") + "</p>";
+  } else if (ui.detailTab === "questionnaire") {
+    const services = (who && who.services) || [];
+    body = services.length ? services.map((service) => "<p>" + escapeHtml(service) + "</p>").join("") : '<p class="muted">' + t("No questionnaire until a service is marked on the client.", "Pas de questionnaire tant qu’un service n’est pas coché sur le client.") + "</p>";
+  } else {
+    body = '<p class="detail-label">' + t("CLIENT INFORMATION", "CLIENT") + "</p>" + (who
+      ? '<div class="client-block"><b>' + escapeHtml(initials(who.name)) + "</b><div><strong>" + escapeHtml(who.name) + "</strong><small>" + escapeHtml(who.role || who.contact || "") + "</small><small>" + escapeHtml(who.phone || "") + "</small><small>" + escapeHtml(who.email || "") + "</small><small>" + escapeHtml(who.location || "") + '</small></div></div><button class="button detail-file" type="button" id="open-client-file">' + t("OPEN CLIENT FILE", "OUVRIR LE DOSSIER") + "</button>"
+      : '<p class="muted">' + t("No client linked yet.", "Aucun client lié.") + "</p>")
+      + '<dl class="detail-facts"><div><dt>' + t("DATE & TIME", "DATE ET HEURE") + "</dt><dd>" + dateLine + "<br>" + clockLabel(item.start) + " – " + clockLabel(item.end) + '</dd></div><div><dt>' + t("TYPE", "TYPE") + '</dt><dd><i class="dot" style="background:' + typeColor(item.type) + '"></i> ' + escapeHtml(typeName(item.type)) + "</dd></div><div><dt>" + t("ASSIGNED TO", "ASSIGNÉ À") + "</dt><dd>" + escapeHtml(person.name) + "</dd></div><div><dt>" + t("STATUS", "STATUT") + "</dt><dd>" + escapeHtml(item.status) + "</dd></div><div><dt>" + t("REMINDER", "RAPPEL") + "</dt><dd>" + (item.reminder === "none" ? t("None", "Aucun") : item.reminder + " min") + '</dd></div></dl><p class="detail-label">' + t("NOTES", "NOTES") + "</p><p>" + escapeHtml(item.notes || t("No notes yet.", "Aucune note.")) + "</p>";
+  }
+  box.innerHTML = '<div class="detail-top"><div><p>' + dateLine + "</p><small>" + clockLabel(item.start) + " – " + clockLabel(item.end) + '</small></div><button class="detail-x" type="button" id="detail-clear" aria-label="Close">×</button></div><div class="detail-heading"><i style="background:' + typeColor(item.type) + '"></i><div><h2>' + escapeHtml(item.title) + "</h2><p>" + escapeHtml(who ? who.name : typeName(item.type)) + "</p></div></div>" + tabBar + body + '<div class="detail-actions"><button class="button" type="button" id="detail-edit">' + t("EDIT", "MODIFIER") + '</button><button class="button" type="button" id="detail-copy">' + t("DUPLICATE", "DUPLIQUER") + '</button><button class="button button-gold" type="button" id="detail-done">' + t("DONE", "TERMINÉ") + '</button><button class="icon-button" type="button" id="detail-delete" aria-label="Delete"><svg><use href="#i-trash"/></svg></button></div>';
+  box.querySelectorAll("[data-tab]").forEach((button) => button.addEventListener("click", () => { ui.detailTab = button.dataset.tab; renderDetail(); }));
+  $("detail-clear").addEventListener("click", () => { ui.selected = null; render(); });
   $("detail-edit").addEventListener("click", () => openAppointment(item));
+  $("detail-copy").addEventListener("click", () => {
+    const copy = Object.assign({}, item, { id: crypto.randomUUID(), title: item.title });
+    db.appointments.push(copy);
+    ui.selected = { kind: "appointment", id: copy.id };
+    saveCalendar();
+    toast(t("Appointment duplicated.", "Rendez-vous dupliqué."));
+    render();
+  });
   $("detail-done").addEventListener("click", () => { item.status = "completed"; saveCalendar(); toast(t("Appointment completed.", "Rendez-vous terminé.")); render(); });
-  $("detail-cancel").addEventListener("click", () => { item.status = "cancelled"; saveCalendar(); toast(t("Appointment cancelled.", "Rendez-vous annulé.")); render(); });
   $("detail-delete").addEventListener("click", async () => {
     if (!await askConfirm(t("Delete this appointment?", "Supprimer ce rendez-vous ?"), item.title, t("Delete", "Supprimer"))) return;
     db.appointments = db.appointments.filter((entry) => entry.id !== item.id);
-    ui.selected = null; saveCalendar(); render();
+    ui.selected = null;
+    saveCalendar();
+    render();
   });
+  const fileButton = $("open-client-file");
+  if (fileButton && who) fileButton.addEventListener("click", () => openClientFile(who));
 }
 
 function fillPeople(select, selected) {
@@ -360,17 +417,19 @@ function openClientFile(item) {
   const appointments = db.appointments.filter((entry) => entry.clientId === item.id).sort((a, b) => (b.date + b.start).localeCompare(a.date + a.start));
   const files = item.files || [];
   $("client-modal-title").textContent = item.name;
-  $("client-dialog-content").innerHTML = "<p>" + escapeHtml(item.contact || "") + "<br>" + escapeHtml(item.phone || "") + "<br>" + escapeHtml(item.email || "") + "<br>" + escapeHtml(item.location || "") + "</p><h3>" + t("Appointments", "Rendez-vous") + "</h3>" + (appointments.map((entry) => "<p>" + entry.date + " · " + entry.start + " · " + escapeHtml(entry.title) + "</p>").join("") || "<p class=\"muted\">" + t("No appointment yet.", "Pas encore de rendez-vous.") + "</p>") + "<h3>" + t("Notes", "Notes") + "</h3><textarea class=\"field\" id=\"client-file-notes\">" + escapeHtml(item.notes || "") + "</textarea><h3>" + t("Files", "Fichiers") + "</h3>" + files.map((file) => '<p class="file-row">' + escapeHtml(file.name) + "</p>").join("") + '<label>' + t("File name", "Nom du fichier") + '<input class="field" id="client-file-name" maxlength="120"></label><div class="modal-actions"><button class="button" type="button" id="client-add-file">' + t("ADD FILE NAME", "AJOUTER LE NOM") + '</button><button class="button button-gold" type="button" id="client-save-notes">' + t("SAVE NOTES", "ENREGISTRER") + "</button></div>";
+  $("client-dialog-content").innerHTML = "<p>" + escapeHtml(item.contact || "") + "<br>" + escapeHtml(item.phone || "") + "<br>" + escapeHtml(item.email || "") + "<br>" + escapeHtml(item.location || "") + "</p><h3>" + t("Appointments", "Rendez-vous") + "</h3>" + (appointments.map((entry) => "<p>" + entry.date + " · " + entry.start + " · " + escapeHtml(entry.title) + "</p>").join("") || '<p class="muted">' + t("No appointment yet.", "Pas encore de rendez-vous.") + "</p>") + "<h3>" + t("Notes", "Notes") + '</h3><textarea class="field" id="client-file-notes">' + escapeHtml(item.notes || "") + "</textarea><h3>" + t("Files", "Fichiers") + "</h3>" + files.map((file) => '<p class="file-row">' + escapeHtml(file.name) + "</p>").join("") + "<label>" + t("File name", "Nom du fichier") + '<input class="field" id="client-file-name" maxlength="120"></label><div class="modal-actions"><button class="button" type="button" id="client-add-file">' + t("ADD FILE NAME", "AJOUTER LE NOM") + '</button><button class="button button-gold" type="button" id="client-save-notes">' + t("SAVE NOTES", "ENREGISTRER") + "</button></div>";
   $("client-dialog").showModal();
   $("client-save-notes").addEventListener("click", () => {
     item.notes = $("client-file-notes").value.trim();
-    saveCalendar(); toast(t("Notes saved.", "Notes enregistrées."));
+    saveCalendar();
+    toast(t("Notes saved.", "Notes enregistrées."));
   });
   $("client-add-file").addEventListener("click", () => {
     const name = $("client-file-name").value.trim();
     if (!name) return;
     item.files = (item.files || []).concat({ id: crypto.randomUUID(), name });
-    saveCalendar(); openClientFile(item);
+    saveCalendar();
+    openClientFile(item);
   });
 }
 
@@ -415,7 +474,8 @@ function renderDirectory() {
   directory.querySelectorAll("[data-cycle-task]").forEach((button) => button.addEventListener("click", () => {
     const order = { todo: "progress", progress: "done", done: "todo" };
     const tasks = taskList().map((task) => task.id === button.dataset.cycleTask ? Object.assign({}, task, { status: order[task.status] || "todo" }) : task);
-    saveTasks(tasks); render();
+    saveTasks(tasks);
+    render();
   }));
   directory.querySelectorAll("[data-client]").forEach((button) => button.addEventListener("click", () => {
     const item = client(button.dataset.client);
@@ -429,7 +489,7 @@ function bindOpeners(root) {
   root.querySelectorAll("[data-open-appointment]").forEach((button) => button.addEventListener("click", (event) => {
     event.stopPropagation();
     ui.selected = { kind: "appointment", id: button.dataset.openAppointment };
-    if (ui.page !== "calendar") { ui.page = "calendar"; }
+    if (ui.page !== "calendar") ui.page = "calendar";
     render();
   }));
   root.querySelectorAll("[data-open-task]").forEach((button) => button.addEventListener("click", (event) => {
@@ -505,8 +565,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     const full = [meta.first_name, meta.last_name].filter(Boolean).join(" ");
     if (full) {
       db.team[0].name = full;
-      document.querySelector(".profile strong").textContent = full;
-      document.querySelector(".avatar").textContent = full.split(" ").slice(0, 2).map((part) => part[0]).join("").toUpperCase();
+      const name = document.getElementById("profile-name");
+      if (name) name.textContent = full;
+    }
+    if (meta.avatar_url) {
+      const photo = document.getElementById("header-photo");
+      if (photo) photo.src = meta.avatar_url;
     }
   }
   document.querySelector(".brand").setAttribute("href", "principal-desk.html");
@@ -538,8 +602,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     else openClientEditor(null);
   });
   document.querySelectorAll("[data-action='new-appointment']").forEach((button) => button.addEventListener("click", () => openAppointment(null)));
-  document.querySelectorAll("[data-action='manage-team']").forEach((button) => button.addEventListener("click", () => { $("profile-menu").hidden = true; renderTeamManager(); }));
-  document.querySelector("[data-action='export']").addEventListener("click", exportData);
+  document.querySelectorAll("[data-action='manage-team']").forEach((button) => button.addEventListener("click", () => { closeMenu(); renderTeamManager(); }));
+  document.querySelector("[data-action='export']").addEventListener("click", () => { closeMenu(); exportData(); });
   document.querySelector("[data-action='client-history']").addEventListener("click", () => { ui.page = "archive"; render(); });
   $("new-client-from-appointment").addEventListener("click", () => openClientEditor(null));
   $("appointment-form").addEventListener("submit", (event) => {
@@ -636,14 +700,29 @@ document.addEventListener("DOMContentLoaded", async () => {
     render();
   });
   document.querySelectorAll("[data-close]").forEach((button) => button.addEventListener("click", () => button.closest("dialog").close()));
-  $("profile-button").addEventListener("click", () => { $("profile-menu").hidden = !$("profile-menu").hidden; });
-  $("menu-button").addEventListener("click", () => document.getElementById("sidebar").classList.toggle("is-open"));
-  document.querySelector(".language-badge").addEventListener("click", () => {
-    lang = lang === "fr" ? "en" : "fr";
+  const menu = document.getElementById("main-menu");
+  const backdrop = document.getElementById("menu-backdrop");
+  function closeMenu() {
+    menu.classList.remove("is-open");
+    backdrop.hidden = true;
+    $("menu-button").setAttribute("aria-expanded", "false");
+  }
+  function openMenu() {
+    menu.classList.add("is-open");
+    backdrop.hidden = false;
+    $("menu-button").setAttribute("aria-expanded", "true");
+  }
+  $("menu-button").addEventListener("click", () => menu.classList.contains("is-open") ? closeMenu() : openMenu());
+  $("menu-close").addEventListener("click", closeMenu);
+  backdrop.addEventListener("click", closeMenu);
+  document.querySelectorAll("[data-lang]").forEach((button) => button.addEventListener("click", () => {
+    lang = button.dataset.lang === "fr" ? "fr" : "en";
     localStorage.setItem(LANG_KEY, lang);
     render();
-  });
-  document.addEventListener("click", (event) => {
-    if (!event.target.closest(".profile") && !event.target.closest(".profile-menu")) $("profile-menu").hidden = true;
+  }));
+  const signout = document.getElementById("calendar-signout");
+  if (signout) signout.addEventListener("click", async () => {
+    if (window.supabaseClient) await window.supabaseClient.auth.signOut();
+    window.location.href = "index.html";
   });
 });
