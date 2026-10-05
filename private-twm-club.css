@@ -1,0 +1,19 @@
+.private-club-main {
+  padding: clamp(20px, 2.3vw, 38px) 0 clamp(54px, 6vw, 96px);
+}
+
+.private-club {
+  width: min(calc(100% - clamp(30px, 6vw, 104px)), 1480px);
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid rgba(190, 139, 70, 0.42);
+  border-radius: 3px;
+  background: #080705;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.48);
+}
+
+.private-club img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
