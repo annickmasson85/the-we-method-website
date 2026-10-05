@@ -168,9 +168,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
   } else if (answers.goal === "custom-fleet") {
     service = {
-      title: "Fleet Builder",
-      href: "fleet-builder.html",
-      text: "Custom fleet development designed around the brand."
+      title: "Operation Insight",
+      href: "operation-insight.html",
+      text: "One day on site, and one hour to find what is not working in the operation."
     };
   }
 
@@ -185,7 +185,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const serviceImages = {
     "Implementation Services": "images/assessment-implementation-services.png",
     "Fleet Solution": "images/assessment-fleet-solution.png",
-    "Fleet Builder": "images/assessment-fleet-builder.png",
     "Operation Insight": "images/assessment-operation-insight.png"
   };
 
