@@ -1,10 +1,126 @@
 .private-fleet-main {
-  width: min(calc(100% - 36px), 1680px);
-  margin: clamp(16px, 2vw, 28px) auto clamp(48px, 6vw, 80px);
+  padding: clamp(16px, 2vw, 28px) 0 clamp(40px, 5vw, 72px);
 }
 
-.private-fleet-main img {
+.private-fleet {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: min(calc(100% - 36px), 1680px);
+  min-height: clamp(640px, 78vh, 860px);
+  margin-inline: auto;
+  background:
+    linear-gradient(90deg, rgba(6, 5, 4, 0.72) 0%, rgba(6, 5, 4, 0.28) 38%, rgba(6, 5, 4, 0.05) 58%),
+    url("images/fleet-solution-banner.png") center center / cover no-repeat;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+.private-fleet-copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: min(520px, 48%);
+  min-height: clamp(640px, 78vh, 860px);
+  padding: 56px 0 56px clamp(64px, 7vw, 120px);
+  text-align: left;
+}
+
+.private-fleet-kicker {
+  margin: 0 0 14px;
+  color: #f4ead8;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.55rem;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  line-height: 1;
+}
+
+.private-fleet-rule {
   display: block;
-  width: 100%;
-  height: auto;
+  width: 92px;
+  height: 1px;
+  margin: 0 0 18px;
+  background: linear-gradient(90deg, #e8d2a2, rgba(232, 210, 162, 0.15));
+}
+
+.private-fleet-copy h1 {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 18px;
+}
+
+.private-fleet-copy h1 span,
+.private-fleet-copy h1 em {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(4.4rem, 6.4vw, 6.6rem);
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 0.86;
+}
+
+.private-fleet-copy h1 span {
+  color: #f7f1e6;
+}
+
+.private-fleet-copy h1 em {
+  color: #d7b56a;
+}
+
+.private-fleet-copy p:last-of-type {
+  margin: 18px 0 32px;
+  color: rgba(243, 234, 220, 0.92);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.25rem, 1.6vw, 1.7rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.private-fleet-remind {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 230px;
+  height: 54px;
+  padding: 0 28px;
+  border: 1px solid #d7b56a;
+  border-radius: 999px;
+  background: rgba(8, 7, 5, 0.28);
+  color: #f4ead8;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+}
+
+.private-fleet-remind svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: #e8d2a2;
+  stroke-width: 1.6;
+}
+
+@media (max-width: 900px) {
+  .private-fleet {
+    min-height: 760px;
+    background-position: 62% center;
+  }
+
+  .private-fleet-copy {
+    width: 100%;
+    min-height: 760px;
+    padding: 48px 28px 56px;
+    background: linear-gradient(180deg, rgba(6, 5, 4, 0.15), rgba(6, 5, 4, 0.72));
+  }
+
+  .private-fleet-copy h1 span,
+  .private-fleet-copy h1 em {
+    font-size: 4.2rem;
+  }
 }
