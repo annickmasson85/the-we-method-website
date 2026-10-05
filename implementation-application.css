@@ -2215,3 +2215,6 @@ body.implementation-application-page {
     transition: none;
   }
 }
+.implementation-application-page .application-form .business-bottom > .field:first-child {
+  grid-column: auto;
+}
