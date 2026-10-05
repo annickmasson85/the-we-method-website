@@ -76,7 +76,11 @@ document.addEventListener("DOMContentLoaded", async function () {
         user_id: user.id,
         email: user.email
       });
-      if (!result.error) markSaved();
+      if (!result.error) {
+        markSaved();
+        return;
+      }
+      button.querySelector("span").textContent = "TRY AGAIN";
     });
   }
 });
