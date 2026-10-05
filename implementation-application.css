@@ -2218,3 +2218,12 @@ body.implementation-application-page {
 .implementation-application-page .application-form .business-bottom > .field:first-child {
   grid-column: auto;
 }
+.implementation-application-page .application-form .active-since {
+  display: flex;
+  justify-content: center;
+  margin: 22px 0 6px;
+}
+
+.implementation-application-page .application-form .active-since .field {
+  width: min(100%, 420px);
+}

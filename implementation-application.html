@@ -109,6 +109,13 @@
               <label class="field">
                 <span>Date of birth <b>*</b></span>
                 <input type="date" name="date_of_birth" required>
+                            <fieldset class="choice-group">
+              <legend>In which language would you like this service? <b>*</b></legend>
+              <div class="choice-row">
+                <label><input type="radio" name="service_language" value="english" required><span>English</span></label>
+                <label><input type="radio" name="service_language" value="french"><span>Français</span></label>
+              </div>
+            </fieldset>
               </label>
             </div>
           </div>
@@ -137,17 +144,12 @@
                 <label><input type="radio" name="is_operational" value="no"><span>No</span></label>
               </div>
             </fieldset>
-            <label class="field field--short">
-              <span>Active since <em>(if applicable)</em></span>
-              <input type="date" name="active_since">
-            </label>
-            <fieldset class="choice-group">
-              <legend>In which language would you like this service? <b>*</b></legend>
-              <div class="choice-row">
-                <label><input type="radio" name="service_language" value="english" required><span>English</span></label>
-                <label><input type="radio" name="service_language" value="french"><span>Français</span></label>
-              </div>
-            </fieldset>
+            <div class="active-since">
+              <label class="field">
+                <span>Active since <em>(if applicable)</em></span>
+                <input type="date" name="active_since">
+              </label>
+            </div>
             <div class="business-bottom">
               <label class="field">
                 <span>Business name <em>(if applicable)</em></span>
