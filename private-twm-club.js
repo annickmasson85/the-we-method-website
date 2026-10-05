@@ -1,6 +1,14 @@
 document.addEventListener("DOMContentLoaded", async function () {
   var supabase = window.supabaseClient;
   var user = null;
+  var button = document.getElementById("club-remind");
+
+  function markSaved() {
+    if (!button) return;
+    button.classList.add("is-saved");
+    button.querySelector("span").textContent = "REMINDER SAVED";
+    button.disabled = true;
+  }
 
   if (supabase) {
     var sessionResponse = await supabase.auth.getSession();
@@ -27,7 +35,14 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (profileIcon) profileIcon.style.display = "none";
     }
 
-    if (metadata.twm_club_reminder) markSaved();
+    if (user) {
+      var existing = await supabase
+        .from("twm_club_reminders")
+        .select("id")
+        .eq("user_id", user.id)
+        .maybeSingle();
+      if (existing.data) markSaved();
+    }
   }
 
   var stage = document.querySelector(".private-club");
@@ -54,20 +69,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     setInterval(paint, 1000);
   }
 
-  var button = document.getElementById("club-remind");
-
-  function markSaved() {
-    if (!button) return;
-    button.classList.add("is-saved");
-    button.querySelector("span").textContent = "REMINDER SAVED";
-    button.disabled = true;
+  if (button) {
+    button.addEventListener("click", async function () {
+      if (!supabase || !user || !user.email) return;
+      var result = await supabase.from("twm_club_reminders").insert({
+        user_id: user.id,
+        email: user.email
+      });
+      if (!result.error) markSaved();
+    });
   }
-
-  button?.addEventListener("click", async function () {
-    localStorage.setItem("twm-club-reminder", "saved");
-    if (supabase && user) {
-      await supabase.auth.updateUser({ data: { twm_club_reminder: true } });
-    }
-    markSaved();
-  });
 });
