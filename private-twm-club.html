@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="TWM Club, the private chapter inside The We Method. For now, a hint. Soon, the reveal.">
+  <meta name="description" content="TWM Club. Some things are worth the wait.">
   <title>TWM Club | The We Method</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="private-access.css">
   <link rel="stylesheet" href="pca-menu.css">
   <link rel="stylesheet" href="private-twm-club.css">
@@ -41,8 +41,27 @@
   </header>
 
   <main class="private-club-main">
-    <section class="private-club" aria-label="TWM Club">
-      <img src="images/twm-club-client.png" alt="TWM Club. Some things are worth the wait. Not just a box. Soon, the reveal.">
+    <section class="private-club" data-reveal-date="2026-12-25T00:00:00-06:00" aria-labelledby="private-club-title">
+      <div class="private-club-copy">
+        <h1 class="private-club-brand" id="private-club-title">
+          <span>TWM</span>
+          <em>Club</em>
+        </h1>
+        <span class="private-club-rule" aria-hidden="true"></span>
+        <h2>Some things are<br>worth the wait.</h2>
+        <p>Not just a box.<br>Soon, the reveal.</p>
+        <div class="private-club-countdown" role="timer" aria-live="off" aria-label="Time remaining until December 25, 2026">
+          <div><b data-days>--</b><small>Days</small></div>
+          <div><b data-hours>--</b><small>Hours</small></div>
+          <div><b data-minutes>--</b><small>Minutes</small></div>
+          <div><b data-seconds>--</b><small>Seconds</small></div>
+        </div>
+        <button class="private-club-remind" id="club-remind" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a5 5 0 0 0-5 5v2.2c0 .7-.3 1.4-.8 1.9L5 13.5V15h14v-1.5l-1.2-1.4a2.6 2.6 0 0 1-.8-1.9V8a5 5 0 0 0-5-5z"></path><path d="M10 17a2 2 0 0 0 4 0"></path></svg>
+          <span>REMIND ME</span>
+          <i aria-hidden="true">→</i>
+        </button>
+      </div>
     </section>
   </main>
 
