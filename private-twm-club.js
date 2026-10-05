@@ -2,11 +2,12 @@ document.addEventListener("DOMContentLoaded", async function () {
   var supabase = window.supabaseClient;
   var user = null;
   var button = document.getElementById("club-remind");
+  var label = button ? button.querySelector("span") : null;
 
   function markSaved() {
-    if (!button) return;
+    if (!button || !label) return;
     button.classList.add("is-saved");
-    button.querySelector("span").textContent = "REMINDER SAVED";
+    label.textContent = "REMINDER SAVED";
     button.disabled = true;
   }
 
@@ -33,15 +34,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         profilePhoto.hidden = false;
       }
       if (profileIcon) profileIcon.style.display = "none";
-    }
-
-    if (user) {
-      var existing = await supabase
-        .from("twm_club_reminders")
-        .select("id")
-        .eq("user_id", user.id)
-        .maybeSingle();
-      if (existing.data) markSaved();
     }
   }
 
@@ -71,16 +63,22 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   if (button) {
     button.addEventListener("click", async function () {
-      if (!supabase || !user || !user.email) return;
+      if (!supabase || !user || !user.email) {
+        if (label) label.textContent = "SIGN IN AGAIN";
+        return;
+      }
+
       var result = await supabase.from("twm_club_reminders").insert({
         user_id: user.id,
         email: user.email
       });
-      if (!result.error) {
+
+      if (!result.error || result.error.code === "23505") {
         markSaved();
         return;
       }
-      button.querySelector("span").textContent = "TRY AGAIN";
+
+      if (label) label.textContent = "NOT SAVED";
     });
   }
 });
