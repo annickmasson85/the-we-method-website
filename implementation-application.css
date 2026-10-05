@@ -2218,10 +2218,18 @@ body.implementation-application-page {
 .implementation-application-page .application-form .business-bottom > .field:first-child {
   grid-column: auto;
 }
-.implementation-application-page .application-form .active-since {
-  display: flex;
-  justify-content: center;
-  margin: 28px 0 18px;
+.implementation-application-page .application-form .business-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  gap: 24px;
+  margin-top: 26px;
+}
+
+@media (max-width: 820px) {
+  .implementation-application-page .application-form .business-pair {
+    grid-template-columns: 1fr;
+  }
 }
 
 .implementation-application-page .application-form .active-since .field {
