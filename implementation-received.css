@@ -1,0 +1,281 @@
+.received-page {
+  background: #070706;
+  color: #f4efe4;
+}
+
+.received {
+  width: min(640px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 54px 0 80px;
+  text-align: center;
+}
+
+.received-track {
+  display: flex;
+  justify-content: space-between;
+  gap: 0;
+  width: min(460px, 100%);
+  margin: 0 auto 42px;
+  padding: 0;
+  list-style: none;
+}
+
+.received-track li {
+  position: relative;
+  flex: 1;
+  color: #8d887c;
+  font: 500 11px/1 Montserrat, sans-serif;
+  letter-spacing: 0.14em;
+}
+
+.received-track i {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 11px;
+  height: 11px;
+  margin: 12px auto 0;
+  border: 1px solid #8a8478;
+  border-radius: 50%;
+  background: #070706;
+}
+
+.received-track li:not(:last-child) i::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 12px;
+  width: calc(100vw);
+  max-width: 58px;
+  height: 1px;
+  background: #3c3a34;
+}
+
+.received-track .is-done {
+  color: #e6d3a4;
+}
+
+.received-track .is-done i {
+  border-color: #d7bc78;
+  background: #d7bc78;
+  box-shadow: 0 0 0 4px rgba(215, 188, 120, 0.12);
+}
+
+.received-track .is-done i::after {
+  background: #d7bc78;
+}
+
+.received-seal {
+  width: 108px;
+  height: 108px;
+  margin: 0 auto 22px;
+}
+
+.received-seal svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: #c6a56a;
+  stroke-width: 1.4;
+}
+
+.received-seal circle:first-child {
+  fill: #16130e;
+  stroke: #8d7040;
+}
+
+.received-seal path:last-child {
+  stroke: #f0e2c4;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.received h1 {
+  margin: 0;
+  color: #f7f1e6;
+  font: 500 42px/1 "Cormorant Garamond", serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.received-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 16px 0 18px;
+  color: #d7bc78;
+}
+
+.received-rule i {
+  width: 72px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d7bc78);
+}
+
+.received-rule i:last-child {
+  background: linear-gradient(90deg, #d7bc78, transparent);
+}
+
+.received-rule span {
+  font-size: 9px;
+}
+
+.received-lead {
+  margin: 0 auto 34px;
+  max-width: 520px;
+  color: #d9d3c6;
+  font: 400 15px/1.7 Montserrat, sans-serif;
+}
+
+.received-card {
+  padding: 28px 28px 8px;
+  border: 1px solid rgba(198, 165, 106, 0.45);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(215, 188, 120, 0.08), transparent 42%),
+    #0c0c0b;
+  text-align: left;
+}
+
+.received-rule--card {
+  margin-top: 0;
+}
+
+.received-rule--card span {
+  font: 400 16px/1 "Cormorant Garamond", serif;
+}
+
+.received-card h2 {
+  margin: 0;
+  color: #f3ead8;
+  font: 500 13px/1 Montserrat, sans-serif;
+  letter-spacing: 0.28em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.received-rule--tiny {
+  margin: 12px auto 18px;
+}
+
+.received-rule--tiny i {
+  width: 28px;
+}
+
+.received-card ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.received-card li {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 16px 0;
+  border-top: 1px solid rgba(215, 188, 120, 0.18);
+}
+
+.received-card strong {
+  display: block;
+  color: #f7f1e6;
+  font: 500 13px/1.4 Montserrat, sans-serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.received-card strong b {
+  margin-right: 8px;
+  color: #e6d3a4;
+  font-weight: 500;
+}
+
+.received-card p {
+  margin: 6px 0 0;
+  color: #b9b3a6;
+  font: 400 13px/1.55 Montserrat, sans-serif;
+}
+
+.received-card .mark {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(215, 188, 120, 0.7);
+  border-radius: 50%;
+  color: #e6d3a4;
+  font-size: 14px;
+}
+
+.received-card .is-current .mark {
+  box-shadow: inset 0 0 0 6px #070706, inset 0 0 0 7px #d7bc78;
+}
+
+.received-card .mark svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: #e6d3a4;
+  stroke-width: 1.6;
+}
+
+.received-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 28px 0 18px;
+  color: #e6d3a4;
+  font: 500 11px/1 Montserrat, sans-serif;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.received-status i {
+  width: 54px;
+  height: 1px;
+  background: #d7bc78;
+}
+
+.received-status i:first-child {
+  background: linear-gradient(90deg, transparent, #d7bc78);
+}
+
+.received-status i:last-child {
+  background: linear-gradient(90deg, #d7bc78, transparent);
+}
+
+.received-return {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 58px;
+  border: 1px solid rgba(215, 188, 120, 0.7);
+  border-radius: 8px;
+  color: #f7f1e6 !important;
+  font: 500 12px/1 Montserrat, sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.received-return svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: #e6d3a4;
+  stroke-width: 1.5;
+}
+
+.received-return:hover {
+  background: rgba(215, 188, 120, 0.08);
+}
+
+@media (max-width: 640px) {
+  .received h1 { font-size: 30px; letter-spacing: 0.08em; }
+  .received-card { padding: 22px 16px 4px; }
+  .received-track li:not(:last-child) i::after { max-width: 28px; }
+}
