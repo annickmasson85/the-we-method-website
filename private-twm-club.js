@@ -63,11 +63,13 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   if (button) {
     button.addEventListener("click", async function () {
+      if (!label) return;
       if (!supabase || !user || !user.email) {
-        if (label) label.textContent = "SIGN IN AGAIN";
+        label.textContent = "SIGN IN AGAIN";
         return;
       }
 
+      label.textContent = "SAVING";
       var result = await supabase.from("twm_club_reminders").insert({
         user_id: user.id,
         email: user.email
@@ -78,7 +80,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         return;
       }
 
-      if (label) label.textContent = "NOT SAVED";
+      label.textContent = "NOT SAVED";
     });
   }
 });
