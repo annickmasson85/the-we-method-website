@@ -1,0 +1,10 @@
+.private-fleet-main {
+  width: min(calc(100% - 36px), 1680px);
+  margin: clamp(16px, 2vw, 28px) auto clamp(48px, 6vw, 80px);
+}
+
+.private-fleet-main img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

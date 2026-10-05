@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <nav>
            <a href="private-implementation.html">Implementation Services</a>
             <a href="operation-insight.html">Operation Insight</a>
-            <a href="fleet-solution.html">Fleet Solution</a>
+            <a href="private-fleet-solution.html">Fleet Solution</a>
                 <a href="private-twm-club.html">TWM Club</a>
             <a href="my-cart.html">My Cart</a>
           </nav>
