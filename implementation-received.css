@@ -1,6 +1,6 @@
-.received-page {
+body.private-access-page.received-page {
   background:
-    linear-gradient(180deg, rgba(7, 7, 6, 0.15) 0%, rgba(7, 7, 6, 0.72) 34%, #070706 68%),
+    linear-gradient(180deg, rgba(7, 7, 6, 0.05) 0%, rgba(7, 7, 6, 0.35) 42%, rgba(7, 7, 6, 0.82) 78%),
     url("images/application-received-bg.png") center top / cover no-repeat;
   background-color: #070706;
   color: #f4efe4;
