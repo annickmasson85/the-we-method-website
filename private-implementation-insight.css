@@ -1,0 +1,35 @@
+.combo-page { background: #070605; color: #f4efe6; }
+.combo-hero { position: relative; min-height: 680px; display: grid; align-items: center; padding: 72px 7vw; overflow: hidden; }
+.combo-hero-media { position: absolute; inset: 0; background: #16130f; }
+.combo-hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.combo-hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,6,5,.92) 0%, rgba(7,6,5,.62) 48%, rgba(7,6,5,.22) 100%); }
+.combo-hero-copy { position: relative; z-index: 1; max-width: 640px; }
+.combo-eyebrow { margin: 0; color: #c6a15b; letter-spacing: .28em; font-size: 11px; text-transform: uppercase; font-family: Montserrat, sans-serif; }
+.combo-hero h1, .combo-split h2, .combo-journey h2, .combo-close h2, .combo-cards h3 { font-family: "Cormorant Garamond", serif; font-weight: 500; }
+.combo-hero h1 { margin: 14px 0 8px; font-size: clamp(52px, 6vw, 76px); line-height: .92; }
+.combo-rule { width: 72px; height: 1px; background: #c6a15b; margin: 12px 0 16px; }
+.combo-lead { margin: 0 0 12px; font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 28px; }
+.combo-description, .combo-cards p, .combo-steps p { color: #b7b0a4; line-height: 1.65; }
+.combo-price-row { display: flex; gap: 28px; margin: 26px 0; }
+.combo-price-row span, .combo-fine { letter-spacing: .14em; font-size: 10px; color: #c6a15b; text-transform: uppercase; font-family: Montserrat, sans-serif; }
+.combo-price-row strong { display: block; font-family: "Cormorant Garamond", serif; font-size: 40px; font-weight: 500; }
+.combo-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 28px; min-width: 420px; padding: 16px 22px; background: linear-gradient(180deg, #e6c77a, #b8913e); color: #1a1408; text-decoration: none; letter-spacing: .16em; font-size: 12px; font-weight: 500; text-transform: uppercase; font-family: Montserrat, sans-serif; }
+.combo-fine { display: block; margin-top: 12px; }
+.combo-split, .combo-journey, .combo-close { margin: 28px 48px; text-align: center; }
+.combo-split h2, .combo-journey h2 { font-size: 40px; margin: 10px 0 24px; }
+.combo-cards, .combo-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; text-align: left; }
+.combo-steps { grid-template-columns: repeat(4, 1fr); }
+.combo-cards article, .combo-steps article { border-top: 1px solid rgba(198,161,91,.35); padding-top: 16px; }
+.combo-cards h3 { font-size: 34px; margin: 8px 0 14px; }
+.combo-image-slot { height: 220px; margin-bottom: 14px; overflow: hidden; border: 1px solid rgba(198,161,91,.35); background: #14110d; }
+.combo-image-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.combo-steps b { display: block; color: #c6a15b; font-family: "Cormorant Garamond", serif; font-size: 28px; font-weight: 500; }
+.combo-steps span { display: block; letter-spacing: .18em; font-size: 12px; margin: 6px 0; text-transform: uppercase; }
+.combo-close { display: grid; grid-template-columns: 1fr 1fr; align-items: center; text-align: left; gap: 24px; }
+.combo-close h2 { font-size: 42px; margin: 0; }
+.combo-close p { margin: 8px 0 0; font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 24px; color: #e4c98a; }
+@media (max-width: 900px) {
+  .combo-cards, .combo-steps, .combo-close, .combo-price-row { grid-template-columns: 1fr; display: grid; }
+  .combo-button { min-width: 0; width: 100%; }
+  .combo-split, .combo-journey, .combo-close { margin: 20px 16px; }
+}
