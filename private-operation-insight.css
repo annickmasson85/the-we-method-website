@@ -1,0 +1,304 @@
+/* private-operation-insight.css
+   Drop next to private-implementation.css.
+   Header and PCA menu come from private-access.css + pca-menu.css. */
+
+.insight-page {
+  background: #070605;
+  color: #f4efe6;
+}
+
+.insight-hero {
+  position: relative;
+  min-height: 680px;
+  display: grid;
+  align-items: center;
+  padding: 72px 7vw 64px;
+  overflow: hidden;
+}
+
+.insight-hero-media {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(7, 6, 5, 0.92) 0%, rgba(7, 6, 5, 0.62) 46%, rgba(7, 6, 5, 0.28) 100%),
+    #16130f center / cover no-repeat;
+}
+
+.insight-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.insight-hero-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+}
+
+.insight-eyebrow {
+  margin: 0;
+  color: #c6a15b;
+  letter-spacing: 0.34em;
+  font-size: 11px;
+  font-family: Montserrat, sans-serif;
+  text-transform: uppercase;
+}
+
+.insight-hero h1 {
+  margin: 16px 0 8px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-size: clamp(56px, 7vw, 86px);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+}
+
+.insight-rule {
+  width: 72px;
+  height: 1px;
+  background: #c6a15b;
+  margin: 10px 0 16px;
+}
+
+.insight-lead {
+  margin: 0 0 14px;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 30px;
+}
+
+.insight-description {
+  max-width: 480px;
+  margin: 0;
+  color: #b7b0a4;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.insight-actions {
+  margin-top: 28px;
+}
+
+.insight-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  min-width: 340px;
+  padding: 16px 22px;
+  background: linear-gradient(180deg, #e6c77a, #b8913e);
+  color: #1a1408;
+  text-decoration: none;
+  letter-spacing: 0.2em;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: Montserrat, sans-serif;
+  text-transform: uppercase;
+}
+
+.insight-text-link {
+  display: block;
+  width: fit-content;
+  margin-top: 16px;
+  color: #e4c98a;
+  letter-spacing: 0.2em;
+  font-size: 11px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-bottom: 1px solid #c6a15b;
+  padding-bottom: 6px;
+  font-family: Montserrat, sans-serif;
+}
+
+.insight-price-row {
+  display: flex;
+  gap: 28px;
+  margin-top: 28px;
+}
+
+.insight-price-row span,
+.insight-fine {
+  letter-spacing: 0.16em;
+  font-size: 10px;
+  color: #c6a15b;
+  font-family: Montserrat, sans-serif;
+}
+
+.insight-price-row strong {
+  display: block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.insight-fine {
+  display: block;
+  margin-top: 14px;
+}
+
+.insight-panel,
+.insight-steps,
+.insight-close {
+  margin: 28px 48px;
+}
+
+.insight-panel {
+  border: 1px solid rgba(198, 161, 91, 0.35);
+  background: #100e0b;
+  padding: 36px 32px;
+}
+
+.insight-split,
+.insight-close {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+}
+
+.insight-panel h2,
+.insight-steps h2,
+.insight-close h2,
+.insight-square h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.insight-panel h2,
+.insight-steps h2 {
+  font-size: 34px;
+  margin: 10px 0;
+}
+
+.insight-note,
+.insight-card p,
+.insight-cell p,
+.insight-square p {
+  color: #b7b0a4;
+  line-height: 1.6;
+}
+
+.insight-grid,
+.insight-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.insight-grid {
+  margin-top: 28px;
+}
+
+.insight-cell,
+.insight-card {
+  border-left: 1px solid rgba(198, 161, 91, 0.28);
+  padding: 4px 16px;
+}
+
+.insight-cell:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+
+.insight-cell strong,
+.insight-card strong {
+  display: block;
+  margin: 8px 0;
+  letter-spacing: 0.16em;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.insight-steps {
+  text-align: center;
+}
+
+.insight-cards {
+  text-align: left;
+  margin-top: 18px;
+}
+
+.insight-card {
+  border: 1px solid rgba(198, 161, 91, 0.35);
+  background: #12100c;
+  padding: 12px;
+}
+
+.insight-image-slot {
+  display: block;
+  height: 140px;
+  margin-bottom: 12px;
+  background: #1a1713 center / cover no-repeat;
+  border: 1px dashed rgba(198, 161, 91, 0.45);
+  overflow: hidden;
+}
+
+.insight-image-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.insight-quote {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 42px;
+  line-height: 1.05;
+}
+
+.insight-square {
+  border: 1px solid rgba(198, 161, 91, 0.35);
+  background: #120f0c;
+  padding: 28px 26px;
+}
+
+.insight-square h3 {
+  font-size: 32px;
+  margin: 8px 0;
+}
+
+.insight-square-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  border-top: 1px solid rgba(198, 161, 91, 0.35);
+  padding-top: 16px;
+}
+
+.insight-square-price strong {
+  display: block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .insight-split,
+  .insight-grid,
+  .insight-cards,
+  .insight-close,
+  .insight-square-price {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .insight-panel,
+  .insight-steps,
+  .insight-close {
+    margin: 20px 16px;
+  }
+
+  .insight-button {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .insight-cell {
+    border-left: 0;
+    padding-left: 0;
+  }
+}
