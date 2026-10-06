@@ -302,3 +302,23 @@
     padding-left: 0;
   }
 }
+.insight-close {
+  align-items: center;
+}
+
+.insight-close > div {
+  text-align: center;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.insight-close .insight-rule {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.insight-quote {
+  font-size: 40px;
+  line-height: 1.08;
+  font-weight: 500;
+}
