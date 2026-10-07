@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your Implementation Services application has been received and is under review.">
+  <title>Application Received | The We Method</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="private-access.css">
+  <link rel="stylesheet" href="pca-menu.css">
+  <link rel="stylesheet" href="implementation-received.css">
+</head>
+<body class="private-access-page received-page">
+  <header class="site-header">
+    <span class="brand-mark">
+      <span class="brand-monogram">TWM</span>
+      <span class="brand-name">THE WE METHOD</span>
+    </span>
+    <span class="header-rule"></span>
+    <div class="header-title">
+      <span>APPLICATION RECEIVED</span>
+      <small>BUILD <b>◆</b> LAUNCH <b>◆</b> GROW</small>
+    </div>
+    <span class="header-rule"></span>
+    <a class="member-profile" href="profile.html">
+      <span class="profile-icon">
+        <img id="header-photo" alt="" hidden>
+        <svg id="header-icon" viewBox="0 0 48 48">
+          <circle cx="24" cy="16.5" r="8"></circle>
+          <path d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"></path>
+        </svg>
+      </span>
+      <span class="profile-copy">
+        <small>MEMBER PROFILE</small>
+        <strong id="member-profile-name">Client</strong>
+      </span>
+    </a>
+  </header>
+
+  <main class="received">
+    <ol class="received-track" aria-label="Application progress">
+      <li class="is-done"><span>01</span><i></i></li>
+      <li class="is-done"><span>02</span><i></i></li>
+      <li><span>03</span><i></i></li>
+      <li><span>04</span><i></i></li>
+      <li><span>05</span><i></i></li>
+      <li><span>06</span><i></i></li>
+      <li><span>07</span><i></i></li>
+    </ol>
+    <h1>Application Received</h1>
+    <div class="received-rule" aria-hidden="true"><i></i><span>◆</span><i></i></div>
+    <p class="received-lead">
+      Thank you. Your application has been successfully submitted.<br>
+      A member of our team will personally review your information.<br>
+      You will receive a response shortly.
+    </p>
+
+    <section class="received-card" aria-labelledby="next-title">
+      <div class="received-rule received-rule--card" aria-hidden="true"><i></i><span>⌂</span><i></i></div>
+      <h2 id="next-title">What Happens Next</h2>
+      <div class="received-rule received-rule--tiny" aria-hidden="true"><i></i><span>◆</span><i></i></div>
+      <ol>
+        <li class="is-done">
+          <span class="mark" aria-hidden="true">✓</span>
+          <div>
+            <strong><b>01</b> Application Received</strong>
+            <p>Your information has been securely submitted.</p>
+          </div>
+        </li>
+        <li class="is-current">
+          <span class="mark" aria-hidden="true"></span>
+          <div>
+            <strong><b>02</b> Personal Review</strong>
+            <p>Our team will carefully determine whether your business is ready for Operation Insight.</p>
+          </div>
+        </li>
+        <li>
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="1.5"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
+          </span>
+          <div>
+            <strong><b>03</b> Next Step</strong>
+            <p>If we are able to work together, you will receive a notification and your next step will become available.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <p class="received-status"><i></i><span>Under Review</span><i></i></p>
+    <a class="received-return" href="owners-suite.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.2"></circle><path d="M5.5 19c1.2-3.4 3.4-5 6.5-5s5.3 1.6 6.5 5"></path></svg>
+      Return to the Owner’s Suite
+    </a>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="pca-menu.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async function () {
+      var supabase = window.supabaseClient;
+      if (!supabase) return;
+      var session = await supabase.auth.getSession();
+      if (!session.data || !session.data.session) {
+        window.location.href = "signin.html";
+        return;
+      }
+      var userRes = await supabase.auth.getUser();
+      var user = (userRes.data && userRes.data.user) || session.data.session.user;
+      var meta = (user && user.user_metadata) || {};
+      var name = document.getElementById("member-profile-name");
+      if (name) {
+        name.textContent = [meta.first_name, meta.last_name].filter(Boolean).join(" ") || "Client";
+      }
+      if (meta.avatar_url) {
+        var photo = document.getElementById("header-photo");
+        var icon = document.getElementById("header-icon");
+        if (photo) { photo.src = meta.avatar_url; photo.hidden = false; }
+        if (icon) icon.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
