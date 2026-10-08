@@ -69,6 +69,7 @@
     .side-menu.is-open { transform: none; }
     .menu-top { display: flex; justify-content: space-between; align-items: center; color: #e4bd77; font: 500 15px "Cormorant Garamond", serif; letter-spacing: .24em; padding-bottom: 22px; border-bottom: 1px solid #5b4225; margin-bottom: 15px; }
     .menu-close { color: #e4bd77; border: 0; background: transparent; font: 36px/1 "Cormorant Garamond", serif; padding: 0 4px; }
+    .side-menu .menu-label { margin: 16px 0 4px; color: #e4bd77; letter-spacing: .22em; font-size: 10px; text-transform: uppercase; }
     .side-menu > a, #desk-signout { display: block; width: 100%; padding: 13px 5px; border: 0; border-bottom: 1px solid #3b2f21; background: transparent; color: #f1e8d7; text-align: left; text-decoration: none; font: 500 18px "Cormorant Garamond", serif; }
     .side-menu > a:hover, #desk-signout:hover, .side-menu > a[aria-current="page"] { color: #e4bd77; }
     .search-box, .field, .select-wrap, .quick-date { display: flex; align-items: center; gap: 0.4rem; height: 2.6rem; border: 1px solid var(--line); background: var(--ink); padding: 0 0.7rem; }
@@ -180,15 +181,23 @@
   <button class="menu-backdrop" id="menu-backdrop" hidden aria-label="Close menu"></button>
   <nav class="side-menu" id="main-menu" inert>
     <div class="menu-top"><span>OWNER DESK</span><button class="menu-close" id="menu-close" type="button" aria-label="Close menu">×</button></div>
-    <a href="weekly-tasks.html" aria-current="page">This week’s tasks</a>
-    <a href="principal-desk.html">Appointments</a>
-    <a href="principal-desk.html">Documents pending</a>
-    <a href="operation-insight.html">Updates</a>
-    <a href="#team-panel">Team desk</a>
-    <a href="principal-desk.html">Messages</a>
-    <a href="principal-desk.html">Reports</a>
+    <p class="menu-label">Desk</p>
+    <a href="principal-desk.html">Owner Desk</a>
     <a href="owners-suite.html">Client preview</a>
-    <a href="owner-profile.html">Owner profile</a>
+    <p class="menu-label">Work</p>
+    <a href="weekly-tasks.html" aria-current="page">Weekly task</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="owner-documents.html">Document pending</a>
+    <a href="owner-updates.html">Update</a>
+    <a href="owner-team.html">Team desk</a>
+    <a href="owner-messages.html">Message</a>
+    <a href="owner-reports.html">Report</a>
+    <p class="menu-label">Services</p>
+    <a href="private-implementation.html">Implementation Services</a>
+    <a href="private-operation-insight.html">Operation Insight</a>
+    <a href="private-implementation-insight.html">Implementation & Operation Insight</a>
+    <a href="private-fleet-solution.html">Fleet Solution</a>
+    <a href="private-twm-club.html">TWM Club</a>
     <button type="button" id="desk-signout">Log out</button>
   </nav>
 
@@ -579,8 +588,8 @@
     }
     const LANG_KEY = "twm-principal-lang";
     const COPY = {
-      en: { masthead: "OWNER COMMAND DESK", ownerProfile: "OWNER PROFILE", menuTitle: "OWNER DESK", menu: ["This week’s tasks", "Appointments", "Documents pending", "Updates", "Team desk", "Messages", "Reports", "Client preview", "Owner profile"], logout: "Log out", title: "MY WEEKLY TASKS", subtitle: "Stay focused. Take action. Move forward.", search: "Search tasks…", today: "TODAY", thisWeek: "THIS WEEK", personalNote: "Your personal tasks and priorities.", addTask: "+ ADD TASK", progress: "WEEKLY PROGRESS", of: "of", complete: "complete", addNew: "ADD A NEW TASK", need: "What do you need to do?", high: "High", medium: "Medium", low: "Low", teamTitle: "TEAM TASKS", teamNote: "View and manage your team’s tasks.", addTeam: "+ ADD TEAM TASK", quick: "QUICK TEAM ACTIONS", viewCal: "VIEW CALENDAR", assign: "ASSIGN TASKS", report: "TEAM REPORT", saved: "Saved in this browser. Nothing is added until you write it.", all: "All", todo: "To do", progressState: "In progress", done: "Completed", edit: "Edit", copy: "Copy", delete: "Delete", cats: { fleet: "Fleet", clients: "Clients", marketing: "Marketing", operations: "Operations", purchase: "Purchase", finance: "Finance", planning: "Planning", maintenance: "Maintenance" } },
-      fr: { masthead: "BUREAU DE COMMANDE", ownerProfile: "PROFIL PRINCIPALE", menuTitle: "BUREAU OWNER", menu: ["Tâches de la semaine", "Rendez-vous", "Documents en attente", "Mises à jour", "Bureau équipe", "Messages", "Rapports", "Aperçu client", "Profil"], logout: "Déconnexion", title: "MES TÂCHES DE LA SEMAINE", subtitle: "Restez concentrée. Agissez. Avancez.", search: "Chercher une tâche…", today: "AUJOURD'HUI", thisWeek: "CETTE SEMAINE", personalNote: "Vos tâches et vos priorités.", addTask: "+ AJOUTER", progress: "PROGRESSION", of: "sur", complete: "terminées", addNew: "AJOUTER UNE TÂCHE", need: "Que devez-vous faire ?", high: "Haute", medium: "Moyenne", low: "Basse", teamTitle: "TÂCHES D'ÉQUIPE", teamNote: "Voir et gérer les tâches de l'équipe.", addTeam: "+ AJOUTER POUR L'ÉQUIPE", quick: "ACTIONS RAPIDES", viewCal: "VOIR LE CALENDRIER", assign: "ASSIGNER", report: "RAPPORT D'ÉQUIPE", saved: "Enregistré dans ce navigateur. Rien n'est ajouté tant que vous ne l'écrivez pas.", all: "Tout", todo: "À faire", progressState: "En cours", done: "Terminées", edit: "Modifier", copy: "Copier", delete: "Supprimer", cats: { fleet: "Flotte", clients: "Clients", marketing: "Marketing", operations: "Opérations", purchase: "Achat", finance: "Finance", planning: "Planification", maintenance: "Entretien" } }
+      en: { masthead: "OWNER COMMAND DESK", ownerProfile: "OWNER PROFILE", menuTitle: "OWNER DESK", menu: ["Owner Desk", "Client preview", "Weekly task", "Calendar", "Document pending", "Update", "Team desk", "Message", "Report", "Implementation Services", "Operation Insight", "Implementation & Operation Insight", "Fleet Solution", "TWM Club"], logout: "Log out", title: "MY WEEKLY TASKS", subtitle: "Stay focused. Take action. Move forward.", search: "Search tasks…", today: "TODAY", thisWeek: "THIS WEEK", personalNote: "Your personal tasks and priorities.", addTask: "+ ADD TASK", progress: "WEEKLY PROGRESS", of: "of", complete: "complete", addNew: "ADD A NEW TASK", need: "What do you need to do?", high: "High", medium: "Medium", low: "Low", teamTitle: "TEAM TASKS", teamNote: "View and manage your team’s tasks.", addTeam: "+ ADD TEAM TASK", quick: "QUICK TEAM ACTIONS", viewCal: "VIEW CALENDAR", assign: "ASSIGN TASKS", report: "TEAM REPORT", saved: "Saved in this browser. Nothing is added until you write it.", all: "All", todo: "To do", progressState: "In progress", done: "Completed", edit: "Edit", copy: "Copy", delete: "Delete", cats: { fleet: "Fleet", clients: "Clients", marketing: "Marketing", operations: "Operations", purchase: "Purchase", finance: "Finance", planning: "Planning", maintenance: "Maintenance" } },
+      fr: { masthead: "BUREAU DE COMMANDE", ownerProfile: "PROFIL PRINCIPALE", menuTitle: "BUREAU OWNER", menu: ["Bureau owner", "Aperçu client", "Tâches de la semaine", "Calendrier", "Documents en attente", "Mises à jour", "Bureau équipe", "Messages", "Rapports", "Implementation Services", "Operation Insight", "Implementation & Operation Insight", "Fleet Solution", "TWM Club"], logout: "Déconnexion", title: "MES TÂCHES DE LA SEMAINE", subtitle: "Restez concentrée. Agissez. Avancez.", search: "Chercher une tâche…", today: "AUJOURD'HUI", thisWeek: "CETTE SEMAINE", personalNote: "Vos tâches et vos priorités.", addTask: "+ AJOUTER", progress: "PROGRESSION", of: "sur", complete: "terminées", addNew: "AJOUTER UNE TÂCHE", need: "Que devez-vous faire ?", high: "Haute", medium: "Moyenne", low: "Basse", teamTitle: "TÂCHES D'ÉQUIPE", teamNote: "Voir et gérer les tâches de l'équipe.", addTeam: "+ AJOUTER POUR L'ÉQUIPE", quick: "ACTIONS RAPIDES", viewCal: "VOIR LE CALENDRIER", assign: "ASSIGNER", report: "RAPPORT D'ÉQUIPE", saved: "Enregistré dans ce navigateur. Rien n'est ajouté tant que vous ne l'écrivez pas.", all: "Tout", todo: "À faire", progressState: "En cours", done: "Terminées", edit: "Modifier", copy: "Copier", delete: "Supprimer", cats: { fleet: "Flotte", clients: "Clients", marketing: "Marketing", operations: "Opérations", purchase: "Achat", finance: "Finance", planning: "Planification", maintenance: "Entretien" } }
     };
     let lang = localStorage.getItem(LANG_KEY) === "fr" ? "fr" : "en";
     function applyPageLanguage() {

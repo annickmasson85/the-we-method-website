@@ -1,0 +1,26 @@
+.owner-desk { margin: 28px 40px 48px; color: #f4efe6; }
+.owner-stats, .owner-layout { display: grid; gap: 16px; }
+.owner-stats { grid-template-columns: repeat(4, 1fr); margin-bottom: 18px; }
+.owner-stats article, .owner-list, .owner-file { border: 1px solid rgba(198,161,91,.35); background: #100e0b; padding: 16px; }
+.owner-stats b { display: block; font-family: "Cormorant Garamond", serif; font-size: 36px; font-weight: 500; }
+.owner-stats span, .owner-kicker { letter-spacing: .16em; text-transform: uppercase; font-size: 11px; color: #c6a15b; }
+.owner-layout { grid-template-columns: 1.6fr .8fr; align-items: start; }
+.owner-list-head, .file-actions { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+.owner-list h1, .owner-file h2 { font-family: "Cormorant Garamond", serif; font-weight: 500; margin: 0; }
+table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+th, td { text-align: left; padding: 12px 8px; border-bottom: 1px solid rgba(198,161,91,.2); font-size: 13px; }
+.lang-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 8px; }
+.lang-dot.english { background: #3faf6a; }
+.lang-dot.french { background: #e28ab4; }
+.due-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 8px; }
+.due-dot.green { background: #3faf6a; }
+.due-dot.orange { background: #e0a23a; }
+.due-dot.red { background: #d4534a; }
+.doc-list, .doc-path { padding-left: 0; list-style: none; }
+.doc-list li, .doc-path li { padding: 8px 0; border-bottom: 1px solid rgba(198,161,91,.18); }
+.review-count { min-width: 18px; height: 18px; border-radius: 50%; background: #c6a15b; color: #1a1408; font-size: 11px; display: inline-grid; place-items: center; margin-left: 8px; }
+.owner-button, .file-actions button { border: 0; background: linear-gradient(180deg, #e6c77a, #b8913e); color: #1a1408; padding: 10px 14px; letter-spacing: .12em; text-transform: uppercase; font-size: 11px; text-decoration: none; }
+@media (max-width: 900px) {
+  .owner-stats, .owner-layout { grid-template-columns: 1fr; }
+  .owner-desk { margin: 16px; }
+}

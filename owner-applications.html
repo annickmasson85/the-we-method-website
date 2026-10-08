@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Owner applications desk for The We Method.">
+  <title>Applications | The We Method</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="private-access.css">
+  <link rel="stylesheet" href="pca-menu.css">
+  <link rel="stylesheet" href="owner-applications.css">
+</head>
+<body class="private-access-page owner-applications-page">
+  <header class="site-header">
+    <span class="brand-mark">
+      <span class="brand-monogram">TWM</span>
+      <span class="brand-name">THE WE METHOD</span>
+    </span>
+    <span class="header-rule" aria-hidden="true"></span>
+    <div class="header-title">
+      <span>APPLICATIONS</span>
+      <small>BUILD <b aria-hidden="true">◆</b> LAUNCH <b aria-hidden="true">◆</b> GROW</small>
+    </div>
+    <span class="header-rule" aria-hidden="true"></span>
+    <a class="member-profile" href="profile.html" aria-label="Open member profile">
+      <span class="profile-icon">
+        <img id="header-photo" alt="" hidden>
+        <svg id="header-icon" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="16.5" r="8"></circle>
+          <path d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"></path>
+        </svg>
+      </span>
+      <span class="profile-copy">
+        <small>MEMBER PROFILE</small>
+        <strong id="member-profile-name">Client</strong>
+      </span>
+      <span class="review-count" id="review-count" hidden>0</span>
+    </a>
+  </header>
+
+  <main class="owner-desk">
+    <section class="owner-stats" aria-label="Application counts">
+      <article><b id="count-received">0</b><span>Received</span></article>
+      <article><b id="count-review">0</b><span>To review</span></article>
+      <article><b id="count-implementation">0</b><span>In implementation</span></article>
+      <article><b id="count-done">0</b><span>Completed</span></article>
+    </section>
+
+    <section class="owner-layout">
+      <div class="owner-list">
+        <div class="owner-list-head">
+          <h1>Applications</h1>
+          <label>Language
+            <select id="language-filter">
+              <option value="all">All</option>
+              <option value="english">English</option>
+              <option value="french">Français</option>
+            </select>
+          </label>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Client</th>
+              <th>Service</th>
+              <th>Received</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="application-rows"></tbody>
+        </table>
+      </div>
+
+      <aside class="owner-file" id="owner-file" hidden>
+        <p class="owner-kicker">Open file</p>
+        <h2 id="file-client">Client</h2>
+        <p id="file-service"></p>
+        <div class="file-language" id="file-language"></div>
+
+        <h3>Form</h3>
+        <p id="file-summary">Answers appear here.</p>
+
+        <h3>Implementation documents</h3>
+        <ul class="doc-list" id="doc-list"></ul>
+
+        <ol class="doc-path">
+          <li>Choose template</li>
+          <li>Create for this client</li>
+          <li>Client signature</li>
+        </ol>
+        <a class="owner-button" href="founder-library.html">Open templates</a>
+
+        <div class="file-actions">
+          <button type="button" id="accept-file">Accept</button>
+          <button type="button" id="refuse-file">Refuse</button>
+          <button type="button" id="advance-file">Advance step</button>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="pca-menu.js"></script>
+  <script src="owner-applications.js"></script>
+</body>
+</html>
