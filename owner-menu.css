@@ -1,0 +1,88 @@
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 130;
+  width: min(360px, 92vw);
+  height: 100vh;
+  padding: 28px 26px 24px;
+  overflow: auto;
+  color: #e8d09f;
+  background: #080705;
+  border-left: 1px solid rgba(200, 148, 59, 0.45);
+  transform: translateX(110%);
+  transition: transform 0.28s ease;
+}
+
+.side-menu.is-open {
+  transform: translateX(0);
+}
+
+.menu-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  color: #e1b35c;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 28px;
+  letter-spacing: 0.18em;
+}
+
+.menu-close {
+  border: 0;
+  background: transparent;
+  color: #e1b35c;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.side-menu .menu-label {
+  margin: 18px 0 8px;
+  color: #c9a24d;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.side-menu .menu-label::before {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-bottom: 14px;
+  background: linear-gradient(90deg, transparent, #c9a24d, transparent);
+}
+
+.side-menu > a,
+.side-menu > button {
+  display: block;
+  width: 100%;
+  padding: 13px 8px;
+  border: 0;
+  border-bottom: 1px solid rgba(200, 148, 59, 0.28);
+  background: transparent;
+  color: #e8d09f;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 20px;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.side-menu > a.is-active {
+  border-left: 3px solid #c9a24d;
+  padding-left: 12px;
+  background: rgba(200, 148, 59, 0.08);
+}
+
+#desk-signout {
+  margin-top: 18px;
+  border-bottom: 0;
+  color: #c9a24d;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-align: center;
+  text-transform: uppercase;
+}
