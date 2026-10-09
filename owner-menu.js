@@ -27,3 +27,5 @@ document.addEventListener("DOMContentLoaded", function () {
   `;
   document.body.appendChild(menu);
 });
+git add principal-desk.html calendar.html weekly-tasks.html owner-menu.css
+git commit -m "Connect the owner menu stylesheet"
