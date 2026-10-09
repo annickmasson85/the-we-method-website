@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  if (document.getElementById("main-menu")) return;
   var menu = document.createElement("nav");
   menu.className = "side-menu";
   menu.id = "main-menu";
