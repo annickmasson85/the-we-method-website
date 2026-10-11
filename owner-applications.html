@@ -2,109 +2,182 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Owner applications desk for The We Method.">
-  <title>Applications | The We Method</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="private-access.css">
-  <link rel="stylesheet" href="owner-menu.css">
-  <link rel="stylesheet" href="owner-applications.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080807">
+  <title>Applications Management | The We Method</title>
+  <link rel="stylesheet" href="applications-management.css">
+  <script src="applications-management.js" defer></script>
 </head>
-<body class="private-access-page owner-applications-page">
-  <header class="site-header">
-    <span class="brand-mark">
-      <span class="brand-monogram">TWM</span>
-      <span class="brand-name">THE WE METHOD</span>
-    </span>
-    <span class="header-rule" aria-hidden="true"></span>
-    <div class="header-title">
-      <span>APPLICATIONS</span>
-      <small>BUILD <b aria-hidden="true">◆</b> LAUNCH <b aria-hidden="true">◆</b> GROW</small>
-    </div>
-    <span class="header-rule" aria-hidden="true"></span>
-    <a class="member-profile" href="profile.html" aria-label="Open member profile">
-      <span class="profile-icon">
-        <img id="header-photo" alt="" hidden>
-        <svg id="header-icon" viewBox="0 0 48 48" aria-hidden="true">
-          <circle cx="24" cy="16.5" r="8"></circle>
-          <path d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"></path>
-        </svg>
-      </span>
-      <span class="profile-copy">
-        <small>MEMBER PROFILE</small>
-        <strong id="member-profile-name">Client</strong>
-      </span>
-      <span class="review-count" id="review-count" hidden>0</span>
+<body>
+  <a class="skip-link" href="#workspace-content">Skip to workspace</a>
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 8-3 8-3 10h18c0-2-3-2-3-10ZM10 21h4"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M5 2h9l5 5v15H5ZM14 2v6h5M8 12h8M8 16h8"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 3"/></symbol>
+      <symbol id="i-gear" viewBox="0 0 24 24"><path d="m10 3 4 .1.6 2.7 2.3 1.4 2.7-.8 2 3.5-2.2 1.9v2.6l2.2 1.9-2 3.5-2.7-.8-2.3 1.4-.6 2.7H10l-.6-2.7-2.3-1.4-2.7.8-2-3.5 2.2-1.9v-2.6L2.4 9.9l2-3.5 2.7.8 2.3-1.4Z"/><circle cx="12" cy="13" r="3.3"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m7 12 3.5 3.5L20 6"/><path d="M21 12a9 9 0 1 1-7-8.8"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><circle cx="8" cy="7" r="3"/><path d="M2 21v-3a6 6 0 0 1 12 0v3ZM16 4a3 3 0 0 1 0 6M17 14a5 5 0 0 1 5 5v2"/></symbol>
+      <symbol id="i-folder" viewBox="0 0 24 24"><path d="M2 6h8l2 3h10v12H2ZM2 6V3h8l3 3h9v3"/></symbol>
+      <symbol id="i-clipboard" viewBox="0 0 24 24"><path d="M8 4H4v18h16V4h-4M8 2h8v5H8ZM8 12l2 2 5-5M8 18h8"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 21V12h4v9M10 21V3h4v18M16 21V8h4v13"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+      <symbol id="i-filter" viewBox="0 0 24 24"><path d="M3 4h18l-7 8v8l-4 2V12Z"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="m5 5 14 14M5 19 19 5"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></symbol>
+      <symbol id="i-home" viewBox="0 0 24 24"><path d="m2 11 10-9 10 9M5 9v13h14V9M9 22v-8h6v8"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2 3 6v7c0 5 9 9 9 9s9-4 9-9V6ZM12 7v7m0 3v.1"/></symbol>
+      <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r=".8"/><circle cx="12" cy="12" r=".8"/><circle cx="19" cy="12" r=".8"/></symbol>
+    </defs>
+  </svg>
+
+  <button class="sidebar-scrim" id="sidebar-scrim" aria-label="Close navigation" hidden></button>
+  <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+    <a class="brand" href="applications-management.html" aria-label="The We Method">
+      <img src="assets/twm-logo.png" alt="TWM — The We Method" width="117" height="65">
     </a>
-  </header>
+    <nav id="main-navigation">
+      <button class="nav-item" data-view="overview"><svg class="icon"><use href="#i-home"/></svg><span>Dashboard</span></button>
+      <div class="nav-group">
+        <p class="nav-heading">Applications</p>
+        <button class="nav-item is-active" data-view="applications" data-status="all" aria-current="page"><svg class="icon"><use href="#i-file"/></svg><span>Applications</span><span class="nav-count" data-count="all">0</span></button>
+        <button class="nav-item" data-view="applications" data-status="to-review"><svg class="icon"><use href="#i-clock"/></svg><span>To Review</span><span class="nav-count" data-count="to-review">0</span></button>
+        <button class="nav-item" data-view="applications" data-status="in-progress"><svg class="icon"><use href="#i-check"/></svg><span>In Progress</span><span class="nav-count" data-count="in-progress">0</span></button>
+        <button class="nav-item" data-view="applications" data-status="approved"><svg class="icon"><use href="#i-check"/></svg><span>Approved</span><span class="nav-count is-green" data-count="approved">0</span></button>
+        <button class="nav-item" data-view="applications" data-status="declined"><svg class="icon"><use href="#i-close"/></svg><span>Declined</span><span class="nav-count is-red" data-count="declined">0</span></button>
+      </div>
+      <div class="nav-group">
+        <p class="nav-heading">Clients &amp; Files</p>
+        <button class="nav-item" data-view="clients"><svg class="icon"><use href="#i-users"/></svg><span>Clients</span></button>
+        <button class="nav-item" data-view="files"><svg class="icon"><use href="#i-folder"/></svg><span>Client Files</span></button>
+        <button class="nav-item" data-view="tracking"><svg class="icon"><use href="#i-shield"/></svg><span>Client Journey</span></button>
+        <button class="nav-item" data-view="documents"><svg class="icon"><use href="#i-file"/></svg><span>Documents</span></button>
+      </div>
+      <div class="nav-group">
+        <p class="nav-heading">Implementation</p>
+        <button class="nav-item" data-view="tracking"><svg class="icon"><use href="#i-clipboard"/></svg><span>Implementation Plan</span></button>
+        <button class="nav-item" data-view="tasks"><svg class="icon"><use href="#i-clipboard"/></svg><span>Tasks</span><span class="nav-count is-muted" id="task-count">0</span></button>
+        <button class="nav-item" data-view="team"><svg class="icon"><use href="#i-users"/></svg><span>Team &amp; Assignments</span></button>
+        <button class="nav-item" data-view="tracking"><svg class="icon"><use href="#i-chart"/></svg><span>Progress Tracking</span></button>
+      </div>
+      <div class="nav-group">
+        <p class="nav-heading">Documents</p>
+        <button class="nav-item" data-view="templates"><svg class="icon"><use href="#i-file"/></svg><span>Templates</span></button>
+        <button class="nav-item" data-view="documents"><svg class="icon"><use href="#i-file"/></svg><span>Generated Documents</span></button>
+        <button class="nav-item" data-view="contracts"><svg class="icon"><use href="#i-file"/></svg><span>Contract Library</span></button>
+      </div>
+      <div class="nav-group">
+        <p class="nav-heading">Reports</p>
+        <button class="nav-item" data-view="overview"><svg class="icon"><use href="#i-chart"/></svg><span>Statistics</span></button>
+        <button class="nav-item" data-view="reports"><svg class="icon"><use href="#i-chart"/></svg><span>Reports</span></button>
+      </div>
+      <div class="nav-group">
+        <p class="nav-heading">Settings</p>
+        <button class="nav-item" data-view="team"><svg class="icon"><use href="#i-users"/></svg><span>Team Members</span></button>
+        <button class="nav-item" data-action="settings"><svg class="icon"><use href="#i-gear"/></svg><span>Configuration</span></button>
+      </div>
+    </nav>
+  </aside>
 
-  <main class="owner-desk">
-    <section class="owner-stats" aria-label="Application counts">
-      <article><b id="count-received">0</b><span>Received</span></article>
-      <article><b id="count-review">0</b><span>To review</span></article>
-      <article><b id="count-implementation">0</b><span>In implementation</span></article>
-      <article><b id="count-done">0</b><span>Completed</span></article>
-    </section>
+  <div class="page-shell">
+    <header class="topbar">
+      <button class="icon-button menu-button" id="menu-button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar"><svg class="icon"><use href="#i-menu"/></svg></button>
+      <label class="search-field global-search"><svg class="icon"><use href="#i-search"/></svg><input id="global-search" type="search" placeholder="Search an application, client, file..." aria-label="Search applications and clients" autocomplete="off"></label>
+      <div class="topbar-actions">
+        <button class="icon-button notification-button" data-action="review-summary" aria-label="Applications waiting for review"><svg class="icon"><use href="#i-bell"/></svg><span class="notification-count" id="notification-count" hidden>0</span></button>
+        <button class="profile-button" data-action="settings" aria-label="Workspace settings"><span class="profile-mark" aria-hidden="true">TW</span><span class="profile-copy"><strong id="owner-name">Owner workspace</strong><small>Private administration</small></span><span aria-hidden="true">⌄</span></button>
+      </div>
+    </header>
 
-    <section class="owner-layout">
-      <div class="owner-list">
-        <div class="owner-list-head">
-          <h1>Applications</h1>
-          <label>Language
-            <select id="language-filter">
-              <option value="all">All</option>
-              <option value="english">English</option>
-              <option value="french">Français</option>
-            </select>
-          </label>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th>Client</th>
-              <th>Service</th>
-              <th>Received</th>
-              <th>Status</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody id="application-rows"></tbody>
-        </table>
+    <main class="main-content">
+      <section class="hero" aria-labelledby="page-title">
+        <div><h1 id="page-title">Applications Management</h1><p>Receive, review and manage all applications from start to implementation.</p></div>
+        <button class="button button-gold new-application" data-action="new-application"><svg class="icon"><use href="#i-plus"/></svg>New Application</button>
+      </section>
+
+      <section class="metrics" aria-label="Application statistics">
+        <button class="metric" data-view="applications" data-status="all"><span class="metric-icon"><svg class="icon"><use href="#i-file"/></svg></span><span><strong class="metric-value" id="metric-received">0</strong><span class="metric-label">Applications Received</span><small>This month</small></span></button>
+        <button class="metric" data-view="applications" data-status="to-review"><span class="metric-icon"><svg class="icon"><use href="#i-clock"/></svg></span><span><strong class="metric-value" id="metric-review">0</strong><span class="metric-label">To Review</span><small>Waiting for analysis</small></span></button>
+        <button class="metric" data-view="applications" data-status="in-progress"><span class="metric-icon"><svg class="icon"><use href="#i-gear"/></svg></span><span><strong class="metric-value" id="metric-progress">0</strong><span class="metric-label">In Implementation</span><small>Active files</small></span></button>
+        <button class="metric" data-view="applications" data-status="completed"><span class="metric-icon"><svg class="icon"><use href="#i-check"/></svg></span><span><strong class="metric-value" id="metric-completed">0</strong><span class="metric-label">Completed</span><small>Successfully implemented</small></span></button>
+      </section>
+
+      <div class="workspace-row">
+        <section class="workspace panel" aria-label="Application workspace">
+          <div class="workspace-tabs" role="tablist" aria-label="Workspace sections">
+            <button id="tab-applications" role="tab" aria-selected="true" aria-controls="workspace-content" tabindex="0" class="is-active" data-view="applications">Applications List</button>
+            <button id="tab-tracking" role="tab" aria-selected="false" aria-controls="workspace-content" tabindex="-1" data-view="tracking">Implementation Tracking</button>
+            <button id="tab-documents" role="tab" aria-selected="false" aria-controls="workspace-content" tabindex="-1" data-view="documents">Document Creation</button>
+            <button id="tab-files" role="tab" aria-selected="false" aria-controls="workspace-content" tabindex="-1" data-view="files">Client Files</button>
+          </div>
+          <div class="table-tools" id="table-tools">
+            <label class="search-field table-search"><svg class="icon"><use href="#i-search"/></svg><input type="search" id="application-search" placeholder="Search an application, client..." aria-label="Search the application list" autocomplete="off"></label>
+            <label class="sr-only" for="status-filter">Application status</label>
+            <select id="status-filter"><option value="all">All Statuses</option><option value="to-review">To Review</option><option value="in-progress">In Progress</option><option value="approved">Approved</option><option value="completed">Completed</option><option value="declined">Declined</option></select>
+            <label class="sr-only" for="date-filter">Date received</label>
+            <select id="date-filter"><option value="all">All Dates</option><option value="today">Today</option><option value="7">Last 7 Days</option><option value="30">Last 30 Days</option><option value="month">This Month</option></select>
+            <button class="button button-outline" id="filter-button" aria-expanded="false" aria-controls="extra-filters"><svg class="icon"><use href="#i-filter"/></svg>Filter</button>
+          </div>
+          <div class="extra-filters" id="extra-filters" hidden>
+            <label>Service<select id="service-filter"><option value="all">All Services</option><option>Implementation Services</option><option>Operation Insight</option><option>Implementation Services &amp; Operation Insight</option><option>Fleet Solution</option><option>Fleet Builder</option></select></label>
+            <label>Sort by<select id="sort-filter"><option value="newest">Newest First</option><option value="oldest">Oldest First</option><option value="client">Client Name</option></select></label>
+            <button class="text-button" data-action="clear-filters">Clear filters</button>
+          </div>
+          <div id="workspace-content" class="workspace-content" role="tabpanel" aria-labelledby="tab-applications" tabindex="0">
+            <div class="empty-state"><svg class="icon"><use href="#i-file"/></svg><h2>No applications yet</h2><p>Your real applications will appear here.</p><button class="button button-outline" data-action="new-application">Add an application</button></div>
+          </div>
+          <div class="table-footer" id="table-footer"><span id="results-summary" aria-live="polite">0 applications</span><nav id="pagination" aria-label="Application pages"></nav></div>
+        </section>
+
+        <aside class="journey panel" aria-labelledby="journey-title">
+          <h2 id="journey-title">Implementation Journey</h2>
+          <div id="journey-content"><div class="journey-empty"><svg class="icon"><use href="#i-shield"/></svg><p>Select a client file</p><small>The steps and progress will appear here.</small></div></div>
+        </aside>
       </div>
 
-      <aside class="owner-file" id="owner-file" hidden>
-        <p class="owner-kicker">Open file</p>
-        <h2 id="file-client">Client</h2>
-        <p id="file-service"></p>
-        <div class="file-language" id="file-language"></div>
+      <section class="action-cards" aria-label="Management tools">
+        <article class="action-card panel">
+          <img class="card-image" src="assets/create-documents.png" alt="Documents and a black and gold pen" width="298" height="63">
+          <div class="card-content"><div class="card-heading"><span class="small-icon"><svg class="icon"><use href="#i-file"/></svg></span><div><h2>Create Documents</h2><p>Create and organize documents<br>for each application.</p></div></div>
+            <button class="button button-gold" data-action="new-document">Create a Document<svg class="icon"><use href="#i-arrow"/></svg></button>
+            <h3>Document Workspace:</h3><ul><li>Client details</li><li>Project plans</li><li>Observation notes</li><li>Service checklists</li></ul>
+            <button class="text-button" data-view="templates">View Templates<svg class="icon"><use href="#i-arrow"/></svg></button>
+          </div>
+        </article>
+        <article class="action-card panel">
+          <img class="card-image" src="assets/access-requests.png" alt="Client request folders" width="290" height="63">
+          <div class="card-content"><div class="card-heading"><span class="small-icon"><svg class="icon"><use href="#i-folder"/></svg></span><div><h2>Access Requests</h2><p>View client submissions<br>and review each request.</p></div></div>
+            <button class="button button-gold" data-view="applications" data-status="to-review">View Requests<svg class="icon"><use href="#i-arrow"/></svg></button>
+            <h3>You can:</h3><ul><li>Review application details</li><li>Update the application status</li><li>Assign a team member</li><li>Record client notes</li></ul>
+          </div>
+        </article>
+        <article class="action-card panel">
+          <img class="card-image" src="assets/client-files.png" alt="Organized client files" width="315" height="63">
+          <div class="card-content"><div class="card-heading"><span class="small-icon"><svg class="icon"><use href="#i-users"/></svg></span><div><h2>Client Files</h2><p>Access client files and<br>follow their complete journey.</p></div></div>
+            <button class="button button-gold" data-view="files">View Client Files<svg class="icon"><use href="#i-arrow"/></svg></button>
+            <h3>Available Information:</h3><ul><li>Client profile</li><li>Application details</li><li>Saved documents</li><li>Implementation progress</li><li>Notes and assignments</li></ul>
+          </div>
+        </article>
+        <article class="action-card panel">
+          <img class="card-image" src="assets/implementation-tracking.png" alt="Antique gold compass on black marble" width="304" height="63">
+          <div class="card-content"><div class="card-heading"><span class="small-icon"><svg class="icon"><use href="#i-chart"/></svg></span><div><h2>Implementation Tracking</h2><p>Manage the implementation<br>and follow each step.</p></div></div>
+            <button class="button button-gold" data-view="tracking">View Tracking<svg class="icon"><use href="#i-arrow"/></svg></button>
+            <h3>Managed Steps:</h3><ul><li>Document verification</li><li>Analysis and approval</li><li>Document creation</li><li>Configuration</li><li>Team preparation</li><li>File closure</li></ul>
+          </div>
+        </article>
+      </section>
+      <noscript><p class="notice">Enable JavaScript to add applications and manage your workspace.</p></noscript>
+    </main>
+  </div>
 
-        <h3>Form</h3>
-        <p id="file-summary">Answers appear here.</p>
-
-        <h3>Implementation documents</h3>
-        <ul class="doc-list" id="doc-list"></ul>
-
-        <ol class="doc-path">
-          <li>Choose template</li>
-          <li>Create for this client</li>
-          <li>Client signature</li>
-        </ol>
-        <a class="owner-button" href="founder-library.html">Open templates</a>
-
-        <div class="file-actions">
-          <button type="button" id="accept-file">Accept</button>
-          <button type="button" id="refuse-file">Refuse</button>
-          <button type="button" id="advance-file">Advance step</button>
-        </div>
-      </aside>
-    </section>
-  </main>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="supabase-config.js"></script>
-  <script src="owner-menu.js"></script>
-  <script src="owner-applications.js"></script>
+  <dialog class="workspace-dialog" id="workspace-dialog" aria-labelledby="dialog-title">
+    <header class="dialog-header"><h2 id="dialog-title"></h2><button class="icon-button" data-action="close-dialog" aria-label="Close dialog"><svg class="icon"><use href="#i-close"/></svg></button></header>
+    <div id="dialog-content"></div>
+  </dialog>
+  <input id="backup-input" type="file" accept="application/json,.json" hidden>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 </body>
 </html>
