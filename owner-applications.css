@@ -33,23 +33,30 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; }
   border-right: 1px solid var(--line);
 }
 .sidebar .brand { display: block; margin-bottom: 18px; text-align: center; }
-.sidebar .brand img { width: 117px; height: auto; }
+.brand-twm { display: block; color: #e4bd77; font: 500 54px/1 "Cormorant Garamond", Georgia, serif; letter-spacing: .16em; text-align: center; }
+.sidebar .brand small { display: block; margin-top: 6px; color: #c6a15a; font-size: 8px; letter-spacing: .28em; text-align: center; }
 .nav-heading { margin: 18px 8px 6px; color: var(--gold-light); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; }
 .nav-item { display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 8px; border: 0; border-bottom: 1px solid rgba(198,161,90,.12); background: transparent; color: var(--cream); text-align: left; }
 .nav-item.is-active { border-left: 3px solid var(--gold); padding-left: 10px; background: rgba(198,161,90,.08); color: var(--gold-light); }
 .nav-count { margin-left: auto; color: var(--gold-light); font-size: 11px; }
 
 .page-shell { margin-left: var(--sidebar); min-height: 100vh; }
-.topbar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 16px; min-height: 72px; padding: 10px 22px; background: #0b0b0a; border-bottom: 1px solid var(--line); }
+.site-header { display: grid; grid-template-columns: auto 1px 1fr 1px auto auto; align-items: center; gap: 18px; min-height: 92px; padding: 10px 22px; background: #080807; border-bottom: 1px solid #c6a15a; }
+.brand-monogram { color: #e4bd77; font: 500 42px/1 "Cormorant Garamond", Georgia, serif; letter-spacing: .12em; }
+.brand-name { display: block; color: #c6a15a; font-size: 7px; letter-spacing: .34em; }
+.header-rule { width: 1px; height: 42px; background: #c6a15a; }
+.header-title { text-align: center; color: #e4bd77; }
+.header-title span { display: block; letter-spacing: .28em; font-size: 14px; }
+.header-title small { display: block; margin-top: 6px; letter-spacing: .22em; font-size: 9px; }
+.member-profile { display: flex; align-items: center; gap: 10px; color: #f3eadc; text-decoration: none; }
+.profile-icon { width: 46px; height: 46px; border: 1px solid #c6a15a; border-radius: 50%; display: grid; place-items: center; overflow: hidden; }
+.profile-icon img { width: 100%; height: 100%; object-fit: cover; }
+.profile-icon svg { width: 28px; height: 28px; stroke: #e4bd77; fill: none; }
+.profile-copy { display: flex; flex-direction: column; }
+.profile-copy small { color: #e4bd77; font-size: 8px; letter-spacing: .14em; }
 .menu-button, .icon-button { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 0; background: transparent; color: var(--gold-light); }
-.global-search { display: flex; align-items: center; gap: 8px; flex: 1; max-width: 520px; height: 40px; padding: 0 12px; border: 1px solid var(--line); background: #080807; }
-.global-search input { width: 100%; border: 0; background: transparent; outline: none; }
-.topbar-actions { margin-left: auto; display: flex; align-items: center; gap: 12px; }
-.profile-button { display: flex; align-items: center; gap: 10px; border: 0; background: transparent; color: var(--cream); }
-.profile-mark { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid var(--gold); border-radius: 50%; color: var(--gold-light); }
-.profile-copy { display: flex; flex-direction: column; text-align: left; }
-.profile-copy strong { font-family: var(--serif); font-weight: 500; }
-.profile-copy small { color: var(--gold-light); font-size: 9px; letter-spacing: .12em; }
+.menu-button { flex-direction: column; }
+.menu-button span { display: block; width: 22px; height: 2px; margin: 3px 0; background: #e4bd77; }
 
 .main-content { padding: 22px; }
 .hero { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 18px; }
@@ -130,12 +137,15 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; }
 
 @media (max-width: 1080px) {
   .workspace-row, .action-cards { grid-template-columns: 1fr 1fr; }
+  .header-title span { font-size: 11px; letter-spacing: .14em; }
 }
 @media (max-width: 800px) {
   .sidebar { transform: translateX(-100%); transition: transform .2s ease; }
   body.sidebar-open .sidebar { transform: translateX(0); }
   .sidebar-scrim:not([hidden]) { display: block; position: fixed; inset: 0; z-index: 25; border: 0; background: #000a; }
   .page-shell { margin-left: 0; }
+  .site-header { grid-template-columns: auto 1fr auto; }
+  .header-rule, .brand-name, .header-title small, .profile-copy { display: none; }
   .metrics, .action-cards, .workspace-row { grid-template-columns: 1fr; }
   .toast { left: 50%; }
 }
