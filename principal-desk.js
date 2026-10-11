@@ -342,7 +342,6 @@ async function guardOwner() {
 document.addEventListener("DOMContentLoaded", async () => {
   const ok = await guardOwner();
   if (!ok) return;
-  menuToggle.addEventListener("click", () => sideMenu.classList.contains("is-open") ? closeMenu() : openMenu());
   document.getElementById("menu-close").addEventListener("click", closeMenu);
   backdrop.addEventListener("click", closeMenu);
   document.querySelector(".dialog-close").addEventListener("click", () => dialog.close());
