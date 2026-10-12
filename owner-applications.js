@@ -208,7 +208,6 @@
     else if (type === "settings") { state.settings = { businessName: values.businessName.trim() || "The We Method", ownerName: values.ownerName.trim() }; message = "Settings saved."; }
     else return; dialog.close(); commit(message);
   });
-  $("#menu-button")?.addEventListener("click", () => { const open = document.body.classList.toggle("sidebar-open"); $("#menu-button").setAttribute("aria-expanded", String(open)); $("#sidebar-scrim").hidden = !open; });
   $("#sidebar-scrim")?.addEventListener("click", closeSidebar);
   document.addEventListener("keydown", event => { if (event.key === "Escape") closeSidebar(); });
   $("#application-search")?.addEventListener("input", event => { query = event.target.value; page = 1; if (!["applications", "tracking", "clients", "files"].includes(view)) view = "applications"; render(); });
@@ -223,4 +222,21 @@
   window.TWMApplications = Object.freeze({ getSnapshot: () => clone(state), replaceData: data => { state = validateState(data); storageAvailable = true; selectedId = state.applications[0]?.id || ""; clearFilters(); commit("Workspace synchronized."); }, openNewApplication: () => applicationForm(), storageKey: STORAGE_KEY });
   render();
   if (!storageAvailable) notify("Browser storage is unavailable or an existing backup could not be read. Import a valid backup or download your work before leaving.");
+(async function () {
+  var supabase = window.supabaseClient;
+  if (!supabase) return;
+  var session = await supabase.auth.getSession();
+  if (!session.data || !session.data.session) return;
+  var userRes = await supabase.auth.getUser();
+  var user = (userRes.data && userRes.data.user) || session.data.session.user;
+  var meta = (user && user.user_metadata) || {};
+  var name = document.getElementById("owner-name");
+  if (name) name.textContent = [meta.first_name, meta.last_name].filter(Boolean).join(" ") || "Annick Masson";
+  if (meta.avatar_url) {
+    var photo = document.getElementById("header-photo");
+    var icon = document.getElementById("header-icon");
+    if (photo) { photo.src = meta.avatar_url; photo.hidden = false; }
+    if (icon) icon.style.display = "none";
+  }
+})();
 })();
