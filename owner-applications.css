@@ -150,10 +150,6 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; }
   .toast { left: 50%; }
 }
 .hero-banner {
-  height: 160px;
-  background: url("assets/applications-hero.png") center/cover no-repeat;
-}
-.hero-banner {
-  height: 420px;
-  background: url("images/applications-hero.png") center/cover no-repeat;
+  height: 360px;
+  background: #080807 url("images/applications-hero.png") center/contain no-repeat;
 }
