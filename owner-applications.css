@@ -149,3 +149,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; }
   .metrics, .action-cards, .workspace-row { grid-template-columns: 1fr; }
   .toast { left: 50%; }
 }
+.hero-banner {
+  height: 160px;
+  background: url("assets/applications-hero.png") center/cover no-repeat;
+}
