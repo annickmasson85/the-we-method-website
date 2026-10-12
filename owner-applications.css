@@ -154,6 +154,6 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; }
   background: url("assets/applications-hero.png") center/cover no-repeat;
 }
 .hero-banner {
-  height: 180px;
-  background: url("assets/applications-hero.png") center/cover no-repeat;
+  height: 420px;
+  background: url("images/applications-hero.png") center/cover no-repeat;
 }
