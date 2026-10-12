@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080807">
   <title>Applications Management | The We Method</title>
-  <link rel="stylesheet" href="applications-management.css">
-  <script src="applications-management.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="owner-applications.css">
+  <script src="owner-applications.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#workspace-content">Skip to workspace</a>
@@ -36,11 +37,11 @@
 
   <button class="sidebar-scrim" id="sidebar-scrim" aria-label="Close navigation" hidden></button>
   <aside class="sidebar" id="sidebar" aria-label="Main navigation">
-    <a class="brand" href="applications-management.html" aria-label="The We Method">
-      <img src="assets/twm-logo.png" alt="TWM — The We Method" width="117" height="65">
+    <a class="brand" href="owner-applications.html" aria-label="The We Method">
+      <span class="brand-twm">TWM</span>
+      <small>THE WE METHOD</small>
     </a>
     <nav id="main-navigation">
-      <button class="nav-item" data-view="overview"><svg class="icon"><use href="#i-home"/></svg><span>Dashboard</span></button>
       <div class="nav-group">
         <p class="nav-heading">Applications</p>
         <button class="nav-item is-active" data-view="applications" data-status="all" aria-current="page"><svg class="icon"><use href="#i-file"/></svg><span>Applications</span><span class="nav-count" data-count="all">0</span></button>
@@ -50,7 +51,7 @@
         <button class="nav-item" data-view="applications" data-status="declined"><svg class="icon"><use href="#i-close"/></svg><span>Declined</span><span class="nav-count is-red" data-count="declined">0</span></button>
       </div>
       <div class="nav-group">
-        <p class="nav-heading">Clients &amp; Files</p>
+        <p class="nav-heading">Clients & Files</p>
         <button class="nav-item" data-view="clients"><svg class="icon"><use href="#i-users"/></svg><span>Clients</span></button>
         <button class="nav-item" data-view="files"><svg class="icon"><use href="#i-folder"/></svg><span>Client Files</span></button>
         <button class="nav-item" data-view="tracking"><svg class="icon"><use href="#i-shield"/></svg><span>Client Journey</span></button>
@@ -60,7 +61,7 @@
         <p class="nav-heading">Implementation</p>
         <button class="nav-item" data-view="tracking"><svg class="icon"><use href="#i-clipboard"/></svg><span>Implementation Plan</span></button>
         <button class="nav-item" data-view="tasks"><svg class="icon"><use href="#i-clipboard"/></svg><span>Tasks</span><span class="nav-count is-muted" id="task-count">0</span></button>
-        <button class="nav-item" data-view="team"><svg class="icon"><use href="#i-users"/></svg><span>Team &amp; Assignments</span></button>
+        <button class="nav-item" data-view="team"><svg class="icon"><use href="#i-users"/></svg><span>Team & Assignments</span></button>
         <button class="nav-item" data-view="tracking"><svg class="icon"><use href="#i-chart"/></svg><span>Progress Tracking</span></button>
       </div>
       <div class="nav-group">
@@ -83,13 +84,28 @@
   </aside>
 
   <div class="page-shell">
-    <header class="topbar">
-      <button class="icon-button menu-button" id="menu-button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar"><svg class="icon"><use href="#i-menu"/></svg></button>
-      <label class="search-field global-search"><svg class="icon"><use href="#i-search"/></svg><input id="global-search" type="search" placeholder="Search an application, client, file..." aria-label="Search applications and clients" autocomplete="off"></label>
-      <div class="topbar-actions">
-        <button class="icon-button notification-button" data-action="review-summary" aria-label="Applications waiting for review"><svg class="icon"><use href="#i-bell"/></svg><span class="notification-count" id="notification-count" hidden>0</span></button>
-        <button class="profile-button" data-action="settings" aria-label="Workspace settings"><span class="profile-mark" aria-hidden="true">TW</span><span class="profile-copy"><strong id="owner-name">Owner workspace</strong><small>Private administration</small></span><span aria-hidden="true">⌄</span></button>
+    <header class="site-header">
+      <span class="brand-mark">
+        <span class="brand-monogram">TWM</span>
+        <span class="brand-name">THE WE METHOD</span>
+      </span>
+      <span class="header-rule"></span>
+      <div class="header-title">
+        <span>IMPLEMENTATION SERVICES ADMINISTRATION</span>
+        <small>BUILD <b>◆</b> LAUNCH <b>◆</b> GROW</small>
       </div>
+      <span class="header-rule"></span>
+      <a class="member-profile" href="owner-profile.html">
+        <span class="profile-icon">
+          <img id="header-photo" alt="" hidden>
+          <svg id="header-icon" viewBox="0 0 48 48"><circle cx="24" cy="16.5" r="8"></circle><path d="M8.5 40c1.8-9.1 7.4-14 15.5-14s13.7 4.9 15.5 14"></path></svg>
+        </span>
+        <span class="profile-copy">
+          <small>OWNER PROFILE</small>
+          <strong id="owner-name">Annick Masson</strong>
+        </span>
+      </a>
+      <button class="icon-button menu-button" id="menu-button" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
     </header>
 
     <main class="main-content">
@@ -122,7 +138,7 @@
             <button class="button button-outline" id="filter-button" aria-expanded="false" aria-controls="extra-filters"><svg class="icon"><use href="#i-filter"/></svg>Filter</button>
           </div>
           <div class="extra-filters" id="extra-filters" hidden>
-            <label>Service<select id="service-filter"><option value="all">All Services</option><option>Implementation Services</option><option>Operation Insight</option><option>Implementation Services &amp; Operation Insight</option><option>Fleet Solution</option><option>Fleet Builder</option></select></label>
+            <label>Service<select id="service-filter"><option value="all">All Services</option><option>Implementation Services</option><option>Operation Insight</option><option>Implementation Services & Operation Insight</option><option>Fleet Solution</option><option>Fleet Builder</option></select></label>
             <label>Sort by<select id="sort-filter"><option value="newest">Newest First</option><option value="oldest">Oldest First</option><option value="client">Client Name</option></select></label>
             <button class="text-button" data-action="clear-filters">Clear filters</button>
           </div>
