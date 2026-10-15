@@ -161,3 +161,10 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; }
 .doc-due.is-green .due-dot { background: #7dba6a; }
 .doc-due.is-orange .due-dot { background: #e0b15a; }
 .doc-due.is-red .due-dot { background: #d45b4a; }
+.icon-definitions {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
