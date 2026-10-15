@@ -168,3 +168,12 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; }
   overflow: hidden;
   pointer-events: none;
 }
+.sales { padding: 20px; }
+.sales h2 { margin: 0 0 16px; font: 500 28px var(--serif); color: var(--gold-light); }
+.sales-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.sales-card { padding: 18px; border: 1px solid var(--line); text-align: center; }
+.sales-card strong { display: block; font: 500 40px/1 var(--serif); color: var(--cream); }
+.sales-card span { color: var(--muted); font-size: 12px; }
+.sales-detail { margin-top: 18px; display: grid; gap: 8px; }
+.sales-row { display: flex; justify-content: space-between; padding: 10px 12px; border: 1px solid var(--line); font-size: 13px; }
+.sales-row span { color: var(--muted); }

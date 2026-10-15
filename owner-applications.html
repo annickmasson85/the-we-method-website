@@ -6,12 +6,12 @@
   <meta name="theme-color" content="#080807">
   <title>Applications Management | The We Method</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="owner-applications.css">
-<link rel="stylesheet" href="owner-menu.css">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase-config.js"></script>
-<script src="owner-menu.js" defer></script>
-<script src="owner-applications.js" defer></script>
+  <link rel="stylesheet" href="owner-applications.css">
+  <link rel="stylesheet" href="owner-menu.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="owner-menu.js" defer></script>
+  <script src="owner-applications.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#workspace-content">Skip to workspace</a>
@@ -123,35 +123,20 @@
       </section>
 
       <div class="workspace-row">
-        <section class="workspace panel" aria-label="Application workspace">
-          <div class="workspace-tabs" role="tablist" aria-label="Workspace sections">
-            <button id="tab-applications" role="tab" aria-selected="true" aria-controls="workspace-content" tabindex="0" class="is-active" data-view="applications">Applications List</button>
-            <button id="tab-tracking" role="tab" aria-selected="false" aria-controls="workspace-content" tabindex="-1" data-view="tracking">Implementation Tracking</button>
-            <button id="tab-documents" role="tab" aria-selected="false" aria-controls="workspace-content" tabindex="-1" data-view="documents">Document Creation</button>
-            <button id="tab-files" role="tab" aria-selected="false" aria-controls="workspace-content" tabindex="-1" data-view="files">Client Files</button>
+        <section class="sales panel" aria-label="Sales statistics">
+          <h2>Sales Overview</h2>
+          <div class="sales-grid" id="sales-grid">
+            <article class="sales-card"><strong id="sales-total">0</strong><span>Applications</span></article>
+            <article class="sales-card"><strong id="sales-month">0</strong><span>This month</span></article>
+            <article class="sales-card"><strong id="sales-active">0</strong><span>Active</span></article>
+            <article class="sales-card"><strong id="sales-done">0</strong><span>Completed</span></article>
           </div>
-          <div class="table-tools" id="table-tools">
-            <label class="search-field table-search"><svg class="icon"><use href="#i-search"/></svg><input type="search" id="application-search" placeholder="Search an application, client..." aria-label="Search the application list" autocomplete="off"></label>
-            <label class="sr-only" for="status-filter">Application status</label>
-            <select id="status-filter"><option value="all">All Statuses</option><option value="to-review">To Review</option><option value="in-progress">In Progress</option><option value="approved">Approved</option><option value="completed">Completed</option><option value="declined">Declined</option></select>
-            <label class="sr-only" for="date-filter">Date received</label>
-            <select id="date-filter"><option value="all">All Dates</option><option value="today">Today</option><option value="7">Last 7 Days</option><option value="30">Last 30 Days</option><option value="month">This Month</option></select>
-            <button class="button button-outline" id="filter-button" aria-expanded="false" aria-controls="extra-filters"><svg class="icon"><use href="#i-filter"/></svg>Filter</button>
-          </div>
-          <div class="extra-filters" id="extra-filters" hidden>
-            <label>Service<select id="service-filter"><option value="all">All Services</option><option>Implementation Services</option><option>Operation Insight</option><option>Implementation Services & Operation Insight</option><option>Fleet Solution</option><option>Fleet Builder</option></select></label>
-            <label>Sort by<select id="sort-filter"><option value="newest">Newest First</option><option value="oldest">Oldest First</option><option value="client">Client Name</option></select></label>
-            <button class="text-button" data-action="clear-filters">Clear filters</button>
-          </div>
-          <div id="workspace-content" class="workspace-content" role="tabpanel" aria-labelledby="tab-applications" tabindex="0">
-            <div class="empty-state"><svg class="icon"><use href="#i-file"/></svg><h2>No applications yet</h2><p>Your real applications will appear here.</p><button class="button button-outline" data-action="new-application">Add an application</button></div>
-          </div>
-          <div class="table-footer" id="table-footer"><span id="results-summary" aria-live="polite">0 applications</span><nav id="pagination" aria-label="Application pages"></nav></div>
+          <div class="sales-detail" id="sales-detail"></div>
         </section>
 
         <aside class="journey panel" aria-labelledby="journey-title">
           <h2 id="journey-title">Implementation Documents</h2>
-         <div id="journey-content"><div class="journey-empty"><svg class="icon"><use href="#i-shield"/></svg><p>Select a client file</p><small>Documents and due dates will appear here.</small></div></div>
+          <div id="journey-content"><div class="journey-empty"><svg class="icon"><use href="#i-shield"/></svg><p>Select a client file</p><small>Documents and due dates will appear here.</small></div></div>
         </aside>
       </div>
 

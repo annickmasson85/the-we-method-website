@@ -174,6 +174,12 @@
     else if (view === "team") renderTeam();
     else if (view === "templates") renderTemplates();
     else renderReports();
+    const salesTotal = $("#sales-total"), salesMonth = $("#sales-month"), salesActive = $("#sales-active"), salesDone = $("#sales-done"), salesDetail = $("#sales-detail");
+if (salesTotal) salesTotal.textContent = state.applications.length;
+if (salesMonth) salesMonth.textContent = state.applications.filter(app => { const d = new Date(app.createdAt); return d.getMonth() === new Date().getMonth() && d.getFullYear() === new Date().getFullYear(); }).length;
+if (salesActive) salesActive.textContent = state.applications.filter(app => app.status === "in-progress").length;
+if (salesDone) salesDone.textContent = state.applications.filter(app => app.status === "completed").length;
+if (salesDetail) salesDetail.innerHTML = SERVICES.map(service => `<div class="sales-row"><span>${html(service)}</span><strong>${state.applications.filter(app => app.service === service).length}</strong></div>`).join("");
     renderJourney();
   }
   function closeSidebar() { document.body.classList.remove("sidebar-open"); const btn = $("#menu-button"); if (btn) btn.setAttribute("aria-expanded", "false"); const scrim = $("#sidebar-scrim"); if (scrim) scrim.hidden = true; }
