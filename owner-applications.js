@@ -174,12 +174,22 @@
     else if (view === "team") renderTeam();
     else if (view === "templates") renderTemplates();
     else renderReports();
-    const salesTotal = $("#sales-total"), salesMonth = $("#sales-month"), salesActive = $("#sales-active"), salesDone = $("#sales-done"), salesDetail = $("#sales-detail");
-if (salesTotal) salesTotal.textContent = state.applications.length;
-if (salesMonth) salesMonth.textContent = state.applications.filter(app => { const d = new Date(app.createdAt); return d.getMonth() === new Date().getMonth() && d.getFullYear() === new Date().getFullYear(); }).length;
-if (salesActive) salesActive.textContent = state.applications.filter(app => app.status === "in-progress").length;
-if (salesDone) salesDone.textContent = state.applications.filter(app => app.status === "completed").length;
-if (salesDetail) salesDetail.innerHTML = SERVICES.map(service => `<div class="sales-row"><span>${html(service)}</span><strong>${state.applications.filter(app => app.service === service).length}</strong></div>`).join("");
+ let salesYear = window.salesYear || new Date().getFullYear();
+const chart = $("#sales-chart");
+if (chart) {
+  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const counts = months.map((_, i) => state.applications.filter(app => {
+    if (app.service !== "Implementation Services") return false;
+    const d = new Date(app.createdAt);
+    return d.getFullYear() === salesYear && d.getMonth() === i;
+  }).length);
+  const max = Math.max(1, ...counts);
+  chart.innerHTML = counts.map((n, i) => `<div class="chart-col"><span class="chart-value">${n}</span><div class="chart-bar" style="height:${Math.round(n / max * 200)}px"></div><span class="chart-label">${months[i]}</span></div>`).join("");
+}
+$$(".year-btn").forEach(btn => {
+  btn.classList.toggle("is-active", (btn.dataset.year === "current" && salesYear === new Date().getFullYear()) || (btn.dataset.year === "previous" && salesYear === new Date().getFullYear() - 1));
+});
+renderJourney();
     renderJourney();
   }
   function closeSidebar() { document.body.classList.remove("sidebar-open"); const btn = $("#menu-button"); if (btn) btn.setAttribute("aria-expanded", "false"); const scrim = $("#sidebar-scrim"); if (scrim) scrim.hidden = true; }
@@ -196,6 +206,11 @@ if (salesDetail) salesDetail.innerHTML = SERVICES.map(service => `<div class="sa
   function clearFilters() { query = ""; statusFilter = "all"; dateFilter = "all"; serviceFilter = "all"; sortFilter = "newest"; page = 1; render(); }
   document.addEventListener("click", event => {
     const button = event.target.closest("button"); if (!button) return;
+    if (button.classList.contains("year-btn")) {
+  window.salesYear = button.dataset.year === "previous" ? new Date().getFullYear() - 1 : new Date().getFullYear();
+  render();
+  return;
+}
     if (button.dataset.view) { setView(button.dataset.view, button.dataset.status); return; }
     if (button.dataset.page) { page = Number(button.dataset.page); renderTable(filteredApplications()); return; }
     if (button.dataset.step !== undefined) { const app = getApp(selectedId); const index = Number(button.dataset.step); if (!app || index < 1 || app.status === "declined") return; const reopen = app.steps[index]; const now = new Date().toISOString(); app.steps = app.steps.map((done, i) => reopen ? i < index && done : i <= index || done); app.stepDates = app.stepDates.map((date, i) => reopen ? i >= index ? null : date : app.steps[i] ? date || now : null); app.status = app.steps.every(Boolean) ? "completed" : "in-progress"; app.updatedAt = now; commit("Journey updated."); return; }
