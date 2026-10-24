@@ -125,13 +125,21 @@
       <div class="workspace-row">
         <section class="sales panel" aria-label="Sales statistics">
           <div class="sales-head">
-            <h2>Implementation Sales</h2>
+            <div>
+              <h2>Sales and New Clients</h2>
+              <p class="sales-sub">BY MONTH</p>
+            </div>
             <div class="year-toggle">
               <button type="button" class="year-btn is-active" data-year="current">This year</button>
               <button type="button" class="year-btn" data-year="previous">Last year</button>
             </div>
           </div>
-          <div class="chart" id="sales-chart"></div>
+          <div class="chart-wrap">
+            <div class="chart" id="sales-chart"></div>
+          </div>
+          <div class="chart-legend">
+            <span><i class="legend-bar"></i> Applications</span>
+          </div>
         </section>
 
         <aside class="journey panel" aria-labelledby="journey-title">
