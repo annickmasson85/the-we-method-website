@@ -137,7 +137,7 @@
     let salesYear = window.salesYear || new Date().getFullYear();
     const chart = $("#sales-chart");
     if (chart) {
-      const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+      const months = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"];
       const counts = months.map((_, i) => state.applications.filter(app => {
         if (app.service !== "Implementation Services") return false;
         const d = new Date(app.createdAt);
